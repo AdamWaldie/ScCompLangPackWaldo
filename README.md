@@ -49,14 +49,29 @@ Capital-ship and Vanduul parts that have no grade, such as the Idris and 890J in
 
 ### Auto-update URLs
 
-These URLs always point at the latest build, for tools such as the
-[SC Launch Configurator](https://www.luftwerft.com/?lang=en):
+**Zips with fixed names**, for installers and auto-updaters. These always hold the newest build:
+
+```
+https://github.com/AdamWaldie/ScCompLangPackWaldo/releases/download/latest/ScCompLangPackWaldo-LIVE.zip
+https://github.com/AdamWaldie/ScCompLangPackWaldo/releases/download/latest/ScCompLangPackWaldo-Classic-LIVE.zip
+https://github.com/AdamWaldie/ScCompLangPackWaldo/releases/download/latest-ptu/ScCompLangPackWaldo-PTU.zip
+https://github.com/AdamWaldie/ScCompLangPackWaldo/releases/download/latest-ptu/ScCompLangPackWaldo-Classic-PTU.zip
+```
+
+**The raw `global.ini`**, for tools such as the [SC Launch Configurator](https://www.luftwerft.com/?lang=en):
 
 ```
 https://raw.githubusercontent.com/AdamWaldie/ScCompLangPackWaldo/main/dist/LIVE/remix/data/Localization/english/global.ini
 https://raw.githubusercontent.com/AdamWaldie/ScCompLangPackWaldo/main/dist/LIVE/classic/data/Localization/english/global.ini
 https://raw.githubusercontent.com/AdamWaldie/ScCompLangPackWaldo/main/dist/PTU/remix/data/Localization/english/global.ini
 ```
+
+### Combining with other packs
+
+Each build also publishes a `changes.ini` that contains only the lines this pack changes, at
+`dist/<CHANNEL>/<remix|classic>/changes.ini` and as a release asset. Load it into a merging tool such as
+[StarMeld](https://beltakoda.github.io/StarMeld/) to use the component tags alongside another pack,
+for example MrKraken's [StarStrings](https://github.com/MrKraken/StarStrings) contract changes.
 
 ## 🔄 How it stays up to date
 
@@ -77,6 +92,10 @@ https://raw.githubusercontent.com/AdamWaldie/ScCompLangPackWaldo/main/dist/PTU/r
   no `unforge.exe`, no 5 GB DataForge dump, and the tags always match what the game shows in the item description.
 - **New items are tagged automatically.** The build scans every item in the new stock file, so a new
   component is tagged the first time it appears. Nothing has to be added by hand.
+- **Patch reminders.** Every 6 hours a scheduled job checks the CIG build string in the
+  [StarStrings](https://github.com/MrKraken/StarStrings) README, which updates within a day of each patch. If it is newer
+  than ours, the job opens a `patch-detected` issue reminding the maintainer to run `update.bat`. The issue closes itself
+  when the release is published. Only the build string is used, none of StarStrings' content.
 - **Every patch gets a change report** (in the PR, and in the release notes) listing new, changed and removed
   items, plus anything that **needs attention**.
 - **CI blocks bad builds.** It checks that the output has the same keys in the same order as stock, that it
@@ -91,7 +110,8 @@ https://raw.githubusercontent.com/AdamWaldie/ScCompLangPackWaldo/main/dist/PTU/r
    - If Star Citizen isn't in a standard location, copy `config.ini.example` to `config.ini` and set `sc_base`.
 3. Open the pull request that appears and read the report. If anything is listed under **Needs attention**,
    add a row for it to `data/component_overrides.csv` and push to the same branch.
-4. Merge. The release is published automatically.
+4. Merge. The release is published automatically: a versioned release (e.g. `4.10.2-LIVE`, titled with the CIG
+   build number) and a refresh of the fixed-name `latest` / `latest-ptu` releases.
 
 ### Fixing a name by hand
 
@@ -107,12 +127,14 @@ Overrides are matched by key, so they carry over to later patches automatically.
 
 ```
 stock/<CHANNEL>/global.ini      unmodified CIG file (+ version.json)
-dist/<CHANNEL>/<variant>/       built pack: data/Localization/english/global.ini + user.cfg
+dist/<CHANNEL>/<variant>/       built pack: data/Localization/english/global.ini + user.cfg + changes.ini
 data/                           overrides
 scripts/build.py                stock -> packs
 scripts/report.py               patch change report
 scripts/validate.py             CI checks
 scripts/update_stock.py         extract stock from Data.p4k and push (maintainer)
+scripts/check_patch.py          detect a newer game build (scheduled reminder)
+scripts/version_info.py         release titles / versions for the workflows
 scripts/p4k_reader.py           minimal Data.p4k reader (from ScCompLangPackRemix)
 ```
 

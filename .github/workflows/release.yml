@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: release
@@ -59,21 +60,30 @@ jobs:
         run: |
           set -euo pipefail
           for ch in ${{ steps.channels.outputs.list }}; do
-            version=$(python -c "import json;print(json.load(open('stock/$ch/version.json'))['version'])")
-            build=$(python -c "import json;print(json.load(open('stock/$ch/version.json')).get('build',''))")
+            version=$(python scripts/version_info.py --channel "$ch" version)
+            build=$(python scripts/version_info.py --channel "$ch" build)
+            title=$(python scripts/version_info.py --channel "$ch" title)
+            cig_branch=$(python scripts/version_info.py --channel "$ch" branch)
             tag="$version-$ch"
             if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
               # Same patch re-released (hotfix build or pack fix): keep tags unique.
               tag="$tag-${build:-$(date -u +%Y%m%d%H%M)}"
             fi
 
-            mkdir -p out
+            # Versioned assets (kept forever) and fixed-name copies for the floating "latest" release.
+            rm -rf out latest && mkdir -p out latest
             (cd "dist/$ch/remix"   && zip -qr "../../../out/ScCompLangPackWaldo-$version-$ch.zip" data user.cfg)
             (cd "dist/$ch/classic" && zip -qr "../../../out/ScCompLangPackWaldo-Classic-$version-$ch.zip" data user.cfg)
+            cp "dist/$ch/remix/changes.ini"   "out/ScCompLangPackWaldo-$version-$ch-changes.ini"
+            cp "dist/$ch/classic/changes.ini" "out/ScCompLangPackWaldo-Classic-$version-$ch-changes.ini"
+            for f in out/*; do
+              cp "$f" "latest/$(basename "$f" | sed "s/-$version-$ch/-$ch/")"
+            done
 
             base=$(git describe --tags --abbrev=0 --match "*-$ch*" 2>/dev/null || echo "${{ github.event.before }}")
             {
-              echo "Star Citizen **$version $ch** language pack."
+              echo "Star Citizen **$title** language pack."
+              [ -n "$cig_branch" ] && echo "CIG build: \`$cig_branch\`"
               echo
               echo "| Download | Format |"
               echo "|---|---|"
@@ -83,6 +93,8 @@ jobs:
               echo "**Install:** extract, then copy \`data\` and \`user.cfg\` into your \`StarCitizen/$ch\` folder."
               echo "If you already have a \`user.cfg\`, add \`g_language = english\` to it instead of overwriting."
               echo
+              echo "The \`*-changes.ini\` files contain only the lines this pack changes, for merging with other packs (e.g. in StarMeld)."
+              echo
               python scripts/report.py --channel "$ch" --base-ref "$base" || true
               echo
               echo "Based on [ScCompLangPackRemix](https://github.com/BeltaKoda/ScCompLangPackRemix) by BeltaKoda and the original [ScCompLangPack](https://github.com/ExoAE/ScCompLangPack) by ExoAE."
@@ -90,7 +102,23 @@ jobs:
 
             prerelease=""
             [ "$ch" != "LIVE" ] && prerelease="--prerelease"
-            gh release create "$tag" out/*-"$version-$ch".zip --target "${{ github.sha }}" \
-              --title "$version $ch" --notes-file "notes-$ch.md" $prerelease
-            rm -rf out
+            gh release create "$tag" out/* --target "${{ github.sha }}" \
+              --title "$title" --notes-file "notes-$ch.md" $prerelease
+
+            # Floating release with fixed asset names, for installers and auto-updaters:
+            #   https://github.com/<repo>/releases/download/latest/ScCompLangPackWaldo-LIVE.zip
+            #   https://github.com/<repo>/releases/download/latest-ptu/ScCompLangPackWaldo-PTU.zip
+            floating=latest
+            [ "$ch" != "LIVE" ] && floating="latest-$(echo "$ch" | tr '[:upper:]' '[:lower:]')"
+            gh release delete "$floating" --yes --cleanup-tag 2>/dev/null || true
+            git push -q origin ":refs/tags/$floating" 2>/dev/null || true
+            gh release create "$floating" latest/* --target "${{ github.sha }}" --latest=false $prerelease \
+              --title "Latest $ch ($title)" \
+              --notes "Always the newest $ch build, with fixed file names for auto-updaters. Currently **$title** - see [$tag](https://github.com/${{ github.repository }}/releases/tag/$tag) for the change report."
+
+            # Close any "new patch detected" reminder for this channel.
+            gh issue list --label patch-detected --state open --json number,title \
+              --jq ".[] | select(.title | startswith(\"$ch \")) | .number" | while read -r n; do
+                gh issue close "$n" --comment "Released in [$tag](https://github.com/${{ github.repository }}/releases/tag/$tag)."
+              done || true
           done

@@ -22,7 +22,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build import REPO_ROOT, VARIANTS, IniFile, build  # noqa: E402
+from build import CHANGES_FILE, REPO_ROOT, VARIANTS, IniFile, build  # noqa: E402
 
 REMIX_COMPONENT_TAG = re.compile(r"^[MICRS]\d{1,2}[A-D] \S")
 
@@ -53,6 +53,11 @@ def validate(channel: str) -> list[str]:
         if out.lines != expected.lines:
             errors.append(f"{where}: committed output is out of date with stock/data/scripts "
                           f"(run scripts/build.py --channel {channel})")
+
+        changes_path = out_path.parents[3] / CHANGES_FILE
+        expected_changes = expected.changes_since(stock, skip={"Frontend_PU_Version"})
+        if not changes_path.exists() or IniFile.load(changes_path).lines != expected_changes:
+            errors.append(f"{where}: {CHANGES_FILE} is missing or out of date (run scripts/build.py --channel {channel})")
 
         allowed = set(stats["tagged"]) | {"Frontend_PU_Version"}
         unexpected = [k for k in stock.keys() if out.get(k) != stock.get(k) and k not in allowed]

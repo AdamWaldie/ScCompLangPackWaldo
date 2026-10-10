@@ -149,7 +149,8 @@ def main() -> int:
 
     if args.push:
         run(["git", "add", f"stock/{channel}", f"dist/{channel}"])
-        run(["git", "commit", "-m", f"Update {channel} stock global.ini to {version}"])
+        build_note = f" (build {manifest['build']})" if manifest.get("build") else ""
+        run(["git", "commit", "-m", f"Update {channel} stock global.ini to {version}{build_note}"])
         run(["git", "push", "-u", "origin", branch])
         print(f"\nPushed {branch}. GitHub Actions will open a pull request with the change report.")
     else:
