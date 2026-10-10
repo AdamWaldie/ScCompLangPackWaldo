@@ -38,12 +38,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           ref: ${{ inputs.ref || github.sha }}
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -55,7 +55,7 @@ jobs:
           elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
             list=""  # first push that creates main: nothing to compare against, don't release the seed files
           else
-            list=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- 'stock/*/global.ini' | cut -d/ -f2 | sort -u | tr '\n' ' ')
+            list=$(git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.sha }}" -- 'stock/*/global.ini' | cut -d/ -f2 | sort -u | tr '\n' ' ')
           fi
           echo "list=$list" >> "$GITHUB_OUTPUT"
 
