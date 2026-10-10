@@ -1,0 +1,46 @@
+name: Refresh release notes
+
+# Regenerates the notes of an existing release from the commit it was tagged at,
+# e.g. after improving scripts/release_notes.py. Run from Actions -> Refresh release notes.
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to refresh, e.g. 4.10.2-LIVE"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild notes at the tagged commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          ch=$(echo "$TAG" | sed -E 's/^[0-9.]+-([A-Z]+).*/\1/')
+          # Use the current scripts, but the stock data as it was when the release was tagged.
+          cp -r scripts /tmp/scripts
+          cp "stock/$ch/version.json" /tmp/version.json 2>/dev/null || true
+          git checkout -q "refs/tags/$TAG"
+          rm -rf scripts && cp -r /tmp/scripts scripts
+          # Metadata fixed after tagging (e.g. a corrected build string) applies if it's the same version.
+          if [ -f /tmp/version.json ] && [ "$(jq -r .version /tmp/version.json)" = "$(jq -r .version "stock/$ch/version.json")" ]; then
+            cp /tmp/version.json "stock/$ch/version.json"
+          fi
+          python scripts/release_notes.py --channel "$ch" > notes.md
+          cat notes.md >> "$GITHUB_STEP_SUMMARY"
+          gh release edit "$TAG" --notes-file notes.md
