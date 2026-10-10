@@ -1,0 +1,4 @@
+# Components whose stock description lacks Size/Grade/Class (or is wrong). Rows here win over the description.
+# kind: component | missile | bomb | skip     class: Military/Industrial/Civilian/Competition/Stealth     tracking: IR/EM/CS
+key,kind,type,size,grade,class,tracking,note
+item_NameCOOL_AEGS_S04_Idirs,skip,,,,,,Idris bespoke cooler; CIG typo in key means no description match

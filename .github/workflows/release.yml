@@ -1,0 +1,96 @@
+name: Release
+
+# Publishes a release whenever a channel's stock file changes on main (i.e. an update PR was merged),
+# or on demand from the Actions tab.
+on:
+  push:
+    branches: [main]
+    paths: ["stock/*/global.ini"]
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Channel to release"
+        required: true
+        type: choice
+        options: [LIVE, PTU, EPTU, HOTFIX]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Pick channels
+        id: channels
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            list="${{ inputs.channel }}"
+          elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            list=""  # first push that creates main: nothing to compare against, don't release the seed files
+          else
+            list=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- 'stock/*/global.ini' | cut -d/ -f2 | sort -u | tr '\n' ' ')
+          fi
+          echo "list=$list" >> "$GITHUB_OUTPUT"
+
+      - name: Validate
+        if: steps.channels.outputs.list != ''
+        run: |
+          for ch in ${{ steps.channels.outputs.list }}; do
+            python scripts/validate.py --channel "$ch"
+          done
+
+      - name: Package and publish
+        if: steps.channels.outputs.list != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for ch in ${{ steps.channels.outputs.list }}; do
+            version=$(python -c "import json;print(json.load(open('stock/$ch/version.json'))['version'])")
+            build=$(python -c "import json;print(json.load(open('stock/$ch/version.json')).get('build',''))")
+            tag="$version-$ch"
+            if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+              # Same patch re-released (hotfix build or pack fix): keep tags unique.
+              tag="$tag-${build:-$(date -u +%Y%m%d%H%M)}"
+            fi
+
+            mkdir -p out
+            (cd "dist/$ch/remix"   && zip -qr "../../../out/ScCompLangPackWaldo-$version-$ch.zip" data user.cfg)
+            (cd "dist/$ch/classic" && zip -qr "../../../out/ScCompLangPackWaldo-Classic-$version-$ch.zip" data user.cfg)
+
+            base=$(git describe --tags --abbrev=0 --match "*-$ch*" 2>/dev/null || echo "${{ github.event.before }}")
+            {
+              echo "Star Citizen **$version $ch** language pack."
+              echo
+              echo "| Download | Format |"
+              echo "|---|---|"
+              echo "| \`ScCompLangPackWaldo-$version-$ch.zip\` | Remix: \`M2A XL-1\`, \`EM Dominator II Missile\`, \`B5 Stormburst Bomb\` |"
+              echo "| \`ScCompLangPackWaldo-Classic-$version-$ch.zip\` | Classic: \`XL-1 Military A\`, \`[EM] Dominator II Missile\` |"
+              echo
+              echo "**Install:** extract, then copy \`data\` and \`user.cfg\` into your \`StarCitizen/$ch\` folder."
+              echo "If you already have a \`user.cfg\`, add \`g_language = english\` to it instead of overwriting."
+              echo
+              python scripts/report.py --channel "$ch" --base-ref "$base" || true
+              echo
+              echo "Based on [ScCompLangPackRemix](https://github.com/BeltaKoda/ScCompLangPackRemix) by BeltaKoda and the original [ScCompLangPack](https://github.com/ExoAE/ScCompLangPack) by ExoAE."
+            } > "notes-$ch.md"
+
+            prerelease=""
+            [ "$ch" != "LIVE" ] && prerelease="--prerelease"
+            gh release create "$tag" out/*-"$version-$ch".zip --target "${{ github.sha }}" \
+              --title "$version $ch" --notes-file "notes-$ch.md" $prerelease
+            rm -rf out
+          done

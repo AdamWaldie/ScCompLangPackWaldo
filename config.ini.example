@@ -1,0 +1,4 @@
+[paths]
+# Only needed if Star Citizen isn't in a standard location. Point at the folder that contains LIVE/, PTU/ ...
+# Windows: sc_base = D:\Games\Roberts Space Industries\StarCitizen
+# Linux (LUG Helper): sc_base = /home/you/Games/star-citizen/drive_c/Program Files/Roberts Space Industries/StarCitizen

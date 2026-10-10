@@ -1,0 +1,4 @@
+# Keep CIG files byte-for-byte (no line-ending conversion on Windows checkouts)
+*.ini -text
+*.cfg -text
+*.bat text eol=crlf
