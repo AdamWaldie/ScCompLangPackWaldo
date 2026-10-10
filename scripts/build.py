@@ -74,7 +74,9 @@ class IniFile:
     @classmethod
     def load(cls, path: Path) -> "IniFile":
         # surrogateescape round-trips any stray non-UTF-8 bytes CIG ships, unchanged.
-        text = path.read_text(encoding="utf-8-sig", errors="surrogateescape")
+        # newline="" keeps CIG's line endings (CRLF since 4.10) exactly as shipped.
+        with path.open(encoding="utf-8-sig", errors="surrogateescape", newline="") as f:
+            text = f.read()
         lines = text.split("\n")
         if lines and lines[-1] == "":
             lines.pop()

@@ -14,18 +14,18 @@ jobs:
   open-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
       - name: Work out channel and version
         id: meta
         run: |
-          ch=$(git diff --name-only origin/main...HEAD -- 'stock/*/global.ini' | head -1 | cut -d/ -f2)
+          ch=$(git diff --name-only --diff-filter=d origin/main...HEAD -- 'stock/*/global.ini' | head -1 | cut -d/ -f2)
           if [ -z "$ch" ]; then echo "::error::No stock/<CHANNEL>/global.ini change on this branch"; exit 1; fi
           echo "channel=$ch" >> "$GITHUB_OUTPUT"
           echo "version=$(python scripts/version_info.py --channel "$ch" version)" >> "$GITHUB_OUTPUT"
