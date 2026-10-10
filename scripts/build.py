@@ -370,6 +370,15 @@ def _version_tuple(v: str) -> tuple[int, ...]:
     return tuple((parts + [0, 0, 0])[:3])
 
 
+def gamedata_match(gd: dict, meta: dict) -> str:
+    """'matched' (same patch, and same build when both are known), 'newer' or 'older' than the stock file."""
+    gd_version, stock_version = _version_tuple(gd.get("version", "")), _version_tuple(meta.get("version", ""))
+    builds_known = gd.get("build") and meta.get("build")
+    if gd_version == stock_version and not (builds_known and gd["build"] != meta["build"]):
+        return "matched"
+    return "newer" if gd_version > stock_version else "older"
+
+
 def load_matching_gamedata(stock_path: Path) -> tuple[dict | None, str, str]:
     """Game data for the stock file's patch, or failing that the newest older dump: blueprint pools
     rarely change between patches, so older data is used and labelled 'as of <version>'.
@@ -380,14 +389,13 @@ def load_matching_gamedata(stock_path: Path) -> tuple[dict | None, str, str]:
         return None, "no game data", ""
     gd = json.loads(gd_path.read_text(encoding="utf-8"))
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
-    gd_version, stock_version = _version_tuple(gd.get("version", "")), _version_tuple(meta.get("version", ""))
-    builds_known = gd.get("build") and meta.get("build")
-    if gd_version == stock_version and not (builds_known and gd["build"] != meta["build"]):
+    match = gamedata_match(gd, meta)
+    if match == "matched":
         return gd, f"matched {gd.get('version')}" + (f" build {gd['build']}" if gd.get("build") else ""), ""
-    if gd_version > stock_version:
+    if match == "newer":
         return None, f"game data is newer ({gd.get('version')}) than stock {meta.get('version')}", ""
     asof = gd.get("version", "")
-    if gd_version == stock_version and gd.get("build"):
+    if _version_tuple(asof) == _version_tuple(meta.get("version", "")) and gd.get("build"):
         asof += f" build {gd['build']}"
     return gd, f"as of {asof}; stock is {meta.get('version')}", asof
 

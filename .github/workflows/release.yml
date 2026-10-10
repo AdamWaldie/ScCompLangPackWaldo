@@ -2,8 +2,10 @@ name: Release
 
 # Publishes each channel whose pack changed:
 #  - new stock file (new patch or build): a new release, and the floating "latest" release moves to it
-#  - same stock file, different pack (matching blueprint data arrived, or a pack fix was merged):
-#    the files and notes of every existing release of that stock file, and of "latest", are replaced
+#  - same stock file, and this patch's own blueprint data just arrived: a new "blueprint update"
+#    release, and "latest" moves to it
+#  - same stock file, other pack changes (a pack fix was merged): the files and notes of every
+#    existing release of that stock file, and of "latest", are replaced
 # Runs on push to main touching stock/, game data or dist/, when called by Auto-update after it
 # commits, and on demand from the Actions tab.
 on:
@@ -93,7 +95,14 @@ jobs:
               fi
             done
 
-            if [ ${#same[@]} -gt 0 ]; then
+            # The patch's own blueprint data replacing older data is worth a release of its own.
+            bp_update=false
+            if [ ${#same[@]} -gt 0 ] && [ "$(python scripts/version_info.py --channel "$ch" blueprints)" = matched ] \
+               && [ "$(python scripts/version_info.py --channel "$ch" blueprints --ref "refs/tags/${same[0]}")" != matched ]; then
+              bp_update=true
+            fi
+
+            if [ ${#same[@]} -gt 0 ] && [ "$bp_update" = false ]; then
               for t in "${same[@]}"; do
                 gh release upload "$t" out/* --clobber
                 gh release edit "$t" --notes-file "notes-$ch.md"
@@ -108,9 +117,11 @@ jobs:
             else
               tag="$version-$ch"
               if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
-                # Same patch, new stock file (hotfix build): keep tags unique.
+                # Same patch again (hotfix build or blueprint update): keep tags unique.
                 tag="$tag-${build:-$(date -u +%Y%m%d%H%M)}"
+                git rev-parse -q --verify "refs/tags/$tag" >/dev/null && tag="$version-$ch-$(date -u +%Y%m%d%H%M)"
               fi
+              [ "$bp_update" = true ] && title="$title - blueprint update"
               gh release create "$tag" out/* --target "$head_sha" \
                 --title "$title" --notes-file "notes-$ch.md"
             fi

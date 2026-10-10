@@ -190,6 +190,15 @@ class GameDataLayerTests(unittest.TestCase):
         self.assertEqual(ini.get("Some_Contract_Title"), "Defend the Outpost")
         self.assertIn("newer", stats["gamedata"])
 
+    def test_gamedata_match(self):
+        cases = [({"version": "4.10.2", "build": "1"}, {"version": "4.10.2", "build": "1"}, "matched"),
+                 ({"version": "4.10.2", "build": "1"}, {"version": "4.10.2", "build": ""}, "matched"),
+                 ({"version": "4.10.2", "build": "1"}, {"version": "4.10.2", "build": "2"}, "older"),
+                 ({"version": "4.10.1"}, {"version": "4.10.2"}, "older"),
+                 ({"version": "4.11.0"}, {"version": "4.10.2"}, "newer")]
+        for gd, meta, want in cases:
+            self.assertEqual(build.gamedata_match(gd, meta), want, (gd, meta))
+
     def test_literal_at_text_fixed_but_key_references_kept(self):
         ini, _ = self.build_with("4.10.1")
         self.assertEqual(ini.get("item_DescKGGR_NavigationLight"), "Navigation light")

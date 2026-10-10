@@ -4,7 +4,7 @@ name: Auto-update
 #   fetch the newest stock LIVE global.ini (scripts/fetch_stock.py) and contract/blueprint game data
 #   (scripts/fetch_gamedata.py) -> build -> validate -> commit to main -> publish the release.
 # Until the stock patch's game data is published, blueprint lists come from the previous patch's
-# (labelled "as of <version>"); when the matching dump appears, that patch's releases are updated in place.
+# (labelled "as of <version>"); when the matching dump appears, a "blueprint update" release goes out.
 # If validation fails (e.g. a new component needs an override), nothing is committed or released;
 # an issue with the report is opened instead, and the next run after the fix releases it.
 on:
