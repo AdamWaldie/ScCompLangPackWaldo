@@ -7,7 +7,7 @@ name: Release
 on:
   push:
     branches: [main]
-    paths: ["stock/*/global.ini"]
+    paths: ["stock/*/global.ini", "data/gamedata/*.json"]
   workflow_call:
     inputs:
       channels:
@@ -55,7 +55,10 @@ jobs:
           elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
             list=""  # first push that creates main: nothing to compare against, don't release the seed files
           else
-            list=$(git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.sha }}" -- 'stock/*/global.ini' | cut -d/ -f2 | sort -u | tr '\n' ' ')
+            list=$( { git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.sha }}" -- 'stock/*/global.ini' | cut -d/ -f2;
+                      git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.sha }}" -- 'data/gamedata/*.json' | xargs -r -n1 basename | sed 's/\.json$//'; } | sort -u | tr '\n' ' ')
+            # Game data that doesn't change the packs (not yet matching the stock patch) is no reason to release.
+            if [ -n "$list" ] && git diff --quiet "${{ github.event.before }}" "${{ github.sha }}" -- dist; then list=""; fi
           fi
           echo "list=$list" >> "$GITHUB_OUTPUT"
 

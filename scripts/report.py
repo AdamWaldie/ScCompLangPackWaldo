@@ -24,7 +24,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build import REPO_ROOT, IniFile, classify, rename  # noqa: E402
+from build import REPO_ROOT, IniFile, build, classify, rename  # noqa: E402
 
 
 def describe(ini: IniFile) -> tuple[dict[str, tuple[str, str]], list[str], list[str]]:
@@ -75,6 +75,11 @@ def main() -> int:
     print(f"## {channel}: {version}\n")
     print(f"**{len(new_items)}** items tagged, **{len(bespoke)}** bespoke parts left as-is, "
           f"**{len(unresolved)}** need attention.\n")
+    if new_path.parent.name == channel:
+        _, built = build(new_path, "remix")
+        c = built["counts"]
+        print(f"Blueprint rewards: **{c['bp_title']}** contract titles and **{c['bp_desc']}** descriptions "
+              f"annotated ({built['gamedata']}). CIG text fixes: **{c['cig_fix']}**.\n")
 
     if old_path is None:
         print("_No previous stock file to compare against (first build for this channel)._\n")

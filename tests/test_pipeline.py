@@ -104,5 +104,89 @@ class FetchStockTests(unittest.TestCase):
         self.assertEqual(version_key("4.10"), version_key("4.10.0"))
 
 
+class MergerCategoryTests(unittest.TestCase):
+    """Every component/ordnance tag must fall in a component or ordnance category of the Pack Merger,
+    otherwise picking our pack for e.g. "Quantum Drives" would silently miss items."""
+
+    def test_tagged_items_are_categorised(self):
+        import json
+        import re
+        root = Path(__file__).resolve().parent.parent
+        data = json.loads((root / "site" / "data" / "categories.json").read_text())
+        rules = [(re.compile(p), g["name"]) for g in data["groups"] for c in g["categories"] for p in c["patterns"]]
+
+        def group_of(key):
+            return next((group for rx, group in rules if rx.search(key)), "Other")
+
+        ini = build.IniFile.load(root / "stock" / "LIVE" / "global.ini")
+        result = build.classify(ini)
+        lower = {k.lower(): k for k in ini.keys()}
+        keys = [i.key for i in result.items] + [lower[i.key.lower() + "_short"] for i in result.items
+                                                  if i.kind != "component" and i.key.lower() + "_short" in lower]
+        misplaced = [k for k in keys if group_of(k) not in ("Ship Components", "Ordnance")]
+        self.assertEqual(misplaced, [], "tagged keys outside component/ordnance categories")
+
+
+class GameDataLayerTests(unittest.TestCase):
+    STOCK = (
+        "\ufeffFrontend_PU_Version=4.10 - Test\r\n"
+        "Some_Contract_Title=Defend the Outpost\r\n"
+        "Some_Contract_Desc=Go there.\\nKill them.\r\n"
+        "Shared_Title=Shared Job\r\n"
+        "item_DescKGGR_NavigationLight=@Navigation light\r\n"
+        "item_NamePistol=@mp_ePistol\r\n"
+    )
+    GAMEDATA = {
+        "version": "4.10.2", "build": "123",
+        "titles": {"some_contract_title": {"bp": 2, "total": 2}, "Shared_Title": {"bp": 1, "total": 3}},
+        "descriptions": {"Some_Contract_Desc": {"bp": 2, "total": 2, "items": ["Arclight Pistol", "Testudo Core"]}},
+    }
+
+    def setUp(self):
+        import json
+        self.dir = Path(tempfile.mkdtemp()) / "LIVE"
+        self.dir.mkdir()
+        (self.dir / "global.ini").write_text(self.STOCK, encoding="utf-8", newline="")
+        self.gd_dir = Path(tempfile.mkdtemp())
+        (self.gd_dir / "gamedata").mkdir()
+        (self.gd_dir / "gamedata" / "LIVE.json").write_text(json.dumps(self.GAMEDATA))
+        self._data_dir, build.DATA_DIR = build.DATA_DIR, self.gd_dir
+
+    def tearDown(self):
+        build.DATA_DIR = self._data_dir
+
+    def build_with(self, version, build_no=""):
+        import json
+        (self.dir / "version.json").write_text(json.dumps({"version": version, "build": build_no}))
+        return build.build(self.dir / "global.ini", "remix")
+
+    def test_blueprints_applied_when_patch_matches(self):
+        ini, stats = self.build_with("4.10.2", "123")
+        self.assertEqual(ini.get("Some_Contract_Title"), "[BP] Defend the Outpost")
+        self.assertEqual(ini.get("Shared_Title"), "[BP]* Shared Job")
+        self.assertEqual(ini.get("Some_Contract_Desc"),
+                         "Go there.\\nKill them.\\n\\nBlueprints this contract can award:"
+                         "\\n- Arclight Pistol\\n- Testudo Core")
+        self.assertIn("matched", stats["gamedata"])
+
+    def test_blueprints_skipped_for_other_patch(self):
+        for version, build_no in (("4.10.1", ""), ("4.10.2", "999")):
+            ini, stats = self.build_with(version, build_no)
+            self.assertEqual(ini.get("Some_Contract_Title"), "Defend the Outpost")
+            self.assertIn("waiting", stats["gamedata"])
+
+    def test_literal_at_text_fixed_but_key_references_kept(self):
+        ini, _ = self.build_with("4.10.1")
+        self.assertEqual(ini.get("item_DescKGGR_NavigationLight"), "Navigation light")
+        self.assertEqual(ini.get("item_NamePistol"), "@mp_ePistol")
+
+    def test_rebuild_is_idempotent(self):
+        ini, _ = self.build_with("4.10.2", "123")
+        ini.save(self.dir / "global.ini")
+        again, _ = self.build_with("4.10.2", "123")
+        self.assertEqual(again.get("Some_Contract_Title"), "[BP] Defend the Outpost")
+        self.assertEqual(again.get("Some_Contract_Desc").count("Blueprints this contract"), 1)
+
+
 if __name__ == "__main__":
     unittest.main()

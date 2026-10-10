@@ -1,0 +1,52 @@
+name: Deploy Pack Merger
+
+# Publishes site/ to GitHub Pages with category data rebuilt from the current stock file,
+# so keys added in a patch are categorised automatically. Runs when the site or stock changes
+# on main, and is called by Auto-update after each automatic release.
+on:
+  push:
+    branches: [main]
+    paths: ["site/**", "stock/LIVE/global.ini", "scripts/build_category_db.py"]
+  workflow_call:
+    inputs:
+      ref:
+        description: "Commit to deploy"
+        required: false
+        type: string
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Build category data from the current stock file
+        run: python scripts/build_category_db.py stock/LIVE/global.ini 2>/dev/null
+
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v5

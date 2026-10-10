@@ -1,0 +1,7173 @@
+{
+ "version": "4.10.1",
+ "build": "12660092",
+ "source_sha": "e96132078ae6a1a5f62a183fb1523dc006dcfddb",
+ "contracts_awarding": 729,
+ "titles": {
+  "Adagio_Industrial_Component_Salvage_Levski_H_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Adagio_Industrial_Component_Salvage_Levski_M_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Adagio_Industrial_Component_Salvage_Pyro_H_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Adagio_Industrial_Component_Salvage_Pyro_M_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Adagio_Industrial_Component_Salvage_Stanton_H_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Adagio_Industrial_Component_Salvage_Stanton_M_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Adagio_Industrial_Component_Salvage_Universal_H_Title_001": {
+   "bp": 3,
+   "total": 3
+  },
+  "Adagio_Industrial_Component_Salvage_Universal_M_Title_001": {
+   "bp": 3,
+   "total": 3
+  },
+  "Adagio_Industrial_Salvage_Universal_E_Title_001": {
+   "bp": 3,
+   "total": 3
+  },
+  "Adagio_Industrial_Salvage_Universal_E_Title_002": {
+   "bp": 3,
+   "total": 3
+  },
+  "Adagio_Industrial_Salvage_Universal_Intro_Title_001": {
+   "bp": 3,
+   "total": 6
+  },
+  "Adagio_Industrial_Salvage_Universal_M_Title_001": {
+   "bp": 7,
+   "total": 7
+  },
+  "Battaglia_RPT_BoardShip_01_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Battaglia_RPT_CreateUplink_01_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_DataDownload_01_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Battaglia_RPT_MissCrew_01_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_MissCrew_02_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_MissCrew_03_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_RecoverItem_M_01_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_RecoverItem_VE_01_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Battaglia_RPT_RecoverItem_VH_01_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_Salvage_E_01_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_Salvage_H_01_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_Salvage_M_01_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_ScanMine_01_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Battaglia_RPT_ScanMine_02_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_ScanMine_03_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_ScanMine_04_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_ScanMine_05_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_ScanMine_06_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_Scan_01_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Battaglia_RPT_Scan_02_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_Scan_03_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_Scan_04_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_Scan_05_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_RPT_Scan_06_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_Story01_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_Story02_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Battaglia_Story03_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "CFP_RecoverCargo_Easy_Title": {
+   "bp": 2,
+   "total": 2
+  },
+  "CFP_RecoverCargo_Hard_Title": {
+   "bp": 1,
+   "total": 1
+  },
+  "CFP_RecoverCargo_Medium_Title": {
+   "bp": 1,
+   "total": 1
+  },
+  "CFP_RecoverCargo_Super_Title": {
+   "bp": 1,
+   "total": 1
+  },
+  "CFP_RecoverCargo_VeryHard_Title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Covalex_HaulCargo_AToB_title": {
+   "bp": 14,
+   "total": 199
+  },
+  "Covalex_HaulCargo_SingleToMulti_title": {
+   "bp": 2,
+   "total": 169
+  },
+  "EckhartSecurity_EliminateBoss_DC_Title_001": {
+   "bp": 2,
+   "total": 3
+  },
+  "EckhartSecurity_MultiEliminateAllAndBoss_DC_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Eckhart_EscortShips_E_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Eckhart_EscortShips_H_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Eckhart_EscortShips_M_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Eckhart_EscortShips_S_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Eckhart_EscortShips_VE_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Eckhart_EscortShips_VH_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Eckhart_ShipAmbush_E_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Eckhart_ShipAmbush_H_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Eckhart_ShipAmbush_Intro_title": {
+   "bp": 1,
+   "total": 2
+  },
+  "Eckhart_ShipAmbush_M_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Eckhart_ShipAmbush_S_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Eckhart_ShipAmbush_VE_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Eckhart_ShipAmbush_VH_title": {
+   "bp": 2,
+   "total": 2
+  },
+  "FTL_Courier_Nyx_Easy_Title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "FTL_Courier_Stanton_Easy_Title_001": {
+   "bp": 15,
+   "total": 15
+  },
+  "FTL_Courier_Stanton_Medium_Title_001": {
+   "bp": 7,
+   "total": 7
+  },
+  "Foxwell_DefendDestructibleEntites_E_Title_001": {
+   "bp": 1,
+   "total": 3
+  },
+  "Foxwell_DefendDestructibleEntites_H_Title_001": {
+   "bp": 1,
+   "total": 3
+  },
+  "Foxwell_DefendDestructibleEntites_M_Title_001": {
+   "bp": 1,
+   "total": 3
+  },
+  "Foxwell_DefendDestructibleEntites_S_Title_001": {
+   "bp": 1,
+   "total": 3
+  },
+  "Foxwell_DefendDestructibleEntites_VE_Title_001": {
+   "bp": 1,
+   "total": 3
+  },
+  "Foxwell_DefendDestructibleEntites_VH_Title_001": {
+   "bp": 1,
+   "total": 3
+  },
+  "Foxwell_DefendEntitesAndEscort_E_Title": {
+   "bp": 3,
+   "total": 3
+  },
+  "Foxwell_DefendEntitesAndEscort_H_Title": {
+   "bp": 3,
+   "total": 3
+  },
+  "Foxwell_DefendEntitesAndEscort_M_Title": {
+   "bp": 3,
+   "total": 3
+  },
+  "Foxwell_DefendEntitesAndEscort_S_Title": {
+   "bp": 3,
+   "total": 3
+  },
+  "Foxwell_DefendEntitesAndEscort_VE_Title": {
+   "bp": 6,
+   "total": 6
+  },
+  "Foxwell_DefendEntitesAndEscort_VH_Title": {
+   "bp": 3,
+   "total": 3
+  },
+  "Foxwell_DefendLocation_E_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_DefendLocation_H_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_DefendLocation_M_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_DefendLocation_S_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_DefendLocation_VE_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_DefendLocation_VH_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_EliminateAll_Allies_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_EliminateAll_NonHostiles_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_EliminateAll_OLP_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_EliminateAll_PAF_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_EliminateAll_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_EliminateSpecific_NonHostiles_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_EliminateSpecific_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_HaulCargo_AToB_OLP_title_01": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_HaulCargo_AToB_PAF_title_01": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_HaulCargo_MultiToSingle_title_01": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_Mercenary_Rehire_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_SecurityPatrol_E_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_SecurityPatrol_H_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_SecurityPatrol_M_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_SecurityPatrol_S_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_SecurityPatrol_VE_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_SecurityPatrol_VH_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_ShipAmbush_E_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_ShipAmbush_H_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_ShipAmbush_M_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_ShipAmbush_S_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_ShipAmbush_VE_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_ShipAmbush_VH_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Foxwell_ShipWaveAttack_ClearHostiles_Title_E_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_ShipWaveAttack_ClearHostiles_Title_H_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_ShipWaveAttack_ClearHostiles_Title_M_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_ShipWaveAttack_ClearHostiles_Title_VE_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_bombingrun_E_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_bombingrun_H_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_bombingrun_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_bombingrun_S_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_bombingrun_VE_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Foxwell_bombingrun_VH_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "HeadHunters_DefendEntitesAndEscort_E_Title": {
+   "bp": 3,
+   "total": 3
+  },
+  "HeadHunters_DefendEntitesAndEscort_H_Title": {
+   "bp": 3,
+   "total": 3
+  },
+  "HeadHunters_DefendEntitesAndEscort_M_Title": {
+   "bp": 3,
+   "total": 3
+  },
+  "HeadHunters_DefendEntitesAndEscort_S_Title": {
+   "bp": 3,
+   "total": 3
+  },
+  "HeadHunters_DefendEntitesAndEscort_VE_Title": {
+   "bp": 6,
+   "total": 6
+  },
+  "HeadHunters_DefendEntitesAndEscort_VH_Title": {
+   "bp": 3,
+   "total": 3
+  },
+  "Headhunters_defend_XT_VH_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Headhunters_eliminateall_caves_title_01": {
+   "bp": 1,
+   "total": 1
+  },
+  "Highpoint_KillAnimals_rockcracker_title_E_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Hockrow_FacilityDelve_P2M1_Repeat_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Hockrow_FacilityDelve_P2M2_Repeat_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Hockrow_FacilityDelve_P2M3_Repeat_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Hockrow_FacilityDelve_P2M4_Repeat_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "Hockrow_FacilityDelve_P3M1_title": {
+   "bp": 1,
+   "total": 2
+  },
+  "InterSec_KillShip_Vanduul_Title_Super_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "InterSec_ResourceGathering_Cryopods_Title": {
+   "bp": 1,
+   "total": 1
+  },
+  "InterSec_ResourceGathering_Tech_Title": {
+   "bp": 1,
+   "total": 1
+  },
+  "InterSec_SecurityPatrol_H_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "InterSec_SecurityPatrol_S_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "InterSec_SecurityPatrol_VH_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_DefendShip_Title_Easy_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_DefendShip_Title_Hard_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_DefendShip_Title_Medium_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_DefendShip_Vanduul_Title_Super_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_DefendShip_Vanduul_Title_VeryHard_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_KillShip_Title_Easy_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_KillShip_Title_Hard_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_KillShip_Title_Intro_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_KillShip_Title_Medium_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_KillShip_Vanduul_Title_VeryHard_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_TSG_Assist_Solo_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_TSG_BombRun_Solo_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Intersec_TSG_Group_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Kaboos_Mission_Title": {
+   "bp": 1,
+   "total": 1
+  },
+  "LingFamily_HaulCargo_AToB_Intro_title": {
+   "bp": 3,
+   "total": 3
+  },
+  "LingFamily_HaulCargo_AToB_title": {
+   "bp": 3,
+   "total": 3
+  },
+  "LingFamily_HaulCargo_MultiToSingle_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "ORS_Construct_Large_Title": {
+   "bp": 1,
+   "total": 1
+  },
+  "ORS_Construct_Medium_Title": {
+   "bp": 1,
+   "total": 1
+  },
+  "ORS_Construct_Small_Title": {
+   "bp": 1,
+   "total": 1
+  },
+  "RAIN_collectresources_multiple_GEN_name_01": {
+   "bp": 2,
+   "total": 12
+  },
+  "RAIN_collectresources_multiple_OLP_name_01": {
+   "bp": 1,
+   "total": 1
+  },
+  "RAIN_collectresources_single_OLP_name_01": {
+   "bp": 3,
+   "total": 3
+  },
+  "Shubin_Industrial_HandMining_Intro_Local_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Shubin_Industrial_HandMining_Pyro_E_Local_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_HandMining_Pyro_H_PlanetarySystem_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_HandMining_Pyro_M_DiscoverPlanetary_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_HandMining_Pyro_Nyx_VH_Interstellar_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_HandMining_Pyro_VH_Interstellar_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_HandMining_Stanton_E_Local_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_HandMining_Stanton_E_PlanetarySystem_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_HandMining_Stanton_H_PlanetarySystem_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Shubin_Industrial_HandMining_Stanton_H_Planetary_Solar_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_HandMining_Stanton_M_DiscoverPlanetary_Title_001": {
+   "bp": 3,
+   "total": 3
+  },
+  "Shubin_Industrial_HandMining_Stanton_VH_Solar_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_ShipMining_Nyx_E_Local_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_ShipMining_Nyx_H_Secondary_Title_001": {
+   "bp": 5,
+   "total": 5
+  },
+  "Shubin_Industrial_ShipMining_Nyx_M_Solar_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_ShipMining_Nyx_S_Secondary_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Shubin_Industrial_ShipMining_Nyx_VE_Local_Title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "Shubin_Industrial_ShipMining_Nyx_VH_Interstellar_Title_001": {
+   "bp": 5,
+   "total": 5
+  },
+  "Shubin_Industrial_ShipMining_Nyx_VH_Secondary_Title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "Shubin_Industrial_ShipMining_Pyro_E_Local_Title_001": {
+   "bp": 3,
+   "total": 3
+  },
+  "Shubin_Industrial_ShipMining_Pyro_H_PrimarySecondary_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Shubin_Industrial_ShipMining_Pyro_H_Secondary_Title_001": {
+   "bp": 6,
+   "total": 6
+  },
+  "Shubin_Industrial_ShipMining_Pyro_M_Solar_Title_001": {
+   "bp": 12,
+   "total": 12
+  },
+  "Shubin_Industrial_ShipMining_Pyro_S_Secondary_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Shubin_Industrial_ShipMining_Pyro_VH_Secondary_Title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "Shubin_Industrial_ShipMining_Stanton_E_Local_Title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "Shubin_Industrial_ShipMining_Stanton_H_PrimarySecondary_Title_001": {
+   "bp": 7,
+   "total": 7
+  },
+  "Shubin_Industrial_ShipMining_Stanton_H_Secondary_Interstellar_Title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "Shubin_Industrial_ShipMining_Stanton_H_Secondary_Title_001": {
+   "bp": 7,
+   "total": 7
+  },
+  "Shubin_Industrial_ShipMining_Stanton_M_Solar_Title_001": {
+   "bp": 17,
+   "total": 17
+  },
+  "Shubin_Industrial_ShipMining_Stanton_S_Secondary_Title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "Shubin_Industrial_ShipMining_Stanton_VE_Local_Title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "Shubin_Industrial_ShipMining_Stanton_VH_Interstellar_Title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "Shubin_Industrial_ShipMining_Stanton_VH_Secondary_Interstellar_Title_001": {
+   "bp": 3,
+   "total": 3
+  },
+  "Shubin_Industrial_ShipMining_Stanton_VH_Secondary_Title_001": {
+   "bp": 3,
+   "total": 3
+  },
+  "Shubin_Industrial_ShipMining_VH_Org_Title_001": {
+   "bp": 7,
+   "total": 7
+  },
+  "TheCollector_Recipes_Title_DrakeClipper": {
+   "bp": 1,
+   "total": 1
+  },
+  "TheCollector_Recipes_Title_L22Wolf": {
+   "bp": 1,
+   "total": 1
+  },
+  "TheCollector_Recipes_Title_NoneAR": {
+   "bp": 1,
+   "total": 1
+  },
+  "TheCollector_Recipes_Title_SuperHeavyCombat": {
+   "bp": 1,
+   "total": 1
+  },
+  "TheCollector_Recipes_Title_VGLflightsuit": {
+   "bp": 1,
+   "total": 1
+  },
+  "TheCollector_Recipes_Title_aparGatlingGun": {
+   "bp": 1,
+   "total": 1
+  },
+  "UWC_Refueling_easy_title_001": {
+   "bp": 16,
+   "total": 16
+  },
+  "UWC_Refueling_high_title_001": {
+   "bp": 7,
+   "total": 7
+  },
+  "UWC_Refueling_moderate_title_001": {
+   "bp": 3,
+   "total": 3
+  },
+  "UWC_Refueling_multiple_hard_title_001": {
+   "bp": 17,
+   "total": 17
+  },
+  "UWC_Refueling_multiple_med_title_001": {
+   "bp": 36,
+   "total": 36
+  },
+  "UWC_Refuelling_BespokeCapital_Title": {
+   "bp": 2,
+   "total": 2
+  },
+  "Vaughn_EliminateSpecific_FPS_Rockcracker_title_001": {
+   "bp": 3,
+   "total": 3
+  },
+  "bhg_bounty_title_ASD_Engineering_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "bhg_bounty_title_ASD_Research_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "bhg_bounty_title_Rockcracker_001": {
+   "bp": 3,
+   "total": 3
+  },
+  "blackbox_recover_title_E_001": {
+   "bp": 2,
+   "total": 4
+  },
+  "blackbox_recover_title_H_001": {
+   "bp": 2,
+   "total": 4
+  },
+  "blackbox_recover_title_M_001": {
+   "bp": 2,
+   "total": 4
+  },
+  "blackbox_recover_title_S_001": {
+   "bp": 2,
+   "total": 4
+  },
+  "blackbox_recover_title_VE_001": {
+   "bp": 2,
+   "total": 4
+  },
+  "blackbox_recover_title_VH_001": {
+   "bp": 2,
+   "total": 4
+  },
+  "blackbox_recover_title_intro_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "cfp_ChainElimAll_1C_ElimSpec_GenAttack_E_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_ChainElimAll_1C_ElimSpec_HHAttack_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_ChainElimAll_1C_HHAttack_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_ChainElimAll_2C_ElimSpec_GenAttack_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_ChainElimAll_2C_ElimSpec_HHAttack_H_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_ChainElimAll_2C_ElimSpec_XTAttack_H_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_ChainElimAll_3C_ElimSpec_GenAttack_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_ChainElimAll_3C_ElimSpec_HHAttack_VH_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_ChainElimAll_3C_ElimSpec_XTAttack_VH_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_bombingrun_E_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "cfp_bombingrun_sabotage_generators_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "cfp_defend-criminals_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "cfp_defend-xenothreat_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_defend-xenothreat_title_002": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_defend-xenothreat_title_003": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_defend_boss_Generic_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_defend_cave_Generic_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_defend_headhunters_H_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_defend_headhunters_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_defend_regionshift_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "cfp_defendship_LRT_title_001": {
+   "bp": 1,
+   "total": 9
+  },
+  "cfp_defendship_MRT_title_001": {
+   "bp": 1,
+   "total": 9
+  },
+  "cfp_defendship_VLRT_title_001": {
+   "bp": 1,
+   "total": 9
+  },
+  "cfp_defendship_multi_HRT_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_defendship_multi_SRT_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_defendship_multi_VHRT_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_eliminateall_XT_E_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_eliminateall_fromCFP_Gen_E_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_eliminateall_fromCFP_XT_M_title_001": {
+   "bp": 1,
+   "total": 2
+  },
+  "cfp_eliminateall_fromCFP_hh_M_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "cfp_eliminateall_hh_E_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_sabotage_VH_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_sabotage_generators_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_sabotage_generators_VE_title_001": {
+   "bp": 8,
+   "total": 8
+  },
+  "cfp_sabotage_server_elimiatespecific_HH_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "cfp_sabotage_servers_H_XT_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "cfp_sabotage_servers_M_HH_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "cfp_sabotage_servers_VH_XT_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "destroyprobelegal_title": {
+   "bp": 1,
+   "total": 1
+  },
+  "eckhart_defendship_LRT_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "eckhart_defendship_MRT_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "eckhart_defendship_VLRT_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "eckhart_defendship_multi_HRT_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "eckhart_defendship_multi_SRT_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "eckhart_defendship_multi_VHRT_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "foxwell_DefendShip_E_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "foxwell_DefendShip_H_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "foxwell_DefendShip_M_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_ChainElimAll_1C_AttackCFP_E_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_ChainElimAll_1C_AttackXT_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_ChainElimAll_1C_ElimSpec_AttackCFP_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_ChainElimAll_2C_ElimSpec_AttackCFP_H_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_ChainElimAll_2C_ElimSpec_AttackXT_H_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_ChainElimAll_3C_ElimSpec_AttackCFP_VH_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_ChainElimAll_3C_ElimSpec_AttackXT_VH_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_ChainElimAll_AttackCFP_E_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_ChainElimAll_AttackGen_E_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_ChainElimAll_Boss_XenoThreat_VH_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_EliminateAll_XenoThreat_H_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_EliminateSpecific_Asteroid_Generic_M_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_EliminateSpecific_Asteroid_Generic_VE_title_001": {
+   "bp": 8,
+   "total": 8
+  },
+  "headhunters_EliminateSpecific_CFP_E_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_EliminateSpecific_CFP_H_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_EliminateSpecific_CFP_M_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_EliminateSpecific_Defector_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_EliminateSpecific_Generic_E_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "headhunters_EliminateSpecific_Generic_M_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "headhunters_EliminateSpecific_Generic_VH_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_EliminateSpecific_XenoThreat_H_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_EliminateSpecific_XenoThreat_VH_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_EliminateSpecific_XenoThreat_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_defend_xt_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "headhunters_eliminateall_XT_derelicts_title_01": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_eliminateall_base_Generic_E_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_eliminateall_cfp_E_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_eliminateall_cfp_M_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_eliminateall_cfp_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_eliminateall_outpost_title_01": {
+   "bp": 3,
+   "total": 3
+  },
+  "headhunters_eliminateall_retrievestolen_base_Generic_M_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_eliminateall_xt_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "headhunters_killship_asteroid_rank0_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_killship_asteroid_rank1_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_killship_cfp_hrt_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_killship_cfp_mrt_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_killship_cfp_vhrt_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_killship_gen_hrt_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_killship_gen_lrt_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_killship_gen_mrt_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_killship_gen_vlrt_rank0_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_killship_gen_vlrt_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_killship_xenothreat_ert_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "headhunters_multikillship_base_Generic_M_title_001": {
+   "bp": 4,
+   "total": 4
+  },
+  "northrock_SOO_repeat_title_001": {
+   "bp": 1,
+   "total": 1
+  },
+  "northrock_bounty_fps_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "recovery_title": {
+   "bp": 13,
+   "total": 13
+  },
+  "shubin_rockcracker_pvp_title_01": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_solo_title_01": {
+   "bp": 1,
+   "total": 1
+  },
+  "vaughn_assassination_FPS_UGF_illegal_title_001": {
+   "bp": 2,
+   "total": 2
+  },
+  "vaughn_assassination_FPS_UGF_legal_title_001": {
+   "bp": 1,
+   "total": 2
+  }
+ },
+ "descriptions": {
+  "Adagio_Industrial_Component_Salvage_Levski_H_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Component_Salvage_Levski_M_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Component_Salvage_Pyro_H_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Component_Salvage_Pyro_M_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Component_Salvage_Stanton_H_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Component_Salvage_Stanton_M_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Component_Salvage_Universal_H_Desc_001": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Component_Salvage_Universal_M_Desc_001": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Salvage_Universal_E_Desc_001": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Salvage_Universal_E_Desc_002": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Salvage_Universal_Intro_Desc_001": {
+   "bp": 3,
+   "total": 6,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Adagio_Industrial_Salvage_Universal_M_Desc_001": {
+   "bp": 7,
+   "total": 7,
+   "items": [
+    "Abrade Scraper Module",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Trawler Scraper Module"
+   ]
+  },
+  "Battaglia_RPT_BoardShip_01_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Lawson Mining Laser",
+    "Marlin",
+    "RN-7s",
+    "S00 Hofstede"
+   ]
+  },
+  "Battaglia_RPT_CreateUplink_01_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_DataDownload_01_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Harkin",
+    "Lindstrom",
+    "Norfield",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "Strata Arms Levski Edition",
+    "Strata Backpack Levski Edition",
+    "Strata Core Levski Edition",
+    "Strata Helmet Levski Edition",
+    "Strata Legs Levski Edition"
+   ]
+  },
+  "Battaglia_RPT_MissCrew_01_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Harkin",
+    "Lindstrom",
+    "Norfield",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "Strata Arms Levski Edition",
+    "Strata Backpack Levski Edition",
+    "Strata Core Levski Edition",
+    "Strata Helmet Levski Edition",
+    "Strata Legs Levski Edition"
+   ]
+  },
+  "Battaglia_RPT_MissCrew_02_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Harkin",
+    "Lindstrom",
+    "Norfield",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "Strata Arms Levski Edition",
+    "Strata Backpack Levski Edition",
+    "Strata Core Levski Edition",
+    "Strata Helmet Levski Edition",
+    "Strata Legs Levski Edition"
+   ]
+  },
+  "Battaglia_RPT_MissCrew_03_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_RecoverItem_M_01_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_RecoverItem_VE_01_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_RecoverItem_VH_01_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "CQ7 Rifle",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_Salvage_E_01_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_Salvage_H_01_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_Salvage_M_01_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_ScanMine_01_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Lawson Mining Laser",
+    "Marlin",
+    "RN-7s",
+    "S00 Hofstede"
+   ]
+  },
+  "Battaglia_RPT_ScanMine_02_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Lawson Mining Laser",
+    "Marlin",
+    "RN-7s",
+    "S00 Hofstede"
+   ]
+  },
+  "Battaglia_RPT_ScanMine_03_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Harkin",
+    "Lindstrom",
+    "Norfield",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "Strata Arms Levski Edition",
+    "Strata Backpack Levski Edition",
+    "Strata Core Levski Edition",
+    "Strata Helmet Levski Edition",
+    "Strata Legs Levski Edition"
+   ]
+  },
+  "Battaglia_RPT_ScanMine_04_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Harkin",
+    "Lindstrom",
+    "Norfield",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "Strata Arms Levski Edition",
+    "Strata Backpack Levski Edition",
+    "Strata Core Levski Edition",
+    "Strata Helmet Levski Edition",
+    "Strata Legs Levski Edition"
+   ]
+  },
+  "Battaglia_RPT_ScanMine_05_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_ScanMine_06_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_Scan_01_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Lawson Mining Laser",
+    "Marlin",
+    "RN-7s",
+    "S00 Hofstede"
+   ]
+  },
+  "Battaglia_RPT_Scan_02_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Lawson Mining Laser",
+    "Marlin",
+    "RN-7s",
+    "S00 Hofstede"
+   ]
+  },
+  "Battaglia_RPT_Scan_03_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Harkin",
+    "Lindstrom",
+    "Norfield",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "Strata Arms Levski Edition",
+    "Strata Backpack Levski Edition",
+    "Strata Core Levski Edition",
+    "Strata Helmet Levski Edition",
+    "Strata Legs Levski Edition"
+   ]
+  },
+  "Battaglia_RPT_Scan_04_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Harkin",
+    "Lindstrom",
+    "Norfield",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "Strata Arms Levski Edition",
+    "Strata Backpack Levski Edition",
+    "Strata Core Levski Edition",
+    "Strata Helmet Levski Edition",
+    "Strata Legs Levski Edition"
+   ]
+  },
+  "Battaglia_RPT_Scan_05_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_RPT_Scan_06_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Abrade Scraper Module",
+    "Arbor MH1 Mining Laser",
+    "CF-117 Bulldog \"Hazard-Zone\" Repeater",
+    "CF-227 Badger \"Hazard-Zone\" Repeater",
+    "CF-337 Panther \"Hazard-Zone\" Repeater",
+    "Cinch Scraper Module",
+    "Comer Scraper Module",
+    "Hart Scraper Module",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser"
+   ]
+  },
+  "Battaglia_Story01_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Clearcut Module"
+   ]
+  },
+  "Battaglia_Story02_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Deluge Module",
+    "Overrun Module"
+   ]
+  },
+  "Battaglia_Story03_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "GOLEM MC-4 Ore Pod",
+    "MISC Enhanced Ore Pod"
+   ]
+  },
+  "CFP_RecoverCargo_Easy_Description": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "C54 SMG",
+    "C54 SMG Magazine (50 cap)",
+    "G-2 Helmet Woodland",
+    "ORC-mkV Arms",
+    "ORC-mkV Core",
+    "ORC-mkV Legs",
+    "ORC-mkX Arms Woodland",
+    "ORC-mkX Core Woodland",
+    "ORC-mkX Helmet Woodland",
+    "ORC-mkX Legs Woodland",
+    "P8-SC SMG",
+    "P8-SC SMG Magazine (45 cap)",
+    "S71 Rifle",
+    "S71 Rifle Magazine (30 cap)"
+   ]
+  },
+  "CFP_RecoverCargo_Hard_Description": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "C54 SMG",
+    "C54 SMG Magazine (50 cap)",
+    "G-2 Helmet Woodland",
+    "ORC-mkV Arms",
+    "ORC-mkV Core",
+    "ORC-mkV Legs",
+    "ORC-mkX Arms Woodland",
+    "ORC-mkX Core Woodland",
+    "ORC-mkX Helmet Woodland",
+    "ORC-mkX Legs Woodland",
+    "P8-SC SMG",
+    "P8-SC SMG Magazine (45 cap)",
+    "S71 Rifle",
+    "S71 Rifle Magazine (30 cap)"
+   ]
+  },
+  "CFP_RecoverCargo_Medium_Description": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "C54 SMG",
+    "C54 SMG Magazine (50 cap)",
+    "G-2 Helmet Woodland",
+    "ORC-mkV Arms",
+    "ORC-mkV Core",
+    "ORC-mkV Legs",
+    "ORC-mkX Arms Woodland",
+    "ORC-mkX Core Woodland",
+    "ORC-mkX Helmet Woodland",
+    "ORC-mkX Legs Woodland",
+    "P8-SC SMG",
+    "P8-SC SMG Magazine (45 cap)",
+    "S71 Rifle",
+    "S71 Rifle Magazine (30 cap)"
+   ]
+  },
+  "CFP_RecoverCargo_Super_Description": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "C54 SMG",
+    "C54 SMG Magazine (50 cap)",
+    "G-2 Helmet Woodland",
+    "ORC-mkV Arms",
+    "ORC-mkV Core",
+    "ORC-mkV Legs",
+    "ORC-mkX Arms Woodland",
+    "ORC-mkX Core Woodland",
+    "ORC-mkX Helmet Woodland",
+    "ORC-mkX Legs Woodland",
+    "P8-SC SMG",
+    "P8-SC SMG Magazine (45 cap)",
+    "S71 Rifle",
+    "S71 Rifle Magazine (30 cap)"
+   ]
+  },
+  "CFP_RecoverCargo_VeryHard_Description": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "C54 SMG",
+    "C54 SMG Magazine (50 cap)",
+    "G-2 Helmet Woodland",
+    "ORC-mkV Arms",
+    "ORC-mkV Core",
+    "ORC-mkV Legs",
+    "ORC-mkX Arms Woodland",
+    "ORC-mkX Core Woodland",
+    "ORC-mkX Helmet Woodland",
+    "ORC-mkX Legs Woodland",
+    "P8-SC SMG",
+    "P8-SC SMG Magazine (45 cap)",
+    "S71 Rifle",
+    "S71 Rifle Magazine (30 cap)"
+   ]
+  },
+  "Covalex_HaulCargo_AtoB_desc_DeliverAll": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Balandin",
+    "Palisade",
+    "Parapet",
+    "Rampart",
+    "Siren",
+    "TS-2",
+    "VK-00",
+    "XL-1",
+    "Yeager"
+   ]
+  },
+  "Covalex_HaulCargo_AtoB_desc_FromLevski": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Balandin",
+    "Palisade",
+    "Parapet",
+    "Rampart",
+    "Siren",
+    "TS-2",
+    "VK-00",
+    "XL-1",
+    "Yeager"
+   ]
+  },
+  "Covalex_HaulCargo_AtoB_desc_FromRuinStation": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Balandin",
+    "Palisade",
+    "Parapet",
+    "Rampart",
+    "Siren",
+    "TS-2",
+    "VK-00",
+    "XL-1",
+    "Yeager"
+   ]
+  },
+  "Covalex_HaulCargo_AtoB_desc_ToLevski": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Balandin",
+    "Palisade",
+    "Parapet",
+    "Rampart",
+    "Siren",
+    "TS-2",
+    "VK-00",
+    "XL-1",
+    "Yeager"
+   ]
+  },
+  "Covalex_HaulCargo_AtoB_desc_ToRuinStation": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Balandin",
+    "Palisade",
+    "Parapet",
+    "Rampart",
+    "Siren",
+    "TS-2",
+    "VK-00",
+    "XL-1",
+    "Yeager"
+   ]
+  },
+  "Covalex_HaulCargo_SingleToMulti_desc_ToCFP_Danger": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Balandin",
+    "Palisade",
+    "Parapet",
+    "Rampart",
+    "Siren",
+    "TS-2",
+    "VK-00",
+    "XL-1",
+    "Yeager"
+   ]
+  },
+  "Covalex_HaulCargo_SingleToMulti_desc_Valakkar_Timed": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Balandin",
+    "Palisade",
+    "Parapet",
+    "Rampart",
+    "Siren",
+    "TS-2",
+    "VK-00",
+    "XL-1",
+    "Yeager"
+   ]
+  },
+  "EckhartSecurity_EliminateBoss_DC_Desc_001": {
+   "bp": 2,
+   "total": 3,
+   "items": [
+    "C-788 Cannon",
+    "Draugar Gatling",
+    "Fierell Cascade",
+    "MegaFlux",
+    "Revenant Gatling",
+    "Tigerstrike T-19P",
+    "UltraFlux"
+   ]
+  },
+  "EckhartSecurity_MultiEliminateAllAndBoss_DC_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "C-788 Cannon",
+    "Draugar Gatling",
+    "Fierell Cascade",
+    "MegaFlux",
+    "Revenant Gatling",
+    "Tigerstrike T-19P",
+    "UltraFlux"
+   ]
+  },
+  "Eckhart_EscortShips_E_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "M3A Cannon",
+    "M4A Cannon",
+    "M5A Cannon",
+    "Obscura",
+    "Shimmer"
+   ]
+  },
+  "Eckhart_EscortShips_H_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Havoc Scattergun",
+    "Hellion Scattergun",
+    "M3A Cannon",
+    "M4A Cannon",
+    "M5A Cannon",
+    "Mirage",
+    "Obscura",
+    "Predator Scattergun",
+    "Quarreler Cannon",
+    "Sheut",
+    "Shimmer",
+    "Suckerpunch Cannon",
+    "Suckerpunch-L Cannon",
+    "Suckerpunch-XL Cannon",
+    "Umbra",
+    "Veil"
+   ]
+  },
+  "Eckhart_EscortShips_M_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "M3A Cannon",
+    "M4A Cannon",
+    "M5A Cannon",
+    "Obscura",
+    "Sheut",
+    "Shimmer",
+    "Suckerpunch Cannon",
+    "Suckerpunch-L Cannon",
+    "Suckerpunch-XL Cannon",
+    "Veil"
+   ]
+  },
+  "Eckhart_EscortShips_S_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Havoc Scattergun",
+    "Hellion Scattergun",
+    "M3A Cannon",
+    "M4A Cannon",
+    "M5A Cannon",
+    "Mirage",
+    "Obscura",
+    "Predator Scattergun",
+    "Quarreler Cannon",
+    "Sheut",
+    "Shimmer",
+    "Suckerpunch Cannon",
+    "Suckerpunch-L Cannon",
+    "Suckerpunch-XL Cannon",
+    "Umbra",
+    "Veil"
+   ]
+  },
+  "Eckhart_EscortShips_VE_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "M3A Cannon",
+    "M4A Cannon",
+    "M5A Cannon",
+    "Obscura",
+    "Shimmer"
+   ]
+  },
+  "Eckhart_EscortShips_VH_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Havoc Scattergun",
+    "Hellion Scattergun",
+    "M3A Cannon",
+    "M4A Cannon",
+    "M5A Cannon",
+    "Mirage",
+    "Obscura",
+    "Predator Scattergun",
+    "Quarreler Cannon",
+    "Sheut",
+    "Shimmer",
+    "Suckerpunch Cannon",
+    "Suckerpunch-L Cannon",
+    "Suckerpunch-XL Cannon",
+    "Umbra",
+    "Veil"
+   ]
+  },
+  "Eckhart_ShipAmbush_E_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Cirrus",
+    "Lightstrike I Cannon",
+    "Lightstrike II Cannon",
+    "Lightstrike III Cannon",
+    "SonicLite"
+   ]
+  },
+  "Eckhart_ShipAmbush_H_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Cirrus",
+    "DeltaMax",
+    "Eclipse",
+    "FL-11 Cannon",
+    "FL-22 Cannon",
+    "FL-33 Cannon",
+    "GammaMax",
+    "Lightstrike I Cannon",
+    "Lightstrike II Cannon",
+    "Lightstrike III Cannon",
+    "Lightstrike IV Cannon",
+    "Lightstrike V Cannon",
+    "Lightstrike VI Cannon",
+    "Slipstream",
+    "SonicLite"
+   ]
+  },
+  "Eckhart_ShipAmbush_Intro_desc": {
+   "bp": 1,
+   "total": 2,
+   "items": [
+    "Cirrus",
+    "Lightstrike I Cannon",
+    "Lightstrike II Cannon",
+    "Lightstrike III Cannon",
+    "SonicLite"
+   ]
+  },
+  "Eckhart_ShipAmbush_M_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Cirrus",
+    "DeltaMax",
+    "FL-11 Cannon",
+    "FL-22 Cannon",
+    "FL-33 Cannon",
+    "GammaMax",
+    "Lightstrike I Cannon",
+    "Lightstrike II Cannon",
+    "Lightstrike III Cannon",
+    "SonicLite"
+   ]
+  },
+  "Eckhart_ShipAmbush_S_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Cirrus",
+    "DeltaMax",
+    "Eclipse",
+    "FL-11 Cannon",
+    "FL-22 Cannon",
+    "FL-33 Cannon",
+    "GammaMax",
+    "Lightstrike I Cannon",
+    "Lightstrike II Cannon",
+    "Lightstrike III Cannon",
+    "Lightstrike IV Cannon",
+    "Lightstrike V Cannon",
+    "Lightstrike VI Cannon",
+    "Slipstream",
+    "SonicLite"
+   ]
+  },
+  "Eckhart_ShipAmbush_VE_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Cirrus",
+    "Lightstrike I Cannon",
+    "Lightstrike II Cannon",
+    "Lightstrike III Cannon",
+    "SonicLite"
+   ]
+  },
+  "Eckhart_ShipAmbush_VH_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Cirrus",
+    "DeltaMax",
+    "Eclipse",
+    "FL-11 Cannon",
+    "FL-22 Cannon",
+    "FL-33 Cannon",
+    "GammaMax",
+    "Lightstrike I Cannon",
+    "Lightstrike II Cannon",
+    "Lightstrike III Cannon",
+    "Lightstrike IV Cannon",
+    "Lightstrike V Cannon",
+    "Lightstrike VI Cannon",
+    "Slipstream",
+    "SonicLite"
+   ]
+  },
+  "FTL_Courier_Nyx_Easy_Desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Agni",
+    "Colossus",
+    "Defiant",
+    "Endurance",
+    "Huracan",
+    "Sedulity"
+   ]
+  },
+  "FTL_Courier_Stanton_Easy_Desc_001": {
+   "bp": 15,
+   "total": 15,
+   "items": [
+    "Agni",
+    "Colossus",
+    "Defiant",
+    "Endurance",
+    "Huracan",
+    "Sedulity"
+   ]
+  },
+  "FTL_Courier_Stanton_Medium_Desc_001": {
+   "bp": 7,
+   "total": 7,
+   "items": [
+    "Agni",
+    "Colossus",
+    "Defiant",
+    "Endurance",
+    "Huracan",
+    "Sedulity"
+   ]
+  },
+  "Foxwell_DefendDestructibleEntites_E_Desc_001": {
+   "bp": 1,
+   "total": 3,
+   "items": [
+    "Antium Arms",
+    "Antium Core",
+    "Antium Helmet",
+    "Antium Legs",
+    "Parallax Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendDestructibleEntites_H_Desc_001": {
+   "bp": 1,
+   "total": 3,
+   "items": [
+    "Antium Arms",
+    "Antium Core",
+    "Antium Helmet",
+    "Antium Legs",
+    "Parallax Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendDestructibleEntites_M_Desc_001": {
+   "bp": 1,
+   "total": 3,
+   "items": [
+    "Antium Arms",
+    "Antium Core",
+    "Antium Helmet",
+    "Antium Legs",
+    "Parallax Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendDestructibleEntites_S_Desc_001": {
+   "bp": 1,
+   "total": 3,
+   "items": [
+    "Antium Arms",
+    "Antium Core",
+    "Antium Helmet",
+    "Antium Legs",
+    "Parallax Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendDestructibleEntites_VE_Desc_001": {
+   "bp": 1,
+   "total": 3,
+   "items": [
+    "Antium Arms",
+    "Antium Core",
+    "Antium Helmet",
+    "Antium Legs",
+    "Parallax Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendDestructibleEntites_VH_Desc_001": {
+   "bp": 1,
+   "total": 3,
+   "items": [
+    "Antium Arms",
+    "Antium Core",
+    "Antium Helmet",
+    "Antium Legs",
+    "Parallax Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendEntitesAndEscort_E_Desc": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "7CA 'Nargun'",
+    "7MA 'Lorica'",
+    "7SA 'Concord'",
+    "ArcticStorm",
+    "Aufeis",
+    "Berian",
+    "Celestial",
+    "ColdSnap",
+    "Draug",
+    "Elsen",
+    "Fridan",
+    "Frost-Star",
+    "Frost-Star EX",
+    "Frost-Star SL",
+    "Frost-Star XL",
+    "FrostBurn",
+    "FullForce",
+    "FullForce Pro",
+    "Gelid",
+    "Graupel",
+    "HAVEN",
+    "INK",
+    "IonBurst",
+    "IonSurge",
+    "IonSurge Pro",
+    "IonWave",
+    "Kragen",
+    "LightBlossom",
+    "MagnaBloom",
+    "NewDawn",
+    "PowerBolt",
+    "RPEL",
+    "Radiance",
+    "Radix",
+    "Tepilo"
+   ]
+  },
+  "Foxwell_DefendEntitesAndEscort_H_Desc": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "7CA 'Nargun'",
+    "7MA 'Lorica'",
+    "7SA 'Concord'",
+    "ArcticStorm",
+    "Attrition-4 Repeater",
+    "Attrition-5 Repeater",
+    "Attrition-6 Repeater",
+    "Aufeis",
+    "Avalanche",
+    "Berian",
+    "Blizzard",
+    "CF-117 Bulldog Repeater",
+    "CF-227 Badger Repeater",
+    "CF-337 Panther Repeater",
+    "CF-447 Rhino Repeater",
+    "CF-557 Galdereen Repeater",
+    "CF-667 Mammoth Repeater",
+    "Celestial",
+    "ColdSnap",
+    "DR Model-XJ1 Repeater",
+    "DR Model-XJ2 Repeater",
+    "DR Model-XJ3 Repeater",
+    "Draug",
+    "Elsen",
+    "FR-86",
+    "Fridan",
+    "Frost-Star",
+    "Frost-Star EX",
+    "Frost-Star SL",
+    "Frost-Star XL",
+    "FrostBurn",
+    "FullForce",
+    "FullForce Pro",
+    "Gelid",
+    "Glacier",
+    "Graupel",
+    "HAVEN",
+    "INK",
+    "IonBurst",
+    "IonSurge",
+    "IonSurge Pro",
+    "IonWave",
+    "Kragen",
+    "LightBlossom",
+    "MagnaBloom",
+    "NewDawn",
+    "PowerBolt",
+    "RPEL",
+    "Radiance",
+    "Radix",
+    "Sens",
+    "Tepilo",
+    "Tige",
+    "V60-26"
+   ]
+  },
+  "Foxwell_DefendEntitesAndEscort_M_Desc": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "7CA 'Nargun'",
+    "7MA 'Lorica'",
+    "7SA 'Concord'",
+    "ArcticStorm",
+    "Aufeis",
+    "Berian",
+    "Celestial",
+    "ColdSnap",
+    "Draug",
+    "Elsen",
+    "Fridan",
+    "Frost-Star",
+    "Frost-Star EX",
+    "Frost-Star SL",
+    "Frost-Star XL",
+    "FrostBurn",
+    "FullForce",
+    "FullForce Pro",
+    "Gelid",
+    "Graupel",
+    "HAVEN",
+    "INK",
+    "IonBurst",
+    "IonSurge",
+    "IonSurge Pro",
+    "IonWave",
+    "Kragen",
+    "LightBlossom",
+    "MagnaBloom",
+    "NewDawn",
+    "PowerBolt",
+    "RPEL",
+    "Radiance",
+    "Radix",
+    "Tepilo"
+   ]
+  },
+  "Foxwell_DefendEntitesAndEscort_S_Desc": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "7CA 'Nargun'",
+    "7MA 'Lorica'",
+    "7SA 'Concord'",
+    "ArcticStorm",
+    "Attrition-4 Repeater",
+    "Attrition-5 Repeater",
+    "Attrition-6 Repeater",
+    "Aufeis",
+    "Avalanche",
+    "Berian",
+    "Blizzard",
+    "CF-117 Bulldog Repeater",
+    "CF-227 Badger Repeater",
+    "CF-337 Panther Repeater",
+    "CF-447 Rhino Repeater",
+    "CF-557 Galdereen Repeater",
+    "CF-667 Mammoth Repeater",
+    "Celestial",
+    "ColdSnap",
+    "DR Model-XJ1 Repeater",
+    "DR Model-XJ2 Repeater",
+    "DR Model-XJ3 Repeater",
+    "Draug",
+    "Elsen",
+    "FR-86",
+    "Fridan",
+    "Frost-Star",
+    "Frost-Star EX",
+    "Frost-Star SL",
+    "Frost-Star XL",
+    "FrostBurn",
+    "FullForce",
+    "FullForce Pro",
+    "Gelid",
+    "Glacier",
+    "Graupel",
+    "HAVEN",
+    "INK",
+    "IonBurst",
+    "IonSurge",
+    "IonSurge Pro",
+    "IonWave",
+    "Kragen",
+    "LightBlossom",
+    "MagnaBloom",
+    "NewDawn",
+    "PowerBolt",
+    "RPEL",
+    "Radiance",
+    "Radix",
+    "Sens",
+    "Tepilo",
+    "Tige",
+    "V60-26"
+   ]
+  },
+  "Foxwell_DefendEntitesAndEscort_VE_Desc": {
+   "bp": 6,
+   "total": 6,
+   "items": [
+    "7CA 'Nargun'",
+    "7MA 'Lorica'",
+    "7SA 'Concord'",
+    "ArcticStorm",
+    "Aufeis",
+    "Berian",
+    "Celestial",
+    "ColdSnap",
+    "Draug",
+    "Elsen",
+    "Fridan",
+    "Frost-Star",
+    "Frost-Star EX",
+    "Frost-Star SL",
+    "Frost-Star XL",
+    "FrostBurn",
+    "FullForce",
+    "FullForce Pro",
+    "Gelid",
+    "Graupel",
+    "HAVEN",
+    "INK",
+    "IonBurst",
+    "IonSurge",
+    "IonSurge Pro",
+    "IonWave",
+    "Kragen",
+    "LightBlossom",
+    "MagnaBloom",
+    "NewDawn",
+    "PowerBolt",
+    "RPEL",
+    "Radiance",
+    "Radix",
+    "Tepilo"
+   ]
+  },
+  "Foxwell_DefendEntitesAndEscort_VH_Desc": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "7CA 'Nargun'",
+    "7MA 'Lorica'",
+    "7SA 'Concord'",
+    "ArcticStorm",
+    "Attrition-4 Repeater",
+    "Attrition-5 Repeater",
+    "Attrition-6 Repeater",
+    "Aufeis",
+    "Avalanche",
+    "Berian",
+    "Blizzard",
+    "CF-117 Bulldog Repeater",
+    "CF-227 Badger Repeater",
+    "CF-337 Panther Repeater",
+    "CF-447 Rhino Repeater",
+    "CF-557 Galdereen Repeater",
+    "CF-667 Mammoth Repeater",
+    "Celestial",
+    "ColdSnap",
+    "DR Model-XJ1 Repeater",
+    "DR Model-XJ2 Repeater",
+    "DR Model-XJ3 Repeater",
+    "Draug",
+    "Elsen",
+    "FR-86",
+    "Fridan",
+    "Frost-Star",
+    "Frost-Star EX",
+    "Frost-Star SL",
+    "Frost-Star XL",
+    "FrostBurn",
+    "FullForce",
+    "FullForce Pro",
+    "Gelid",
+    "Glacier",
+    "Graupel",
+    "HAVEN",
+    "INK",
+    "IonBurst",
+    "IonSurge",
+    "IonSurge Pro",
+    "IonWave",
+    "Kragen",
+    "LightBlossom",
+    "MagnaBloom",
+    "NewDawn",
+    "PowerBolt",
+    "RPEL",
+    "Radiance",
+    "Radix",
+    "Sens",
+    "Tepilo",
+    "Tige",
+    "V60-26"
+   ]
+  },
+  "Foxwell_DefendLocation_E_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Storm",
+    "Antium Core Storm",
+    "Antium Helmet Storm",
+    "Antium Legs Storm",
+    "Parallax \"Shock Trooper\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendLocation_H_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Storm",
+    "Antium Core Storm",
+    "Antium Helmet Storm",
+    "Antium Legs Storm",
+    "Parallax \"Shock Trooper\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendLocation_M_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Storm",
+    "Antium Core Storm",
+    "Antium Helmet Storm",
+    "Antium Legs Storm",
+    "Parallax \"Shock Trooper\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendLocation_S_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Storm",
+    "Antium Core Storm",
+    "Antium Helmet Storm",
+    "Antium Legs Storm",
+    "Parallax \"Shock Trooper\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendLocation_VE_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Storm",
+    "Antium Core Storm",
+    "Antium Helmet Storm",
+    "Antium Legs Storm",
+    "Parallax \"Shock Trooper\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_DefendLocation_VH_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Storm",
+    "Antium Core Storm",
+    "Antium Helmet Storm",
+    "Antium Legs Storm",
+    "Parallax \"Shock Trooper\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_EliminateAll_Allies_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_EliminateAll_NonHostiles_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_EliminateAll_OLP_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_EliminateAll_PAF_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_EliminateAll_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_EliminateSpecific_NonHostiles_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_EliminateSpecific_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_HaulCargo_AToB_OLP_desc_01": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_HaulCargo_AToB_PAF_desc_01": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_HaulCargo_MultiToSingle_desc_01": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_Mercenary_Rehire_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_SecurityPatrol_E_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Sand",
+    "Antium Core Sand",
+    "Antium Helmet Sand",
+    "Antium Legs Sand",
+    "Parallax \"Sanguine\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_SecurityPatrol_H_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Sand",
+    "Antium Core Sand",
+    "Antium Helmet Sand",
+    "Antium Legs Sand",
+    "Parallax \"Sanguine\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_SecurityPatrol_M_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Sand",
+    "Antium Core Sand",
+    "Antium Helmet Sand",
+    "Antium Legs Sand",
+    "Parallax \"Sanguine\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_SecurityPatrol_S_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Sand",
+    "Antium Core Sand",
+    "Antium Helmet Sand",
+    "Antium Legs Sand",
+    "Parallax \"Sanguine\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_SecurityPatrol_VE_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Sand",
+    "Antium Core Sand",
+    "Antium Helmet Sand",
+    "Antium Legs Sand",
+    "Parallax \"Sanguine\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_SecurityPatrol_VH_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Sand",
+    "Antium Core Sand",
+    "Antium Helmet Sand",
+    "Antium Legs Sand",
+    "Parallax \"Sanguine\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_ShipAmbush_E_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Jet",
+    "Antium Core Jet",
+    "Antium Helmet Jet",
+    "Antium Legs Jet",
+    "Parallax \"Sunstone\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_ShipAmbush_H_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Jet",
+    "Antium Core Jet",
+    "Antium Helmet Jet",
+    "Antium Legs Jet",
+    "Parallax \"Sunstone\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_ShipAmbush_M_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Jet",
+    "Antium Core Jet",
+    "Antium Helmet Jet",
+    "Antium Legs Jet",
+    "Parallax \"Sunstone\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_ShipAmbush_S_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Jet",
+    "Antium Core Jet",
+    "Antium Helmet Jet",
+    "Antium Legs Jet",
+    "Parallax \"Sunstone\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_ShipAmbush_VE_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Jet",
+    "Antium Core Jet",
+    "Antium Helmet Jet",
+    "Antium Legs Jet",
+    "Parallax \"Sunstone\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_ShipAmbush_VH_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Antium Arms Jet",
+    "Antium Core Jet",
+    "Antium Helmet Jet",
+    "Antium Legs Jet",
+    "Parallax \"Sunstone\" Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_ShipWaveAttack_ClearHostiles_Desc_E_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms",
+    "Antium Core",
+    "Antium Helmet",
+    "Antium Legs",
+    "Parallax Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_ShipWaveAttack_ClearHostiles_Desc_H_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms",
+    "Antium Core",
+    "Antium Helmet",
+    "Antium Legs",
+    "Parallax Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_ShipWaveAttack_ClearHostiles_Desc_M_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms",
+    "Antium Core",
+    "Antium Helmet",
+    "Antium Legs",
+    "Parallax Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_ShipWaveAttack_ClearHostiles_Desc_VE_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms",
+    "Antium Core",
+    "Antium Helmet",
+    "Antium Legs",
+    "Parallax Energy Assault Rifle",
+    "Parallax Rifle Battery (80 Cap)"
+   ]
+  },
+  "Foxwell_bombingrun_E_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_bombingrun_H_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_bombingrun_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_bombingrun_S_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_bombingrun_VE_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "Foxwell_bombingrun_VH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "HeadHunters_DefendEntitesAndEscort_E_Desc": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "5CA 'Akura'",
+    "5MA 'Chimalli'",
+    "5SA 'Rhada'",
+    "6CA 'Bila'",
+    "6MA 'Kozane'",
+    "6SA 'Arbiter'",
+    "ARMOR",
+    "BLOC",
+    "BlastChill",
+    "ColdSurge",
+    "Cryo-Star",
+    "Cryo-Star EX",
+    "Cryo-Star SL",
+    "Cryo-Star XL",
+    "DuraJet",
+    "Endo",
+    "FlashFreeze",
+    "FrostBite",
+    "FullFrost",
+    "GUARD",
+    "HEX",
+    "Kelvid",
+    "Lotus",
+    "PIN",
+    "STOP",
+    "SparkJet",
+    "SparkJet Pro",
+    "Taiga",
+    "TigerLilly",
+    "WEB",
+    "WhiteOut",
+    "WhiteRose",
+    "Winter-Star",
+    "Winter-Star EX",
+    "Winter-Star SL",
+    "Winter-Star XL",
+    "ZapJet"
+   ]
+  },
+  "HeadHunters_DefendEntitesAndEscort_H_Desc": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "5CA 'Akura'",
+    "5MA 'Chimalli'",
+    "5SA 'Rhada'",
+    "6CA 'Bila'",
+    "6MA 'Kozane'",
+    "6SA 'Arbiter'",
+    "AD4B Ballistic Gatling",
+    "AD5B Ballistic Gatling",
+    "AD6B Ballistic Gatling",
+    "ARMOR",
+    "BLOC",
+    "BlastChill",
+    "ColdSurge",
+    "Cryo-Star",
+    "Cryo-Star EX",
+    "Cryo-Star SL",
+    "Cryo-Star XL",
+    "Devoue",
+    "DuraJet",
+    "Endo",
+    "FlashFreeze",
+    "FrostBite",
+    "FullFrost",
+    "GUARD",
+    "HEX",
+    "Kelvid",
+    "Lotus",
+    "Mantis GT-220 Gatling",
+    "PIN",
+    "STOP",
+    "SW16BR1 “Buzzsaw” Repeater",
+    "SW16BR2 “Sawbuck” Repeater",
+    "SW16BR3 “Shredder” Repeater",
+    "Scorpion GT-215 Gatling",
+    "SparkJet",
+    "SparkJet Pro",
+    "Taiga",
+    "Tarantula GT-870 Mark 1 Cannon",
+    "Tarantula GT-870 Mark 2 Cannon",
+    "Tarantula GT-870 Mark 3 Cannon",
+    "Tige",
+    "TigerLilly",
+    "V801-11",
+    "V801-12",
+    "V880",
+    "Vigilance",
+    "WEB",
+    "WhiteOut",
+    "WhiteRose",
+    "Winter-Star",
+    "Winter-Star EX",
+    "Winter-Star SL",
+    "Winter-Star XL",
+    "YellowJacket GT-210 Gatling",
+    "ZapJet"
+   ]
+  },
+  "HeadHunters_DefendEntitesAndEscort_M_Desc": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "5CA 'Akura'",
+    "5MA 'Chimalli'",
+    "5SA 'Rhada'",
+    "6CA 'Bila'",
+    "6MA 'Kozane'",
+    "6SA 'Arbiter'",
+    "ARMOR",
+    "BLOC",
+    "BlastChill",
+    "ColdSurge",
+    "Cryo-Star",
+    "Cryo-Star EX",
+    "Cryo-Star SL",
+    "Cryo-Star XL",
+    "DuraJet",
+    "Endo",
+    "FlashFreeze",
+    "FrostBite",
+    "FullFrost",
+    "GUARD",
+    "HEX",
+    "Kelvid",
+    "Lotus",
+    "PIN",
+    "STOP",
+    "SparkJet",
+    "SparkJet Pro",
+    "Taiga",
+    "TigerLilly",
+    "WEB",
+    "WhiteOut",
+    "WhiteRose",
+    "Winter-Star",
+    "Winter-Star EX",
+    "Winter-Star SL",
+    "Winter-Star XL",
+    "ZapJet"
+   ]
+  },
+  "HeadHunters_DefendEntitesAndEscort_S_Desc": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "5CA 'Akura'",
+    "5MA 'Chimalli'",
+    "5SA 'Rhada'",
+    "6CA 'Bila'",
+    "6MA 'Kozane'",
+    "6SA 'Arbiter'",
+    "AD4B Ballistic Gatling",
+    "AD5B Ballistic Gatling",
+    "AD6B Ballistic Gatling",
+    "ARMOR",
+    "BLOC",
+    "BlastChill",
+    "ColdSurge",
+    "Cryo-Star",
+    "Cryo-Star EX",
+    "Cryo-Star SL",
+    "Cryo-Star XL",
+    "Devoue",
+    "DuraJet",
+    "Endo",
+    "FlashFreeze",
+    "FrostBite",
+    "FullFrost",
+    "GUARD",
+    "HEX",
+    "Kelvid",
+    "Lotus",
+    "Mantis GT-220 Gatling",
+    "PIN",
+    "STOP",
+    "SW16BR1 “Buzzsaw” Repeater",
+    "SW16BR2 “Sawbuck” Repeater",
+    "SW16BR3 “Shredder” Repeater",
+    "Scorpion GT-215 Gatling",
+    "SparkJet",
+    "SparkJet Pro",
+    "Taiga",
+    "Tarantula GT-870 Mark 1 Cannon",
+    "Tarantula GT-870 Mark 2 Cannon",
+    "Tarantula GT-870 Mark 3 Cannon",
+    "Tige",
+    "TigerLilly",
+    "V801-11",
+    "V801-12",
+    "V880",
+    "Vigilance",
+    "WEB",
+    "WhiteOut",
+    "WhiteRose",
+    "Winter-Star",
+    "Winter-Star EX",
+    "Winter-Star SL",
+    "Winter-Star XL",
+    "YellowJacket GT-210 Gatling",
+    "ZapJet"
+   ]
+  },
+  "HeadHunters_DefendEntitesAndEscort_VE_Desc": {
+   "bp": 6,
+   "total": 6,
+   "items": [
+    "5CA 'Akura'",
+    "5MA 'Chimalli'",
+    "5SA 'Rhada'",
+    "6CA 'Bila'",
+    "6MA 'Kozane'",
+    "6SA 'Arbiter'",
+    "ARMOR",
+    "BLOC",
+    "BlastChill",
+    "ColdSurge",
+    "Cryo-Star",
+    "Cryo-Star EX",
+    "Cryo-Star SL",
+    "Cryo-Star XL",
+    "DuraJet",
+    "Endo",
+    "FlashFreeze",
+    "FrostBite",
+    "FullFrost",
+    "GUARD",
+    "HEX",
+    "Kelvid",
+    "Lotus",
+    "PIN",
+    "STOP",
+    "SparkJet",
+    "SparkJet Pro",
+    "Taiga",
+    "TigerLilly",
+    "WEB",
+    "WhiteOut",
+    "WhiteRose",
+    "Winter-Star",
+    "Winter-Star EX",
+    "Winter-Star SL",
+    "Winter-Star XL",
+    "ZapJet"
+   ]
+  },
+  "HeadHunters_DefendEntitesAndEscort_VH_Desc": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "5CA 'Akura'",
+    "5MA 'Chimalli'",
+    "5SA 'Rhada'",
+    "6CA 'Bila'",
+    "6MA 'Kozane'",
+    "6SA 'Arbiter'",
+    "AD4B Ballistic Gatling",
+    "AD5B Ballistic Gatling",
+    "AD6B Ballistic Gatling",
+    "ARMOR",
+    "BLOC",
+    "BlastChill",
+    "ColdSurge",
+    "Cryo-Star",
+    "Cryo-Star EX",
+    "Cryo-Star SL",
+    "Cryo-Star XL",
+    "Devoue",
+    "DuraJet",
+    "Endo",
+    "FlashFreeze",
+    "FrostBite",
+    "FullFrost",
+    "GUARD",
+    "HEX",
+    "Kelvid",
+    "Lotus",
+    "Mantis GT-220 Gatling",
+    "PIN",
+    "STOP",
+    "SW16BR1 “Buzzsaw” Repeater",
+    "SW16BR2 “Sawbuck” Repeater",
+    "SW16BR3 “Shredder” Repeater",
+    "Scorpion GT-215 Gatling",
+    "SparkJet",
+    "SparkJet Pro",
+    "Taiga",
+    "Tarantula GT-870 Mark 1 Cannon",
+    "Tarantula GT-870 Mark 2 Cannon",
+    "Tarantula GT-870 Mark 3 Cannon",
+    "Tige",
+    "TigerLilly",
+    "V801-11",
+    "V801-12",
+    "V880",
+    "Vigilance",
+    "WEB",
+    "WhiteOut",
+    "WhiteRose",
+    "Winter-Star",
+    "Winter-Star EX",
+    "Winter-Star SL",
+    "Winter-Star XL",
+    "YellowJacket GT-210 Gatling",
+    "ZapJet"
+   ]
+  },
+  "Headhunters_defend_XT_VH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "Headhunters_eliminateall_caves_desc_01": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "Highpoint_KillAnimals_rockcracker_desc_E_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "Hockrow_FacilityDelve_P2M1_Repeat_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Corbel Arms Mire",
+    "Corbel Arms Smolder",
+    "Corbel Core Mire",
+    "Corbel Core Smolder",
+    "Corbel Helmet Mire",
+    "Corbel Helmet Smolder",
+    "Corbel Legs Mire",
+    "Corbel Legs Smolder",
+    "Fresnel \"Icebox\" Energy LMG",
+    "Fresnel Energy LMG",
+    "Fresnel Energy LMG Battery (165 Cap)",
+    "Geist Armor Arms Forest",
+    "Geist Armor Arms Rogue",
+    "Geist Armor Arms Whiteout",
+    "Geist Armor Core Forest",
+    "Geist Armor Core Rogue",
+    "Geist Armor Core Whiteout",
+    "Geist Armor Helmet Forest",
+    "Geist Armor Helmet Rogue",
+    "Geist Armor Helmet Whiteout",
+    "Geist Armor Legs Forest",
+    "Geist Armor Legs Rogue",
+    "Geist Armor Legs Whiteout",
+    "Novikov Backpack Mire",
+    "Novikov Backpack Smolder",
+    "Zenith Laser Sniper Rifle"
+   ]
+  },
+  "Hockrow_FacilityDelve_P2M2_Repeat_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Corbel Arms Patina",
+    "Corbel Core Patina",
+    "Corbel Helmet Patina",
+    "Corbel Legs Patina",
+    "Fresnel \"Rockfall\" Energy LMG",
+    "Fresnel Energy LMG Battery (165 Cap)",
+    "Geist Armor Arms",
+    "Geist Armor Core",
+    "Geist Armor Helmet",
+    "Geist Armor Legs",
+    "Novikov Backpack Patina",
+    "Zenith \"Landslide\" Laser Sniper Rifle"
+   ]
+  },
+  "Hockrow_FacilityDelve_P2M3_Repeat_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Corbel Arms Halcyon",
+    "Corbel Core Halcyon",
+    "Corbel Helmet Halcyon",
+    "Corbel Legs Halcyon",
+    "Geist Armor Arms Desert",
+    "Geist Armor Arms Whiteout",
+    "Geist Armor Core Desert",
+    "Geist Armor Core Whiteout",
+    "Geist Armor Helmet Desert",
+    "Geist Armor Helmet Whiteout",
+    "Geist Armor Legs Desert",
+    "Geist Armor Legs Whiteout",
+    "Novikov Backpack Halcyon",
+    "Zenith \"Thunderstrike\" Laser Sniper Rifle",
+    "Zenith Laser Sniper Rifle Battery (22 Cap)"
+   ]
+  },
+  "Hockrow_FacilityDelve_P3M1_desc": {
+   "bp": 1,
+   "total": 2,
+   "items": [
+    "Bolide",
+    "DynaFlux",
+    "Fresnel \"Molten\" Energy LMG",
+    "Fulgur",
+    "Geist Armor Arms ASD Edition",
+    "Geist Armor Core ASD Edition",
+    "Geist Armor Helmet ASD Edition",
+    "Geist Armor Legs ASD Edition",
+    "Zenith \"Darkwave\" Laser Sniper Rifle",
+    "Zenith Laser Sniper Rifle Battery (22 Cap)"
+   ]
+  },
+  "InterSec_KillShip_Vanduul_Desc_Super_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "InterSec_ResourceGathering_Cryopods_Desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Pulse Laser Pistol",
+    "Pulse Laser Pistol Battery (60 Cap)",
+    "Testudo Arms Earthshake",
+    "Testudo Backpack Earthshake",
+    "Testudo Core Earthshake",
+    "Testudo Helmet Earthshake",
+    "Testudo Legs Earthshake"
+   ]
+  },
+  "InterSec_ResourceGathering_Tech_Desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Pulse Laser Pistol",
+    "Pulse Laser Pistol Battery (60 Cap)",
+    "Testudo Arms Earthshake",
+    "Testudo Backpack Earthshake",
+    "Testudo Core Earthshake",
+    "Testudo Helmet Earthshake",
+    "Testudo Legs Earthshake"
+   ]
+  },
+  "InterSec_SecurityPatrol_H_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Quartz \"Deadfall\" Energy SMG",
+    "Quartz \"Lumen\" Energy SMG",
+    "Quartz Energy SMG Battery (45 cap)",
+    "Testudo Arms Nightveil",
+    "Testudo Arms Turfwar",
+    "Testudo Backpack Nightveil",
+    "Testudo Backpack Turfwar",
+    "Testudo Core Nightveil",
+    "Testudo Core Turfwar",
+    "Testudo Helmet Nightveil",
+    "Testudo Helmet Turfwar",
+    "Testudo Legs Nightveil",
+    "Testudo Legs Turfwar"
+   ]
+  },
+  "InterSec_SecurityPatrol_S_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Quartz \"Deadfall\" Energy SMG",
+    "Quartz \"Lumen\" Energy SMG",
+    "Quartz Energy SMG Battery (45 cap)",
+    "Testudo Arms Nightveil",
+    "Testudo Arms Turfwar",
+    "Testudo Backpack Nightveil",
+    "Testudo Backpack Turfwar",
+    "Testudo Core Nightveil",
+    "Testudo Core Turfwar",
+    "Testudo Helmet Nightveil",
+    "Testudo Helmet Turfwar",
+    "Testudo Legs Nightveil",
+    "Testudo Legs Turfwar"
+   ]
+  },
+  "InterSec_SecurityPatrol_VH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Quartz \"Deadfall\" Energy SMG",
+    "Quartz \"Lumen\" Energy SMG",
+    "Quartz Energy SMG Battery (45 cap)",
+    "Testudo Arms Nightveil",
+    "Testudo Arms Turfwar",
+    "Testudo Backpack Nightveil",
+    "Testudo Backpack Turfwar",
+    "Testudo Core Nightveil",
+    "Testudo Core Turfwar",
+    "Testudo Helmet Nightveil",
+    "Testudo Helmet Turfwar",
+    "Testudo Legs Nightveil",
+    "Testudo Legs Turfwar"
+   ]
+  },
+  "Intersec_DefendShip_Desc_Easy_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Pulse \"Rouge\" Pistol",
+    "Pulse Laser Pistol Battery (60 Cap)",
+    "Testudo Arms Combustion",
+    "Testudo Backpack Combustion",
+    "Testudo Core Combustion",
+    "Testudo Helmet Combustion",
+    "Testudo Legs Combustion"
+   ]
+  },
+  "Intersec_DefendShip_Desc_Hard_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Pulse \"Rouge\" Pistol",
+    "Pulse Laser Pistol Battery (60 Cap)",
+    "Testudo Arms Combustion",
+    "Testudo Backpack Combustion",
+    "Testudo Core Combustion",
+    "Testudo Helmet Combustion",
+    "Testudo Legs Combustion"
+   ]
+  },
+  "Intersec_DefendShip_Desc_Medium_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Pulse \"Rouge\" Pistol",
+    "Pulse Laser Pistol Battery (60 Cap)",
+    "Testudo Arms Combustion",
+    "Testudo Backpack Combustion",
+    "Testudo Core Combustion",
+    "Testudo Helmet Combustion",
+    "Testudo Legs Combustion"
+   ]
+  },
+  "Intersec_DefendShip_Vanduul_Desc_Super_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Pulse \"Rouge\" Pistol",
+    "Pulse Laser Pistol Battery (60 Cap)",
+    "Testudo Arms Combustion",
+    "Testudo Backpack Combustion",
+    "Testudo Core Combustion",
+    "Testudo Helmet Combustion",
+    "Testudo Legs Combustion"
+   ]
+  },
+  "Intersec_DefendShip_Vanduul_Desc_VeryHard_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Pulse \"Rouge\" Pistol",
+    "Pulse Laser Pistol Battery (60 Cap)",
+    "Testudo Arms Combustion",
+    "Testudo Backpack Combustion",
+    "Testudo Core Combustion",
+    "Testudo Helmet Combustion",
+    "Testudo Legs Combustion"
+   ]
+  },
+  "Intersec_KillShip_Desc_Easy_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "Intersec_KillShip_Desc_Hard_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "Intersec_KillShip_Desc_Intro_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "Intersec_KillShip_Desc_Medium_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "Intersec_KillShip_Vanduul_Desc_VeryHard_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "Intersec_TSG_Assist_Solo_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "CoverAll",
+    "Deadbolt I Cannon",
+    "Deadbolt II Cannon",
+    "Deadbolt III Cannon",
+    "ForceWall",
+    "FullBlock",
+    "Tailwind Flight Helmet Blackbolt",
+    "Tailwind Flight Helmet Green Streak",
+    "Tailwind Flight Suit"
+   ]
+  },
+  "Intersec_TSG_BombRun_Solo_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Deadbolt IV Cannon",
+    "Deadbolt V Cannon",
+    "Deadbolt VI Cannon",
+    "Permafrost",
+    "Polar",
+    "Tailwind Flight Helmet Adrenaline",
+    "Tailwind Flight Helmet Big Bite",
+    "Tailwind Flight Suit",
+    "Tempest"
+   ]
+  },
+  "Intersec_TSG_Group_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "JS-300",
+    "JS-400",
+    "JS-500",
+    "Neutrino Racing Flight Suit BlackFire",
+    "Neutrino Racing Flight Suit BlueFlame",
+    "Neutrino Racing Flight Suit WhiteHot",
+    "Neutrino Racing Helmet BlackFire",
+    "Neutrino Racing Helmet BlueFlame",
+    "Neutrino Racing Helmet WhiteHot",
+    "Novian \"Ghostmaker\" Crossbow",
+    "Novian \"Nighthunter\" Crossbow",
+    "Novian \"Wildshot\" Crossbow",
+    "Novian Crossbow",
+    "Omnisky III Cannon",
+    "Omnisky IX Cannon",
+    "Omnisky VI Cannon",
+    "Omnisky XII Cannon",
+    "Omnisky XV Cannon",
+    "Omnisky XVIII Cannon",
+    "QuadraCell MX",
+    "Tailwind Flight Helmet Airwolf",
+    "Tailwind Flight Helmet Blue Skies",
+    "Tailwind Flight Helmet Frostshock",
+    "Tailwind Flight Helmet Thunderstruck"
+   ]
+  },
+  "Kaboos_Mission_Description": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Attrition-1 Repeater",
+    "Attrition-2 Repeater",
+    "Attrition-3 Repeater",
+    "Pulse \"Blacklist\" Pistol",
+    "Pulse Laser Pistol Battery (60 Cap)",
+    "Quartz \"Black Op\" Energy SMG",
+    "Quartz Energy SMG",
+    "Quartz Energy SMG Battery (45 cap)",
+    "Testudo Arms",
+    "Testudo Arms Clanguard",
+    "Testudo Backpack",
+    "Testudo Core",
+    "Testudo Core Clanguard",
+    "Testudo Helmet",
+    "Testudo Helmet Clanguard",
+    "Testudo Legs",
+    "Testudo Legs Clanguard"
+   ]
+  },
+  "LingFamily_HaulCargo_AToB_Intro_desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Barbican",
+    "Bolt",
+    "Citadel",
+    "Guardian",
+    "Spectre",
+    "Spicule",
+    "Zephyr"
+   ]
+  },
+  "LingFamily_HaulCargo_AToB_desc_Fruit_Timed": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Barbican",
+    "Bolt",
+    "Citadel",
+    "Guardian",
+    "Spectre",
+    "Spicule",
+    "Zephyr"
+   ]
+  },
+  "LingFamily_HaulCargo_AToB_desc_Party_Timed": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Barbican",
+    "Bolt",
+    "Citadel",
+    "Guardian",
+    "Spectre",
+    "Spicule",
+    "Zephyr"
+   ]
+  },
+  "LingFamily_HaulCargo_MultiToSingle_desc_CFPAmenities": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Barbican",
+    "Bolt",
+    "Citadel",
+    "Guardian",
+    "Spectre",
+    "Spicule",
+    "Zephyr"
+   ]
+  },
+  "LingFamily_HaulCargo_MultiToSingle_desc_Party": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Barbican",
+    "Bolt",
+    "Citadel",
+    "Guardian",
+    "Spectre",
+    "Spicule",
+    "Zephyr"
+   ]
+  },
+  "ORS_Construct_Large_Desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "TH-01 Propulsor"
+   ]
+  },
+  "ORS_Construct_Medium_Desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "TH-01 Propulsor"
+   ]
+  },
+  "ORS_Construct_Small_Desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "TH-01 Propulsor"
+   ]
+  },
+  "RAIN_collectresources_multiple_GEN_desc_01": {
+   "bp": 2,
+   "total": 12,
+   "items": [
+    "P8-AR Rifle",
+    "P8-AR Rifle Magazine (15 Cap)",
+    "Palatino Arms",
+    "Palatino Arms Moonfall",
+    "Palatino Core",
+    "Palatino Core Moonfall",
+    "Palatino Helmet",
+    "Palatino Helmet Moonfall",
+    "Palatino Legs",
+    "Palatino Legs Moonfall",
+    "Prism \"Bonedust\" Laser Shotgun",
+    "Prism \"Deep Sea\" Laser Shotgun",
+    "Prism \"Firesteel\" Laser Shotgun",
+    "Prism Laser Shotgun",
+    "Prism Laser Shotgun Battery (20 cap)",
+    "Siebe Helmet",
+    "Stirling Exploration Suit"
+   ]
+  },
+  "RAIN_collectresources_multiple_OLP_desc_01": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Pulse \"Blacklist\" Pistol",
+    "Pulse \"Rouge\" Pistol",
+    "Pulse Laser Pistol",
+    "Pulse Laser Pistol Battery (60 Cap)",
+    "Quartz \"Black Op\" Energy SMG",
+    "Quartz \"Deadfall\" Energy SMG",
+    "Quartz \"Lumen\" Energy SMG",
+    "Quartz Energy SMG",
+    "Quartz Energy SMG Battery (45 cap)"
+   ]
+  },
+  "RAIN_collectresources_single_OLP_desc_01": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Pulse \"Blacklist\" Pistol",
+    "Pulse \"Rouge\" Pistol",
+    "Pulse Laser Pistol",
+    "Pulse Laser Pistol Battery (60 Cap)",
+    "Quartz \"Black Op\" Energy SMG",
+    "Quartz \"Deadfall\" Energy SMG",
+    "Quartz \"Lumen\" Energy SMG",
+    "Quartz Energy SMG",
+    "Quartz Energy SMG Battery (45 cap)"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Intro_Local_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Arclight \"Desert Shadow\" Pistol",
+    "Arclight \"Herrero\" Pistol",
+    "Arclight \"Midnight\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Novikov Exploration Suit",
+    "Novikov Helmet",
+    "Pembroke Exploration Suit",
+    "Pembroke Helmet",
+    "Strata Arms",
+    "Strata Core",
+    "Strata Helmet Shooting Star",
+    "Strata Legs"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Pyro_E_Local_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arclight \"Desert Shadow\" Pistol",
+    "Arclight \"Herrero\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Novikov Exploration Suit",
+    "Novikov Helmet",
+    "Pembroke Exploration Suit",
+    "Pembroke Helmet"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Pyro_H_PlanetarySystem_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arclight \"Desert Shadow\" Pistol",
+    "Arclight \"Herrero\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Novikov Exploration Suit",
+    "Novikov Helmet",
+    "Pembroke Exploration Suit",
+    "Pembroke Helmet"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Pyro_M_DiscoverPlanetary_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arclight \"Desert Shadow\" Pistol",
+    "Arclight \"Herrero\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Novikov Exploration Suit",
+    "Novikov Helmet",
+    "Pembroke Exploration Suit",
+    "Pembroke Helmet"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Pyro_Nyx_VH_Interstellar_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arclight \"Desert Shadow\" Pistol",
+    "Arclight \"Herrero\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Novikov Exploration Suit",
+    "Novikov Helmet",
+    "Pembroke Exploration Suit",
+    "Pembroke Helmet"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Pyro_VH_Interstellar_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arclight \"Desert Shadow\" Pistol",
+    "Arclight \"Herrero\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Novikov Exploration Suit",
+    "Novikov Helmet",
+    "Pembroke Exploration Suit",
+    "Pembroke Helmet"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Stanton_E_Local_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arclight \"Midnight\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Strata Arms",
+    "Strata Core",
+    "Strata Helmet Shooting Star",
+    "Strata Legs"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Stanton_E_PlanetarySystem_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arclight \"Midnight\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Strata Arms",
+    "Strata Core",
+    "Strata Helmet Shooting Star",
+    "Strata Legs"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Stanton_H_PlanetarySystem_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Arclight \"Midnight\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Strata Arms",
+    "Strata Core",
+    "Strata Helmet Shooting Star",
+    "Strata Legs"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Stanton_H_Planetary_Solar_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arclight \"Midnight\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Strata Arms",
+    "Strata Core",
+    "Strata Helmet Shooting Star",
+    "Strata Legs"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Stanton_M_DiscoverPlanetary_Desc_001": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Arclight \"Midnight\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Strata Arms",
+    "Strata Core",
+    "Strata Helmet Shooting Star",
+    "Strata Legs"
+   ]
+  },
+  "Shubin_Industrial_HandMining_Stanton_VH_Solar_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arclight \"Midnight\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Strata Arms",
+    "Strata Core",
+    "Strata Helmet Shooting Star",
+    "Strata Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Nyx_E_Local_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arbor MHV Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Horizon Helmet",
+    "Lawson Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Nyx_H_Secondary_Desc_001": {
+   "bp": 5,
+   "total": 5,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Pitman Mining Laser",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Nyx_M_Solar_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Pitman Mining Laser",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Nyx_S_Secondary_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Nyx_VE_Local_Desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Arbor MHV Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Horizon Helmet",
+    "Lawson Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Nyx_VH_Interstellar_Desc_001": {
+   "bp": 5,
+   "total": 5,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Nyx_VH_Secondary_Desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Pyro_E_Local_Desc_001": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Arbor MHV Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Horizon Helmet",
+    "Lawson Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Pyro_H_PrimarySecondary_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Pitman Mining Laser",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Pyro_H_Secondary_Desc_001": {
+   "bp": 6,
+   "total": 6,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Pitman Mining Laser",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Pyro_M_Solar_Desc_001": {
+   "bp": 12,
+   "total": 12,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Pitman Mining Laser",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Pyro_S_Secondary_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Pyro_VH_Secondary_Desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Stanton_E_Local_Desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Arbor MHV Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "Lawson Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Stanton_H_PrimarySecondary_Desc_001": {
+   "bp": 7,
+   "total": 7,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Pitman Mining Laser"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Stanton_H_Secondary_Desc_001": {
+   "bp": 7,
+   "total": 7,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Pitman Mining Laser"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Stanton_H_Secondary_Interstellar_Desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Stanton_M_Solar_Desc_001": {
+   "bp": 17,
+   "total": 17,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "Helix I Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Impact I Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Pitman Mining Laser"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Stanton_S_Secondary_Desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Stanton_VE_Local_Desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Arbor MHV Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "Lawson Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Stanton_VH_Interstellar_Desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Stanton_VH_Secondary_Desc_001": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_Stanton_VH_Secondary_Interstellar_Desc_001": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "Shubin_Industrial_ShipMining_VH_Org_Desc_001": {
+   "bp": 7,
+   "total": 7,
+   "items": [
+    "Arbor MH1 Mining Laser",
+    "Arbor MH2 Mining Laser",
+    "Arbor MHV Mining Laser",
+    "Arclight \"Nightstalker\" Pistol",
+    "Arclight \"Stormfall\" Pistol",
+    "Arclight \"Warhawk\" Pistol",
+    "Arclight Pistol",
+    "Arclight Pistol Battery (30 cap)",
+    "Aril Arms",
+    "Aril Core",
+    "Aril Helmet",
+    "Aril Legs",
+    "BroadSpec",
+    "BroadSpec-Go",
+    "BroadSpec-Max",
+    "FullSpec",
+    "FullSpec-Go",
+    "FullSpec-Max",
+    "Helix I Mining Laser",
+    "Helix II Mining Laser",
+    "Hofstede-S1 Mining Laser",
+    "Hofstede-S2 Mining Laser",
+    "Horizon Helmet",
+    "Impact I Mining Laser",
+    "Impact II Mining Laser",
+    "Klein-S1 Mining Laser",
+    "Klein-S2 Mining Laser",
+    "Lancet MH1 Mining Laser",
+    "Lancet MH2 Mining Laser",
+    "Lawson Mining Laser",
+    "Pitman Mining Laser",
+    "S0 Helix",
+    "S00 Hofstede",
+    "Surveyor",
+    "Surveyor-Go",
+    "Surveyor-Lite",
+    "Surveyor-Max",
+    "Venture Arms",
+    "Venture Core",
+    "Venture Legs"
+   ]
+  },
+  "TheCollector_Recipes_Desc_L22Wolf": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Metamaterial Test #146"
+   ]
+  },
+  "TheCollector_Recipes_Desc_NoneAR": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Killshot \"Dominion Camo\" Rifle"
+   ]
+  },
+  "TheCollector_Recipes_Desc_SuperHeavyCombat": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "BUL-H4 Armor Snow Camo",
+    "BUL-H4 Helmet Snow Camo",
+    "H4-PBF Ammo Carrier Snow Camo"
+   ]
+  },
+  "TheCollector_Recipes_Desc_VGLflightsuit": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Tailwind Flight Helmet Dominion Camo",
+    "Tailwind Flight Suit Dominion Camo"
+   ]
+  },
+  "TheCollector_Recipes_Desc_aparGatlingGun": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Vendetta \"Snow Camo\" HMG"
+   ]
+  },
+  "TheCollector_Recipes_DrakeClipper": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Metamaterial Test #152"
+   ]
+  },
+  "UWC_Refueling_easy_desc_001": {
+   "bp": 16,
+   "total": 16,
+   "items": [
+    "Bendix",
+    "Ezra",
+    "Harkin",
+    "Lindstrom",
+    "Marlin",
+    "Norfield",
+    "RN-7s",
+    "Torrez"
+   ]
+  },
+  "UWC_Refueling_high_desc_001": {
+   "bp": 7,
+   "total": 7,
+   "items": [
+    "Bendix",
+    "Ezra",
+    "Harkin",
+    "Lindstrom",
+    "Marlin",
+    "Norfield",
+    "RN-7s",
+    "Torrez"
+   ]
+  },
+  "UWC_Refueling_moderate_desc_001": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "Bendix",
+    "Ezra",
+    "Harkin",
+    "Lindstrom",
+    "Marlin",
+    "Norfield",
+    "RN-7s",
+    "Torrez"
+   ]
+  },
+  "UWC_Refueling_multiple_hard_desc_001": {
+   "bp": 17,
+   "total": 17,
+   "items": [
+    "Bendix",
+    "Ezra",
+    "Harkin",
+    "Lindstrom",
+    "Marlin",
+    "Norfield",
+    "RN-7s",
+    "Torrez"
+   ]
+  },
+  "UWC_Refueling_multiple_med_desc_001": {
+   "bp": 36,
+   "total": 36,
+   "items": [
+    "Bendix",
+    "Ezra",
+    "Harkin",
+    "Lindstrom",
+    "Marlin",
+    "Norfield",
+    "RN-7s",
+    "Torrez"
+   ]
+  },
+  "UWC_Refuelling_BespokeCapital_Desc": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Bendix",
+    "Ezra",
+    "Harkin",
+    "Lindstrom",
+    "Marlin",
+    "Norfield",
+    "RN-7s",
+    "Torrez"
+   ]
+  },
+  "Vaughn_EliminateSpecific_FPS_Rockcracker_Maintenance_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "Vaughn_EliminateSpecific_FPS_Rockcracker_Power_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "Vaughn_EliminateSpecific_FPS_Rockcracker_Warehouse_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "bhg_bounty_desc_ASD_Engineering_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Palatino Arms Sunstone",
+    "Palatino Core Sunstone",
+    "Palatino Helmet Sunstone",
+    "Palatino Legs Sunstone"
+   ]
+  },
+  "bhg_bounty_desc_ASD_Research_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Palatino Arms Daystar",
+    "Palatino Arms Metropolis",
+    "Palatino Core Daystar",
+    "Palatino Core Metropolis",
+    "Palatino Helmet Daystar",
+    "Palatino Helmet Metropolis",
+    "Palatino Legs Daystar",
+    "Palatino Legs Metropolis"
+   ]
+  },
+  "bhg_bounty_desc_Rockcracker_Power_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "bhg_bounty_desc_Rockcracker_Zone1_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "bhg_bounty_desc_Rockcracker_Zone2_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "blackbox_recover_desc_E_001": {
+   "bp": 2,
+   "total": 4,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ]
+  },
+  "blackbox_recover_desc_H_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ]
+  },
+  "blackbox_recover_desc_M_001": {
+   "bp": 2,
+   "total": 4,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ]
+  },
+  "blackbox_recover_desc_S_001": {
+   "bp": 2,
+   "total": 4,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ]
+  },
+  "blackbox_recover_desc_VE_001": {
+   "bp": 2,
+   "total": 4,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ]
+  },
+  "blackbox_recover_desc_VH_001": {
+   "bp": 2,
+   "total": 4,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ]
+  },
+  "blackbox_recover_desc_intro_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ]
+  },
+  "cfp_ChainElimAll_1C_ElimSpec_GenAttack_E_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms Lodestone",
+    "Artimex Core Lodestone",
+    "Artimex Helmet Lodestone",
+    "Artimex Legs Lodestone",
+    "Karna \"Brimstone\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_ChainElimAll_1C_ElimSpec_HHAttack_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms Lodestone",
+    "Artimex Core Lodestone",
+    "Artimex Helmet Lodestone",
+    "Artimex Legs Lodestone",
+    "Karna \"Brimstone\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_ChainElimAll_1C_HHAttack_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms (Modified)",
+    "Artimex Core (Modified)",
+    "Karna \"Fate\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_ChainElimAll_2C_ElimSpec_GenAttack_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms Lodestone",
+    "Artimex Core Lodestone",
+    "Artimex Helmet Lodestone",
+    "Artimex Legs Lodestone",
+    "Karna \"Brimstone\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_ChainElimAll_2C_ElimSpec_HHAttack_H_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms Lodestone",
+    "Artimex Core Lodestone",
+    "Artimex Helmet Lodestone",
+    "Artimex Legs Lodestone",
+    "Karna \"Brimstone\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_ChainElimAll_2C_ElimSpec_XTAttack_H_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms Lodestone",
+    "Artimex Core Lodestone",
+    "Artimex Helmet Lodestone",
+    "Artimex Legs Lodestone",
+    "Karna \"Brimstone\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_ChainElimAll_3C_ElimSpec_GenAttack_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms (Modified)",
+    "Artimex Core (Modified)",
+    "Karna \"Fate\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_ChainElimAll_3C_ElimSpec_HHAttack_VH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms (Modified)",
+    "Artimex Core (Modified)",
+    "Karna \"Fate\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_ChainElimAll_3C_ElimSpec_XTAttack_VH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms (Modified)",
+    "Artimex Core (Modified)",
+    "Karna \"Fate\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_bombingrun_E_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "A03 Sniper Rifle",
+    "A03 Sniper Rifle Magazine (15 cap)",
+    "ADP Arms Woodland",
+    "ADP Core",
+    "ADP Legs Woodland",
+    "ADP-mk4 Arms Woodland",
+    "ADP-mk4 Core Woodland",
+    "ADP-mk4 Helmet Woodland",
+    "ADP-mk4 Legs Woodland",
+    "Argus Helmet",
+    "BR-2 Shotgun",
+    "BR-2 Shotgun Magazine (12 cap)",
+    "Balor HCH Helmet",
+    "CBH-3 Helmet Base",
+    "FS-9 LMG",
+    "FS-9 Magazine (75 cap)",
+    "Gallant Rifle",
+    "Gallant Rifle Battery (45 cap)",
+    "P6-LR Magazine (8 cap)",
+    "P6-LR Sniper Rifle",
+    "PAB-1 Arms",
+    "PAB-1 Core",
+    "PAB-1 Legs",
+    "TrueDef-Pro Arms",
+    "TrueDef-Pro Core Base",
+    "TrueDef-Pro Legs"
+   ]
+  },
+  "cfp_bombingrun_sabotage_generators_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "A03 Sniper Rifle",
+    "A03 Sniper Rifle Magazine (15 cap)",
+    "ADP Arms Woodland",
+    "ADP Core",
+    "ADP Legs Woodland",
+    "ADP-mk4 Arms Woodland",
+    "ADP-mk4 Core Woodland",
+    "ADP-mk4 Helmet Woodland",
+    "ADP-mk4 Legs Woodland",
+    "Argus Helmet",
+    "BR-2 Shotgun",
+    "BR-2 Shotgun Magazine (12 cap)",
+    "Balor HCH Helmet",
+    "CBH-3 Helmet Base",
+    "FS-9 LMG",
+    "FS-9 Magazine (75 cap)",
+    "Gallant Rifle",
+    "Gallant Rifle Battery (45 cap)",
+    "P6-LR Magazine (8 cap)",
+    "P6-LR Sniper Rifle",
+    "PAB-1 Arms",
+    "PAB-1 Core",
+    "PAB-1 Legs",
+    "TrueDef-Pro Arms",
+    "TrueDef-Pro Core Base",
+    "TrueDef-Pro Legs"
+   ]
+  },
+  "cfp_defend-criminals_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Artimex Arms",
+    "Artimex Arms (Modified)",
+    "Artimex Core",
+    "Artimex Core (Modified)",
+    "Artimex Helmet",
+    "Artimex Legs",
+    "Karna \"Fate\" Rifle",
+    "Karna Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_defend-xenothreat_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms (Modified)",
+    "Artimex Core (Modified)",
+    "Karna \"Fate\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_defend-xenothreat_desc_002": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms",
+    "Artimex Core",
+    "Artimex Helmet",
+    "Artimex Legs",
+    "Karna Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_defend-xenothreat_desc_003": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms",
+    "Artimex Core",
+    "Artimex Helmet",
+    "Artimex Legs",
+    "Karna Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_defend_boss_Generic_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms Canuto",
+    "Artimex Core Canuto",
+    "Artimex Helmet Canuto",
+    "Artimex Legs Canuto",
+    "Karna \"Valor\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_defend_cave_Generic_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms",
+    "Artimex Core",
+    "Artimex Helmet",
+    "Artimex Legs",
+    "Karna Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_defend_headhunters_H_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms",
+    "Artimex Core",
+    "Artimex Helmet",
+    "Artimex Legs",
+    "Karna Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_defend_headhunters_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms",
+    "Artimex Core",
+    "Artimex Helmet",
+    "Artimex Legs",
+    "Karna Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_defend_regionshift_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Artimex Arms",
+    "Artimex Arms Canuto",
+    "Artimex Arms Lodestone",
+    "Artimex Core",
+    "Artimex Core Canuto",
+    "Artimex Core Lodestone",
+    "Artimex Helmet",
+    "Artimex Helmet Canuto",
+    "Artimex Helmet Lodestone",
+    "Artimex Legs",
+    "Artimex Legs Canuto",
+    "Artimex Legs Lodestone",
+    "Karna \"Brimstone\" Rifle",
+    "Karna \"Valor\" Rifle",
+    "Karna Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_defendship_LRT_desc_001": {
+   "bp": 1,
+   "total": 9,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "cfp_defendship_MRT_desc_001": {
+   "bp": 1,
+   "total": 9,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "cfp_defendship_VLRT_desc_001": {
+   "bp": 1,
+   "total": 9,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "cfp_defendship_multi_HRT_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "cfp_defendship_multi_SRT_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "cfp_defendship_multi_VHRT_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "cfp_eliminateall_XT_E_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms Canuto",
+    "Artimex Core Canuto",
+    "Artimex Helmet Canuto",
+    "Artimex Legs Canuto",
+    "Karna \"Valor\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_eliminateall_fromCFP_Gen_E_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms Canuto",
+    "Artimex Core Canuto",
+    "Artimex Helmet Canuto",
+    "Artimex Legs Canuto",
+    "Karna \"Valor\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_eliminateall_fromCFP_XT_M_desc_001": {
+   "bp": 1,
+   "total": 2,
+   "items": [
+    "Artimex Arms Canuto",
+    "Artimex Core Canuto",
+    "Artimex Helmet Canuto",
+    "Artimex Legs Canuto",
+    "Karna \"Valor\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_eliminateall_fromCFP_hh_M_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Artimex Arms Canuto",
+    "Artimex Arms Wildwood",
+    "Artimex Core Canuto",
+    "Artimex Core Wildwood",
+    "Artimex Helmet Canuto",
+    "Artimex Helmet Wildwood",
+    "Artimex Legs Canuto",
+    "Artimex Legs Wildwood",
+    "Karna \"Rager\" Rifle",
+    "Karna \"Valor\" Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_eliminateall_hh_E_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Artimex Arms",
+    "Artimex Core",
+    "Artimex Helmet",
+    "Artimex Legs",
+    "Karna Rifle",
+    "Karna Rifle Battery (35 cap)"
+   ]
+  },
+  "cfp_sabotage_VH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "ADP Arms Woodland",
+    "ADP Core",
+    "ADP Legs Woodland",
+    "ADP-mk4 Arms Woodland",
+    "ADP-mk4 Core Woodland",
+    "ADP-mk4 Helmet Woodland",
+    "ADP-mk4 Legs Woodland",
+    "BR-2 Shotgun",
+    "BR-2 Shotgun Magazine (12 cap)",
+    "Balor HCH Helmet",
+    "FS-9 LMG",
+    "FS-9 Magazine (75 cap)",
+    "Gallant Rifle",
+    "Gallant Rifle Battery (45 cap)"
+   ]
+  },
+  "cfp_sabotage_generators_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "ADP Arms Woodland",
+    "ADP Core",
+    "ADP Legs Woodland",
+    "ADP-mk4 Arms Woodland",
+    "ADP-mk4 Core Woodland",
+    "ADP-mk4 Helmet Woodland",
+    "ADP-mk4 Legs Woodland",
+    "BR-2 Shotgun",
+    "BR-2 Shotgun Magazine (12 cap)",
+    "Balor HCH Helmet",
+    "FS-9 LMG",
+    "FS-9 Magazine (75 cap)",
+    "Gallant Rifle",
+    "Gallant Rifle Battery (45 cap)"
+   ]
+  },
+  "cfp_sabotage_generators_VE_desc_001": {
+   "bp": 8,
+   "total": 8,
+   "items": [
+    "A03 Sniper Rifle",
+    "A03 Sniper Rifle Magazine (15 cap)",
+    "ADP Arms Woodland",
+    "ADP Core",
+    "ADP Legs Woodland",
+    "ADP-mk4 Arms Woodland",
+    "ADP-mk4 Core Woodland",
+    "ADP-mk4 Helmet Woodland",
+    "ADP-mk4 Legs Woodland",
+    "Argus Helmet",
+    "BR-2 Shotgun",
+    "BR-2 Shotgun Magazine (12 cap)",
+    "Balor HCH Helmet",
+    "CBH-3 Helmet Base",
+    "FS-9 LMG",
+    "FS-9 Magazine (75 cap)",
+    "Gallant Rifle",
+    "Gallant Rifle Battery (45 cap)",
+    "P6-LR Magazine (8 cap)",
+    "P6-LR Sniper Rifle",
+    "PAB-1 Arms",
+    "PAB-1 Core",
+    "PAB-1 Legs",
+    "TrueDef-Pro Arms",
+    "TrueDef-Pro Core Base",
+    "TrueDef-Pro Legs"
+   ]
+  },
+  "cfp_sabotage_server_elimiatespecific_HH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "A03 Sniper Rifle",
+    "A03 Sniper Rifle Magazine (15 cap)",
+    "Argus Helmet",
+    "CBH-3 Helmet Base",
+    "P6-LR Magazine (8 cap)",
+    "P6-LR Sniper Rifle",
+    "PAB-1 Arms",
+    "PAB-1 Core",
+    "PAB-1 Legs",
+    "TrueDef-Pro Arms",
+    "TrueDef-Pro Core Base",
+    "TrueDef-Pro Legs"
+   ]
+  },
+  "cfp_sabotage_servers_H_XT_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "A03 Sniper Rifle",
+    "A03 Sniper Rifle Magazine (15 cap)",
+    "ADP Arms Woodland",
+    "ADP Core",
+    "ADP Legs Woodland",
+    "ADP-mk4 Arms Woodland",
+    "ADP-mk4 Core Woodland",
+    "ADP-mk4 Helmet Woodland",
+    "ADP-mk4 Legs Woodland",
+    "Argus Helmet",
+    "BR-2 Shotgun",
+    "BR-2 Shotgun Magazine (12 cap)",
+    "Balor HCH Helmet",
+    "CBH-3 Helmet Base",
+    "FS-9 LMG",
+    "FS-9 Magazine (75 cap)",
+    "Gallant Rifle",
+    "Gallant Rifle Battery (45 cap)",
+    "P6-LR Magazine (8 cap)",
+    "P6-LR Sniper Rifle",
+    "PAB-1 Arms",
+    "PAB-1 Core",
+    "PAB-1 Legs",
+    "TrueDef-Pro Arms",
+    "TrueDef-Pro Core Base",
+    "TrueDef-Pro Legs"
+   ]
+  },
+  "cfp_sabotage_servers_M_HH_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "A03 Sniper Rifle",
+    "A03 Sniper Rifle Magazine (15 cap)",
+    "ADP Arms Woodland",
+    "ADP Core",
+    "ADP Legs Woodland",
+    "ADP-mk4 Arms Woodland",
+    "ADP-mk4 Core Woodland",
+    "ADP-mk4 Helmet Woodland",
+    "ADP-mk4 Legs Woodland",
+    "Argus Helmet",
+    "BR-2 Shotgun",
+    "BR-2 Shotgun Magazine (12 cap)",
+    "Balor HCH Helmet",
+    "CBH-3 Helmet Base",
+    "FS-9 LMG",
+    "FS-9 Magazine (75 cap)",
+    "Gallant Rifle",
+    "Gallant Rifle Battery (45 cap)",
+    "P6-LR Magazine (8 cap)",
+    "P6-LR Sniper Rifle",
+    "PAB-1 Arms",
+    "PAB-1 Core",
+    "PAB-1 Legs",
+    "TrueDef-Pro Arms",
+    "TrueDef-Pro Core Base",
+    "TrueDef-Pro Legs"
+   ]
+  },
+  "cfp_sabotage_servers_VH_XT_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "ADP Arms Woodland",
+    "ADP Core",
+    "ADP Legs Woodland",
+    "ADP-mk4 Arms Woodland",
+    "ADP-mk4 Core Woodland",
+    "ADP-mk4 Helmet Woodland",
+    "ADP-mk4 Legs Woodland",
+    "BR-2 Shotgun",
+    "BR-2 Shotgun Magazine (12 cap)",
+    "Balor HCH Helmet",
+    "FS-9 LMG",
+    "FS-9 Magazine (75 cap)",
+    "Gallant Rifle",
+    "Gallant Rifle Battery (45 cap)"
+   ]
+  },
+  "destroyprobelegal_desc": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "eckhart_defendship_LRT_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "eckhart_defendship_MRT_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "eckhart_defendship_VLRT_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "eckhart_defendship_multi_HRT_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "eckhart_defendship_multi_SRT_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "eckhart_defendship_multi_VHRT_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "foxwell_DefendShip_E_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "foxwell_DefendShip_H_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "foxwell_DefendShip_M_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Antium Arms Maroon",
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ]
+  },
+  "headhunters_ChainElimAll_1C_AttackCFP_E_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_ChainElimAll_1C_AttackXT_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_ChainElimAll_1C_ElimSpec_AttackCFP_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_ChainElimAll_2C_ElimSpec_AttackCFP_H_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_ChainElimAll_2C_ElimSpec_AttackXT_H_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_ChainElimAll_3C_ElimSpec_AttackCFP_VH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_ChainElimAll_3C_ElimSpec_AttackXT_VH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_ChainElimAll_AttackCFP_E_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "DustUp Arms Tactical",
+    "DustUp Core Tactical",
+    "DustUp Helmet Tactical",
+    "DustUp Legs Tactical",
+    "Yubarev \"Igniter\" Pistol",
+    "Yubarev \"Mirage\" Pistol",
+    "Yubarev Pistol",
+    "Yubarev Pistol Battery (10 cap)"
+   ]
+  },
+  "headhunters_ChainElimAll_AttackGen_E_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "DustUp Arms Tactical",
+    "DustUp Core Tactical",
+    "DustUp Helmet Tactical",
+    "DustUp Legs Tactical",
+    "Yubarev \"Igniter\" Pistol",
+    "Yubarev \"Mirage\" Pistol",
+    "Yubarev Pistol",
+    "Yubarev Pistol Battery (10 cap)"
+   ]
+  },
+  "headhunters_ChainElimAll_Boss_XenoThreat_VH_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical",
+    "DustUp Arms Tactical",
+    "DustUp Core Tactical",
+    "DustUp Helmet Tactical",
+    "DustUp Legs Tactical",
+    "Yubarev \"Igniter\" Pistol",
+    "Yubarev \"Mirage\" Pistol",
+    "Yubarev Pistol",
+    "Yubarev Pistol Battery (10 cap)"
+   ]
+  },
+  "headhunters_EliminateAll_XenoThreat_H_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_EliminateSpecific_Asteroid_Generic_M_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Deadrig Shotgun Magazine (8 cap)",
+    "Dust Devil Armor Arms",
+    "Dust Devil Armor Core",
+    "Dust Devil Armor Legs",
+    "Manticore Helmet",
+    "Ravager-212 Twin Shotgun",
+    "Ravager-212 Twin Shotgun Magazine (16 cap)",
+    "Ripper \"Sunblock\" SMG"
+   ]
+  },
+  "headhunters_EliminateSpecific_Asteroid_Generic_VE_desc_001": {
+   "bp": 8,
+   "total": 8,
+   "items": [
+    "Coda \"Big Boss\" Pistol",
+    "Coda \"Nighthawk\" Pistol",
+    "Coda Pistol",
+    "Coda Pistol Magazine (6 cap)",
+    "Devastator \"Midnight\" Shotgun",
+    "Devastator \"Warhawk\" Shotgun",
+    "Devastator Shotgun",
+    "Devastator Shotgun Battery (12 cap)",
+    "Morozov-SH Arms",
+    "Morozov-SH Arms Thule",
+    "Morozov-SH Core",
+    "Morozov-SH Core Thule",
+    "Morozov-SH Helmet",
+    "Morozov-SH Helmet Thule",
+    "Morozov-SH Legs",
+    "Morozov-SH Legs Thule",
+    "Scalpel Sniper Rifle",
+    "Scalpel Sniper Rifle Magazine (12 cap)"
+   ]
+  },
+  "headhunters_EliminateSpecific_CFP_E_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Coda \"Big Boss\" Pistol",
+    "Coda \"Nighthawk\" Pistol",
+    "Coda Pistol",
+    "Coda Pistol Magazine (6 cap)",
+    "Morozov-SH Arms",
+    "Morozov-SH Core",
+    "Morozov-SH Helmet",
+    "Morozov-SH Legs",
+    "Scalpel Sniper Rifle",
+    "Scalpel Sniper Rifle Magazine (12 cap)"
+   ]
+  },
+  "headhunters_EliminateSpecific_CFP_H_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Devastator \"Midnight\" Shotgun",
+    "Devastator \"Warhawk\" Shotgun",
+    "Devastator Shotgun",
+    "Devastator Shotgun Battery (12 cap)",
+    "Morozov-SH Arms Thule",
+    "Morozov-SH Core Thule",
+    "Morozov-SH Helmet Thule",
+    "Morozov-SH Legs Thule"
+   ]
+  },
+  "headhunters_EliminateSpecific_CFP_M_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Coda \"Big Boss\" Pistol",
+    "Coda \"Nighthawk\" Pistol",
+    "Coda Pistol",
+    "Coda Pistol Magazine (6 cap)",
+    "Devastator \"Midnight\" Shotgun",
+    "Devastator \"Warhawk\" Shotgun",
+    "Devastator Shotgun",
+    "Devastator Shotgun Battery (12 cap)",
+    "Morozov-SH Arms",
+    "Morozov-SH Arms Thule",
+    "Morozov-SH Core",
+    "Morozov-SH Core Thule",
+    "Morozov-SH Helmet",
+    "Morozov-SH Helmet Thule",
+    "Morozov-SH Legs",
+    "Morozov-SH Legs Thule",
+    "Scalpel Sniper Rifle",
+    "Scalpel Sniper Rifle Magazine (12 cap)"
+   ]
+  },
+  "headhunters_EliminateSpecific_Defector_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Devastator \"Midnight\" Shotgun",
+    "Devastator \"Warhawk\" Shotgun",
+    "Devastator Shotgun",
+    "Devastator Shotgun Battery (12 cap)",
+    "Morozov-SH Arms Thule",
+    "Morozov-SH Core Thule",
+    "Morozov-SH Helmet Thule",
+    "Morozov-SH Legs Thule"
+   ]
+  },
+  "headhunters_EliminateSpecific_Generic_E_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Devastator \"Midnight\" Shotgun",
+    "Devastator \"Warhawk\" Shotgun",
+    "Devastator Shotgun",
+    "Devastator Shotgun Battery (12 cap)",
+    "Morozov-SH Arms Thule",
+    "Morozov-SH Core Thule",
+    "Morozov-SH Helmet Thule",
+    "Morozov-SH Legs Thule"
+   ]
+  },
+  "headhunters_EliminateSpecific_Generic_M_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Coda \"Big Boss\" Pistol",
+    "Coda \"Nighthawk\" Pistol",
+    "Coda Pistol",
+    "Coda Pistol Magazine (6 cap)",
+    "Morozov-SH Arms",
+    "Morozov-SH Core",
+    "Morozov-SH Helmet",
+    "Morozov-SH Legs",
+    "Scalpel Sniper Rifle",
+    "Scalpel Sniper Rifle Magazine (12 cap)"
+   ]
+  },
+  "headhunters_EliminateSpecific_Generic_VH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Coda \"Big Boss\" Pistol",
+    "Coda \"Nighthawk\" Pistol",
+    "Coda Pistol",
+    "Coda Pistol Magazine (6 cap)",
+    "Morozov-SH Arms",
+    "Morozov-SH Core",
+    "Morozov-SH Helmet",
+    "Morozov-SH Legs",
+    "Scalpel Sniper Rifle",
+    "Scalpel Sniper Rifle Magazine (12 cap)"
+   ]
+  },
+  "headhunters_EliminateSpecific_XenoThreat_H_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Coda \"Big Boss\" Pistol",
+    "Coda \"Nighthawk\" Pistol",
+    "Coda Pistol",
+    "Coda Pistol Magazine (6 cap)",
+    "Morozov-SH Arms",
+    "Morozov-SH Core",
+    "Morozov-SH Helmet",
+    "Morozov-SH Legs",
+    "Scalpel Sniper Rifle",
+    "Scalpel Sniper Rifle Magazine (12 cap)"
+   ]
+  },
+  "headhunters_EliminateSpecific_XenoThreat_VH_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Coda \"Big Boss\" Pistol",
+    "Coda \"Nighthawk\" Pistol",
+    "Coda Pistol",
+    "Coda Pistol Magazine (6 cap)",
+    "Morozov-SH Arms",
+    "Morozov-SH Core",
+    "Morozov-SH Helmet",
+    "Morozov-SH Legs",
+    "Scalpel Sniper Rifle",
+    "Scalpel Sniper Rifle Magazine (12 cap)"
+   ]
+  },
+  "headhunters_EliminateSpecific_XenoThreat_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Devastator \"Midnight\" Shotgun",
+    "Devastator \"Warhawk\" Shotgun",
+    "Devastator Shotgun",
+    "Devastator Shotgun Battery (12 cap)",
+    "Morozov-SH Arms Thule",
+    "Morozov-SH Core Thule",
+    "Morozov-SH Helmet Thule",
+    "Morozov-SH Legs Thule"
+   ]
+  },
+  "headhunters_defend_xt_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "DustUp Arms Tactical",
+    "DustUp Core Tactical",
+    "DustUp Helmet Tactical",
+    "DustUp Legs Tactical",
+    "Yubarev \"Igniter\" Pistol",
+    "Yubarev \"Mirage\" Pistol",
+    "Yubarev Pistol",
+    "Yubarev Pistol Battery (10 cap)"
+   ]
+  },
+  "headhunters_eliminateall_XT_derelicts_desc_01": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_eliminateall_base_Generic_E_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical",
+    "DustUp Arms Tactical",
+    "DustUp Core Tactical",
+    "DustUp Helmet Tactical",
+    "DustUp Legs Tactical",
+    "Yubarev \"Igniter\" Pistol",
+    "Yubarev \"Mirage\" Pistol",
+    "Yubarev Pistol",
+    "Yubarev Pistol Battery (10 cap)"
+   ]
+  },
+  "headhunters_eliminateall_cfp_E_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_eliminateall_cfp_M_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical"
+   ]
+  },
+  "headhunters_eliminateall_cfp_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "DustUp Arms Tactical",
+    "DustUp Core Tactical",
+    "DustUp Helmet Tactical",
+    "DustUp Legs Tactical",
+    "Yubarev \"Igniter\" Pistol",
+    "Yubarev \"Mirage\" Pistol",
+    "Yubarev Pistol",
+    "Yubarev Pistol Battery (10 cap)"
+   ]
+  },
+  "headhunters_eliminateall_outpost_desc_01": {
+   "bp": 3,
+   "total": 3,
+   "items": [
+    "DustUp Arms Tactical",
+    "DustUp Core Tactical",
+    "DustUp Helmet Tactical",
+    "DustUp Legs Tactical",
+    "Yubarev \"Igniter\" Pistol",
+    "Yubarev \"Mirage\" Pistol",
+    "Yubarev Pistol",
+    "Yubarev Pistol Battery (10 cap)"
+   ]
+  },
+  "headhunters_eliminateall_retrievestolen_base_Generic_M_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Atzkav \"Igniter\" Sniper Rifle",
+    "Atzkav \"Mirage\" Sniper Rifle",
+    "Atzkav Sniper Rifle",
+    "Atzkav Sniper Rifle Battery (8 cap)",
+    "Calico Arms Tactical",
+    "Calico Core Tactical",
+    "Calico Helmet Tactical",
+    "Calico Legs Tactical",
+    "DustUp Arms Tactical",
+    "DustUp Core Tactical",
+    "DustUp Helmet Tactical",
+    "DustUp Legs Tactical",
+    "Yubarev \"Igniter\" Pistol",
+    "Yubarev \"Mirage\" Pistol",
+    "Yubarev Pistol",
+    "Yubarev Pistol Battery (10 cap)"
+   ]
+  },
+  "headhunters_eliminateall_xt_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "DustUp Arms Tactical",
+    "DustUp Core Tactical",
+    "DustUp Helmet Tactical",
+    "DustUp Legs Tactical",
+    "Yubarev \"Igniter\" Pistol",
+    "Yubarev \"Mirage\" Pistol",
+    "Yubarev Pistol",
+    "Yubarev Pistol Battery (10 cap)"
+   ]
+  },
+  "headhunters_killship_asteroid_rank0_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_killship_asteroid_rank1_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_killship_cfp_hrt_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_killship_cfp_mrt_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_killship_cfp_vhrt_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_killship_gen_hrt_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_killship_gen_lrt_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_killship_gen_mrt_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_killship_gen_vlrt_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_killship_gen_vlrt_rank0_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_killship_xenothreat_ert_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "headhunters_multikillship_base_Generic_M_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "10-Series Greatsword Cannon",
+    "11-Series Broadsword Cannon",
+    "9-Series Longsword Cannon",
+    "Dominance-1 Scattergun",
+    "Dominance-2 Scattergun",
+    "Dominance-3 Scattergun",
+    "HeatSafe",
+    "HeatSink",
+    "IceBox",
+    "M6A Cannon",
+    "M7A Cannon",
+    "M8A Cannon",
+    "NN-13 Cannon",
+    "NN-14 Cannon",
+    "NN-15 Cannon",
+    "NightFall",
+    "Singe Cannon (S1)",
+    "Singe Cannon (S2)",
+    "Singe Cannon (S3)",
+    "Sledge I Mass Driver Cannon",
+    "Sledge II Mass Driver Cannon",
+    "Sledge III Mass Driver Cannon",
+    "SnowBlind",
+    "Strife Mass Driver Cannon",
+    "VaporBlock"
+   ]
+  },
+  "northrock_SOO_repeat_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "BUL-H4 Armor",
+    "BUL-H4 Helmet",
+    "H4-PBF Ammo Carrier"
+   ]
+  },
+  "northrock_bounty_fps_UGF_boss_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Bellator Jacket",
+    "Bellator Shirt and Waistcoat",
+    "Bellator Trousers",
+    "Defiance Arms Tactical",
+    "Defiance Core Tactical",
+    "Defiance Helmet Tactical",
+    "Defiance Legs Tactical",
+    "F55 LMG",
+    "F55 LMG Magazine (150 cap)",
+    "LH86 Pistol",
+    "Lynx Arms",
+    "Lynx Core",
+    "Lynx Legs",
+    "Oracle Helmet",
+    "Spettro Shoes"
+   ]
+  },
+  "northrock_bounty_fps_UGF_boss_nocivs_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Bellator Jacket",
+    "Bellator Shirt and Waistcoat",
+    "Bellator Trousers",
+    "Defiance Arms Tactical",
+    "Defiance Core Tactical",
+    "Defiance Helmet Tactical",
+    "Defiance Legs Tactical",
+    "F55 LMG",
+    "F55 LMG Magazine (150 cap)",
+    "LH86 Pistol",
+    "Lynx Arms",
+    "Lynx Core",
+    "Lynx Legs",
+    "Oracle Helmet",
+    "Spettro Shoes"
+   ]
+  },
+  "recovery_desc": {
+   "bp": 13,
+   "total": 13,
+   "items": [
+    "Arden-SL Arms",
+    "Arden-SL Core",
+    "Arden-SL Helmet",
+    "Arden-SL Legs",
+    "Custodian \"Midnight\" SMG",
+    "Custodian \"Scorched\" SMG",
+    "Custodian SMG",
+    "Custodian SMG Magazine (60 cap)",
+    "Inquisitor Arms Black",
+    "Inquisitor Arms Grey",
+    "Inquisitor Core Black",
+    "Inquisitor Core Grey",
+    "Inquisitor Legs Black",
+    "Inquisitor Legs Grey",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)",
+    "Monde Arms Delta Camo",
+    "Monde Arms Hemlock Camo",
+    "Monde Core Delta Camo",
+    "Monde Core Hemlock Camo",
+    "Monde Helmet Delta Camo",
+    "Monde Helmet Hemlock Camo",
+    "Monde Legs Delta Camo",
+    "Monde Legs Hemlock Camo",
+    "Morningstar Helmet Icefall",
+    "R97 \"Kismet\" Shotgun",
+    "R97 \"Righteous\" Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "shubin_rockcracker_pvp_desc_01": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms Delta Camo",
+    "Monde Arms Hemlock Camo",
+    "Monde Core Delta Camo",
+    "Monde Core Hemlock Camo",
+    "Monde Helmet Delta Camo",
+    "Monde Helmet Hemlock Camo",
+    "Monde Legs Delta Camo",
+    "Monde Legs Hemlock Camo",
+    "R97 \"Kismet\" Shotgun",
+    "R97 \"Righteous\" Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "shubin_rockcracker_solo_desc_01": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms Delta Camo",
+    "Monde Arms Hemlock Camo",
+    "Monde Core Delta Camo",
+    "Monde Core Hemlock Camo",
+    "Monde Helmet Delta Camo",
+    "Monde Helmet Hemlock Camo",
+    "Monde Legs Delta Camo",
+    "Monde Legs Hemlock Camo",
+    "R97 \"Kismet\" Shotgun",
+    "R97 \"Righteous\" Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ]
+  },
+  "vaughn_assassination_FPS_UGF_illegal_boss_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Carnifex Armor Core",
+    "Carnifex Armor Legs",
+    "Citadel Arms Base",
+    "Citadel Core Base",
+    "Citadel Legs Base",
+    "Fortifier Helmet Base",
+    "Pulverizer LMG",
+    "Pulverizer LMG Magazine (120 Cap)",
+    "Tripledown Pistol",
+    "Tripledown Pistol Magazine (12 Cap)"
+   ]
+  },
+  "vaughn_assassination_FPS_UGF_illegal_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Badami Helmet",
+    "Deadrig Shotgun",
+    "Deadrig Shotgun Magazine (8 cap)",
+    "Killshot Rifle",
+    "Killshot Rifle Magazine (45 Cap)",
+    "Overlord Arms Supernova",
+    "Overlord Core Supernova",
+    "Overlord Helmet Supernova",
+    "Overlord Legs Supernova",
+    "Piecemeal Armor Arms",
+    "Piecemeal Armor Core",
+    "Piecemeal Armor Legs"
+   ]
+  },
+  "vaughn_assassination_FPS_UGF_legal_boss_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Carnifex Armor Core",
+    "Carnifex Armor Legs",
+    "Citadel Arms Base",
+    "Citadel Core Base",
+    "Citadel Legs Base",
+    "Fortifier Helmet Base",
+    "Pulverizer LMG",
+    "Pulverizer LMG Magazine (120 Cap)",
+    "Tripledown Pistol",
+    "Tripledown Pistol Magazine (12 Cap)"
+   ]
+  }
+ }
+}

@@ -1,8 +1,10 @@
 name: Auto-update
 
 # Fully remote, fully automatic LIVE patch pipeline. Every 2 hours:
-#   fetch the newest stock LIVE global.ini (scripts/fetch_stock.py) -> build -> validate
-#   -> commit to main -> publish the release.
+#   fetch the newest stock LIVE global.ini (scripts/fetch_stock.py) and contract/blueprint game data
+#   (scripts/fetch_gamedata.py) -> build -> validate -> commit to main -> publish the release.
+# Game data only takes effect once it matches the stock patch, so blueprint lists appear in a
+# follow-up release as soon as the matching dump is published.
 # If validation fails (e.g. a new component needs an override), nothing is committed or released;
 # an issue with the report is opened instead, and the next run after the fix releases it.
 on:
@@ -34,11 +36,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch newer stock file
+      - name: Fetch newer stock file and game data
         id: fetch
         run: |
           python scripts/fetch_stock.py | tee fetched.json
-          if [ -s fetched.json ]; then echo "updated=true" >> "$GITHUB_OUTPUT"; else echo "Already up to date."; fi
+          # Bad or unreachable game data must never block a stock update; the last good summary is kept.
+          python scripts/fetch_gamedata.py | tee gamedata.json || echo "::warning::game data not updated (see log)"
+          if [ -n "$(git status --porcelain -- stock/LIVE data/gamedata)" ]; then
+            echo "updated=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Already up to date."
+          fi
 
       - name: Build, validate and report
         id: check
@@ -48,7 +56,9 @@ jobs:
           {
             python scripts/report.py --channel LIVE --base-ref HEAD
             echo
-            echo "Source: \`$(jq -r .source fetched.json)\`"
+            [ -s fetched.json ] && echo "Stock source: \`$(jq -r .source fetched.json)\`"
+            [ -s gamedata.json ] && echo "Game data: \`$(jq -r '.version + " " + .build' gamedata.json)\`"
+            true
           } > report.md
           cat report.md >> "$GITHUB_STEP_SUMMARY"
           if python scripts/validate.py --channel LIVE > validate.txt 2>&1; then
@@ -64,7 +74,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh label create auto-update-blocked --color B60205 --description "Auto-update needs a manual fix" 2>/dev/null || true
-          title="LIVE $(jq -r .version fetched.json) auto-update blocked - needs a fix"
+          title="LIVE $(python scripts/version_info.py --channel LIVE version) auto-update blocked - needs a fix"
           {
             echo "The automatic update failed validation, so nothing was committed or released."
             echo "Usually a new component needs a row in \`data/component_overrides.csv\`. Once that fix is on main,"
@@ -92,9 +102,16 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add stock/LIVE dist/LIVE
-          git commit -m "Auto-update LIVE to $(python scripts/version_info.py --channel LIVE title)" \
-                     -m "Source: $(jq -r .source fetched.json)"
+          git add stock/LIVE dist/LIVE data/gamedata
+          if git diff --cached --quiet -- dist/LIVE; then
+            # New inputs that don't change the packs (e.g. game data for an older patch): record, don't release.
+            git commit -m "Auto-update: refresh game data (no pack changes)" || exit 0
+            git push origin HEAD:main
+            exit 0
+          fi
+          what="$(python scripts/version_info.py --channel LIVE title)"
+          [ -s fetched.json ] || what="$what: blueprint rewards from matching game data"
+          git commit -m "Auto-update LIVE to $what"
           git push origin HEAD:main
           echo "released=true" >> "$GITHUB_OUTPUT"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
@@ -114,3 +131,14 @@ jobs:
     permissions:
       contents: write
       issues: write
+
+  pages:
+    needs: [update, release]
+    if: needs.update.outputs.released == 'true'
+    uses: ./.github/workflows/pages.yml
+    with:
+      ref: ${{ needs.update.outputs.sha }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

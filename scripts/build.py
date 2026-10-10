@@ -320,6 +320,11 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
                 tagged[key] = value
                 counts["override"] += 1
 
+    counts["cig_fix"] = fix_literal_at_values(ini, tagged)
+
+    gamedata, gamedata_status = load_matching_gamedata(stock_path)
+    counts["bp_title"], counts["bp_desc"] = apply_blueprints(ini, gamedata, tagged) if gamedata else (0, 0)
+
     version_key = "Frontend_PU_Version"
     stock_version = ini.get(version_key)
     if stock_version is not None:
@@ -331,15 +336,91 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
         "unresolved": sorted(result.unresolved),
         "bespoke": sorted(result.bespoke),
         "tagged": dict(sorted(tagged.items())),
+        "gamedata": gamedata_status,
     }
     return ini, stats
+
+
+# --------------------------------------------------------------------------- #
+# Game-data layers: CIG text fixes and blueprint rewards
+# --------------------------------------------------------------------------- #
+
+LITERAL_AT_RE = re.compile(r"^@([A-Za-z0-9].*\s.*)$")
+
+
+def fix_literal_at_values(ini: IniFile, tagged: dict[str, str]) -> int:
+    """CIG sometimes writes plain text as '@Navigation light', which the game shows with the '@'.
+    Drop the '@' when what follows is readable text (has a space) rather than a key reference."""
+    fixed = 0
+    for key in list(ini.keys()):
+        value = ini.get(key) or ""
+        m = LITERAL_AT_RE.match(value.strip())
+        if m and m.group(1) not in ini.index:
+            ini.set(key, m.group(1))
+            tagged[key] = m.group(1)
+            fixed += 1
+    return fixed
+
+
+def _version_tuple(v: str) -> tuple[int, ...]:
+    parts = [int(x) for x in re.findall(r"\d+", v or "")]
+    return tuple((parts + [0, 0, 0])[:3])
+
+
+def load_matching_gamedata(stock_path: Path) -> tuple[dict | None, str]:
+    """Game data is used only when it was dumped from the same patch as the stock file."""
+    gd_path = DATA_DIR / "gamedata" / f"{stock_path.parent.name}.json"
+    meta_path = stock_path.parent / "version.json"
+    if not gd_path.exists() or not meta_path.exists():
+        return None, "no game data"
+    gd = json.loads(gd_path.read_text(encoding="utf-8"))
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    same_version = _version_tuple(gd.get("version", "")) == _version_tuple(meta.get("version", ""))
+    builds_known = gd.get("build") and meta.get("build")
+    if not same_version or (builds_known and gd["build"] != meta["build"]):
+        return None, f"waiting for game data for {meta.get('version')} (have {gd.get('version')})"
+    return gd, f"matched {gd.get('version')}" + (f" build {gd['build']}" if gd.get("build") else "")
+
+
+BP_TITLE = "[BP] "
+BP_TITLE_SOME = "[BP]* "
+BP_HEADER = "Blueprints this contract can award:"
+BP_HEADER_SOME = "Blueprints (only some versions of this contract award these):"
+
+
+def apply_blueprints(ini: IniFile, gamedata: dict, tagged: dict[str, str]) -> tuple[int, int]:
+    """Prefix titles of blueprint-awarding contracts and list the possible blueprints in descriptions."""
+    lower = {k.lower(): k for k in ini.keys()}
+    titles = descs = 0
+    for key, info in gamedata.get("titles", {}).items():
+        real = lower.get(key.lower())
+        value = ini.get(real) if real else None
+        if not value or value.startswith(("[BP]", "[BP]*")):
+            continue
+        new = (BP_TITLE if info["bp"] >= info["total"] else BP_TITLE_SOME) + value
+        ini.set(real, new)
+        tagged[real] = new
+        titles += 1
+    for key, info in gamedata.get("descriptions", {}).items():
+        real = lower.get(key.lower())
+        value = ini.get(real) if real else None
+        items = info.get("items") or []
+        if not value or not items or BP_HEADER in value or BP_HEADER_SOME in value:
+            continue
+        header = BP_HEADER if info["bp"] >= info["total"] else BP_HEADER_SOME
+        # Values use literal "\n" escapes, like the rest of global.ini.
+        new = value.rstrip() + "\\n\\n" + header + "".join("\\n- " + i for i in items)
+        ini.set(real, new)
+        tagged[real] = new
+        descs += 1
+    return titles, descs
 
 
 CHANGES_FILE = "changes.ini"
 
 
 def write_changes(ini: IniFile, stock: IniFile, path: Path) -> None:
-    """Write only the keys this pack changes, so tools like StarMeld can layer it with other packs."""
+    """Write only the keys this pack changes, so merge tools can layer it with other packs."""
     lines = ini.changes_since(stock, skip={"Frontend_PU_Version"})
     path.write_text("\n".join(lines) + "\n", encoding="utf-8-sig", errors="surrogateescape", newline="")
 
@@ -372,7 +453,9 @@ def main() -> int:
         c = stats["counts"]
         print(f"[{channel}/{variant}] {stats['game_version']!r}: {c['component']} components, "
               f"{c['missile']} missiles, {c['bomb']} bombs, {c['short']} short names, "
-              f"{c['override']} overrides, {len(stats['bespoke'])} bespoke left as-is -> {out}")
+              f"{c['override']} overrides, {c['cig_fix']} CIG text fixes, "
+              f"{c['bp_title']}/{c['bp_desc']} blueprint titles/descriptions ({stats['gamedata']}), "
+              f"{len(stats['bespoke'])} bespoke left as-is -> {out}")
         if stats["unresolved"]:
             print(f"  WARNING: {len(stats['unresolved'])} unclassified component-like keys "
                   f"(add them to data/component_overrides.csv):")
