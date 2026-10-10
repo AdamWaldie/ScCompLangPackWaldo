@@ -158,7 +158,8 @@ def main() -> int:
             version_file.write_text(json.dumps({
                 "version": meta["version"],
                 "build": meta["build"],
-                "branch": f"sc-alpha-{meta['version']}-{channel.lower()}" + (f".{meta['build']}" if meta["build"] else ""),
+                # CIG's own build string format; left empty when the source didn't name the build.
+                "branch": f"sc-alpha-{meta['version']}_{channel.lower()}_{meta['build']}" if meta["build"] else "",
                 "source": SOURCE_NAME,
                 "source_sha": meta["sha"],
             }, indent=2) + "\n")

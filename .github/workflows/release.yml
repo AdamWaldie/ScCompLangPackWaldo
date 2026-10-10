@@ -96,7 +96,9 @@ jobs:
               cp "$f" "latest/$(basename "$f" | sed "s/-$version-$ch/-$ch/")"
             done
 
-            base=$(git describe --tags --abbrev=0 --match "*-$ch*" 2>/dev/null || echo "$before")
+            # Report against the previous version of this channel's stock file.
+            base=$(git log --format=%H -2 -- "stock/$ch/global.ini" | sed -n 2p)
+            [ -n "$base" ] || base="$before"
             {
               echo "Star Citizen **$title** language pack."
               [ -n "$cig_branch" ] && echo "CIG build: \`$cig_branch\`"
