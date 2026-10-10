@@ -1,5 +1,7 @@
 {
-  "version": "4.8.0",
+  "version": "4.10.2",
   "build": "",
-  "branch": ""
+  "branch": "sc-alpha-4.10.2-live",
+  "source": "Dymerz/StarCitizen-Localization",
+  "source_sha": "869e5c1eba0da4ff9b12b9ea370724d5ac96e3b6"
 }

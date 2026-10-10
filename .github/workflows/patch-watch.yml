@@ -1,0 +1,64 @@
+name: Patch watch
+
+# Backstop for Auto-update: opens an issue when a newer LIVE build is out than the one in stock/LIVE/
+# (e.g. if the auto-update source is lagging).
+# The issue is closed automatically when the matching release is published.
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check for a newer game build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python scripts/check_patch.py > pending.jsonl
+          [ -s pending.jsonl ] || { echo "Up to date."; exit 0; }
+          gh label create patch-detected --color D93F0B --description "New game build, pack needs updating" 2>/dev/null || true
+
+          # Read from fd 3 so commands inside the loop can never swallow the remaining lines.
+          while read -r line <&3; do
+            ch=$(echo "$line" | jq -r .channel)
+            version=$(echo "$line" | jq -r .version)
+            build=$(echo "$line" | jq -r .build)
+            branch=$(echo "$line" | jq -r .branch)
+            title="$ch $version (build $build) is out - pack needs updating"
+
+            if gh issue list --label patch-detected --state open --json title --jq '.[].title' | grep -qxF "$title"; then
+              echo "Already reminded: $title"
+              continue
+            fi
+            # A newer build supersedes older reminders for the same channel.
+            gh issue list --label patch-detected --state open --json number,title \
+              --jq ".[] | select(.title | startswith(\"$ch \")) | .number" | while read -r n; do
+                gh issue close "$n" --comment "Superseded by build $build."
+              done
+
+            {
+              echo "A newer Star Citizen **$ch** build was detected: \`$branch\`."
+              echo
+              echo "Current pack: \`$(python scripts/version_info.py --channel "$ch" title 2>/dev/null || echo 'none')\`"
+              echo
+              echo "The Auto-update workflow hasn't found this build in its source yet; it checks every 2 hours and"
+              echo "releases automatically when it does. To release sooner, run \`update.bat\` after the launcher"
+              echo "has patched, then merge the pull request it opens."
+              echo
+              echo "_Detected via the build string in [MrKraken/StarStrings](https://github.com/MrKraken/StarStrings). This issue closes automatically when the release is published._"
+            } > body.md
+            gh issue create --title "$title" --label patch-detected --body-file body.md
+          done 3< pending.jsonl

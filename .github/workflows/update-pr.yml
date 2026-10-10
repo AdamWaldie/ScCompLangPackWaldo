@@ -28,7 +28,9 @@ jobs:
           ch=$(git diff --name-only origin/main...HEAD -- 'stock/*/global.ini' | head -1 | cut -d/ -f2)
           if [ -z "$ch" ]; then echo "::error::No stock/<CHANNEL>/global.ini change on this branch"; exit 1; fi
           echo "channel=$ch" >> "$GITHUB_OUTPUT"
-          echo "version=$(python -c "import json;print(json.load(open('stock/$ch/version.json'))['version'])")" >> "$GITHUB_OUTPUT"
+          echo "version=$(python scripts/version_info.py --channel "$ch" version)" >> "$GITHUB_OUTPUT"
+          echo "title=$(python scripts/version_info.py --channel "$ch" title)" >> "$GITHUB_OUTPUT"
+          echo "branch=$(python scripts/version_info.py --channel "$ch" branch)" >> "$GITHUB_OUTPUT"
 
       - name: Build, validate and report
         id: check
@@ -39,7 +41,8 @@ jobs:
           git diff --quiet -- dist || status="failed: dist/ was not rebuilt"
           python scripts/validate.py --channel "$ch" > validate.txt 2>&1 || status="failed"
           {
-            echo "Automated update of **$ch** to **${{ steps.meta.outputs.version }}**."
+            echo "Automated update of **$ch** to **${{ steps.meta.outputs.title }}**."
+            [ -n "${{ steps.meta.outputs.branch }}" ] && echo "CIG build: \`${{ steps.meta.outputs.branch }}\`"
             echo
             echo "Validation: **$status**"
             echo '```'; cat validate.txt; echo '```'
@@ -55,10 +58,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           branch="${GITHUB_REF_NAME}"
-          title="${{ steps.meta.outputs.channel }} ${{ steps.meta.outputs.version }}"
+          title="${{ steps.meta.outputs.title }}"
           existing=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number')
           if [ -n "$existing" ]; then
-            gh pr edit "$existing" --body-file body.md
+            gh pr edit "$existing" --title "$title" --body-file body.md
           else
             gh pr create --base main --head "$branch" --title "$title" --body-file body.md
           fi

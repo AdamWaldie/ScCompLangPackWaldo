@@ -9,7 +9,7 @@ descriptions are missing stats can be filled in via data/component_overrides.csv
 
 Usage:
     python scripts/build.py --channel LIVE
-    python scripts/build.py --channel PTU --variant remix
+    python scripts/build.py --channel LIVE --variant remix
     python scripts/build.py --stock path/to/global.ini --out-dir /tmp/out
 """
 
@@ -102,6 +102,11 @@ class IniFile:
 
     def keys(self):
         return self.index.keys()
+
+    def changes_since(self, stock: "IniFile", skip: set[str] = frozenset()) -> list[str]:
+        """Lines whose value differs from stock, in file order (for tools that merge packs)."""
+        return [self.lines[i] for key, i in self.index.items()
+                if key not in skip and self.lines[i] != stock.lines[stock.index[key]]]
 
     def save(self, path: Path) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -328,9 +333,18 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
     return ini, stats
 
 
+CHANGES_FILE = "changes.ini"
+
+
+def write_changes(ini: IniFile, stock: IniFile, path: Path) -> None:
+    """Write only the keys this pack changes, so tools like StarMeld can layer it with other packs."""
+    lines = ini.changes_since(stock, skip={"Frontend_PU_Version"})
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8-sig", errors="surrogateescape", newline="")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--channel", default="LIVE", help="LIVE, PTU or HOTFIX (reads stock/<channel>/global.ini)")
+    parser.add_argument("--channel", default="LIVE", help="Channel folder under stock/ (only LIVE is supported)")
     parser.add_argument("--stock", type=Path, help="Explicit stock global.ini path (overrides --channel input)")
     parser.add_argument("--variant", choices=VARIANTS + ("all",), default="all")
     parser.add_argument("--out-dir", type=Path, help="Output root (default: dist/<channel>)")
@@ -351,6 +365,7 @@ def main() -> int:
         out = out_root / variant / "data" / "Localization" / "english" / "global.ini"
         ini.save(out)
         (out_root / variant / "user.cfg").write_bytes((REPO_ROOT / "user.cfg").read_bytes())
+        write_changes(ini, IniFile.load(stock), out_root / variant / CHANGES_FILE)
         all_stats[variant] = stats
         c = stats["counts"]
         print(f"[{channel}/{variant}] {stats['game_version']!r}: {c['component']} components, "
