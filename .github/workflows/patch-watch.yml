@@ -58,7 +58,7 @@ jobs:
               echo "releases automatically when it does. To release sooner, run \`update.bat\` after the launcher"
               echo "has patched, then merge the pull request it opens."
               echo
-              echo "_Detected via the build string in [MrKraken/StarStrings](https://github.com/MrKraken/StarStrings). This issue closes automatically when the release is published._"
+              echo "_This issue closes automatically when the release is published._"
             } > body.md
             gh issue create --title "$title" --label patch-detected --body-file body.md
           done 3< pending.jsonl

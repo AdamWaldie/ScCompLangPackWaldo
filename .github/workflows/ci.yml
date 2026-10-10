@@ -23,6 +23,9 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s tests -v
 
+      - name: Pack Merger scripts parse
+        run: for f in site/js/*.js; do node --check "$f"; done
+
       - name: Rebuild every channel
         run: |
           for ini in stock/*/global.ini; do

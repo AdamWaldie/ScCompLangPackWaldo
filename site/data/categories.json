@@ -1,0 +1,402 @@
+{
+  "groups": [
+    {
+      "name": "Ship Components",
+      "categories": [
+        {
+          "name": "Coolers",
+          "patterns": [
+            "^[Ii]tem_[Nn]ame_?COOL_"
+          ],
+          "description": "Ship cooling systems"
+        },
+        {
+          "name": "Power Plants",
+          "patterns": [
+            "^[Ii]tem_[Nn]ame_?POWR_",
+            "^item_NameLPLT_SQV_"
+          ],
+          "description": "Ship power generation"
+        },
+        {
+          "name": "Quantum Drives",
+          "patterns": [
+            "^[Ii]tem_[Nn]ame_?(?:QDRV|QRDV)_"
+          ],
+          "description": "Quantum travel drives"
+        },
+        {
+          "name": "Shields",
+          "patterns": [
+            "^[Ii]tem_[Nn]ame_?SHLD_",
+            "^item_NameSECO_S\\d+_F\\d"
+          ],
+          "description": "Shield generators"
+        },
+        {
+          "name": "Radars",
+          "patterns": [
+            "^[Ii]tem_[Nn]ame_?RADR_"
+          ],
+          "description": "Radar and sensor arrays"
+        }
+      ]
+    },
+    {
+      "name": "Ordnance",
+      "categories": [
+        {
+          "name": "Missiles",
+          "patterns": [
+            "^[Ii]tem_[Nn]ame_?MISL_"
+          ],
+          "description": "Ship-launched missiles"
+        },
+        {
+          "name": "Torpedoes",
+          "patterns": [
+            "^[Ii]tem_[Nn]ame_?TORP_"
+          ],
+          "description": "Ship-launched torpedoes"
+        },
+        {
+          "name": "Bombs",
+          "patterns": [
+            "^[Ii]tem_[Nn]ame_?BOMB_"
+          ],
+          "description": "Ship-dropped bombs"
+        },
+        {
+          "name": "Ground Missiles",
+          "patterns": [
+            "^[Ii]tem_[Nn]ame_?GMISL_"
+          ],
+          "description": "Ground vehicle missiles"
+        }
+      ]
+    },
+    {
+      "name": "Weapons & Turrets",
+      "categories": [
+        {
+          "name": "Ship Weapons",
+          "patterns": [
+            "^item_Name(?:WP_|WGN_|_WP_|_WGN_)"
+          ],
+          "description": "Ship-mounted guns and cannons"
+        },
+        {
+          "name": "Turrets",
+          "patterns": [
+            "^item_Name(?:TURR|_TURR)_"
+          ],
+          "description": "Turret mounts and assemblies"
+        }
+      ]
+    },
+    {
+      "name": "Vehicles",
+      "categories": [
+        {
+          "name": "Vehicle Names",
+          "patterns": [
+            "^vehicle_"
+          ],
+          "description": "Ship and vehicle names and variants"
+        },
+        {
+          "name": "Paint & Liveries",
+          "patterns": [
+            "[_](?:Paint|paint)_"
+          ],
+          "description": "Vehicle paint jobs and liveries"
+        }
+      ]
+    },
+    {
+      "name": "Items",
+      "categories": [
+        {
+          "name": "Item Descriptions",
+          "patterns": [
+            "^item_Desc"
+          ],
+          "description": "Detailed item description text"
+        },
+        {
+          "name": "Clothing & Armor",
+          "patterns": [
+            "^item_Name.*(?:armor|undersuit|helmet|shirt|pants|jacket|boots|shoes|gloves|hat|backpack)"
+          ],
+          "description": "Wearable clothing and armor pieces"
+        },
+        {
+          "name": "Food & Drink",
+          "patterns": [
+            "^item_Name(?:Food|Drink|_Food_|_Drink_)"
+          ],
+          "description": "Consumable food and beverages"
+        },
+        {
+          "name": "Commodities",
+          "patterns": [
+            "^items_commodities_"
+          ],
+          "description": "Trade commodities and raw materials"
+        },
+        {
+          "name": "Item Subtypes",
+          "patterns": [
+            "^item_(?:SubType|Type)"
+          ],
+          "description": "Item type and subtype classifications"
+        },
+        {
+          "name": "Other Items",
+          "patterns": [
+            "^item_Name"
+          ],
+          "description": "All other items (flairs, tools, ammo, etc.)"
+        }
+      ]
+    },
+    {
+      "name": "Locations",
+      "categories": [
+        {
+          "name": "Stanton System",
+          "patterns": [
+            "^Stanton"
+          ],
+          "description": "Stanton system locations and points of interest"
+        },
+        {
+          "name": "Pyro System",
+          "patterns": [
+            "^[Pp]yro"
+          ],
+          "description": "Pyro system locations and points of interest"
+        },
+        {
+          "name": "Nyx System",
+          "patterns": [
+            "^[Nn][Yy][Xx]"
+          ],
+          "description": "Nyx system locations and points of interest"
+        },
+        {
+          "name": "Other Locations",
+          "patterns": [
+            "^(?:area_|port_|LandingPad)"
+          ],
+          "description": "Landing pads, ports, and other area names"
+        }
+      ]
+    },
+    {
+      "name": "UI & HUD",
+      "categories": [
+        {
+          "name": "MobiGlas",
+          "patterns": [
+            "^(?:mobiGlas_|mobiglas_|mg_)"
+          ],
+          "description": "MobiGlas interface text"
+        },
+        {
+          "name": "Shopping",
+          "patterns": [
+            "^shop_"
+          ],
+          "description": "Shop and trading terminal UI"
+        },
+        {
+          "name": "HUD & Flight",
+          "patterns": [
+            "^(?:hud_|flightHUD_)"
+          ],
+          "description": "HUD elements and flight instrument labels"
+        },
+        {
+          "name": "Refinery",
+          "patterns": [
+            "^refinery_"
+          ],
+          "description": "Refinery deck interface"
+        },
+        {
+          "name": "Crafting",
+          "patterns": [
+            "^crafting_"
+          ],
+          "description": "Crafting and blueprint UI"
+        },
+        {
+          "name": "General UI",
+          "patterns": [
+            "^(?:ui_|UI_|PU_UI_|ea_ui_|dfm_ui_|pause_|chat_|FreightElevator|Frontend_)"
+          ],
+          "description": "General interface text, menus, chat, and error messages"
+        }
+      ]
+    },
+    {
+      "name": "Game Content",
+      "categories": [
+        {
+          "name": "Mission Text",
+          "patterns": [
+            "^(?:mission_|missionManager_)"
+          ],
+          "description": "Mission titles, descriptions, and objectives"
+        },
+        {
+          "name": "Contracts & Factions",
+          "patterns": [
+            "^(?:headhunters_|Headhunters_|Covalex_|DataHeist|TheCollector|Hockrow|vaughn|Foxwell|GoblinG|storm_|cfp_|CFP_|Shubin_|MiningClaim|DynamicEvent|RR_|ASD_|planetcollect|BitZeros|FTL_|RedWind|deadsaints|EckhartSecurity|Kaboos|KillShip|boarders_|ShipAmbush|ShipWaveAttack|bounty_fps|DefendShips|HaulCargo|hauling_)"
+          ],
+          "description": "Contractor missions, faction-specific text, and dynamic events"
+        },
+        {
+          "name": "Dialogue",
+          "patterns": [
+            "^Dlg_"
+          ],
+          "description": "NPC dialogue lines"
+        },
+        {
+          "name": "Reputation",
+          "patterns": [
+            "^(?:Rep|.*_RepUI_)"
+          ],
+          "description": "Reputation standings and faction reputation UI"
+        },
+        {
+          "name": "Notifications",
+          "patterns": [
+            "^notification_"
+          ],
+          "description": "In-game notification messages"
+        },
+        {
+          "name": "Hints & Tutorials",
+          "patterns": [
+            "^(?:Hints_|Tut)"
+          ],
+          "description": "Tutorial text and gameplay hints"
+        },
+        {
+          "name": "Infractions",
+          "patterns": [
+            "^Infractions_"
+          ],
+          "description": "Law system infraction names and descriptions"
+        },
+        {
+          "name": "Journals",
+          "patterns": [
+            "^Journal_"
+          ],
+          "description": "In-game newspaper and journal entries"
+        },
+        {
+          "name": "Holiday Events",
+          "patterns": [
+            "^(?:Luminalia|iae\\d+)_"
+          ],
+          "description": "Seasonal and holiday event content"
+        },
+        {
+          "name": "PU Narrative",
+          "patterns": [
+            "^PU_(?!UI_)"
+          ],
+          "description": "Persistent Universe narrative text, NPC comms, and mission dialogue"
+        }
+      ]
+    },
+    {
+      "name": "Data & System",
+      "categories": [
+        {
+          "name": "Human Names",
+          "patterns": [
+            "^Human_"
+          ],
+          "description": "NPC name generation (surnames, first names, nicknames)"
+        },
+        {
+          "name": "Voice & Audio",
+          "patterns": [
+            "^(?:DXSM_|DXSH_|PH_)"
+          ],
+          "description": "Voice line subtitles, audio cue text, and phoneme data"
+        },
+        {
+          "name": "Input Bindings",
+          "patterns": [
+            "^input_"
+          ],
+          "description": "Key binding and control input labels"
+        },
+        {
+          "name": "Manufacturers",
+          "patterns": [
+            "^manufacturer_"
+          ],
+          "description": "Ship and component manufacturer names"
+        },
+        {
+          "name": "Arena Commander",
+          "patterns": [
+            "^(?:dfm_|ea_|SC_|Maps_)"
+          ],
+          "description": "Arena Commander and Star Marine mode text"
+        },
+        {
+          "name": "Item Ports",
+          "patterns": [
+            "^itemPort_"
+          ],
+          "description": "Item port and hardpoint labels"
+        },
+        {
+          "name": "Medical",
+          "patterns": [
+            "^med_"
+          ],
+          "description": "Medical system and healing text"
+        },
+        {
+          "name": "Engineering",
+          "patterns": [
+            "^engineering_"
+          ],
+          "description": "Ship engineering and power management text"
+        },
+        {
+          "name": "Salvage",
+          "patterns": [
+            "^salvage_"
+          ],
+          "description": "Salvage gameplay text"
+        },
+        {
+          "name": "Events & Ship Names",
+          "patterns": [
+            "^(?:Event_|FW2022_|FW22_)"
+          ],
+          "description": "Fleet Week, events, and generated ship names"
+        },
+        {
+          "name": "Text & Misc System",
+          "patterns": [
+            "^(?:text_|RN_|quantum_|interiormap_|SC_)"
+          ],
+          "description": "System text, quantum travel, and miscellaneous labels"
+        }
+      ]
+    }
+  ],
+  "catchAll": "Other"
+}

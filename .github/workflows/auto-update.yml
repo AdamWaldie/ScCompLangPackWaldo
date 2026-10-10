@@ -114,3 +114,14 @@ jobs:
     permissions:
       contents: write
       issues: write
+
+  pages:
+    needs: [update, release]
+    if: needs.update.outputs.released == 'true'
+    uses: ./.github/workflows/pages.yml
+    with:
+      ref: ${{ needs.update.outputs.sha }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

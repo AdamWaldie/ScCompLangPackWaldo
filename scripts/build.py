@@ -339,7 +339,7 @@ CHANGES_FILE = "changes.ini"
 
 
 def write_changes(ini: IniFile, stock: IniFile, path: Path) -> None:
-    """Write only the keys this pack changes, so tools like StarMeld can layer it with other packs."""
+    """Write only the keys this pack changes, so merge tools can layer it with other packs."""
     lines = ini.changes_since(stock, skip={"Frontend_PU_Version"})
     path.write_text("\n".join(lines) + "\n", encoding="utf-8-sig", errors="surrogateescape", newline="")
 

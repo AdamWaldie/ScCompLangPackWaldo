@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack Merger · ScCompLangPackWaldo</title>
+    <meta name="description" content="Build a Star Citizen global.ini that combines ScCompLangPackWaldo component tags with other language packs. Runs entirely in your browser.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Apply the saved theme before first paint to avoid a flash.
+        try { const t = localStorage.getItem('pm-theme'); if (t) document.documentElement.dataset.theme = t; } catch {}
+    </script>
+</head>
+<body>
+    <!-- Top bar -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="./">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 6h16M4 12h10M4 18h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="18" cy="12" r="2.2" fill="currentColor"/></svg>
+                </span>
+                <span class="brand-text"><strong>Pack Merger</strong><span class="brand-sub">ScCompLangPackWaldo</span></span>
+            </a>
+            <nav class="topbar-actions">
+                <a class="topbar-link" href="https://github.com/AdamWaldie/ScCompLangPackWaldo" target="_blank" rel="noopener">GitHub</a>
+                <a class="topbar-link" href="https://github.com/AdamWaldie/ScCompLangPackWaldo/releases/latest" target="_blank" rel="noopener">Releases</a>
+                <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle light/dark theme" title="Toggle theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Build your own <code>global.ini</code></h1>
+                <p>Combine ScCompLangPackWaldo's component tags with mission text and fixes from other language packs. Pick a preset or choose a source for each category, then download one file. Everything runs in your browser.</p>
+            </div>
+            <div class="quick-download">
+                <div class="quick-download-title">Just want the pack?</div>
+                <div class="quick-download-buttons">
+                    <a class="btn btn-ghost" href="https://github.com/AdamWaldie/ScCompLangPackWaldo/releases/download/latest/ScCompLangPackWaldo-LIVE.zip">
+                        <span class="btn-title">Remix</span><span class="btn-sub mono">M2A XL-1</span>
+                    </a>
+                    <a class="btn btn-ghost" href="https://github.com/AdamWaldie/ScCompLangPackWaldo/releases/download/latest/ScCompLangPackWaldo-Classic-LIVE.zip">
+                        <span class="btn-title">Classic</span><span class="btn-sub mono">XL-1 Military A</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="layout">
+            <!-- ============ Builder (left) ============ -->
+            <div class="builder">
+
+                <!-- Step 1: Packs -->
+                <section class="card step">
+                    <header class="card-header">
+                        <span class="step-num">1</span>
+                        <div class="card-heading">
+                            <h2>Choose packs</h2>
+                            <p>Start from a preset, or switch packs on and off below.</p>
+                        </div>
+                    </header>
+
+                    <div class="presets" id="presets" role="group" aria-label="Presets">
+                        <button class="preset" type="button" data-preset="remix">
+                            <span class="preset-title">Waldo Remix</span>
+                            <span class="preset-desc">Component &amp; missile tags only</span>
+                        </button>
+                        <button class="preset" type="button" data-preset="remix-starstrings">
+                            <span class="preset-title">Remix + StarStrings</span>
+                            <span class="preset-desc">Tags plus mission &amp; contract text</span>
+                        </button>
+                        <button class="preset" type="button" data-preset="classic-starstrings">
+                            <span class="preset-title">Classic + StarStrings</span>
+                            <span class="preset-desc"><span class="mono">XL-1 Military A</span> style plus missions</span>
+                        </button>
+                        <button class="preset preset-reset" type="button" data-preset="reset">
+                            <span class="preset-title">Reset</span>
+                            <span class="preset-desc">Stock text, no packs</span>
+                        </button>
+                    </div>
+
+                    <div class="pack-list" id="github-packs"><!-- Populated by app.js --></div>
+
+                    <details class="more">
+                        <summary>Custom packs &amp; stock file</summary>
+                        <div class="more-body">
+                            <div class="more-block">
+                                <h3>Your own language pack</h3>
+                                <p class="muted">Add any <code>global.ini</code> from your computer as an extra source.</p>
+                                <div class="row-actions">
+                                    <button class="btn" id="custom-upload-btn" type="button">Import language pack</button>
+                                    <button class="btn btn-quiet" id="suggest-pack-btn" type="button">Suggest a pack</button>
+                                </div>
+                                <input type="file" id="custom-pack-input" accept=".ini,.txt" multiple hidden>
+                                <div class="custom-packs" id="custom-packs"><!-- Populated by app.js --></div>
+                            </div>
+                            <div class="more-block">
+                                <h3>Stock base</h3>
+                                <p class="muted">The unmodified file everything is merged onto. The default is updated automatically every LIVE patch.</p>
+                                <div class="stock-options">
+                                    <label class="stock-option active" id="stock-option-github">
+                                        <input type="radio" name="stock-source" id="stock-github" value="github" checked>
+                                        <span><strong>Latest LIVE stock</strong><span class="muted mono small">stock/LIVE/global.ini</span></span>
+                                    </label>
+                                    <label class="stock-option" id="stock-option-custom">
+                                        <input type="radio" name="stock-source" id="stock-custom" value="custom">
+                                        <span><strong>Upload my own</strong><span class="muted small">Your own extracted global.ini</span></span>
+                                    </label>
+                                </div>
+                                <div id="stock-upload-area" class="row-actions" style="display:none;">
+                                    <button class="btn" id="stock-upload-btn" type="button">Choose stock file</button>
+                                    <input type="file" id="stock-file-input" accept=".ini,.txt" hidden>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </section>
+
+                <!-- Step 2: Categories -->
+                <section class="card step" id="tab-merge">
+                    <header class="card-header">
+                        <span class="step-num">2</span>
+                        <div class="card-heading">
+                            <h2>Pick a source for each category</h2>
+                            <p>Each category of text comes from one pack. Use a group's dropdown to set all of it at once.</p>
+                        </div>
+                    </header>
+                    <div class="tree-tools">
+                        <input type="search" id="category-filter" class="search-input" placeholder="Filter categories (e.g. coolers, missions)…" autocomplete="off">
+                        <label class="switch">
+                            <input type="checkbox" id="changed-only" checked>
+                            <span class="switch-track" aria-hidden="true"></span>
+                            <span>Only categories with changes</span>
+                        </label>
+                        <label class="switch" title="If the pack chosen for a category leaves a line unchanged, use another pack in your build that changes it">
+                            <input type="checkbox" id="fill-gaps" checked>
+                            <span class="switch-track" aria-hidden="true"></span>
+                            <span>Fill gaps from your other packs</span>
+                        </label>
+                    </div>
+                    <div class="category-tree" id="category-tree">
+                        <div class="category-empty">Loading the stock file and packs…</div>
+                    </div>
+                </section>
+
+                <!-- Advanced tools -->
+                <details class="card advanced" id="advanced">
+                    <summary class="card-header advanced-summary">
+                        <span class="step-num step-num-muted" aria-hidden="true">+</span>
+                        <div class="card-heading">
+                            <h2>Advanced tools</h2>
+                            <p>Priority merge, key search, side-by-side compare and per-key edits.</p>
+                        </div>
+                    </summary>
+
+                    <nav class="tab-nav" role="tablist">
+                        <button class="tab-btn active" data-tab="priority" type="button">Priority merge</button>
+                        <button class="tab-btn" data-tab="browser" type="button">Key search</button>
+                        <button class="tab-btn" data-tab="compare" type="button">Compare</button>
+                        <button class="tab-btn" data-tab="customiser" type="button">Customizer <span class="tab-badge" id="customiser-badge" style="display:none;">0</span></button>
+                    </nav>
+
+                    <div id="tab-priority" class="tab-content active">
+                        <p class="muted">Instead of choosing per category, rank the enabled packs. Where packs disagree, the higher one wins; lower ones fill the gaps.</p>
+                        <div class="priority-list" id="priority-list">
+                            <div class="category-empty">Enable at least one pack to set priorities.</div>
+                        </div>
+                        <h3 class="subhead">Preview</h3>
+                        <div class="priority-stats" id="priority-stats">
+                            <div class="category-empty">Enable packs to see merge statistics.</div>
+                        </div>
+                        <div class="row-actions">
+                            <button class="btn btn-primary" id="priority-merge-btn" type="button" disabled>Download priority merge</button>
+                            <span class="merge-summary muted" id="priority-merge-summary">Set priority order to merge.</span>
+                        </div>
+                    </div>
+
+                    <div id="tab-browser" class="tab-content">
+                        <p class="muted">Find any key in the stock file and see which category it belongs to.</p>
+                        <div class="db-search">
+                            <input type="search" id="db-search-input" placeholder="Search keys or text (e.g. item_NameCOOL, Bracer)…" class="search-input" autocomplete="off">
+                            <span class="db-search-count" id="db-search-count"></span>
+                        </div>
+                        <div class="db-results" id="db-results">
+                            <div class="category-empty">Type at least 3 characters to search.</div>
+                        </div>
+                    </div>
+
+                    <div id="tab-compare" class="tab-content">
+                        <p class="muted">See how each enabled pack changes the same keys.</p>
+                        <div class="compare-controls">
+                            <input type="search" id="compare-search-input" placeholder="Search keys or text (e.g. Bracer, bounty)…" class="search-input" autocomplete="off">
+                            <div class="compare-packs" id="compare-packs"></div>
+                        </div>
+                        <span class="db-search-count" id="compare-search-count"></span>
+                        <div class="compare-results" id="compare-results">
+                            <div class="category-empty">Enable packs, then search to compare.</div>
+                        </div>
+                    </div>
+
+                    <div id="tab-customiser" class="tab-content">
+                        <p class="muted">Set your own text for any key. Your edits become a source called &ldquo;My Customizations&rdquo; that you can pick like any other pack.</p>
+                        <div class="db-search">
+                            <input type="search" id="customiser-search-input" placeholder="Search keys or text (e.g. Prospector, Panther)…" class="search-input" autocomplete="off">
+                            <span class="db-search-count" id="customiser-search-count"></span>
+                        </div>
+                        <div class="customiser-filters" id="customiser-filters"></div>
+                        <div class="customiser-sub-filters" id="customiser-sub-filters"></div>
+                        <div class="customiser-results" id="customiser-results">
+                            <div class="category-empty">Type at least 3 characters to search.</div>
+                        </div>
+
+                        <div class="subhead-row">
+                            <h3 class="subhead">My customizations</h3>
+                            <span class="customiser-count muted" id="customiser-count">0 customizations</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="customiser-persist">
+                            <span class="switch-track" aria-hidden="true"></span>
+                            <span>Remember my customizations in this browser</span>
+                        </label>
+                        <div class="row-actions">
+                            <button class="btn" id="customiser-export-btn" type="button" disabled>Export as INI</button>
+                            <button class="btn" id="customiser-import-btn" type="button">Import from INI</button>
+                            <input type="file" id="customiser-import-input" accept=".ini,.txt" hidden>
+                            <button class="btn btn-danger" id="customiser-clear-btn" type="button" disabled>Clear all</button>
+                        </div>
+                        <div class="customiser-list" id="customiser-list">
+                            <div class="category-empty">No customizations yet.</div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- ============ Summary (right, sticky) ============ -->
+            <aside class="summary" id="summary" aria-label="Your build">
+                <div class="card summary-card">
+                    <div class="summary-head">
+                        <h2>Your build</h2>
+                        <span class="status status-empty" id="stock-status">Loading stock…</span>
+                    </div>
+
+                    <ul class="summary-list" id="summary-list">
+                        <li class="muted">Nothing selected yet — pick a preset to start.</li>
+                    </ul>
+
+                    <div class="summary-total" id="merge-summary">Select categories from packs to merge.</div>
+
+                    <button class="btn btn-primary btn-block" id="merge-btn" type="button" disabled>
+                        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Download global.ini
+                    </button>
+                    <button class="btn btn-block" id="usercfg-btn" type="button">Download user.cfg</button>
+
+                    <div class="install" id="install">
+                        <h3>Install</h3>
+                        <ol>
+                            <li>Put <code>global.ini</code> in
+                                <span class="copy-line"><code class="mono" id="install-path">StarCitizen\LIVE\data\Localization\english\</code><button class="copy-btn" type="button" data-copy="install-path" title="Copy path">Copy</button></span>
+                                <span class="muted small">Create the folders if they don't exist.</span>
+                            </li>
+                            <li>Put <code>user.cfg</code> in <code class="mono">StarCitizen\LIVE\</code>. Already have one? Add
+                                <span class="copy-line"><code class="mono" id="usercfg-line">g_language = english</code><button class="copy-btn" type="button" data-copy="usercfg-line" title="Copy line">Copy</button></span>
+                            </li>
+                            <li>Launch the game. Built for <strong>LIVE</strong>; on PTU some text may be missing.</li>
+                        </ol>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <a href="https://github.com/AdamWaldie/ScCompLangPackWaldo" target="_blank" rel="noopener">ScCompLangPackWaldo</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://github.com/AdamWaldie/ScCompLangPackWaldo/issues/new" target="_blank" rel="noopener">Report a problem</a>
+            <span aria-hidden="true">·</span>
+            <span class="muted">Not affiliated with Cloud Imperium Games.</span>
+        </footer>
+    </main>
+
+    <!-- Mobile sticky action bar -->
+    <div class="mobile-bar" id="mobile-bar">
+        <span class="mobile-bar-text" id="mobile-bar-text">Nothing selected</span>
+        <button class="btn btn-primary" id="mobile-merge-btn" type="button" disabled>Download</button>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

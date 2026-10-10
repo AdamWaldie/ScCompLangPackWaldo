@@ -1,15 +1,15 @@
 # ⚙️ ScCompLangPackWaldo
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/AdamWaldie/ScCompLangPackWaldo)
-![GitHub pre-release](https://img.shields.io/github/v/release/AdamWaldie/ScCompLangPackWaldo?include_prereleases&label=pre-release&color=orange)
 
 A Star Citizen language pack that puts ship component stats in the item name, so you can see
 whether a component is worth looting the moment you scan it. It is rebuilt and released for
 every LIVE patch, automatically.
 
-> Based on [ScCompLangPackRemix](https://github.com/BeltaKoda/ScCompLangPackRemix) by **BeltaKoda**,
-> which itself remixes the original [ScCompLangPack](https://github.com/ExoAE/ScCompLangPack) by **ExoAE**.
-> All credit for the idea and the naming formats goes to them. See [CREDITS.md](CREDITS.md).
+> [!TIP]
+> **Want component tags *and* another pack's mission text?** Use the **[Pack Merger](https://adamwaldie.github.io/ScCompLangPackWaldo/)**:
+> pick a preset (or a source per category) and download one combined `global.ini`. It runs in your browser and always
+> merges onto the latest LIVE stock file.
 
 ## Two formats
 
@@ -66,8 +66,8 @@ https://raw.githubusercontent.com/AdamWaldie/ScCompLangPackWaldo/main/dist/LIVE/
 
 Each build also publishes a `changes.ini` that contains only the lines this pack changes, at
 `dist/<CHANNEL>/<remix|classic>/changes.ini` and as a release asset. Load it into a merging tool such as
-[StarMeld](https://beltakoda.github.io/StarMeld/) to use the component tags alongside another pack,
-for example MrKraken's [StarStrings](https://github.com/MrKraken/StarStrings) contract changes.
+the [Pack Merger](https://adamwaldie.github.io/ScCompLangPackWaldo/) to use the component tags alongside another pack's
+mission and contract text.
 
 ## 🔄 How it stays up to date
 
@@ -77,11 +77,11 @@ It's fully automatic and runs entirely on GitHub. Nobody's PC is involved.
  every 2 hours (GitHub Actions: Auto-update)
  ───────────────────────────────────────────────────────────────────────────────
  fetch newest stock LIVE global.ini ─▶ build ─▶ validate ─┬─ pass ─▶ commit to main ─▶ release + zips
- (Dymerz/StarCitizen-Localization)                         └─ fail ─▶ open an issue, release nothing
+ (public community localization repo)                      └─ fail ─▶ open an issue, release nothing
 ```
 
-- **Remote stock source.** [Dymerz/StarCitizen-Localization](https://github.com/Dymerz/StarCitizen-Localization)
-  (MIT) publishes the English `global.ini` imported from the game files, usually on patch day. The version and
+- **Remote stock source.** A public community localization repository (set in `scripts/fetch_stock.py`)
+  publishes the English `global.ini` imported from the game files, usually on patch day. The version and
   build are read from its commit messages. `scripts/fetch_stock.py` only accepts a file that is newer than ours,
   is complete, and still carries component stats. Their 4.8.0 file was checked against an extraction from
   `Data.p4k`, and every value was identical.
@@ -96,8 +96,8 @@ It's fully automatic and runs entirely on GitHub. Nobody's PC is involved.
   was classified. If anything fails, nothing is released and an `auto-update-blocked` issue explains why.
 - **Every release has a change report** listing new, changed and removed items.
 - **Backstop.** Every 6 hours a job compares our build with the CIG build string in the
-  [StarStrings](https://github.com/MrKraken/StarStrings) README. If the auto-update source is lagging, it opens a
-  `patch-detected` issue. Only the build string is used, none of StarStrings' content.
+  README of another community pack (set in `scripts/check_patch.py`). If the auto-update source is lagging, it opens a
+  `patch-detected` issue. Only the build string is read.
 
 Only **LIVE** is supported. PTU changes too often between builds to keep a pack stable.
 
@@ -136,7 +136,9 @@ scripts/fetch_stock.py          fetch the newest stock file remotely (Auto-updat
 scripts/update_stock.py         extract stock from your own Data.p4k and push (optional)
 scripts/check_patch.py          detect a newer game build (scheduled reminder)
 scripts/version_info.py         release titles / versions for the workflows
-scripts/p4k_reader.py           minimal Data.p4k reader (from ScCompLangPackRemix)
+scripts/p4k_reader.py           minimal Data.p4k reader
+scripts/build_category_db.py    category data for the Pack Merger (run on every Pages deploy)
+site/                           the Pack Merger web app (GitHub Pages)
 ```
 
 ## 🚧 Found a wrong name?

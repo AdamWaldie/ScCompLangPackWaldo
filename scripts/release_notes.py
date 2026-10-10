@@ -57,13 +57,9 @@ def notes(channel: str) -> str:
         "If you already have a `user.cfg`, add `g_language = english` to it instead of overwriting.",
         "",
         "The `*-changes.ini` files contain only the lines this pack changes, for merging with other packs "
-        "(e.g. in [StarMeld](https://beltakoda.github.io/StarMeld/)).",
+        "(e.g. in the [Pack Merger](https://adamwaldie.github.io/ScCompLangPackWaldo/)).",
         "",
         change_report(channel, previous_stock_ref(channel)).rstrip(),
-        "",
-        "Based on [ScCompLangPackRemix](https://github.com/BeltaKoda/ScCompLangPackRemix) by BeltaKoda and the "
-        "original [ScCompLangPack](https://github.com/ExoAE/ScCompLangPack) by ExoAE."
-        + (f" Stock file from [{meta['source']}](https://github.com/{meta['source']})." if meta["source"] else ""),
     ]
     return "\n".join(lines) + "\n"
 

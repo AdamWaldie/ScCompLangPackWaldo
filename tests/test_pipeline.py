@@ -104,5 +104,27 @@ class FetchStockTests(unittest.TestCase):
         self.assertEqual(version_key("4.10"), version_key("4.10.0"))
 
 
+class MergerCategoryTests(unittest.TestCase):
+    """Every line our packs change must fall in a component/ordnance category of the Pack Merger,
+    otherwise picking our pack for e.g. "Quantum Drives" would silently miss items."""
+
+    def test_pack_changes_are_categorised(self):
+        import json
+        import re
+        root = Path(__file__).resolve().parent.parent
+        data = json.loads((root / "site" / "data" / "categories.json").read_text())
+        rules = [(re.compile(p), g["name"]) for g in data["groups"] for c in g["categories"] for p in c["patterns"]]
+
+        def group_of(key):
+            return next((group for rx, group in rules if rx.search(key)), "Other")
+
+        allowed = {"Ship Components", "Ordnance", "Items"}  # Items: the Heph commodity override
+        for variant in ("remix", "classic"):
+            changes = root / "dist" / "LIVE" / variant / "changes.ini"
+            keys = [line.split("=", 1)[0] for line in changes.read_text(encoding="utf-8-sig").splitlines() if "=" in line]
+            misplaced = [k for k in keys if group_of(k) not in allowed]
+            self.assertEqual(misplaced, [], f"{variant}: keys outside merger categories")
+
+
 if __name__ == "__main__":
     unittest.main()
