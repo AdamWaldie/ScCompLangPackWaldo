@@ -46,12 +46,7 @@ jobs:
             exit 1
           fi
           python scripts/validate.py --channel "$ch"
-          version=$(python scripts/version_info.py --channel "$ch" version)
-          rm -rf out && mkdir out
-          (cd "dist/$ch/remix"   && zip -qr "../../../out/ScCompLangPackWaldo-$version-$ch.zip" data user.cfg)
-          (cd "dist/$ch/classic" && zip -qr "../../../out/ScCompLangPackWaldo-Classic-$version-$ch.zip" data user.cfg)
-          cp "dist/$ch/remix/changes.ini"   "out/ScCompLangPackWaldo-$version-$ch-changes.ini"
-          cp "dist/$ch/classic/changes.ini" "out/ScCompLangPackWaldo-Classic-$version-$ch-changes.ini"
+          scripts/package_release.sh "$ch" out
           gh release upload "$TAG" out/* --clobber
           # Notes from main too, so they describe exactly the files now attached.
           python scripts/release_notes.py --channel "$ch" > notes.md

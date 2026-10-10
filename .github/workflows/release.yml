@@ -1,13 +1,15 @@
 name: Release
 
-# Publishes a release for each channel whose stock file changed:
-#  - push to main touching stock/ (an update PR was merged)
-#  - called by the Auto-update workflow after it commits a new stock file
-#  - on demand from the Actions tab
+# Publishes each channel whose pack changed:
+#  - new stock file (new patch or build): a new release, and the floating "latest" release moves to it
+#  - same stock file, different pack (matching blueprint data arrived, or a pack fix was merged):
+#    the files and notes of every existing release of that stock file, and of "latest", are replaced
+# Runs on push to main touching stock/, game data or dist/, when called by Auto-update after it
+# commits, and on demand from the Actions tab.
 on:
   push:
     branches: [main]
-    paths: ["stock/*/global.ini", "data/gamedata/*.json"]
+    paths: ["stock/*/global.ini", "data/gamedata/*.json", "dist/**"]
   workflow_call:
     inputs:
       channels:
@@ -56,10 +58,9 @@ jobs:
           elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
             list=""  # first push that creates main: nothing to compare against, don't release the seed files
           else
-            list=$( { git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.sha }}" -- 'stock/*/global.ini' | cut -d/ -f2;
-                      git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.sha }}" -- 'data/gamedata/*.json' | xargs -r -n1 basename | sed 's/\.json$//'; } | sort -u | tr '\n' ' ')
-            # Game data that doesn't change the packs (not yet matching the stock patch) is no reason to release.
-            if [ -n "$list" ] && git diff --quiet "${{ github.event.before }}" "${{ github.sha }}" -- dist; then list=""; fi
+            # Only channels whose built pack changed; new inputs that don't change it are no reason to release.
+            list=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- dist | cut -d/ -f2 | sort -u \
+                   | while read -r ch; do [ -f "stock/$ch/global.ini" ] && echo "$ch"; done | tr '\n' ' ')
           fi
           echo "list=$list" >> "$GITHUB_OUTPUT"
 
@@ -81,26 +82,38 @@ jobs:
             version=$(python scripts/version_info.py --channel "$ch" version)
             build=$(python scripts/version_info.py --channel "$ch" build)
             title=$(python scripts/version_info.py --channel "$ch" title)
-            tag="$version-$ch"
-            if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
-              # Same patch re-released (hotfix build or pack fix): keep tags unique.
-              tag="$tag-${build:-$(date -u +%Y%m%d%H%M)}"
-            fi
-
-            # Versioned assets (kept forever) and fixed-name copies for the floating "latest" release.
-            rm -rf out latest && mkdir -p out latest
-            (cd "dist/$ch/remix"   && zip -qr "../../../out/ScCompLangPackWaldo-$version-$ch.zip" data user.cfg)
-            (cd "dist/$ch/classic" && zip -qr "../../../out/ScCompLangPackWaldo-Classic-$version-$ch.zip" data user.cfg)
-            cp "dist/$ch/remix/changes.ini"   "out/ScCompLangPackWaldo-$version-$ch-changes.ini"
-            cp "dist/$ch/classic/changes.ini" "out/ScCompLangPackWaldo-Classic-$version-$ch-changes.ini"
-            for f in out/*; do
-              cp "$f" "latest/$(basename "$f" | sed "s/-$version-$ch/-$ch/")"
-            done
-
+            scripts/package_release.sh "$ch" out latest
             python scripts/release_notes.py --channel "$ch" > "notes-$ch.md"
 
-            gh release create "$tag" out/* --target "$head_sha" \
-              --title "$title" --notes-file "notes-$ch.md"
+            # Existing releases built from this exact stock file get the new files instead of a new release.
+            same=()
+            for t in $(git tag -l "*-$ch" "*-$ch-*" --sort=-creatordate); do
+              if git diff --quiet "refs/tags/$t" HEAD -- "stock/$ch/global.ini" && gh release view "$t" >/dev/null 2>&1; then
+                same+=("$t")
+              fi
+            done
+
+            if [ ${#same[@]} -gt 0 ]; then
+              for t in "${same[@]}"; do
+                gh release upload "$t" out/* --clobber
+                gh release edit "$t" --notes-file "notes-$ch.md"
+                echo "Updated $t in place"
+              done
+              tag=${same[0]}
+              if gh release view latest >/dev/null 2>&1; then
+                gh release upload latest latest/* --clobber
+                echo "Updated latest in place"
+                continue
+              fi
+            else
+              tag="$version-$ch"
+              if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+                # Same patch, new stock file (hotfix build): keep tags unique.
+                tag="$tag-${build:-$(date -u +%Y%m%d%H%M)}"
+              fi
+              gh release create "$tag" out/* --target "$head_sha" \
+                --title "$title" --notes-file "notes-$ch.md"
+            fi
 
             # Floating release with fixed asset names, for installers and auto-updaters:
             #   https://github.com/<repo>/releases/download/latest/ScCompLangPackWaldo-LIVE.zip

@@ -46,7 +46,7 @@ own contract data:
 
 Blueprint pools rarely change between patches, so right after a patch (before that patch's game data is
 published) the lists come from the previous patch and say so: `Blueprints this contract can award (as of 4.10.1):`.
-A follow-up release swaps in the current patch's data automatically as soon as it's published.
+As soon as the current patch's data is published, the release for that patch (and the `latest` download links) is updated in place with it.
 
 ## Install
 
