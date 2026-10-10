@@ -33,7 +33,8 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ inputs.ref || github.sha }}
+          # Push: the pushed main commit. Called from Auto-update: the commit it made. By hand: main.
+          ref: ${{ inputs.ref || (github.event_name == 'push' && github.sha) || 'main' }}
 
       - uses: actions/setup-python@v6
         with:

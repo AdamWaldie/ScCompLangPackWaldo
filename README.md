@@ -115,8 +115,9 @@ It's fully automatic and runs entirely on GitHub. Nobody's PC is involved.
   README of another community pack (set in `scripts/check_patch.py`). If the auto-update source is lagging, it opens a
   `patch-detected` issue. Only the build string is read.
 
-Scheduled jobs always run the latest code on `main`: GitHub starts schedules from the repository's default branch, and
-if that isn't `main` the run hands itself over to `main` straight away (and opens one reminder issue).
+Everything runs from `main`. GitHub starts scheduled runs (and "Run workflow" in the Actions tab, by default) on the
+repository's default branch; if that isn't `main`, Auto-update and Patch watch hand the run over to `main` straight away
+(and open one reminder issue), and Release, Deploy Pack Merger and Refresh release notes always build from `main`.
 
 Only **LIVE** is supported. PTU changes too often between builds to keep a pack stable.
 

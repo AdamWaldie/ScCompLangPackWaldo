@@ -22,10 +22,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # GitHub runs schedules from the default branch. If that isn't main, hand the run over to
-  # main so the latest workflow code always does the work.
+  # GitHub starts schedules (and the Actions tab's "Run workflow" by default) on the default branch.
+  # Any run that isn't on main hands itself over to main, so main's code always does the work.
   route-to-main:
-    if: github.event_name == 'schedule' && github.ref_name != 'main'
+    if: github.ref_name != 'main'
     runs-on: ubuntu-latest
     permissions:
       actions: write
@@ -37,16 +37,16 @@ jobs:
       - name: Run this workflow on main instead
         run: |
           gh workflow run auto-update.yml --ref main
-          echo "::notice::Scheduled run started from '${{ github.ref_name }}'; handed over to main."
+          echo "::notice::Run started from '${{ github.ref_name }}'; handed over to main."
       - name: Note that the default branch isn't main (once)
         run: |
           title="Default branch is not main"
           if [ -z "$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number')" ]; then
-            gh issue create --title "$title" --body "Scheduled workflows start on the default branch (\`${{ github.ref_name }}\`) and hand over to \`main\` automatically, so nothing is out of date. To remove the extra hop, set **Settings → General → Default branch** to \`main\`, then close this issue."
+            gh issue create --title "$title" --body "Scheduled and manually started workflows begin on the default branch (\`${{ github.ref_name }}\`) and hand over to \`main\` automatically, so nothing is out of date. To remove the extra hop, set **Settings → General → Default branch** to \`main\`, then close this issue."
           fi
 
   update:
-    if: github.event_name != 'schedule' || github.ref_name == 'main'
+    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     outputs:
       released: ${{ steps.commit.outputs.released }}
