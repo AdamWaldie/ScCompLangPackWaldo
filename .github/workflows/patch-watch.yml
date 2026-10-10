@@ -11,6 +11,7 @@ on:
 permissions:
   contents: read
   issues: write
+  actions: write
 
 jobs:
   check:
@@ -29,6 +30,8 @@ jobs:
           set -euo pipefail
           python scripts/check_patch.py > pending.jsonl
           [ -s pending.jsonl ] || { echo "Up to date."; exit 0; }
+          # Don't wait for the next scheduled run: try to pick the new patch up right away.
+          gh workflow run auto-update.yml --ref main || echo "::warning::could not start Auto-update"
           gh label create patch-detected --color D93F0B --description "New game build, pack needs updating" 2>/dev/null || true
 
           # Read from fd 3 so commands inside the loop can never swallow the remaining lines.

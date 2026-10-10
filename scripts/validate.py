@@ -71,6 +71,13 @@ def validate(channel: str) -> list[str]:
             if bad:
                 errors.append(f"{where}: malformed component tags: {bad[:5]}")
 
+        # Nothing we write may break the file or show raw keys in game.
+        broken = [k for k, v in stats["tagged"].items()
+                  if "\n" in v or "\r" in v or v.startswith("@") or v.startswith("[BP][BP]")
+                  or (not v.strip() and (stock.get(k) or "").strip())]
+        if broken:
+            errors.append(f"{where}: {len(broken)} changed values would be broken in game, e.g. {broken[:5]}")
+
         if stats["unresolved"]:
             errors.append(f"{where}: {len(stats['unresolved'])} unclassified component keys "
                           f"(add to data/component_overrides.csv): {stats['unresolved'][:10]}")

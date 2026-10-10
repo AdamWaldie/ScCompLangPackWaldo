@@ -36,6 +36,18 @@ Missiles and torpedoes are tagged with their tracking signal: **IR** (infrared),
 
 Capital-ship and Vanduul parts that have no grade, such as the Idris and 890J internals, keep their stock names.
 
+## Contracts: blueprint rewards
+
+Both formats also mark contracts that can award blueprints, generated each patch from the game's
+own contract data:
+
+- **Title:** `[BP] Defend InterSec Operative`, or `[BP]*` when only some versions of a shared contract award.
+- **Description:** ends with the full list, e.g. `Blueprints this contract can award: - Pulse "Rouge" Pistol …`
+
+The lists are only added when the game data comes from the **same patch** as the stock text, so they're
+never out of date. Right after a patch there can be a short gap (a few days) where releases go out
+without them; they're added automatically in a follow-up release as soon as the matching data is published.
+
 ## Install
 
 1. Download the zip for your format from the [Releases page](https://github.com/AdamWaldie/ScCompLangPackWaldo/releases):
@@ -94,6 +106,10 @@ It's fully automatic and runs entirely on GitHub. Nobody's PC is involved.
 - **Validation gates every release.** It checks that the output has the same keys in the same order as stock,
   that it has a UTF-8 BOM, that only intended keys changed, that tags are well-formed, and that every component
   was classified. If anything fails, nothing is released and an `auto-update-blocked` issue explains why.
+- **No missing or raw `@key` text from us.** Every build is the complete current stock file plus our changes, and
+  validation refuses a release that drops a key, adds a line break, starts a value with `@` or blanks a line.
+  Text CIG itself ships as `@Some text` (shown with the `@` in game) is cleaned up automatically. The Pack Merger
+  always merges onto the current stock file, so other packs that are older than the game can't leave gaps either.
 - **Every release has a change report** listing new, changed and removed items.
 - **Backstop.** Every 6 hours a job compares our build with the CIG build string in the
   README of another community pack (set in `scripts/check_patch.py`). If the auto-update source is lagging, it opens a
@@ -134,7 +150,8 @@ scripts/report.py               patch change report
 scripts/validate.py             CI checks
 scripts/fetch_stock.py          fetch the newest stock file remotely (Auto-update)
 scripts/update_stock.py         extract stock from your own Data.p4k and push (optional)
-scripts/check_patch.py          detect a newer game build (scheduled reminder)
+scripts/check_patch.py          detect a newer game build (starts Auto-update straight away)
+scripts/fetch_gamedata.py       contract/blueprint summary from per-patch game data -> data/gamedata/LIVE.json
 scripts/version_info.py         release titles / versions for the workflows
 scripts/p4k_reader.py           minimal Data.p4k reader
 scripts/build_category_db.py    category data for the Pack Merger (run on every Pages deploy)
