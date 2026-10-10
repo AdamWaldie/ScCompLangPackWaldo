@@ -1,181 +1,192 @@
 """
-Minimal P4K file reader for Star Citizen's Data.p4k.
+Read single files out of Star Citizen's Data.p4k without unpacking the archive.
 
-P4K files are ZIP64 archives with a non-standard preamble in the central
-directory. This module handles that quirk and supports zstandard-compressed
-entries (compress_type=100).
+Data.p4k is a ZIP64 archive with a few twists:
+  * entries are usually compressed with zstd, stored as ZIP compression method 100;
+  * the central directory may start with bytes that are not an entry header, so entries are
+    located by their signature instead of assuming the directory starts with one;
+  * CIG adds its own extra fields, including a flag for encrypted entries (localization files
+    are not encrypted, and encrypted entries are refused rather than read as garbage).
 
-Dependencies: zstandard, pycryptodome (only if reading encrypted entries)
+Only what scripts/update_stock.py needs is implemented: list/find entries and read one.
+
+    p4k = P4KFile("C:/.../StarCitizen/LIVE/Data.p4k")
+    entry = p4k.find("Data/Localization/english/global.ini")
+    data = p4k.read(entry)
+
+Dependency: zstandard (pip install zstandard).
 """
 
+from __future__ import annotations
+
 import struct
-import zipfile
+import zlib
+from dataclasses import dataclass
 from pathlib import Path
 
-# P4K uses zstandard compression identified by type 100
-ZIP_ZSTD = 100
+METHOD_STORED = 0
+METHOD_DEFLATE = 8
+METHOD_ZSTD = 100
+
+SIG_CENTRAL = b"PK\x01\x02"
+SIG_LOCAL = b"PK\x03\x04"
+SIG_EOCD = b"PK\x05\x06"
+SIG_EOCD64 = b"PK\x06\x06"
+SIG_EOCD64_LOCATOR = b"PK\x06\x07"
+
+CENTRAL_HEADER = struct.Struct("<4s6H3I5H2I")   # 46 bytes
+LOCAL_HEADER = struct.Struct("<4s5H3I2H")       # 30 bytes
+EOCD = struct.Struct("<4s4H2IH")                # 22 bytes
+EOCD64 = struct.Struct("<4sQ2H2I4Q")            # 56 bytes
+EOCD64_LOCATOR = struct.Struct("<4sIQI")        # 20 bytes
+
+ZIP64_EXTRA = 0x0001
+CIG_ENCRYPTION_FLAG_OFFSET = 168  # byte inside CIG's extra data that is non-zero for encrypted entries
+MAX_COMMENT = 0xFFFF
 
 
+@dataclass
 class P4KEntry:
-    """Represents a single file entry in a P4K archive."""
-    __slots__ = ("filename", "compress_type", "compressed_size", "file_size",
-                 "header_offset", "is_encrypted", "extra")
-
-    def __init__(self):
-        self.filename = ""
-        self.compress_type = 0
-        self.compressed_size = 0
-        self.file_size = 0
-        self.header_offset = 0
-        self.is_encrypted = False
-        self.extra = b""
+    filename: str
+    method: int
+    compressed_size: int
+    file_size: int
+    header_offset: int
+    encrypted: bool
 
 
 class P4KFile:
-    """Read-only access to Star Citizen P4K archives.
-
-    Usage:
-        p4k = P4KFile("/path/to/Data.p4k")
-        data = p4k.read("Data/Localization/english/global.ini")
-    """
-
     def __init__(self, path: str | Path):
         self.path = Path(path)
-        self.entries: list[P4KEntry] = []
-        self._name_map: dict[str, P4KEntry] = {}
-        self._parse_central_directory()
+        self._base, self._cd_offset, self._cd_size = self._locate_central_directory()
+        self._entries: list[P4KEntry] | None = None
 
-    def _parse_central_directory(self):
-        """Parse the ZIP64 central directory, handling P4K's non-standard preamble."""
-        with open(self.path, "rb") as fp:
-            endrec = zipfile._EndRecData(fp)
-            if not endrec:
-                raise ValueError(f"Not a valid P4K/ZIP file: {self.path}")
+    # -- archive structure -------------------------------------------------
 
-            size_cd = endrec[zipfile._ECD_SIZE]
-            offset_cd = endrec[zipfile._ECD_OFFSET]
+    def _locate_central_directory(self) -> tuple[int, int, int]:
+        """Return (base offset, central directory offset, central directory size)."""
+        size = self.path.stat().st_size
+        with self.path.open("rb") as f:
+            tail_len = min(size, EOCD.size + MAX_COMMENT + EOCD64_LOCATOR.size)
+            f.seek(size - tail_len)
+            tail = f.read(tail_len)
+            pos = tail.rfind(SIG_EOCD)
+            if pos < 0:
+                raise ValueError(f"{self.path} is not a ZIP/P4K archive (no end-of-directory record)")
+            _, _, _, _, _, cd_size, cd_offset, _ = EOCD.unpack_from(tail, pos)
+            eocd_at = size - tail_len + pos
 
-            # Calculate concat offset (accounts for prepended data)
-            concat = endrec[zipfile._ECD_LOCATION] - size_cd - offset_cd
-            if endrec[zipfile._ECD_SIGNATURE] == zipfile.stringEndArchive64:
-                concat -= zipfile.sizeEndCentDir64 + zipfile.sizeEndCentDir64Locator
+            # ZIP64: a locator just before the classic record points at the 64-bit record.
+            loc_at = eocd_at - EOCD64_LOCATOR.size
+            if loc_at >= 0:
+                f.seek(loc_at)
+                loc = f.read(EOCD64_LOCATOR.size)
+                if loc[:4] == SIG_EOCD64_LOCATOR:
+                    _, _, eocd64_offset, _ = EOCD64_LOCATOR.unpack(loc)
+                    # The locator's offset ignores any prepended data; the record normally sits
+                    # right before the locator, so try that position too.
+                    for candidate in (eocd64_offset, loc_at - EOCD64.size):
+                        f.seek(candidate)
+                        rec = f.read(EOCD64.size)
+                        if rec[:4] == SIG_EOCD64:
+                            break
+                    else:
+                        raise ValueError("ZIP64 end-of-directory record not found")
+                    fields = EOCD64.unpack(rec)
+                    cd_size, cd_offset = fields[8], fields[9]
+                    eocd_at = candidate
 
-            fp.seek(offset_cd + concat)
-            cd_data = fp.read(size_cd)
+            # Data prepended to the archive shifts every stored offset by the same amount.
+            base = eocd_at - cd_size - cd_offset
+            return base, cd_offset, cd_size
 
-        # P4K files may have a non-standard preamble before the first PK\x01\x02
-        pk_sig = b"PK\x01\x02"
-        first_pk = cd_data.find(pk_sig)
-        if first_pk < 0:
-            raise ValueError("No central directory entries found in P4K file")
+    def _read_entries(self) -> list[P4KEntry]:
+        with self.path.open("rb") as f:
+            f.seek(self._base + self._cd_offset)
+            cd = f.read(self._cd_size)
 
-        pos = first_pk
-        while pos + zipfile.sizeCentralDir <= len(cd_data):
-            if cd_data[pos:pos + 4] != pk_sig:
-                break
+        entries = []
+        pos = cd.find(SIG_CENTRAL)
+        while pos >= 0 and pos + CENTRAL_HEADER.size <= len(cd) and cd[pos:pos + 4] == SIG_CENTRAL:
+            (_, _, _, flags, method, _, _, _, csize, usize,
+             name_len, extra_len, comment_len, _, _, _, offset) = CENTRAL_HEADER.unpack_from(cd, pos)
+            start = pos + CENTRAL_HEADER.size
+            name = cd[start:start + name_len].decode("utf-8" if flags & 0x800 else "cp437", "replace")
+            extra = cd[start + name_len:start + name_len + extra_len]
+            usize, csize, offset = _apply_zip64(extra, usize, csize, offset)
+            encrypted = len(extra) > CIG_ENCRYPTION_FLAG_OFFSET and extra[CIG_ENCRYPTION_FLAG_OFFSET] != 0
+            entries.append(P4KEntry(name, method, csize, usize, offset, encrypted))
+            pos = start + name_len + extra_len + comment_len
+        if not entries:
+            raise ValueError(f"No entries found in {self.path}")
+        return entries
 
-            centdir = struct.unpack(
-                zipfile.structCentralDir,
-                cd_data[pos:pos + zipfile.sizeCentralDir],
-            )
+    # -- public API ----------------------------------------------------------
 
-            fn_len = centdir[zipfile._CD_FILENAME_LENGTH]
-            extra_len = centdir[zipfile._CD_EXTRA_FIELD_LENGTH]
-            comment_len = centdir[zipfile._CD_COMMENT_LENGTH]
-            entry_size = zipfile.sizeCentralDir + fn_len + extra_len + comment_len
+    @property
+    def entries(self) -> list[P4KEntry]:
+        if self._entries is None:
+            self._entries = self._read_entries()
+        return self._entries
 
-            fn_raw = cd_data[pos + zipfile.sizeCentralDir:pos + zipfile.sizeCentralDir + fn_len]
-            flags = centdir[zipfile._CD_FLAG_BITS]
-            filename = fn_raw.decode("utf-8" if flags & 0x800 else "cp437")
+    def find(self, path: str) -> P4KEntry | None:
+        """Case-insensitive lookup; forward or back slashes both work."""
+        wanted = path.replace("\\", "/").lower()
+        for entry in self.entries:
+            if entry.filename.replace("\\", "/").lower() == wanted:
+                return entry
+        return None
 
-            extra = cd_data[
-                pos + zipfile.sizeCentralDir + fn_len:
-                pos + zipfile.sizeCentralDir + fn_len + extra_len
-            ]
+    def read(self, entry: P4KEntry | str) -> bytes:
+        if isinstance(entry, str):
+            found = self.find(entry)
+            if found is None:
+                raise FileNotFoundError(f"{entry} is not in {self.path}")
+            entry = found
+        if entry.encrypted:
+            raise ValueError(f"{entry.filename} is encrypted; this reader only handles unencrypted entries")
 
-            entry = P4KEntry()
-            entry.filename = filename
-            entry.compress_type = centdir[zipfile._CD_COMPRESS_TYPE]
-            entry.compressed_size = centdir[zipfile._CD_COMPRESSED_SIZE]
-            entry.file_size = centdir[zipfile._CD_UNCOMPRESSED_SIZE]
-            entry.header_offset = centdir[zipfile._CD_LOCAL_HEADER_OFFSET]
-            entry.extra = extra
-            entry.is_encrypted = len(extra) >= 168 and extra[168] > 0x00
+        with self.path.open("rb") as f:
+            f.seek(self._base + entry.header_offset)
+            header = f.read(LOCAL_HEADER.size)
+            if header[:4] != SIG_LOCAL:
+                raise ValueError(f"Bad local header for {entry.filename}")
+            name_len, extra_len = LOCAL_HEADER.unpack(header)[9:11]
+            f.seek(name_len + extra_len, 1)
+            raw = f.read(entry.compressed_size)
 
-            # Resolve ZIP64 extended sizes
-            _resolve_zip64(entry)
-
-            self.entries.append(entry)
-            # Normalize path separators for lookup
-            self._name_map[filename.replace("\\", "/").lower()] = entry
-
-            pos += entry_size
-
-    def find(self, pattern: str) -> P4KEntry | None:
-        """Find an entry by case-insensitive path (forward slashes)."""
-        key = pattern.replace("\\", "/").lower()
-        return self._name_map.get(key)
-
-    def read(self, entry_or_path) -> bytes:
-        """Read and decompress a file from the P4K archive."""
-        if isinstance(entry_or_path, str):
-            entry = self.find(entry_or_path)
-            if entry is None:
-                raise FileNotFoundError(f"Not found in P4K: {entry_or_path}")
+        if entry.method == METHOD_STORED:
+            data = raw
+        elif entry.method == METHOD_DEFLATE:
+            data = zlib.decompress(raw, -15)
+        elif entry.method == METHOD_ZSTD:
+            try:
+                import zstandard
+            except ImportError as e:
+                raise ImportError("zstandard is required: pip install zstandard") from e
+            data = zstandard.ZstdDecompressor().decompress(raw, max_output_size=max(entry.file_size, 1))
         else:
-            entry = entry_or_path
+            raise ValueError(f"Unsupported compression method {entry.method} for {entry.filename}")
 
-        with open(self.path, "rb") as fp:
-            fp.seek(entry.header_offset)
-            local_header = fp.read(30)
-            lh = struct.unpack("<4sHHHHHIIIHH", local_header)
-            local_fn_len = lh[-2]
-            local_extra_len = lh[-1]
-
-            fp.seek(entry.header_offset + 30 + local_fn_len + local_extra_len)
-            compressed = fp.read(entry.compressed_size)
-
-        if entry.is_encrypted:
-            compressed = _decrypt(compressed)
-
-        if entry.compress_type == ZIP_ZSTD:
-            import zstandard as zstd
-            dctx = zstd.ZstdDecompressor()
-            return dctx.decompress(compressed, max_output_size=entry.file_size + 4096)
-        elif entry.compress_type == zipfile.ZIP_STORED:
-            return compressed
-        elif entry.compress_type == zipfile.ZIP_DEFLATED:
-            import zlib
-            return zlib.decompress(compressed, -15)
-        else:
-            raise ValueError(f"Unsupported compression type: {entry.compress_type}")
+        if len(data) != entry.file_size:
+            raise ValueError(f"{entry.filename}: expected {entry.file_size} bytes, got {len(data)}")
+        return data
 
 
-def _resolve_zip64(entry: P4KEntry):
-    """Parse ZIP64 extended information from the extra field."""
-    extra = entry.extra
-    offset = 0
-    while offset + 4 < len(extra):
-        tag, size = struct.unpack("<HH", extra[offset:offset + 4])
-        if tag == 0x0001:  # ZIP64
-            vals = [
-                struct.unpack("<Q", extra[offset + 4 + i * 8:offset + 4 + (i + 1) * 8])[0]
-                for i in range(size // 8)
-            ]
-            idx = 0
-            if entry.file_size in (0xFFFFFFFF, 0xFFFFFFFFFFFFFFFF):
-                entry.file_size = vals[idx]; idx += 1
-            if entry.compressed_size == 0xFFFFFFFF:
-                entry.compressed_size = vals[idx]; idx += 1
-            if entry.header_offset == 0xFFFFFFFF:
-                entry.header_offset = vals[idx]; idx += 1
-            return
-        offset += 4 + size
-
-
-def _decrypt(data: bytes) -> bytes:
-    """Decrypt AES-encrypted P4K entry data."""
-    from Crypto.Cipher import AES
-    key = b"\x5e\x7a\x20\x02\x30\x2e\xeb\x1a\x3b\xb6\x17\xc3\x0f\xde\x1e\x47"
-    cipher = AES.new(key, AES.MODE_CBC, b"\x00" * 16)
-    return cipher.decrypt(data)
+def _apply_zip64(extra: bytes, usize: int, csize: int, offset: int) -> tuple[int, int, int]:
+    """Replace 0xFFFFFFFF placeholders with the 64-bit values from the ZIP64 extra field."""
+    pos = 0
+    while pos + 4 <= len(extra):
+        tag, size = struct.unpack_from("<HH", extra, pos)
+        if tag == ZIP64_EXTRA:
+            values = list(struct.unpack_from(f"<{size // 8}Q", extra, pos + 4))
+            # Values appear only for fields that overflowed, in this fixed order.
+            if usize == 0xFFFFFFFF and values:
+                usize = values.pop(0)
+            if csize == 0xFFFFFFFF and values:
+                csize = values.pop(0)
+            if offset == 0xFFFFFFFF and values:
+                offset = values.pop(0)
+            break
+        pos += 4 + size
+    return usize, csize, offset
