@@ -190,6 +190,9 @@ class Classification:
     items: list[Item] = field(default_factory=list)
     unresolved: list[str] = field(default_factory=list)  # component-like keys with unreadable stats
     bespoke: list[str] = field(default_factory=list)  # ship-specific parts with no grade (left untagged)
+    # Component-like keys with no description at all (usually a CIG typo in the key). Nothing to read
+    # stats from, so the stock name is kept; reported for information, never blocks a release.
+    no_description: list[str] = field(default_factory=list)
 
 
 def classify(ini: IniFile) -> Classification:
@@ -247,8 +250,7 @@ def classify(ini: IniFile) -> Classification:
             else:
                 unresolved.append(key)
         elif desc_key is None and re.match(r"^item_?name_?(COOL|POWR|SHLD|QDRV|QRDV|RADR)_", key, re.IGNORECASE):
-            # Looks like a component by key but has no description to read stats from.
-            unresolved.append(key)
+            result.no_description.append(key)
 
     return result
 
@@ -335,6 +337,7 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
         "counts": counts,
         "unresolved": sorted(result.unresolved),
         "bespoke": sorted(result.bespoke),
+        "no_description": sorted(result.no_description),
         "tagged": dict(sorted(tagged.items())),
         "gamedata": gamedata_status,
     }

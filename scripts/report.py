@@ -100,6 +100,13 @@ def main() -> int:
         print(f"### Removed items ({len(removed)})\n")
         print(table(removed, ("Key", "Was")))
 
+    no_desc = classify(new_ini).no_description
+    if no_desc:
+        print(f"### Left with stock names ({len(no_desc)})\n")
+        print("Component-like keys with no description to read stats from (usually a typo in CIG's key). "
+              "Their stock name is kept; nothing to do.\n")
+        print(table([(k, new_ini.get(k) or "") for k in no_desc], ("Key", "Stock name")))
+
     print(f"### Needs attention ({len(unresolved)})\n")
     if unresolved:
         print("These look like ship components but their stats couldn't be read from the description. "

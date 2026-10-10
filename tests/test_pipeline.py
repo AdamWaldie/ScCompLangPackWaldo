@@ -73,6 +73,13 @@ class BuildTests(unittest.TestCase):
         line = ini.lines[ini.index["Frontend_PU_Version"]]
         self.assertTrue(line.startswith("Frontend_PU_Version,P=4.10 - Test - ScCompLangPackWaldo"))
 
+    def test_component_key_without_description_keeps_stock_name(self):
+        self.stock.write_text(STOCK + "item_NameCOOL_AEGS_S04_Idirs=Exotherm\r\n", encoding="utf-8", newline="")
+        ini, stats = self.built("remix")
+        self.assertEqual(ini.get("item_NameCOOL_AEGS_S04_Idirs"), "Exotherm")
+        self.assertIn("item_NameCOOL_AEGS_S04_Idirs", stats["no_description"])
+        self.assertEqual(stats["unresolved"], [])
+
     def test_never_double_tags(self):
         ini, _ = self.built("remix")
         once = self.dir / "once.ini"
