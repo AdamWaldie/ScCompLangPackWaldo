@@ -176,11 +176,28 @@ class GameDataLayerTests(unittest.TestCase):
                          "\\n- Arclight Pistol\\n- Testudo Core")
         self.assertIn("matched", stats["gamedata"])
 
-    def test_blueprints_skipped_for_other_patch(self):
-        for version, build_no in (("4.10.1", ""), ("4.10.2", "999")):
+    def test_older_game_data_used_as_of_its_patch(self):
+        for version, build_no, asof in (("4.10.3", "", "4.10.2"), ("4.10.2", "999", "4.10.2 build 123")):
             ini, stats = self.build_with(version, build_no)
-            self.assertEqual(ini.get("Some_Contract_Title"), "Defend the Outpost")
-            self.assertIn("waiting", stats["gamedata"])
+            self.assertEqual(ini.get("Some_Contract_Title"), "[BP] Defend the Outpost")
+            self.assertEqual(ini.get("Some_Contract_Desc"),
+                             f"Go there.\\nKill them.\\n\\nBlueprints this contract can award (as of {asof}):"
+                             "\\n- Arclight Pistol\\n- Testudo Core")
+            self.assertIn(f"as of {asof}", stats["gamedata"])
+
+    def test_newer_game_data_not_used(self):
+        ini, stats = self.build_with("4.10.1")
+        self.assertEqual(ini.get("Some_Contract_Title"), "Defend the Outpost")
+        self.assertIn("newer", stats["gamedata"])
+
+    def test_gamedata_match(self):
+        cases = [({"version": "4.10.2", "build": "1"}, {"version": "4.10.2", "build": "1"}, "matched"),
+                 ({"version": "4.10.2", "build": "1"}, {"version": "4.10.2", "build": ""}, "matched"),
+                 ({"version": "4.10.2", "build": "1"}, {"version": "4.10.2", "build": "2"}, "older"),
+                 ({"version": "4.10.1"}, {"version": "4.10.2"}, "older"),
+                 ({"version": "4.11.0"}, {"version": "4.10.2"}, "newer")]
+        for gd, meta, want in cases:
+            self.assertEqual(build.gamedata_match(gd, meta), want, (gd, meta))
 
     def test_literal_at_text_fixed_but_key_references_kept(self):
         ini, _ = self.build_with("4.10.1")
@@ -188,11 +205,14 @@ class GameDataLayerTests(unittest.TestCase):
         self.assertEqual(ini.get("item_NamePistol"), "@mp_ePistol")
 
     def test_rebuild_is_idempotent(self):
-        ini, _ = self.build_with("4.10.2", "123")
-        ini.save(self.dir / "global.ini")
-        again, _ = self.build_with("4.10.2", "123")
-        self.assertEqual(again.get("Some_Contract_Title"), "[BP] Defend the Outpost")
-        self.assertEqual(again.get("Some_Contract_Desc").count("Blueprints this contract"), 1)
+        for version in ("4.10.2", "4.10.3"):
+            self.setUp()
+            ini, _ = self.build_with(version, "123")
+            ini.save(self.dir / "global.ini")
+            again, _ = self.build_with(version, "123")
+            self.assertEqual(again.get("Some_Contract_Title"), "[BP] Defend the Outpost")
+            self.assertEqual(again.get("Some_Contract_Desc").count("Blueprints this contract"), 1)
+            self.tearDown()
 
 
 if __name__ == "__main__":

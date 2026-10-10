@@ -324,8 +324,8 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
 
     counts["cig_fix"] = fix_literal_at_values(ini, tagged)
 
-    gamedata, gamedata_status = load_matching_gamedata(stock_path)
-    counts["bp_title"], counts["bp_desc"] = apply_blueprints(ini, gamedata, tagged) if gamedata else (0, 0)
+    gamedata, gamedata_status, asof = load_matching_gamedata(stock_path)
+    counts["bp_title"], counts["bp_desc"] = apply_blueprints(ini, gamedata, tagged, asof) if gamedata else (0, 0)
 
     version_key = "Frontend_PU_Version"
     stock_version = ini.get(version_key)
@@ -370,29 +370,51 @@ def _version_tuple(v: str) -> tuple[int, ...]:
     return tuple((parts + [0, 0, 0])[:3])
 
 
-def load_matching_gamedata(stock_path: Path) -> tuple[dict | None, str]:
-    """Game data is used only when it was dumped from the same patch as the stock file."""
+def gamedata_match(gd: dict, meta: dict) -> str:
+    """'matched' (same patch, and same build when both are known), 'newer' or 'older' than the stock file."""
+    gd_version, stock_version = _version_tuple(gd.get("version", "")), _version_tuple(meta.get("version", ""))
+    builds_known = gd.get("build") and meta.get("build")
+    if gd_version == stock_version and not (builds_known and gd["build"] != meta["build"]):
+        return "matched"
+    return "newer" if gd_version > stock_version else "older"
+
+
+def load_matching_gamedata(stock_path: Path) -> tuple[dict | None, str, str]:
+    """Game data for the stock file's patch, or failing that the newest older dump: blueprint pools
+    rarely change between patches, so older data is used and labelled 'as of <version>'.
+    Returns (game data, status, as-of version or '' when it matches)."""
     gd_path = DATA_DIR / "gamedata" / f"{stock_path.parent.name}.json"
     meta_path = stock_path.parent / "version.json"
     if not gd_path.exists() or not meta_path.exists():
-        return None, "no game data"
+        return None, "no game data", ""
     gd = json.loads(gd_path.read_text(encoding="utf-8"))
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
-    same_version = _version_tuple(gd.get("version", "")) == _version_tuple(meta.get("version", ""))
-    builds_known = gd.get("build") and meta.get("build")
-    if not same_version or (builds_known and gd["build"] != meta["build"]):
-        return None, f"waiting for game data for {meta.get('version')} (have {gd.get('version')})"
-    return gd, f"matched {gd.get('version')}" + (f" build {gd['build']}" if gd.get("build") else "")
+    match = gamedata_match(gd, meta)
+    if match == "matched":
+        return gd, f"matched {gd.get('version')}" + (f" build {gd['build']}" if gd.get("build") else ""), ""
+    if match == "newer":
+        return None, f"game data is newer ({gd.get('version')}) than stock {meta.get('version')}", ""
+    asof = gd.get("version", "")
+    if _version_tuple(asof) == _version_tuple(meta.get("version", "")) and gd.get("build"):
+        asof += f" build {gd['build']}"
+    return gd, f"as of {asof}; stock is {meta.get('version')}", asof
 
 
 BP_TITLE = "[BP] "
 BP_TITLE_SOME = "[BP]* "
-BP_HEADER = "Blueprints this contract can award:"
-BP_HEADER_SOME = "Blueprints (only some versions of this contract award these):"
+BP_HEADER = "Blueprints this contract can award"
+BP_HEADER_SOME = "Blueprints (only some versions of this contract award these"
 
 
-def apply_blueprints(ini: IniFile, gamedata: dict, tagged: dict[str, str]) -> tuple[int, int]:
-    """Prefix titles of blueprint-awarding contracts and list the possible blueprints in descriptions."""
+def bp_header(some: bool, asof: str = "") -> str:
+    if some:
+        return BP_HEADER_SOME + (f", as of {asof}" if asof else "") + "):"
+    return BP_HEADER + (f" (as of {asof})" if asof else "") + ":"
+
+
+def apply_blueprints(ini: IniFile, gamedata: dict, tagged: dict[str, str], asof: str = "") -> tuple[int, int]:
+    """Prefix titles of blueprint-awarding contracts and list the possible blueprints in descriptions.
+    With older game data the list header says which patch it is from."""
     lower = {k.lower(): k for k in ini.keys()}
     titles = descs = 0
     for key, info in gamedata.get("titles", {}).items():
@@ -410,7 +432,7 @@ def apply_blueprints(ini: IniFile, gamedata: dict, tagged: dict[str, str]) -> tu
         items = info.get("items") or []
         if not value or not items or BP_HEADER in value or BP_HEADER_SOME in value:
             continue
-        header = BP_HEADER if info["bp"] >= info["total"] else BP_HEADER_SOME
+        header = bp_header(info["bp"] < info["total"], asof)
         # Values use literal "\n" escapes, like the rest of global.ini.
         new = value.rstrip() + "\\n\\n" + header + "".join("\\n- " + i for i in items)
         ini.set(real, new)

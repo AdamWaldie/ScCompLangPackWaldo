@@ -44,9 +44,9 @@ own contract data:
 - **Title:** `[BP] Defend InterSec Operative`, or `[BP]*` when only some versions of a shared contract award.
 - **Description:** ends with the full list, e.g. `Blueprints this contract can award: - Pulse "Rouge" Pistol …`
 
-The lists are only added when the game data comes from the **same patch** as the stock text, so they're
-never out of date. Right after a patch there can be a short gap (a few days) where releases go out
-without them; they're added automatically in a follow-up release as soon as the matching data is published.
+Blueprint pools rarely change between patches, so right after a patch (before that patch's game data is
+published) the lists come from the previous patch and say so: `Blueprints this contract can award (as of 4.10.1):`.
+As soon as the current patch's data is published, a new release ("blueprint update") goes out automatically with it.
 
 ## Install
 
