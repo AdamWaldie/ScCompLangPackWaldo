@@ -1,0 +1,116 @@
+name: Auto-update
+
+# Fully remote, fully automatic LIVE patch pipeline. Every 2 hours:
+#   fetch the newest stock LIVE global.ini (scripts/fetch_stock.py) -> build -> validate
+#   -> commit to main -> publish the release.
+# If validation fails (e.g. a new component needs an override), nothing is committed or released;
+# an issue with the report is opened instead, and the next run after the fix releases it.
+on:
+  schedule:
+    - cron: "23 */2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: auto-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    outputs:
+      released: ${{ steps.commit.outputs.released }}
+      sha: ${{ steps.commit.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch newer stock file
+        id: fetch
+        run: |
+          python scripts/fetch_stock.py | tee fetched.json
+          if [ -s fetched.json ]; then echo "updated=true" >> "$GITHUB_OUTPUT"; else echo "Already up to date."; fi
+
+      - name: Build, validate and report
+        id: check
+        if: steps.fetch.outputs.updated == 'true'
+        run: |
+          python scripts/build.py --channel LIVE
+          {
+            python scripts/report.py --channel LIVE --base-ref HEAD
+            echo
+            echo "Source: \`$(jq -r .source fetched.json)\`"
+          } > report.md
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+          if python scripts/validate.py --channel LIVE > validate.txt 2>&1; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            cat validate.txt
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open an issue when blocked
+        if: steps.check.outputs.ok == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create auto-update-blocked --color B60205 --description "Auto-update needs a manual fix" 2>/dev/null || true
+          title="LIVE $(jq -r .version fetched.json) auto-update blocked - needs a fix"
+          {
+            echo "The automatic update failed validation, so nothing was committed or released."
+            echo "Usually a new component needs a row in \`data/component_overrides.csv\`. Once that fix is on main,"
+            echo "the next scheduled run (or **Actions → Auto-update → Run workflow**) releases it."
+            echo
+            echo '```'; cat validate.txt; echo '```'
+            echo
+            cat report.md
+          } > body.md
+          existing=$(gh issue list --label auto-update-blocked --state open --json number,title \
+            --jq ".[] | select(.title == \"$title\") | .number" | head -1)
+          # One issue per blocked version; later runs stay quiet until it's fixed.
+          if [ -n "$existing" ]; then
+            echo "Already reported in issue #$existing"
+          else
+            gh issue create --title "$title" --label auto-update-blocked --body-file body.md
+          fi
+          echo "::warning::$title (see issues)"
+
+      - name: Commit to main
+        id: commit
+        if: steps.check.outputs.ok == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stock/LIVE dist/LIVE
+          git commit -m "Auto-update LIVE to $(python scripts/version_info.py --channel LIVE title)" \
+                     -m "Source: $(jq -r .source fetched.json)"
+          git push origin HEAD:main
+          echo "released=true" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+          gh issue list --label auto-update-blocked --state open --json number \
+            --jq '.[].number' | while read -r n; do
+              gh issue close "$n" --comment "Resolved: released automatically in $(git rev-parse --short HEAD)."
+            done || true
+
+  release:
+    needs: update
+    if: needs.update.outputs.released == 'true'
+    uses: ./.github/workflows/release.yml
+    with:
+      channels: LIVE
+      ref: ${{ needs.update.outputs.sha }}
+    permissions:
+      contents: write
+      issues: write

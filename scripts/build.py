@@ -9,7 +9,7 @@ descriptions are missing stats can be filled in via data/component_overrides.csv
 
 Usage:
     python scripts/build.py --channel LIVE
-    python scripts/build.py --channel PTU --variant remix
+    python scripts/build.py --channel LIVE --variant remix
     python scripts/build.py --stock path/to/global.ini --out-dir /tmp/out
 """
 
@@ -344,7 +344,7 @@ def write_changes(ini: IniFile, stock: IniFile, path: Path) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--channel", default="LIVE", help="LIVE, PTU or HOTFIX (reads stock/<channel>/global.ini)")
+    parser.add_argument("--channel", default="LIVE", help="Channel folder under stock/ (only LIVE is supported)")
     parser.add_argument("--stock", type=Path, help="Explicit stock global.ini path (overrides --channel input)")
     parser.add_argument("--variant", choices=VARIANTS + ("all",), default="all")
     parser.add_argument("--out-dir", type=Path, help="Output root (default: dist/<channel>)")

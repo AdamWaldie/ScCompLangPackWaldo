@@ -22,7 +22,6 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCES = [
     "https://raw.githubusercontent.com/MrKraken/StarStrings/master/readme.md",
-    "https://raw.githubusercontent.com/MrKraken/StarStrings/sc-ptu/readme.md",
 ]
 BUILD_RE = re.compile(r"sc-alpha-(\d+\.\d+(?:\.\d+)?)[-_]([a-z]+)[-_](\d+)", re.IGNORECASE)
 
@@ -60,6 +59,8 @@ def main() -> int:
                 latest[channel] = found
 
     for channel, theirs in sorted(latest.items()):
+        if channel != "LIVE":  # only LIVE is supported
+            continue
         if is_newer(theirs, ours(channel)):
             print(json.dumps(theirs))
     return 0

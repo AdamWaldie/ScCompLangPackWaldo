@@ -11,6 +11,8 @@
   prefix format, the missile/torpedo/bomb tags, the radar scope and the `Heph` fix. This project's **Remix**
   format and its overall approach come from that work. `scripts/p4k_reader.py` is taken from
   ScCompLangPackRemix with minimal changes.
+- **[Dymerz](https://github.com/Dymerz)**: [StarCitizen-Localization](https://github.com/Dymerz/StarCitizen-Localization)
+  (MIT) publishes the stock English `global.ini` that the automatic updates are built from.
 
 ScCompLangPackWaldo adds a build that needs only the stock file, automated per-patch releases, change reports
 and CI checks.

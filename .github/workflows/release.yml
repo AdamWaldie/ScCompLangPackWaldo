@@ -1,18 +1,30 @@
 name: Release
 
-# Publishes a release whenever a channel's stock file changes on main (i.e. an update PR was merged),
-# or on demand from the Actions tab.
+# Publishes a release for each channel whose stock file changed:
+#  - push to main touching stock/ (an update PR was merged)
+#  - called by the Auto-update workflow after it commits a new stock file
+#  - on demand from the Actions tab
 on:
   push:
     branches: [main]
     paths: ["stock/*/global.ini"]
+  workflow_call:
+    inputs:
+      channels:
+        description: "Space-separated channels to release"
+        required: true
+        type: string
+      ref:
+        description: "Commit to release"
+        required: true
+        type: string
   workflow_dispatch:
     inputs:
-      channel:
+      channels:
         description: "Channel to release"
         required: true
         type: choice
-        options: [LIVE, PTU, EPTU, HOTFIX]
+        options: [LIVE]
 
 permissions:
   contents: write
@@ -29,6 +41,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ inputs.ref || github.sha }}
 
       - uses: actions/setup-python@v5
         with:
@@ -37,8 +50,8 @@ jobs:
       - name: Pick channels
         id: channels
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            list="${{ inputs.channel }}"
+          if [ -n "${{ inputs.channels }}" ]; then
+            list="${{ inputs.channels }}"
           elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
             list=""  # first push that creates main: nothing to compare against, don't release the seed files
           else
@@ -59,6 +72,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+          head_sha=$(git rev-parse HEAD)
+          before="${{ github.event.before }}"
+          git rev-parse -q --verify "${before:-none}^{commit}" >/dev/null 2>&1 || before="HEAD~1"
           for ch in ${{ steps.channels.outputs.list }}; do
             version=$(python scripts/version_info.py --channel "$ch" version)
             build=$(python scripts/version_info.py --channel "$ch" build)
@@ -80,7 +96,7 @@ jobs:
               cp "$f" "latest/$(basename "$f" | sed "s/-$version-$ch/-$ch/")"
             done
 
-            base=$(git describe --tags --abbrev=0 --match "*-$ch*" 2>/dev/null || echo "${{ github.event.before }}")
+            base=$(git describe --tags --abbrev=0 --match "*-$ch*" 2>/dev/null || echo "$before")
             {
               echo "Star Citizen **$title** language pack."
               [ -n "$cig_branch" ] && echo "CIG build: \`$cig_branch\`"
@@ -100,19 +116,15 @@ jobs:
               echo "Based on [ScCompLangPackRemix](https://github.com/BeltaKoda/ScCompLangPackRemix) by BeltaKoda and the original [ScCompLangPack](https://github.com/ExoAE/ScCompLangPack) by ExoAE."
             } > "notes-$ch.md"
 
-            prerelease=""
-            [ "$ch" != "LIVE" ] && prerelease="--prerelease"
-            gh release create "$tag" out/* --target "${{ github.sha }}" \
-              --title "$title" --notes-file "notes-$ch.md" $prerelease
+            gh release create "$tag" out/* --target "$head_sha" \
+              --title "$title" --notes-file "notes-$ch.md"
 
             # Floating release with fixed asset names, for installers and auto-updaters:
             #   https://github.com/<repo>/releases/download/latest/ScCompLangPackWaldo-LIVE.zip
-            #   https://github.com/<repo>/releases/download/latest-ptu/ScCompLangPackWaldo-PTU.zip
             floating=latest
-            [ "$ch" != "LIVE" ] && floating="latest-$(echo "$ch" | tr '[:upper:]' '[:lower:]')"
             gh release delete "$floating" --yes --cleanup-tag 2>/dev/null || true
             git push -q origin ":refs/tags/$floating" 2>/dev/null || true
-            gh release create "$floating" latest/* --target "${{ github.sha }}" --latest=false $prerelease \
+            gh release create "$floating" latest/* --target "$head_sha" --latest=false \
               --title "Latest $ch ($title)" \
               --notes "Always the newest $ch build, with fixed file names for auto-updaters. Currently **$title** - see [$tag](https://github.com/${{ github.repository }}/releases/tag/$tag) for the change report."
 

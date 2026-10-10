@@ -1,6 +1,7 @@
 name: Patch watch
 
-# Opens a reminder issue when a newer Star Citizen build is out than the one in stock/<CHANNEL>/.
+# Backstop for Auto-update: opens an issue when a newer LIVE build is out than the one in stock/LIVE/
+# (e.g. if the auto-update source is lagging).
 # The issue is closed automatically when the matching release is published.
 on:
   schedule:
@@ -53,8 +54,9 @@ jobs:
               echo
               echo "Current pack: \`$(python scripts/version_info.py --channel "$ch" title 2>/dev/null || echo 'none')\`"
               echo
-              echo "**To update:** once the RSI launcher has finished patching $ch, run \`update.bat $ch\`"
-              echo "(or \`python scripts/update_stock.py --channel $ch --push\`), then review and merge the pull request it opens."
+              echo "The Auto-update workflow hasn't found this build in its source yet; it checks every 2 hours and"
+              echo "releases automatically when it does. To release sooner, run \`update.bat\` after the launcher"
+              echo "has patched, then merge the pull request it opens."
               echo
               echo "_Detected via the build string in [MrKraken/StarStrings](https://github.com/MrKraken/StarStrings). This issue closes automatically when the release is published._"
             } > body.md

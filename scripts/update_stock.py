@@ -12,7 +12,7 @@ Run this after the launcher finishes patching. It:
 
 Usage:
     python scripts/update_stock.py --channel LIVE --push
-    python scripts/update_stock.py --channel PTU --sc-path "D:/Games/StarCitizen"
+    python scripts/update_stock.py --channel LIVE --sc-path "D:/Games/StarCitizen"
     python scripts/update_stock.py --channel LIVE --local-file path/to/global.ini --version 4.10.1
 
 Requires: pip install zstandard
@@ -92,8 +92,8 @@ def run(cmd: list[str], check: bool = True) -> subprocess.CompletedProcess:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--channel", required=True, help="LIVE, PTU, EPTU, HOTFIX or TECH-PREVIEW")
-    parser.add_argument("--sc-path", type=Path, help="StarCitizen folder that contains LIVE/, PTU/ ...")
+    parser.add_argument("--channel", default="LIVE", choices=["LIVE"], type=str.upper, help="Only LIVE is supported")
+    parser.add_argument("--sc-path", type=Path, help="StarCitizen folder that contains LIVE/")
     parser.add_argument("--local-file", type=Path, help="Use an already-extracted global.ini instead of Data.p4k")
     parser.add_argument("--version", help="Game version, e.g. 4.10.1 (default: read from build_manifest.id)")
     parser.add_argument("--push", action="store_true", help="Commit to update/<channel>-<version> and push")
