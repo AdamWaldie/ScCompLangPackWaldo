@@ -3,8 +3,8 @@ name: Auto-update
 # Fully remote, fully automatic LIVE patch pipeline. Every 2 hours:
 #   fetch the newest stock LIVE global.ini (scripts/fetch_stock.py) and contract/blueprint game data
 #   (scripts/fetch_gamedata.py) -> build -> validate -> commit to main -> publish the release.
-# Game data only takes effect once it matches the stock patch, so blueprint lists appear in a
-# follow-up release as soon as the matching dump is published.
+# Until the stock patch's game data is published, blueprint lists come from the previous patch's
+# (labelled "as of <version>"); a follow-up release swaps in the matching dump as soon as it appears.
 # If validation fails (e.g. a new component needs an override), nothing is committed or released;
 # an issue with the report is opened instead, and the next run after the fix releases it.
 on:

@@ -2,6 +2,8 @@ name: Refresh release notes
 
 # Regenerates the notes of an existing release from the commit it was tagged at,
 # e.g. after improving scripts/release_notes.py. Run from Actions -> Refresh release notes.
+# With "Also replace the files", the release's zips and changes.ini are swapped for main's build
+# (only allowed while main has the same stock file), so a pack fix reaches an existing release.
 on:
   workflow_dispatch:
     inputs:
@@ -9,6 +11,11 @@ on:
         description: "Release tag to refresh, e.g. 4.10.2-LIVE"
         required: true
         type: string
+      files:
+        description: "Also replace the files with main's build (same stock file only)"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -26,7 +33,33 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Replace the files with main's build
+        if: inputs.files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          ch=$(echo "$TAG" | sed -E 's/^[0-9.]+-([A-Z]+).*/\1/')
+          if ! git diff --quiet "refs/tags/$TAG" HEAD -- "stock/$ch/global.ini"; then
+            echo "::error::main has a different $ch stock file than $TAG; its build belongs in a new release, not this one."
+            exit 1
+          fi
+          python scripts/validate.py --channel "$ch"
+          version=$(python scripts/version_info.py --channel "$ch" version)
+          rm -rf out && mkdir out
+          (cd "dist/$ch/remix"   && zip -qr "../../../out/ScCompLangPackWaldo-$version-$ch.zip" data user.cfg)
+          (cd "dist/$ch/classic" && zip -qr "../../../out/ScCompLangPackWaldo-Classic-$version-$ch.zip" data user.cfg)
+          cp "dist/$ch/remix/changes.ini"   "out/ScCompLangPackWaldo-$version-$ch-changes.ini"
+          cp "dist/$ch/classic/changes.ini" "out/ScCompLangPackWaldo-Classic-$version-$ch-changes.ini"
+          gh release upload "$TAG" out/* --clobber
+          # Notes from main too, so they describe exactly the files now attached.
+          python scripts/release_notes.py --channel "$ch" > notes.md
+          cat notes.md >> "$GITHUB_STEP_SUMMARY"
+          gh release edit "$TAG" --notes-file notes.md
+
       - name: Rebuild notes at the tagged commit
+        if: ${{ !inputs.files }}
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ inputs.tag }}
