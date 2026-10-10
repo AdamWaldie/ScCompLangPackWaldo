@@ -7,7 +7,7 @@
     <meta name="description" content="Build a Star Citizen global.ini that combines ScCompLangPackWaldo component tags with other language packs. Runs entirely in your browser.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script>
         // Apply the saved theme before first paint to avoid a flash.
@@ -41,6 +41,11 @@
             <div class="hero-text">
                 <h1>Build your own <code>global.ini</code></h1>
                 <p>Combine ScCompLangPackWaldo's component tags with mission text and fixes from other language packs. Pick a preset or choose a source for each category, then download one file. Everything runs in your browser.</p>
+                <dl class="readout" aria-label="What the tags look like in game">
+                    <div><dt>Stock</dt><dd>XL-1</dd><dt>Remix</dt><dd><b>M2A</b> XL-1</dd></div>
+                    <div><dt>Stock</dt><dd>Dominator II Missile</dd><dt>Remix</dt><dd><b>EM</b> Dominator II Missile</dd></div>
+                    <div><dt>Stock</dt><dd>Stormburst Bomb</dd><dt>Remix</dt><dd><b>B5</b> Stormburst Bomb</dd></div>
+                </dl>
             </div>
             <div class="quick-download">
                 <div class="quick-download-title">Just want the pack?</div>
@@ -62,7 +67,7 @@
                 <!-- Step 1: Packs -->
                 <section class="card step">
                     <header class="card-header">
-                        <span class="step-num">1</span>
+                        <span class="step-num">01</span>
                         <div class="card-heading">
                             <h2>Choose packs</h2>
                             <p>Start from a preset, or switch packs on and off below.</p>
@@ -128,7 +133,7 @@
                 <!-- Step 2: Categories -->
                 <section class="card step" id="tab-merge">
                     <header class="card-header">
-                        <span class="step-num">2</span>
+                        <span class="step-num">02</span>
                         <div class="card-heading">
                             <h2>Pick a source for each category</h2>
                             <p>Each category of text comes from one pack. Use a group's dropdown to set all of it at once.</p>
@@ -155,7 +160,7 @@
                 <!-- Advanced tools -->
                 <details class="card advanced" id="advanced">
                     <summary class="card-header advanced-summary">
-                        <span class="step-num step-num-muted" aria-hidden="true">+</span>
+                        <span class="step-num step-num-muted" aria-hidden="true">03</span>
                         <div class="card-heading">
                             <h2>Advanced tools</h2>
                             <p>Priority merge, key search, side-by-side compare and per-key edits.</p>

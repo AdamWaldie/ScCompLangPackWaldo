@@ -1,4 +1,4 @@
-# ⚙️ ScCompLangPackWaldo
+# ScCompLangPackWaldo
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/AdamWaldie/ScCompLangPackWaldo)
 
@@ -36,7 +36,7 @@ Missiles and torpedoes are tagged with their tracking signal: **IR** (infrared),
 
 Capital-ship and Vanduul parts that have no grade, such as the Idris and 890J internals, keep their stock names.
 
-## ⬇️ Install
+## Install
 
 1. Download the zip for your format from the [Releases page](https://github.com/AdamWaldie/ScCompLangPackWaldo/releases):
    - `ScCompLangPackWaldo-<version>-LIVE.zip`: Remix format
@@ -69,7 +69,7 @@ Each build also publishes a `changes.ini` that contains only the lines this pack
 the [Pack Merger](https://adamwaldie.github.io/ScCompLangPackWaldo/) to use the component tags alongside another pack's
 mission and contract text.
 
-## 🔄 How it stays up to date
+## How it stays up to date
 
 It's fully automatic and runs entirely on GitHub. Nobody's PC is involved.
 
@@ -141,7 +141,7 @@ scripts/build_category_db.py    category data for the Pack Merger (run on every 
 site/                           the Pack Merger web app (GitHub Pages)
 ```
 
-## 🚧 Found a wrong name?
+## Found a wrong name?
 
 Open an [issue](https://github.com/AdamWaldie/ScCompLangPackWaldo/issues) with the item name, what it
 shows and what it should show. A screenshot helps.
