@@ -1,13 +1,32 @@
 {
- "version": "4.10.1",
- "build": "12660092",
- "source_sha": "e96132078ae6a1a5f62a183fb1523dc006dcfddb",
- "format": 2,
- "contracts_awarding": 729,
+ "version": "4.10.2",
+ "build": "12881860",
+ "format": 3,
+ "sources": {
+  "scmdb": {
+   "version": "4.10.2",
+   "build": "12881860",
+   "id": "4.10.2-live.12881860"
+  },
+  "scunpacked": {
+   "version": "4.10.1",
+   "build": "12660092",
+   "id": "e96132078ae6a1a5f62a183fb1523dc006dcfddb"
+  }
+ },
  "titles": {
+  "Adagio_BasicSalvage_Title_01": {
+   "bp": 0,
+   "total": 45,
+   "rep": [
+    100,
+    150,
+    200
+   ]
+  },
   "Adagio_Industrial_Component_Salvage_Levski_E_Title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 1,
    "rep": [
     100
    ]
@@ -20,15 +39,15 @@
    ]
   },
   "Adagio_Industrial_Component_Salvage_Levski_M_Title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 2,
+   "total": 2,
    "rep": [
     100
    ]
   },
   "Adagio_Industrial_Component_Salvage_Pyro_E_Title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 1,
    "rep": [
     100
    ]
@@ -49,7 +68,7 @@
   },
   "Adagio_Industrial_Component_Salvage_Stanton_E_Title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 1,
    "rep": [
     100
    ]
@@ -70,7 +89,7 @@
   },
   "Adagio_Industrial_Component_Salvage_Universal_E_Title_001": {
    "bp": 0,
-   "total": 6,
+   "total": 9,
    "rep": [
     100
    ]
@@ -83,8 +102,8 @@
    ]
   },
   "Adagio_Industrial_Component_Salvage_Universal_M_Title_001": {
-   "bp": 3,
-   "total": 3,
+   "bp": 8,
+   "total": 8,
    "rep": [
     100
    ]
@@ -105,7 +124,7 @@
   },
   "Adagio_Industrial_Salvage_Universal_Intro_Title_001": {
    "bp": 3,
-   "total": 6,
+   "total": 3,
    "rep": [
     100
    ]
@@ -119,63 +138,63 @@
   },
   "BHG_Certification_Easy_Title": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "BHG_Certification_Hard_Title": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "BHG_Certification_Medium_Title": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "BHG_Certification_Super_Title": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "BHG_Certification_VeryEasy_Title": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "BHG_Certification_VeryHard_Title": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "BHG_ShipWaveAttack_DrawOutBoss_H_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "BHG_ShipWaveAttack_DrawOutBoss_S_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "BHG_ShipWaveAttack_DrawOutBoss_VH_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     250
    ]
@@ -318,42 +337,48 @@
    "total": 2,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_02_title": {
    "bp": 1,
    "total": 1,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_03_title": {
    "bp": 1,
    "total": 1,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_04_title": {
    "bp": 1,
    "total": 1,
    "rep": [
     300
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_05_title": {
    "bp": 1,
    "total": 1,
    "rep": [
     400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_06_title": {
    "bp": 1,
    "total": 1,
    "rep": [
     600
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_Golem_title": {
    "bp": 0,
@@ -390,6 +415,62 @@
     800
    ]
   },
+  "BitZeros_RecoverItem_Generic_Title_001": {
+   "bp": 20,
+   "total": 20,
+   "rep": [
+    100
+   ]
+  },
+  "BitZeros_blackbox_E_Title_001": {
+   "bp": 5,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "BitZeros_blackbox_H_Title_001": {
+   "bp": 5,
+   "total": 5,
+   "rep": [
+    200
+   ]
+  },
+  "BitZeros_blackbox_Intro_Title_001": {
+   "bp": 5,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "BitZeros_blackbox_M_Title_001": {
+   "bp": 5,
+   "total": 5,
+   "rep": [
+    150
+   ]
+  },
+  "BitZeros_blackbox_S_Title_001": {
+   "bp": 5,
+   "total": 5,
+   "rep": [
+    300
+   ]
+  },
+  "BitZeros_blackbox_VE_Title_001": {
+   "bp": 5,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "BitZeros_blackbox_VH_Title_001": {
+   "bp": 5,
+   "total": 5,
+   "rep": [
+    250
+   ]
+  },
   "CFP_Delivery_Outpost_Multi_title_001": {
    "bp": 0,
    "total": 18,
@@ -411,60 +492,64 @@
    "total": 4,
    "rep": [
     3200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_MissingPerson_Theft_Outpost_HH_H_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     800
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_MissingPerson_Theft_Outpost_XT_VH_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1500
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_MissingPerson_Theft_XSOutpost_XT_H_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     800
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_RecoverCargo_Easy_Title": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     100
    ]
   },
   "CFP_RecoverCargo_Hard_Title": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     200
    ]
   },
   "CFP_RecoverCargo_Medium_Title": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     150
    ]
   },
   "CFP_RecoverCargo_Super_Title": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     300
    ]
   },
   "CFP_RecoverCargo_VeryHard_Title": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     200
    ]
@@ -474,53 +559,59 @@
    "total": 8,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_RetrieveCargo_CrimBase_H_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     1200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_RetrieveCargo_CrimBase_M_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_RetrieveCargo_CrimBase_XT_VH_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_RetrieveCargo_Lagrange_E_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_RetrieveCargo_Lagrange_M_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_SabotageRelays_HH_001_Title": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     75
    ]
   },
   "CFP_SabotageRelays_XT_001_Title": {
    "bp": 0,
-   "total": 1,
+   "total": 3,
    "rep": [
     100
    ]
@@ -530,7 +621,8 @@
    "total": 11,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_SecurityPatrol_E_Title_001": {
    "bp": 0,
@@ -576,28 +668,28 @@
   },
   "CFP_ShipWaveAttack_ClearHostiles_Title_E_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ]
   },
   "CFP_ShipWaveAttack_ClearHostiles_Title_H_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     200
    ]
   },
   "CFP_ShipWaveAttack_ClearHostiles_Title_M_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     150
    ]
   },
   "CFP_ShipWaveAttack_ClearHostiles_Title_VE_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ]
@@ -611,28 +703,28 @@
   },
   "Covalex_Delivery_Stanton_Hard_Title_001": {
    "bp": 0,
-   "total": 14,
+   "total": 56,
    "rep": [
     100
    ]
   },
   "Covalex_Delivery_Stanton_Medium_Title_001": {
    "bp": 0,
-   "total": 9,
+   "total": 32,
    "rep": [
     100
    ]
   },
   "Covalex_Delivery_Stanton_Super_Title_001": {
    "bp": 0,
-   "total": 7,
+   "total": 28,
    "rep": [
     200
    ]
   },
   "Covalex_Delivery_Stanton_VeryHard_Title_001": {
    "bp": 0,
-   "total": 13,
+   "total": 52,
    "rep": [
     150
    ]
@@ -654,18 +746,16 @@
   },
   "Covalex_HaulCargo_AToB_title": {
    "bp": 14,
-   "total": 199,
+   "total": 129,
    "rep": [
     50,
     500,
-    1000,
-    2000,
-    4000
+    2000
    ]
   },
   "Covalex_HaulCargo_MultiToSingle_title": {
    "bp": 0,
-   "total": 42,
+   "total": 38,
    "rep": [
     50,
     500,
@@ -676,7 +766,7 @@
   },
   "Covalex_HaulCargo_SingleToMulti_title": {
    "bp": 2,
-   "total": 169,
+   "total": 132,
    "rep": [
     50,
     500,
@@ -688,42 +778,42 @@
   },
   "Covalex_RecoverCargo_Easy_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "Covalex_RecoverCargo_Hard_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "Covalex_RecoverCargo_Medium_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ]
   },
   "Covalex_RecoverCargo_Super_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "Covalex_RecoverCargo_VeryEasy_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "Covalex_RecoverCargo_VeryHard_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
@@ -759,85 +849,92 @@
   },
   "DeadSaints_RecoverCargo_Easy_Title": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ]
   },
   "DeadSaints_RecoverCargo_Hard_Title": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     200
    ]
   },
   "DeadSaints_RecoverCargo_Medium_Title": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     150
    ]
   },
   "DeadSaints_RecoverCargo_Super_Title": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     300
    ]
   },
   "DeadSaints_RecoverCargo_VeryEasy_Title": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     50,
     200
    ]
   },
+  "DeadSaints_RecoverItem_Generic_Title_001": {
+   "bp": 5,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
   "EckhartSecurity_Defend_E_Title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     500
    ]
   },
   "EckhartSecurity_Defend_H_Title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     500
    ]
   },
   "EckhartSecurity_Defend_M_Title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     500
    ]
   },
   "EckhartSecurity_DestroyServers_FacilityDelving_Title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 12,
    "rep": [
     50
    ]
   },
   "EckhartSecurity_DestroyServers_FacilityDelving_Title_002": {
    "bp": 0,
-   "total": 1,
+   "total": 12,
    "rep": [
     50
    ]
   },
   "EckhartSecurity_DestroyServers_FacilityDelving_Title_003": {
    "bp": 0,
-   "total": 1,
+   "total": 12,
    "rep": [
     50
    ]
   },
   "EckhartSecurity_DestroyServers_FacilityDelving_Title_004": {
    "bp": 0,
-   "total": 1,
+   "total": 12,
    "rep": [
     50
    ]
@@ -879,14 +976,14 @@
   },
   "EckhartSecurity_Mercenary_Intro_Title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     50
    ]
   },
   "EckhartSecurity_Mercenary_Rehire_Title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     500
    ]
@@ -900,42 +997,42 @@
   },
   "EckhartSecurity_RecoverCargo_Easy_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "EckhartSecurity_RecoverCargo_Hard_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "EckhartSecurity_RecoverCargo_Medium_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ]
   },
   "EckhartSecurity_RecoverCargo_Super_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "EckhartSecurity_RecoverCargo_VeryEasy_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "EckhartSecurity_RecoverCargo_VeryHard_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
@@ -998,7 +1095,7 @@
   },
   "Eckhart_ShipAmbush_Intro_title": {
    "bp": 1,
-   "total": 2,
+   "total": 1,
    "rep": [
     100
    ]
@@ -1039,17 +1136,66 @@
    ]
   },
   "FTL_Courier_Stanton_Easy_Title_001": {
-   "bp": 15,
-   "total": 15,
+   "bp": 58,
+   "total": 58,
    "rep": [
     100
    ]
   },
   "FTL_Courier_Stanton_Medium_Title_001": {
-   "bp": 7,
-   "total": 7,
+   "bp": 28,
+   "total": 28,
    "rep": [
     100
+   ]
+  },
+  "FTL_RecoverItem_E_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "FTL_RecoverItem_H_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ]
+  },
+  "FTL_RecoverItem_Intro_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "FTL_RecoverItem_M_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ]
+  },
+  "FTL_RecoverItem_S_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    300
+   ]
+  },
+  "FTL_RecoverItem_VE_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "FTL_RecoverItem_VH_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
    ]
   },
   "Firesale_CFP_Title_01": {
@@ -1058,7 +1204,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Firesale_CFP_Title_LargeDonation": {
    "bp": 0,
@@ -1066,7 +1213,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Firesale_CFP_Title_MediumDonation": {
    "bp": 0,
@@ -1074,7 +1222,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Firesale_HH_Title_01": {
    "bp": 0,
@@ -1082,7 +1231,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Firesale_HH_Title_LargeDonation": {
    "bp": 0,
@@ -1090,7 +1240,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Firesale_HH_Title_MediumDonation": {
    "bp": 0,
@@ -1098,145 +1249,146 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Foxwell_DefendDestructibleEntites_E_Title_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "Foxwell_DefendDestructibleEntites_H_Title_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "Foxwell_DefendDestructibleEntites_M_Title_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "rep": [
     150
    ]
   },
   "Foxwell_DefendDestructibleEntites_S_Title_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "Foxwell_DefendDestructibleEntites_VE_Title_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "Foxwell_DefendDestructibleEntites_VH_Title_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "rep": [
     250
    ]
   },
   "Foxwell_DefendEntitesAndEscort_E_Title": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "Foxwell_DefendEntitesAndEscort_H_Title": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "Foxwell_DefendEntitesAndEscort_M_Title": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "rep": [
     150
    ]
   },
   "Foxwell_DefendEntitesAndEscort_S_Title": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "Foxwell_DefendEntitesAndEscort_VE_Title": {
-   "bp": 6,
-   "total": 6,
+   "bp": 18,
+   "total": 18,
    "rep": [
     100
    ]
   },
   "Foxwell_DefendEntitesAndEscort_VH_Title": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "rep": [
     250
    ]
   },
   "Foxwell_DefendLocation_E_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     100
    ]
   },
   "Foxwell_DefendLocation_H_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     200
    ]
   },
   "Foxwell_DefendLocation_M_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     150
    ]
   },
   "Foxwell_DefendLocation_S_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     300,
     16000
    ]
   },
   "Foxwell_DefendLocation_VE_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     100
    ]
   },
   "Foxwell_DefendLocation_VH_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     250
    ]
   },
   "Foxwell_EliminateAll_Allies_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     100
    ]
   },
   "Foxwell_EliminateAll_NonHostiles_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     200
    ]
@@ -1256,22 +1408,22 @@
    ]
   },
   "Foxwell_EliminateAll_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     150
    ]
   },
   "Foxwell_EliminateSpecific_NonHostiles_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     100
    ]
   },
   "Foxwell_EliminateSpecific_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     100
    ]
@@ -1290,385 +1442,392 @@
   },
   "Foxwell_Mercenary_Intro_title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "rep": [
     100
    ]
   },
   "Foxwell_Mercenary_Rehire_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     100
    ]
   },
   "Foxwell_SecurityPatrol_E_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     100
    ]
   },
   "Foxwell_SecurityPatrol_H_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     200
    ]
   },
   "Foxwell_SecurityPatrol_M_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     150
    ]
   },
   "Foxwell_SecurityPatrol_S_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     300
    ]
   },
   "Foxwell_SecurityPatrol_VE_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     100
    ]
   },
   "Foxwell_SecurityPatrol_VH_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     250
    ]
   },
   "Foxwell_ShipAmbush_E_title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     100
    ]
   },
   "Foxwell_ShipAmbush_H_title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     200
    ]
   },
   "Foxwell_ShipAmbush_M_title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     150
    ]
   },
   "Foxwell_ShipAmbush_S_title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     300
    ]
   },
   "Foxwell_ShipAmbush_VE_title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     100
    ]
   },
   "Foxwell_ShipAmbush_VH_title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     250
    ]
   },
   "Foxwell_ShipWaveAttack_ClearHostiles_Title_E_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     100
    ]
   },
   "Foxwell_ShipWaveAttack_ClearHostiles_Title_H_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     200
    ]
   },
   "Foxwell_ShipWaveAttack_ClearHostiles_Title_M_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     150
    ]
   },
   "Foxwell_ShipWaveAttack_ClearHostiles_Title_VE_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     100
    ]
   },
   "Foxwell_bombingrun_E_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     100
    ]
   },
   "Foxwell_bombingrun_H_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     200
    ]
   },
   "Foxwell_bombingrun_M_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     150
    ]
   },
   "Foxwell_bombingrun_S_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     300
    ]
   },
   "Foxwell_bombingrun_VE_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     100
    ]
   },
   "Foxwell_bombingrun_VH_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     250
    ]
   },
+  "Foxwell_destroyprobe_M_name_001": {
+   "bp": 4,
+   "total": 4,
+   "rep": [
+    100
+   ]
+  },
   "HeadHunters_DefendEntitesAndEscort_E_Title": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "HeadHunters_DefendEntitesAndEscort_H_Title": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "HeadHunters_DefendEntitesAndEscort_M_Title": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "rep": [
     150
    ]
   },
   "HeadHunters_DefendEntitesAndEscort_S_Title": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "HeadHunters_DefendEntitesAndEscort_VE_Title": {
-   "bp": 6,
-   "total": 6,
+   "bp": 18,
+   "total": 18,
    "rep": [
     100
    ]
   },
   "HeadHunters_DefendEntitesAndEscort_VH_Title": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "rep": [
     250
    ]
   },
   "HeadHunters_RecoverCargo_Easy_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "HeadHunters_RecoverCargo_Hard_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "HeadHunters_RecoverCargo_Medium_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ]
   },
   "HeadHunters_RecoverCargo_Super_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "HeadHunters_RecoverCargo_VeryEasy_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "HeadHunters_RecoverCargo_VeryHard_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "HeadHunters_ShipAmbush_E_title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     100
    ]
   },
   "HeadHunters_ShipAmbush_H_title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     200
    ]
   },
   "HeadHunters_ShipAmbush_Intro_title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "HeadHunters_ShipAmbush_M_title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     150
    ]
   },
   "HeadHunters_ShipAmbush_S_title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     300
    ]
   },
   "HeadHunters_ShipAmbush_VE_title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     100
    ]
   },
   "HeadHunters_ShipAmbush_VH_title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     250
    ]
   },
   "Headhunters_DefendDestructibleEntites_E_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "Headhunters_DefendDestructibleEntites_H_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "Headhunters_DefendDestructibleEntites_M_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ]
   },
   "Headhunters_DefendDestructibleEntites_S_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "Headhunters_DefendDestructibleEntites_VE_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "Headhunters_DefendDestructibleEntites_VH_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     250
    ]
   },
   "Headhunters_DefendLocation_E_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "Headhunters_DefendLocation_H_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "Headhunters_DefendLocation_M_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ]
   },
   "Headhunters_DefendLocation_S_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "Headhunters_DefendLocation_VE_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "Headhunters_DefendLocation_VH_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     250
    ]
@@ -1715,60 +1874,67 @@
    "total": 4,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_CrimBase_H_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     1200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_CrimBase_XT_VH_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_Intro_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_Lagrange_E_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_Lagrange_E_title_002": {
    "bp": 0,
    "total": 4,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_RegionLink_E_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Headhunters_SabotageRelays_CFP_001_Title": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     75
    ]
   },
   "Headhunters_SabotageRelays_XT_001_Title": {
    "bp": 0,
-   "total": 1,
+   "total": 3,
    "rep": [
     100
    ]
@@ -1778,46 +1944,47 @@
    "total": 14,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Headhunters_SecurityPatrol_E_Title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     100
    ]
   },
   "Headhunters_SecurityPatrol_H_Title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     200
    ]
   },
   "Headhunters_SecurityPatrol_M_Title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     150
    ]
   },
   "Headhunters_SecurityPatrol_S_Title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     300
    ]
   },
   "Headhunters_SecurityPatrol_VE_Title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     100
    ]
   },
   "Headhunters_SecurityPatrol_VH_Title_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     250
    ]
@@ -1843,42 +2010,48 @@
     100,
     150,
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_Derelictoutpostscaves_Title_E_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     75
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_Derelictoutpostscaves_Title_H_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     300
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_MultiType_H_title": {
    "bp": 0,
    "total": 2,
    "rep": [
     300
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_MultiType_M_title": {
    "bp": 0,
    "total": 2,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_OneType_title": {
    "bp": 0,
    "total": 3,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_rockcracker_title_E_001": {
    "bp": 1,
@@ -1892,21 +2065,24 @@
    "total": 1,
    "rep": [
     75
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_Killanimals_Derelictoutpostscaves_Nearoutposts_Title_M_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_Killanimals_Derelictoutpostscaves_Title_E_002": {
    "bp": 0,
    "total": 1,
    "rep": [
     75
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_Killanimals_Derelictoutpostscaves_Title_M_001": {
    "bp": 0,
@@ -1914,7 +2090,8 @@
    "rep": [
     25,
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Hockcrow_SearchBody_Easy_Title_001": {
    "bp": 0,
@@ -1958,25 +2135,116 @@
     200
    ]
   },
+  "Hockrow_BlackBox_space_E_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "Hockrow_BlackBox_space_H_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ]
+  },
+  "Hockrow_BlackBox_space_M_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ]
+  },
+  "Hockrow_BlackBox_space_S_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    300
+   ]
+  },
+  "Hockrow_BlackBox_space_VE_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "Hockrow_BlackBox_space_VH_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
+   ]
+  },
   "Hockrow_FacilityDelve_P2M1_Repeat_title": {
-   "bp": 1,
-   "total": 1
+   "bp": 4,
+   "total": 4
   },
   "Hockrow_FacilityDelve_P2M2_Repeat_title": {
-   "bp": 1,
-   "total": 1
+   "bp": 4,
+   "total": 4
   },
   "Hockrow_FacilityDelve_P2M3_Repeat_title": {
-   "bp": 1,
-   "total": 1
+   "bp": 4,
+   "total": 4
   },
   "Hockrow_FacilityDelve_P2M4_Repeat_title": {
-   "bp": 1,
-   "total": 1
+   "bp": 4,
+   "total": 4
   },
   "Hockrow_FacilityDelve_P3M1_title": {
-   "bp": 1,
-   "total": 2
+   "bp": 4,
+   "total": 8
+  },
+  "Hockrow_searchbody_space_E_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "Hockrow_searchbody_space_H_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ]
+  },
+  "Hockrow_searchbody_space_Intro_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "Hockrow_searchbody_space_M_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ]
+  },
+  "Hockrow_searchbody_space_S_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    300
+   ]
+  },
+  "Hockrow_searchbody_space_VE_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "Hockrow_searchbody_space_VH_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
+   ]
   },
   "InterSec_KillShip_Vanduul_Title_Super_001": {
    "bp": 1,
@@ -2156,42 +2424,42 @@
   },
   "LingFamily_RecoverCargo_Easy_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "LingFamily_RecoverCargo_Hard_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "LingFamily_RecoverCargo_Medium_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ]
   },
   "LingFamily_RecoverCargo_Super_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "LingFamily_RecoverCargo_VeryEasy_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "LingFamily_RecoverCargo_VeryHard_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
@@ -2202,7 +2470,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Mining_Title_LargeDonation": {
    "bp": 0,
@@ -2210,7 +2479,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Mining_Title_MediumDonation": {
    "bp": 0,
@@ -2218,7 +2488,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Salvage_Title_01": {
    "bp": 0,
@@ -2226,7 +2497,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Salvage_Title_LargeDonation": {
    "bp": 0,
@@ -2234,7 +2506,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Salvage_Title_MediumDonation": {
    "bp": 0,
@@ -2242,7 +2515,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Mining_Title": {
    "bp": 0,
@@ -2250,7 +2524,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Mining_Title_Large": {
    "bp": 0,
@@ -2258,7 +2533,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Mining_Title_Medium": {
    "bp": 0,
@@ -2266,7 +2542,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Salvage_Title": {
    "bp": 0,
@@ -2274,7 +2551,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Salvage_Title_LargeDontation": {
    "bp": 0,
@@ -2282,7 +2560,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Salvage_Title_MediumDonation": {
    "bp": 0,
@@ -2290,7 +2569,8 @@
    "rep": [
     400,
     2400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Northrock_Bounty_OLP_Boss_H_title_001": {
    "bp": 0,
@@ -2300,16 +2580,18 @@
    ]
   },
   "ORS_Construct_Large_Title": {
-   "bp": 1,
-   "total": 1
+   "bp": 4,
+   "total": 4
   },
   "ORS_Construct_Medium_Title": {
    "bp": 1,
-   "total": 1
+   "total": 1,
+   "asof": "4.10.1"
   },
   "ORS_Construct_Small_Title": {
    "bp": 1,
-   "total": 1
+   "total": 1,
+   "asof": "4.10.1"
   },
   "RAIN_CollectResources_storm_title_001": {
    "bp": 0,
@@ -2371,14 +2653,14 @@
   },
   "RedWind_HaulCargo_AToB_ASD_title": {
    "bp": 0,
-   "total": 2,
+   "total": 8,
    "rep": [
     50
    ]
   },
   "RedWind_HaulCargo_AToB_title_01": {
    "bp": 0,
-   "total": 98,
+   "total": 101,
    "rep": [
     50,
     100,
@@ -2414,7 +2696,7 @@
   },
   "RedWind_HaulCargo_title_intro": {
    "bp": 0,
-   "total": 3,
+   "total": 5,
    "rep": [
     100,
     250
@@ -2422,37 +2704,79 @@
   },
   "RedWind_RecoverCargo_Easy_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "RedWind_RecoverCargo_Hard_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
   },
   "RedWind_RecoverCargo_Medium_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ]
   },
   "RedWind_RecoverCargo_Super_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ]
   },
   "RedWind_RecoverCargo_VeryHard_Title": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
+   ]
+  },
+  "RedWind_RecoverItem_E_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "RedWind_RecoverItem_H_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ]
+  },
+  "RedWind_RecoverItem_Intro_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "RedWind_RecoverItem_M_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ]
+  },
+  "RedWind_RecoverItem_VE_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "RedWind_RecoverItem_VH_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
    ]
   },
   "Shubin_Industrial_GroundVehicle_Nyx_VH_Interstellar_Title_001": {
@@ -2464,21 +2788,21 @@
   },
   "Shubin_Industrial_GroundVehicle_Pyro_E_DiscoverPlanetary_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 18,
    "rep": [
     100
    ]
   },
   "Shubin_Industrial_GroundVehicle_Pyro_H_Solar_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 18,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_GroundVehicle_Pyro_M_PlanetarySystem_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 18,
    "rep": [
     150
    ]
@@ -2492,35 +2816,35 @@
   },
   "Shubin_Industrial_GroundVehicle_Stanton_E_DiscoverPlanetary_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 12,
    "rep": [
     100
    ]
   },
   "Shubin_Industrial_GroundVehicle_Stanton_H_Solar_Title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 8,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_GroundVehicle_Stanton_M_PlanetarySystem_Title_001": {
    "bp": 0,
-   "total": 3,
+   "total": 12,
    "rep": [
     150
    ]
   },
   "Shubin_Industrial_GroundVehicle_Stanton_VH_Solar_Title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_HandMining_Intro_Local_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 9,
+   "total": 9,
    "rep": [
     100
    ]
@@ -2533,8 +2857,8 @@
    ]
   },
   "Shubin_Industrial_HandMining_Pyro_E_Local_Title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 5,
+   "total": 5,
    "rep": [
     100
    ]
@@ -2547,8 +2871,8 @@
    ]
   },
   "Shubin_Industrial_HandMining_Pyro_M_DiscoverPlanetary_Title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 6,
+   "total": 6,
    "rep": [
     100
    ]
@@ -2561,50 +2885,50 @@
    ]
   },
   "Shubin_Industrial_HandMining_Pyro_VH_Interstellar_Title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 5,
+   "total": 5,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_HandMining_Stanton_E_Local_Title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     100
    ]
   },
   "Shubin_Industrial_HandMining_Stanton_E_PlanetarySystem_Title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     100
    ]
   },
   "Shubin_Industrial_HandMining_Stanton_H_PlanetarySystem_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     150
    ]
   },
   "Shubin_Industrial_HandMining_Stanton_H_Planetary_Solar_Title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     150
    ]
   },
   "Shubin_Industrial_HandMining_Stanton_M_DiscoverPlanetary_Title_001": {
-   "bp": 3,
-   "total": 3,
+   "bp": 12,
+   "total": 12,
    "rep": [
     100
    ]
   },
   "Shubin_Industrial_HandMining_Stanton_VH_Solar_Title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     200
    ]
@@ -2666,22 +2990,22 @@
    ]
   },
   "Shubin_Industrial_ShipMining_Pyro_H_PrimarySecondary_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 11,
+   "total": 11,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_ShipMining_Pyro_H_Secondary_Title_001": {
-   "bp": 6,
-   "total": 6,
+   "bp": 20,
+   "total": 20,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_ShipMining_Pyro_M_Solar_Title_001": {
-   "bp": 12,
-   "total": 12,
+   "bp": 66,
+   "total": 66,
    "rep": [
     150
    ]
@@ -2694,8 +3018,8 @@
    ]
   },
   "Shubin_Industrial_ShipMining_Pyro_VH_Secondary_Title_001": {
-   "bp": 4,
-   "total": 4,
+   "bp": 18,
+   "total": 18,
    "rep": [
     200
    ]
@@ -2705,7 +3029,8 @@
    "total": 7,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Shubin_Industrial_ShipMining_Stanton_E_Local_Title_001": {
    "bp": 4,
@@ -2715,29 +3040,29 @@
    ]
   },
   "Shubin_Industrial_ShipMining_Stanton_H_PrimarySecondary_Title_001": {
-   "bp": 7,
-   "total": 7,
+   "bp": 20,
+   "total": 20,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_ShipMining_Stanton_H_Secondary_Interstellar_Title_001": {
-   "bp": 4,
-   "total": 4,
+   "bp": 10,
+   "total": 10,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_ShipMining_Stanton_H_Secondary_Title_001": {
-   "bp": 7,
-   "total": 7,
+   "bp": 22,
+   "total": 22,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_ShipMining_Stanton_M_Solar_Title_001": {
-   "bp": 17,
-   "total": 17,
+   "bp": 60,
+   "total": 60,
    "rep": [
     150
    ]
@@ -2757,22 +3082,22 @@
    ]
   },
   "Shubin_Industrial_ShipMining_Stanton_VH_Interstellar_Title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_ShipMining_Stanton_VH_Secondary_Interstellar_Title_001": {
-   "bp": 3,
-   "total": 3,
+   "bp": 5,
+   "total": 5,
    "rep": [
     200
    ]
   },
   "Shubin_Industrial_ShipMining_Stanton_VH_Secondary_Title_001": {
-   "bp": 3,
-   "total": 3,
+   "bp": 12,
+   "total": 12,
    "rep": [
     200
    ]
@@ -2858,8 +3183,22 @@
    "bp": 1,
    "total": 1
   },
+  "TheCollector_Recipes_Title_GMNI_LMG": {
+   "bp": 1,
+   "total": 1,
+   "rep": [
+    10
+   ]
+  },
   "TheCollector_Recipes_Title_GMNI_Shotgun": {
    "bp": 0,
+   "total": 1,
+   "rep": [
+    10
+   ]
+  },
+  "TheCollector_Recipes_Title_GreyHeavyCombat": {
+   "bp": 1,
    "total": 1,
    "rep": [
     10
@@ -3199,16 +3538,16 @@
    ]
   },
   "UWC_Refueling_easy_title_001": {
-   "bp": 16,
-   "total": 16,
+   "bp": 31,
+   "total": 31,
    "rep": [
     100,
     200
    ]
   },
   "UWC_Refueling_high_title_001": {
-   "bp": 7,
-   "total": 7,
+   "bp": 10,
+   "total": 10,
    "rep": [
     200
    ]
@@ -3225,27 +3564,27 @@
    "total": 3,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "UWC_Refueling_multiple_hard_title_001": {
-   "bp": 17,
-   "total": 17,
+   "bp": 56,
+   "total": 56,
    "rep": [
     200
    ]
   },
   "UWC_Refueling_multiple_med_title_001": {
-   "bp": 36,
-   "total": 36,
+   "bp": 81,
+   "total": 81,
    "rep": [
     100,
-    150,
     200
    ]
   },
   "UWC_Refuelling_BespokeCapital_Title": {
-   "bp": 2,
-   "total": 2,
+   "bp": 6,
+   "total": 6,
    "rep": [
     200
    ]
@@ -3258,30 +3597,31 @@
    ]
   },
   "bhg_bounty_title_ASD_Engineering_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 12,
+   "total": 12,
    "rep": [
     50
    ]
   },
   "bhg_bounty_title_ASD_Research_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 12,
+   "total": 12,
    "rep": [
     50
    ]
   },
   "bhg_bounty_title_FPS_intro": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     50
    ]
   },
   "bhg_bounty_title_HeadHunters_001": {
    "bp": 0,
-   "total": 1,
+   "total": 12,
    "rep": [
+    2000,
     8000
    ]
   },
@@ -3292,16 +3632,27 @@
     150
    ]
   },
+  "bhg_bounty_title_ShatteredBlade_001": {
+   "bp": 6,
+   "total": 6,
+   "rep": [
+    500,
+    1000,
+    2000,
+    8000,
+    16000
+   ]
+  },
   "bhg_bounty_title_XT_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     16000
    ]
   },
   "bhg_bounty_title_gen_001": {
-   "bp": 0,
-   "total": 7,
+   "bp": 13,
+   "total": 69,
    "rep": [
     500,
     1000,
@@ -3315,49 +3666,56 @@
    "total": 4,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_title_H_001": {
    "bp": 2,
    "total": 4,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_title_M_001": {
    "bp": 2,
    "total": 4,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_title_S_001": {
    "bp": 2,
    "total": 4,
    "rep": [
     300
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_title_VE_001": {
    "bp": 2,
    "total": 4,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_title_VH_001": {
    "bp": 2,
    "total": 4,
    "rep": [
     250
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_title_intro_001": {
    "bp": 2,
    "total": 2,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_ChainElimAll_1C_ElimSpec_GenAttack_E_title_001": {
    "bp": 1,
@@ -3458,8 +3816,8 @@
    ]
   },
   "cfp_defend-criminals_title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 4,
+   "total": 4,
    "rep": [
     75,
     200
@@ -3494,8 +3852,8 @@
    ]
   },
   "cfp_defend_cave_Generic_title_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "rep": [
     25
    ]
@@ -3528,11 +3886,25 @@
     50
    ]
   },
-  "cfp_defendship_LRT_title_001": {
+  "cfp_defendship_LRT_SB_title_001": {
    "bp": 1,
-   "total": 9,
+   "total": 1,
+   "rep": [
+    100
+   ]
+  },
+  "cfp_defendship_LRT_title_001": {
+   "bp": 2,
+   "total": 10,
    "rep": [
     100,
+    150
+   ]
+  },
+  "cfp_defendship_MRT_SB_title_001": {
+   "bp": 1,
+   "total": 1,
+   "rep": [
     150
    ]
   },
@@ -3544,37 +3916,65 @@
    ]
   },
   "cfp_defendship_MRT_title_001": {
-   "bp": 1,
-   "total": 9,
+   "bp": 2,
+   "total": 10,
    "rep": [
     150,
     200
    ]
   },
-  "cfp_defendship_VLRT_title_001": {
+  "cfp_defendship_VLRT_SB_title_001": {
    "bp": 1,
-   "total": 9,
+   "total": 1,
    "rep": [
     100
    ]
   },
-  "cfp_defendship_multi_HRT_title_001": {
+  "cfp_defendship_VLRT_title_001": {
+   "bp": 2,
+   "total": 10,
+   "rep": [
+    100
+   ]
+  },
+  "cfp_defendship_multi_HRT_SB_title_001": {
    "bp": 1,
    "total": 1,
    "rep": [
     200
    ]
   },
-  "cfp_defendship_multi_SRT_title_001": {
+  "cfp_defendship_multi_HRT_title_001": {
+   "bp": 2,
+   "total": 2,
+   "rep": [
+    200
+   ]
+  },
+  "cfp_defendship_multi_SRT_SB_title_001": {
    "bp": 1,
    "total": 1,
    "rep": [
     300
    ]
   },
-  "cfp_defendship_multi_VHRT_title_001": {
+  "cfp_defendship_multi_SRT_title_001": {
+   "bp": 2,
+   "total": 2,
+   "rep": [
+    300
+   ]
+  },
+  "cfp_defendship_multi_VHRT_SB_title_001": {
    "bp": 1,
    "total": 1,
+   "rep": [
+    250
+   ]
+  },
+  "cfp_defendship_multi_VHRT_title_001": {
+   "bp": 2,
+   "total": 2,
    "rep": [
     250
    ]
@@ -3657,91 +4057,104 @@
    "total": 4,
    "rep": [
     400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_chain_m_title_01": {
    "bp": 0,
    "total": 2,
    "rep": [
     800
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_e_criminalbase_title_01": {
    "bp": 0,
    "total": 4,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_e_faunacave_title_01": {
    "bp": 0,
    "total": 8,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_e_regionlink_title_01": {
    "bp": 0,
    "total": 4,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_h_xenothreat_title_01": {
    "bp": 0,
    "total": 1,
    "rep": [
     400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_m_criminalbase_title_01": {
    "bp": 0,
    "total": 3,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_m_headhunters_title_01": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_m_headhunters_xs_title_01": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_multiple_sabotage_servers_H_XT_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     1500
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_sabotage_servers_H_HH_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1500
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_sabotage_servers_H_XT_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1500
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_sabotage_servers_VH_XT_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1500
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_sabotage_servers_retrievecargo_VH_XT_title_001": {
    "bp": 0,
@@ -3749,7 +4162,8 @@
    "rep": [
     1200,
     1500
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_sabotage_VH_title_001": {
    "bp": 1,
@@ -3805,7 +4219,8 @@
    "total": 8,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_searchbody_danger_outpost_title_001": {
    "bp": 0,
@@ -3814,7 +4229,8 @@
     100,
     200,
     400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_searchbody_nodanger_cave_title_001": {
    "bp": 0,
@@ -3822,7 +4238,8 @@
    "rep": [
     25,
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_searchbody_nodanger_outpost_title_001": {
    "bp": 0,
@@ -3831,13 +4248,57 @@
     25,
     100,
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_searchbody_nodanger_station_title_001": {
    "bp": 0,
    "total": 2,
    "rep": [
     100
+   ],
+   "asof": "4.10.1"
+  },
+  "deadsaints_recoveritem_E_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "deadsaints_recoveritem_H_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ]
+  },
+  "deadsaints_recoveritem_Intro_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "deadsaints_recoveritem_M_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ]
+  },
+  "deadsaints_recoveritem_VE_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "deadsaints_recoveritem_VH_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
    ]
   },
   "destroyprobelegal_title": {
@@ -3845,67 +4306,110 @@
    "total": 1,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
-  "eckhart_defendship_LRT_title_001": {
+  "eckhart_defendship_LRT_SB_title_001": {
    "bp": 1,
    "total": 1,
    "rep": [
     100
    ]
   },
-  "eckhart_defendship_MRT_title_001": {
+  "eckhart_defendship_LRT_title_001": {
+   "bp": 2,
+   "total": 2,
+   "rep": [
+    100
+   ]
+  },
+  "eckhart_defendship_MRT_SB_title_001": {
    "bp": 1,
    "total": 1,
    "rep": [
     150
    ]
   },
-  "eckhart_defendship_VLRT_title_001": {
+  "eckhart_defendship_MRT_title_001": {
+   "bp": 2,
+   "total": 2,
+   "rep": [
+    150
+   ]
+  },
+  "eckhart_defendship_VLRT_SB_title_001": {
    "bp": 1,
    "total": 1,
    "rep": [
     100
    ]
   },
-  "eckhart_defendship_multi_HRT_title_001": {
+  "eckhart_defendship_VLRT_title_001": {
+   "bp": 2,
+   "total": 2,
+   "rep": [
+    100
+   ]
+  },
+  "eckhart_defendship_multi_HRT_SB_title_001": {
    "bp": 1,
    "total": 1,
    "rep": [
     200
    ]
   },
-  "eckhart_defendship_multi_SRT_title_001": {
+  "eckhart_defendship_multi_HRT_title_001": {
+   "bp": 2,
+   "total": 2,
+   "rep": [
+    200
+   ]
+  },
+  "eckhart_defendship_multi_SRT_SB_title_001": {
    "bp": 1,
    "total": 1,
    "rep": [
     300
    ]
   },
-  "eckhart_defendship_multi_VHRT_title_001": {
+  "eckhart_defendship_multi_SRT_title_001": {
+   "bp": 2,
+   "total": 2,
+   "rep": [
+    300
+   ]
+  },
+  "eckhart_defendship_multi_VHRT_SB_title_001": {
    "bp": 1,
    "total": 1,
    "rep": [
     250
    ]
   },
+  "eckhart_defendship_multi_VHRT_title_001": {
+   "bp": 2,
+   "total": 2,
+   "rep": [
+    250
+   ]
+  },
   "foxwell_DefendShip_E_title_001": {
-   "bp": 4,
-   "total": 4,
+   "bp": 13,
+   "total": 13,
    "rep": [
     100
    ]
   },
   "foxwell_DefendShip_H_title_001": {
-   "bp": 4,
-   "total": 4,
+   "bp": 13,
+   "total": 13,
    "rep": [
     200
    ]
   },
   "foxwell_DefendShip_M_title_001": {
-   "bp": 4,
-   "total": 4,
+   "bp": 13,
+   "total": 13,
    "rep": [
     150
    ]
@@ -3985,14 +4489,16 @@
    "total": 2,
    "rep": [
     600
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "headhunters_EliminateAll_Missing_Xenothreat_VH_title_001": {
    "bp": 0,
    "total": 3,
    "rep": [
     800
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "headhunters_EliminateAll_XenoThreat_H_title_001": {
    "bp": 1,
@@ -4103,7 +4609,7 @@
   },
   "headhunters_bombingrun_E_title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     100
    ]
@@ -4117,7 +4623,7 @@
   },
   "headhunters_bombingrun_H_title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     200
    ]
@@ -4131,28 +4637,28 @@
   },
   "headhunters_bombingrun_M_title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     150
    ]
   },
   "headhunters_bombingrun_S_title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     300
    ]
   },
   "headhunters_bombingrun_VE_title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     100
    ]
   },
   "headhunters_bombingrun_VH_title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     250
    ]
@@ -4166,7 +4672,7 @@
   },
   "headhunters_defendship_LRT_PA_title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ]
@@ -4180,7 +4686,7 @@
   },
   "headhunters_defendship_MRT_PA_title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     150
    ]
@@ -4194,7 +4700,7 @@
   },
   "headhunters_defendship_VLRT_PA_title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ]
@@ -4208,21 +4714,21 @@
   },
   "headhunters_defendship_multi_HRT_PA_title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     200
    ]
   },
   "headhunters_defendship_multi_SRT_PA_title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     300
    ]
   },
   "headhunters_defendship_multi_VHRT_PA_title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     250
    ]
@@ -4388,7 +4894,8 @@
    "total": 3,
    "rep": [
     800
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "headhunters_missingperson_sabotage_server_H_XT_title_001": {
    "bp": 0,
@@ -4396,7 +4903,8 @@
    "rep": [
     400,
     600
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "headhunters_multikillship_base_Generic_M_title_001": {
    "bp": 4,
@@ -4439,21 +4947,24 @@
    "total": 4,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "headhunters_searchbody_danger_station_title_001": {
    "bp": 0,
    "total": 6,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "headhunters_searchbody_nodanger_outpost_title_001": {
    "bp": 0,
    "total": 3,
    "rep": [
     50
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "headhunters_searchbody_nodanger_station_title_001": {
    "bp": 0,
@@ -4461,21 +4972,24 @@
    "rep": [
     25,
     50
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "hh_missingperson_inv_chain_h_xenothreat_title_01": {
    "bp": 0,
    "total": 3,
    "rep": [
     400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "hh_missingperson_inv_e_criminalbase_title_01": {
    "bp": 0,
    "total": 4,
    "rep": [
     50
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "hh_missingperson_inv_e_faunacave_title_01": {
    "bp": 0,
@@ -4484,7 +4998,8 @@
     25,
     50,
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "hh_missingperson_inv_m_criminalbase_title_01": {
    "bp": 0,
@@ -4492,49 +5007,56 @@
    "rep": [
     200,
     400
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_destroy_E_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1000
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_destroy_H_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     4000
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_destroy_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     2000
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_eliminateall_Lawnocivs_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     2000
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_eliminateall_civsonly_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1000
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_eliminateall_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1000
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "northrock_SOO_repeat_title_001": {
    "bp": 1,
@@ -4542,14 +5064,14 @@
   },
   "northrock_boarders_890J_title_001": {
    "bp": 0,
-   "total": 1,
+   "total": 2,
    "rep": [
     8000
    ]
   },
   "northrock_bounty_fps_title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
     4000,
     8000
@@ -4560,65 +5082,190 @@
    "total": 2,
    "rep": [
     500
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "recovery_title": {
    "bp": 13,
    "total": 13,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_title_E": {
    "bp": 0,
    "total": 4,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_title_H": {
    "bp": 0,
    "total": 4,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_title_M": {
    "bp": 0,
    "total": 4,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_title_S": {
    "bp": 0,
    "total": 4,
    "rep": [
     300
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_title_VE": {
    "bp": 0,
    "total": 4,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_title_VH": {
    "bp": 0,
    "total": 4,
    "rep": [
     250
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_title_intro": {
    "bp": 0,
    "total": 2,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "shubin_rockcracker_pvp_title_01": {
+   "bp": 30,
+   "total": 30
+  },
+  "shubin_rockcracker_pvp_title_specific_02": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_03": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_04": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_05": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_06": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_07": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_08": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_09": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_10": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_11": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_12": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_13": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_14": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_15": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_16": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_17": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_18": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_19": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_20": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_21": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_22": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_23": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_24": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_25": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_26": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_27": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_28": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_29": {
+   "bp": 1,
+   "total": 1
+  },
+  "shubin_rockcracker_pvp_title_specific_30": {
    "bp": 1,
    "total": 1
   },
@@ -4631,44 +5278,58 @@
    "total": 6,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_title_H_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_title_M_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_title_S_01": {
    "bp": 0,
    "total": 2,
    "rep": [
     300
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_title_VE_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_title_VH_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     250
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_title_intro_01": {
+   "bp": 0,
+   "total": 6,
+   "rep": [
+    100
+   ],
+   "asof": "4.10.1"
+  },
+  "vaughn_assassination_E_title_003": {
    "bp": 0,
    "total": 6,
    "rep": [
@@ -4676,26 +5337,95 @@
    ]
   },
   "vaughn_assassination_FPS_UGF_illegal_title_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "rep": [
-    100,
     300
    ]
   },
   "vaughn_assassination_FPS_UGF_legal_title_001": {
-   "bp": 1,
+   "bp": 4,
+   "total": 8,
+   "rep": [
+    250
+   ]
+  },
+  "vaughn_assassination_H_title_001": {
+   "bp": 0,
+   "total": 6,
+   "rep": [
+    200
+   ]
+  },
+  "vaughn_assassination_M_title_001": {
+   "bp": 0,
+   "total": 6,
+   "rep": [
+    150
+   ]
+  },
+  "vaughn_assassination_PA_E_title": {
+   "bp": 0,
+   "total": 1,
+   "rep": [
+    100
+   ]
+  },
+  "vaughn_assassination_PA_H_title": {
+   "bp": 0,
+   "total": 1,
+   "rep": [
+    200
+   ]
+  },
+  "vaughn_assassination_PA_M_title": {
+   "bp": 0,
+   "total": 1,
+   "rep": [
+    150
+   ]
+  },
+  "vaughn_assassination_PA_S_title": {
+   "bp": 0,
+   "total": 1,
+   "rep": [
+    300
+   ]
+  },
+  "vaughn_assassination_PA_VH_title": {
+   "bp": 0,
    "total": 2,
    "rep": [
     100,
     250
    ]
   },
-  "vaughn_assassination_VE_title_intro": {
+  "vaughn_assassination_S_title_001": {
    "bp": 0,
-   "total": 2,
+   "total": 6,
+   "rep": [
+    300
+   ]
+  },
+  "vaughn_assassination_VE_title_001": {
+   "bp": 0,
+   "total": 6,
    "rep": [
     100
+   ]
+  },
+  "vaughn_assassination_VE_title_intro": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "vaughn_assassination_VH_title_001": {
+   "bp": 0,
+   "total": 6,
+   "rep": [
+    250
    ]
   },
   "vaughn_assassination_title_E": {
@@ -4703,48 +5433,104 @@
    "total": 2,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "vaughn_assassination_title_H": {
    "bp": 0,
    "total": 2,
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "vaughn_assassination_title_M": {
    "bp": 0,
    "total": 2,
    "rep": [
     150
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "vaughn_assassination_title_S": {
    "bp": 0,
    "total": 2,
    "rep": [
     300
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "vaughn_assassination_title_VE": {
    "bp": 0,
    "total": 2,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "vaughn_assassination_title_VH": {
    "bp": 0,
    "total": 2,
    "rep": [
     250
+   ],
+   "asof": "4.10.1"
+  },
+  "vaughn_searchbody_space_E_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "vaughn_searchbody_space_H_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ]
+  },
+  "vaughn_searchbody_space_M_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ]
+  },
+  "vaughn_searchbody_space_S_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    300
+   ]
+  },
+  "vaughn_searchbody_space_VE_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "vaughn_searchbody_space_VH_Title_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
    ]
   }
  },
  "descriptions": {
+  "Adagio_BasicSalvage_Desc_01": {
+   "bp": 0,
+   "total": 36,
+   "rep": [
+    100,
+    150
+   ]
+  },
   "Adagio_Industrial_Component_Salvage_Levski_E_Desc_001": {
    "bp": 0,
-   "total": 2,
+   "total": 1,
    "rep": [
     100
    ]
@@ -4771,8 +5557,8 @@
    "faction": "Adagio Holdings"
   },
   "Adagio_Industrial_Component_Salvage_Levski_M_Desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 2,
+   "total": 2,
    "items": [
     "Abrade Scraper Module",
     "Cinch Scraper Module",
@@ -4793,7 +5579,7 @@
   },
   "Adagio_Industrial_Component_Salvage_Pyro_E_Desc_001": {
    "bp": 0,
-   "total": 2,
+   "total": 1,
    "rep": [
     100
    ]
@@ -4842,7 +5628,7 @@
   },
   "Adagio_Industrial_Component_Salvage_Stanton_E_Desc_001": {
    "bp": 0,
-   "total": 2,
+   "total": 1,
    "rep": [
     100
    ]
@@ -4891,7 +5677,7 @@
   },
   "Adagio_Industrial_Component_Salvage_Universal_E_Desc_001": {
    "bp": 0,
-   "total": 6,
+   "total": 9,
    "rep": [
     100
    ]
@@ -4918,8 +5704,8 @@
    "faction": "Adagio Holdings"
   },
   "Adagio_Industrial_Component_Salvage_Universal_M_Desc_001": {
-   "bp": 3,
-   "total": 3,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Abrade Scraper Module",
     "Cinch Scraper Module",
@@ -4968,7 +5754,7 @@
   },
   "Adagio_Industrial_Salvage_Universal_Intro_Desc_001": {
    "bp": 3,
-   "total": 6,
+   "total": 3,
    "items": [
     "Abrade Scraper Module",
     "Cinch Scraper Module",
@@ -5003,7 +5789,7 @@
   },
   "BHG_Certification_Easy_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ],
@@ -5017,7 +5803,7 @@
   },
   "BHG_Certification_Hard_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ],
@@ -5031,7 +5817,7 @@
   },
   "BHG_Certification_Medium_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ],
@@ -5045,7 +5831,7 @@
   },
   "BHG_Certification_Super_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ],
@@ -5059,14 +5845,14 @@
   },
   "BHG_Certification_VeryEasy_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "BHG_Certification_VeryHard_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 9,
    "rep": [
     50
    ],
@@ -5080,7 +5866,7 @@
   },
   "BHG_ShipWaveAttack_DrawOutBoss_H_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -5094,7 +5880,7 @@
   },
   "BHG_ShipWaveAttack_DrawOutBoss_S_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ],
@@ -5108,7 +5894,7 @@
   },
   "BHG_ShipWaveAttack_DrawOutBoss_VH_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     250
    ],
@@ -5595,7 +6381,8 @@
    ],
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_02_desc": {
    "bp": 1,
@@ -5608,7 +6395,8 @@
    ],
    "rep": [
     200
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_03_desc": {
    "bp": 1,
@@ -5634,7 +6422,8 @@
      2400
     ]
    ],
-   "faction": "Recco Battaglia"
+   "faction": "Recco Battaglia",
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_04_desc": {
    "bp": 1,
@@ -5660,7 +6449,8 @@
      2400
     ]
    ],
-   "faction": "Recco Battaglia"
+   "faction": "Recco Battaglia",
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_05_desc": {
    "bp": 1,
@@ -5688,7 +6478,8 @@
      6000
     ]
    ],
-   "faction": "Recco Battaglia"
+   "faction": "Recco Battaglia",
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_06_desc": {
    "bp": 1,
@@ -5716,7 +6507,8 @@
      6000
     ]
    ],
-   "faction": "Recco Battaglia"
+   "faction": "Recco Battaglia",
+   "asof": "4.10.1"
   },
   "Battaglia_RPT_Scan_Golem_desc": {
    "bp": 0,
@@ -5792,6 +6584,232 @@
    ],
    "faction": "Recco Battaglia"
   },
+  "BitZeros_RecoverItem_Generic_Desc_001": {
+   "bp": 20,
+   "total": 20,
+   "items": [
+    "Arden-SL Arms",
+    "Arden-SL Core",
+    "Arden-SL Helmet",
+    "Arden-SL Legs",
+    "Custodian \"Midnight\" SMG",
+    "Custodian \"Scorched\" SMG",
+    "Custodian SMG",
+    "Custodian SMG Magazine (60 cap)",
+    "Inquisitor Arms Black",
+    "Inquisitor Arms Grey",
+    "Inquisitor Core Black",
+    "Inquisitor Core Grey",
+    "Inquisitor Legs Black",
+    "Inquisitor Legs Grey",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)",
+    "Monde Arms Delta Camo",
+    "Monde Arms Hemlock Camo",
+    "Monde Core Delta Camo",
+    "Monde Core Hemlock Camo",
+    "Monde Helmet Delta Camo",
+    "Monde Helmet Hemlock Camo",
+    "Monde Legs Delta Camo",
+    "Monde Legs Hemlock Camo",
+    "Morningstar Helmet Icefall",
+    "R97 \"Kismet\" Shotgun",
+    "R97 \"Righteous\" Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Bit Zeros"
+  },
+  "BitZeros_blackbox_E_Desc_001": {
+   "bp": 5,
+   "total": 5,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ],
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Bit Zeros"
+  },
+  "BitZeros_blackbox_H_Desc_001": {
+   "bp": 5,
+   "total": 5,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ],
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Bit Zeros"
+  },
+  "BitZeros_blackbox_Intro_Desc_001": {
+   "bp": 5,
+   "total": 5,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ],
+   "rep": [
+    100
+   ]
+  },
+  "BitZeros_blackbox_M_Desc_001": {
+   "bp": 5,
+   "total": 5,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ],
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Bit Zeros"
+  },
+  "BitZeros_blackbox_S_Desc_001": {
+   "bp": 5,
+   "total": 5,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ],
+   "rep": [
+    300
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Bit Zeros"
+  },
+  "BitZeros_blackbox_VE_Desc_001": {
+   "bp": 5,
+   "total": 5,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ],
+   "rep": [
+    100
+   ]
+  },
+  "BitZeros_blackbox_VH_Desc_001": {
+   "bp": 5,
+   "total": 5,
+   "items": [
+    "Arrowhead Sniper Rifle",
+    "Arrowhead Sniper Rifle Battery (16 cap)",
+    "Aves Arms",
+    "Aves Core",
+    "Aves Helmet",
+    "Aves Legs",
+    "Aves Shrike Arms",
+    "Aves Shrike Core",
+    "Aves Shrike Helmet",
+    "Aves Shrike Legs",
+    "Lumin V SMG",
+    "Lumin V SMG Battery (45 cap)"
+   ],
+   "rep": [
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Bit Zeros"
+  },
   "CFP_Delivery_Outpost_Multi_desc_001": {
    "bp": 0,
    "total": 18,
@@ -5835,14 +6853,16 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "CFP_MissingPerson_Theft_Outpost_HH_H_desc_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     800
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_MissingPerson_Theft_Outpost_XT_VH_desc_001": {
    "bp": 0,
@@ -5856,7 +6876,8 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "CFP_MissingPerson_Theft_XSOutpost_XT_H_desc_001": {
    "bp": 0,
@@ -5870,11 +6891,12 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "CFP_RecoverCargo_Easy_Description": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "C54 SMG",
     "C54 SMG Magazine (50 cap)",
@@ -5896,8 +6918,8 @@
    ]
   },
   "CFP_RecoverCargo_Hard_Description": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "C54 SMG",
     "C54 SMG Magazine (50 cap)",
@@ -5926,8 +6948,8 @@
    "faction": "Citizens For Prosperity"
   },
   "CFP_RecoverCargo_Medium_Description": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "C54 SMG",
     "C54 SMG Magazine (50 cap)",
@@ -5956,8 +6978,8 @@
    "faction": "Citizens For Prosperity"
   },
   "CFP_RecoverCargo_Super_Description": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "C54 SMG",
     "C54 SMG Magazine (50 cap)",
@@ -5986,8 +7008,8 @@
    "faction": "Citizens For Prosperity"
   },
   "CFP_RecoverCargo_VeryHard_Description": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "C54 SMG",
     "C54 SMG Magazine (50 cap)",
@@ -6027,7 +7049,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "CFP_RetrieveCargo_CrimBase_H_desc_001": {
    "bp": 0,
@@ -6041,7 +7064,8 @@
      15000
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "CFP_RetrieveCargo_CrimBase_M_desc_001": {
    "bp": 0,
@@ -6055,7 +7079,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "CFP_RetrieveCargo_CrimBase_XT_VH_desc_001": {
    "bp": 0,
@@ -6069,14 +7094,16 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "CFP_RetrieveCargo_Lagrange_E_desc_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_RetrieveCargo_Lagrange_M_desc_001": {
    "bp": 0,
@@ -6090,18 +7117,26 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "CFP_SabotageRelays_HH_001_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     75
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
   },
   "CFP_SabotageRelays_XT_001_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 3,
    "rep": [
     100
    ],
@@ -6118,7 +7153,8 @@
    "total": 11,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "CFP_SecurityPatrol_E_Desc_001": {
    "bp": 0,
@@ -6199,7 +7235,7 @@
   },
   "CFP_ShipWaveAttack_ClearHostiles_Desc_E_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ],
@@ -6213,7 +7249,7 @@
   },
   "CFP_ShipWaveAttack_ClearHostiles_Desc_H_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     200
    ],
@@ -6227,7 +7263,7 @@
   },
   "CFP_ShipWaveAttack_ClearHostiles_Desc_M_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     150
    ],
@@ -6241,7 +7277,7 @@
   },
   "CFP_ShipWaveAttack_ClearHostiles_Desc_VE_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ]
@@ -6262,28 +7298,28 @@
   },
   "CleanAir_Courier_Derelict_desc": {
    "bp": 0,
-   "total": 2,
+   "total": 3,
    "scenario": [
     150
    ]
   },
   "CleanAir_DefendShip_Easy_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     150
    ]
   },
   "CleanAir_DefendShip_Hard_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     300
    ]
   },
   "CleanAir_DefendShip_Medium_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     225
    ]
@@ -6297,21 +7333,21 @@
   },
   "CleanAir_EscortShip_Easy_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     120
    ]
   },
   "CleanAir_EscortShip_Hard_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     150
    ]
   },
   "CleanAir_EscortShip_Medium_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     135
    ]
@@ -6325,7 +7361,7 @@
   },
   "CleanAir_Hauling_Bulk_MedicalSupplies_desc_02": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "scenario": [
     285
    ]
@@ -6339,7 +7375,7 @@
   },
   "CleanAir_Hauling_Bulk_MoldTreatment_desc": {
    "bp": 0,
-   "total": 2,
+   "total": 3,
    "scenario": [
     570,
     600
@@ -6368,7 +7404,7 @@
   },
   "CleanAir_Hauling_Small_MedicalSupplies_desc_02": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "scenario": [
     225
    ]
@@ -6382,7 +7418,7 @@
   },
   "CleanAir_Hauling_Small_MoldTreatment_desc": {
    "bp": 0,
-   "total": 2,
+   "total": 3,
    "scenario": [
     225,
     405
@@ -6411,7 +7447,7 @@
   },
   "CleanAir_Hauling_Supply_MedicalSupplies_desc_02": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "scenario": [
     390
    ]
@@ -6425,7 +7461,7 @@
   },
   "CleanAir_Hauling_Supply_MoldTreatment_desc": {
    "bp": 0,
-   "total": 2,
+   "total": 3,
    "scenario": [
     375,
     465
@@ -6440,42 +7476,42 @@
   },
   "CleanAir_Killship_Easy_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     75
    ]
   },
   "CleanAir_Killship_Hard_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     225
    ]
   },
   "CleanAir_Killship_Medium_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     150
    ]
   },
   "CleanAir_RecoverCargo_Easy_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     300
    ]
   },
   "CleanAir_RecoverCargo_Hard_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     600
    ]
   },
   "CleanAir_RecoverCargo_Medium_desc": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "scenario": [
     450
    ]
@@ -6553,7 +7589,7 @@
   },
   "Covalex_Delivery_Stanton_Hard_Desc_001": {
    "bp": 0,
-   "total": 14,
+   "total": 56,
    "rep": [
     100
    ],
@@ -6567,14 +7603,14 @@
   },
   "Covalex_Delivery_Stanton_Medium_Desc_001": {
    "bp": 0,
-   "total": 9,
+   "total": 32,
    "rep": [
     100
    ]
   },
   "Covalex_Delivery_Stanton_Super_Desc_001": {
    "bp": 0,
-   "total": 7,
+   "total": 28,
    "rep": [
     200
    ],
@@ -6588,7 +7624,7 @@
   },
   "Covalex_Delivery_Stanton_VeryHard_Desc_001": {
    "bp": 0,
-   "total": 13,
+   "total": 52,
    "rep": [
     150
    ],
@@ -6617,10 +7653,17 @@
   },
   "Covalex_HaulCargo_AToB_Scrap": {
    "bp": 0,
-   "total": 7,
+   "total": 3,
    "rep": [
     500
-   ]
+   ],
+   "req": [
+    [
+     "Junior",
+     250
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_AToB_Stanton_Interstellar": {
    "bp": 0,
@@ -6630,7 +7673,32 @@
     500,
     2000,
     4000
-   ]
+   ],
+   "asof": "4.10.1"
+  },
+  "Covalex_HaulCargo_AToB_desc_01": {
+   "bp": 0,
+   "total": 109,
+   "rep": [
+    50,
+    500,
+    2000
+   ],
+   "req": [
+    [
+     "Rookie",
+     50
+    ],
+    [
+     "Junior",
+     250
+    ],
+    [
+     "Experienced",
+     27750
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_AtoB_desc_DeliverAll": {
    "bp": 1,
@@ -6700,32 +7768,47 @@
   },
   "Covalex_HaulCargo_AtoB_desc_ProcessedFood_Stanton2": {
    "bp": 0,
-   "total": 2,
+   "total": 1,
    "rep": [
-    50,
-    2000
-   ]
+    50
+   ],
+   "req": [
+    [
+     "Rookie",
+     50
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_AtoB_desc_RawOre_Stanton1": {
    "bp": 0,
    "total": 2,
    "rep": [
     500
-   ]
+   ],
+   "req": [
+    [
+     "Junior",
+     250
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_AtoB_desc_RefinedOre_Stanton4": {
    "bp": 0,
    "total": 5,
    "rep": [
     50
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Covalex_HaulCargo_AtoB_desc_ScrapWaste_Stanton3": {
    "bp": 0,
    "total": 1,
    "rep": [
     50
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Covalex_HaulCargo_AtoB_desc_ToLevski": {
    "bp": 3,
@@ -6773,13 +7856,66 @@
   },
   "Covalex_HaulCargo_MultiToSingle_Waste_Waste_Stanton1": {
    "bp": 0,
-   "total": 8,
+   "total": 7,
    "rep": [
     50,
     500,
     1000,
     2000
-   ]
+   ],
+   "req": [
+    [
+     "Rookie",
+     50
+    ],
+    [
+     "Junior",
+     250
+    ],
+    [
+     "Member",
+     5250
+    ],
+    [
+     "Experienced",
+     27750
+    ]
+   ],
+   "faction": "Covalex"
+  },
+  "Covalex_HaulCargo_MultiToSingle_desc_01": {
+   "bp": 0,
+   "total": 20,
+   "rep": [
+    50,
+    500,
+    1000,
+    2000,
+    4000
+   ],
+   "req": [
+    [
+     "Rookie",
+     50
+    ],
+    [
+     "Junior",
+     250
+    ],
+    [
+     "Member",
+     5250
+    ],
+    [
+     "Experienced",
+     27750
+    ],
+    [
+     "Senior",
+     77750
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_MultiToSingle_desc_RawOre_Stanton1": {
    "bp": 0,
@@ -6787,57 +7923,202 @@
    "rep": [
     500,
     1000
-   ]
+   ],
+   "req": [
+    [
+     "Junior",
+     250
+    ],
+    [
+     "Member",
+     5250
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_MultiToSingle_desc_ScrapWaste_Stanton3": {
    "bp": 0,
-   "total": 6,
+   "total": 5,
    "rep": [
     50,
     500,
     1000,
     2000
-   ]
+   ],
+   "req": [
+    [
+     "Rookie",
+     50
+    ],
+    [
+     "Junior",
+     250
+    ],
+    [
+     "Member",
+     5250
+    ],
+    [
+     "Experienced",
+     27750
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_SingleToMulti_Processed_Mixed_QTFuelHydroFuelShipAmmo": {
    "bp": 0,
-   "total": 23,
+   "total": 16,
    "rep": [
     500,
     1000,
     2000,
     4000,
     8000
-   ]
+   ],
+   "req": [
+    [
+     "Junior",
+     250
+    ],
+    [
+     "Member",
+     5250
+    ],
+    [
+     "Experienced",
+     27750
+    ],
+    [
+     "Senior",
+     77750
+    ],
+    [
+     "Master",
+     237750
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_SingleToMulti_Processed_Stims": {
    "bp": 0,
-   "total": 27,
+   "total": 17,
    "rep": [
     50,
     500,
     1000,
     2000
-   ]
+   ],
+   "req": [
+    [
+     "Rookie",
+     50
+    ],
+    [
+     "Junior",
+     250
+    ],
+    [
+     "Member",
+     5250
+    ],
+    [
+     "Experienced",
+     27750
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_SingleToMulti_RefinedOre": {
    "bp": 0,
-   "total": 27,
+   "total": 26,
    "rep": [
     50,
     500,
     1000,
     2000,
     4000
-   ]
+   ],
+   "req": [
+    [
+     "Rookie",
+     50
+    ],
+    [
+     "Junior",
+     250
+    ],
+    [
+     "Member",
+     5250
+    ],
+    [
+     "Experienced",
+     27750
+    ],
+    [
+     "Senior",
+     77750
+    ]
+   ],
+   "faction": "Covalex"
+  },
+  "Covalex_HaulCargo_SingleToMulti_desc_01": {
+   "bp": 0,
+   "total": 54,
+   "rep": [
+    50,
+    500,
+    1000,
+    2000,
+    4000,
+    8000
+   ],
+   "req": [
+    [
+     "Rookie",
+     50
+    ],
+    [
+     "Junior",
+     250
+    ],
+    [
+     "Member",
+     5250
+    ],
+    [
+     "Experienced",
+     27750
+    ],
+    [
+     "Senior",
+     77750
+    ],
+    [
+     "Master",
+     237750
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_SingleToMulti_desc_ProcessedFood_Stanton2": {
    "bp": 0,
-   "total": 4,
+   "total": 3,
    "rep": [
     500,
     1000
-   ]
+   ],
+   "req": [
+    [
+     "Junior",
+     250
+    ],
+    [
+     "Member",
+     5250
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_SingleToMulti_desc_RefinedOre_Mixed": {
    "bp": 0,
@@ -6846,7 +8127,22 @@
     1000,
     4000,
     8000
-   ]
+   ],
+   "req": [
+    [
+     "Member",
+     5250
+    ],
+    [
+     "Senior",
+     77750
+    ],
+    [
+     "Master",
+     237750
+    ]
+   ],
+   "faction": "Covalex"
   },
   "Covalex_HaulCargo_SingleToMulti_desc_RefinedOre_Stanton4": {
    "bp": 0,
@@ -6854,7 +8150,8 @@
    "rep": [
     50,
     1000
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Covalex_HaulCargo_SingleToMulti_desc_ToCFP_Danger": {
    "bp": 1,
@@ -6902,7 +8199,7 @@
   },
   "Covalex_RecoverCargo_Easy_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ],
@@ -6916,7 +8213,7 @@
   },
   "Covalex_RecoverCargo_Hard_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -6930,7 +8227,7 @@
   },
   "Covalex_RecoverCargo_Medium_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ],
@@ -6944,7 +8241,7 @@
   },
   "Covalex_RecoverCargo_Super_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ],
@@ -6958,7 +8255,7 @@
   },
   "Covalex_RecoverCargo_VeryEasy_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     50
    ],
@@ -6972,7 +8269,7 @@
   },
   "Covalex_RecoverCargo_VeryHard_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -7078,7 +8375,7 @@
   },
   "DeadSaints_RecoverCargo_Easy_Description": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ],
@@ -7092,7 +8389,7 @@
   },
   "DeadSaints_RecoverCargo_Hard_Description": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     200
    ],
@@ -7106,7 +8403,7 @@
   },
   "DeadSaints_RecoverCargo_Medium_Description": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     150
    ],
@@ -7120,7 +8417,7 @@
   },
   "DeadSaints_RecoverCargo_Super_Description": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     300
    ],
@@ -7134,14 +8431,14 @@
   },
   "DeadSaints_RecoverCargo_VeryEasy_Description": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     50
    ]
   },
   "DeadSaints_RecoverCargo_VeryHard_Description": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     200
    ],
@@ -7153,9 +8450,36 @@
    ],
    "faction": "Dead Saints"
   },
+  "DeadSaints_RecoverItem_Generic_Desc_001": {
+   "bp": 5,
+   "total": 5,
+   "items": [
+    "Monde Arms Delta Camo",
+    "Monde Arms Hemlock Camo",
+    "Monde Core Delta Camo",
+    "Monde Core Hemlock Camo",
+    "Monde Helmet Delta Camo",
+    "Monde Helmet Hemlock Camo",
+    "Monde Legs Delta Camo",
+    "Monde Legs Hemlock Camo",
+    "R97 \"Kismet\" Shotgun",
+    "R97 \"Righteous\" Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Dead Saints"
+  },
   "EckhartSecurity_Defend_E_Desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     500
    ],
@@ -7165,11 +8489,11 @@
      1
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_Defend_H_Desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     500
    ],
@@ -7179,11 +8503,11 @@
      480000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_Defend_M_Desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     500
    ],
@@ -7193,32 +8517,32 @@
      30000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_DestroyServers_FacilityDelving_Desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 12,
    "rep": [
     50
    ]
   },
   "EckhartSecurity_DestroyServers_FacilityDelving_Desc_002": {
    "bp": 0,
-   "total": 1,
+   "total": 12,
    "rep": [
     50
    ]
   },
   "EckhartSecurity_DestroyServers_FacilityDelving_Desc_003": {
    "bp": 0,
-   "total": 1,
+   "total": 12,
    "rep": [
     50
    ]
   },
   "EckhartSecurity_DestroyServers_FacilityDelving_Desc_004": {
    "bp": 0,
-   "total": 1,
+   "total": 12,
    "rep": [
     50
    ]
@@ -7239,7 +8563,7 @@
      5000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_EliminateAll_storm_data_H_desc_001": {
    "bp": 0,
@@ -7284,7 +8608,7 @@
      30000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_EliminateSpecific_DC_Desc_001": {
    "bp": 0,
@@ -7298,18 +8622,18 @@
      5000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_Mercenary_Intro_Desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     50
    ]
   },
   "EckhartSecurity_Mercenary_Rehire_Desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     500
    ]
@@ -7335,11 +8659,11 @@
      120000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_RecoverCargo_Easy_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ],
@@ -7349,11 +8673,11 @@
      800
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_RecoverCargo_Hard_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -7363,11 +8687,11 @@
      5800
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_RecoverCargo_Medium_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ],
@@ -7377,11 +8701,11 @@
      2200
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_RecoverCargo_Super_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ],
@@ -7391,18 +8715,18 @@
      38000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "EckhartSecurity_RecoverCargo_VeryEasy_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "EckhartSecurity_RecoverCargo_VeryHard_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -7412,7 +8736,7 @@
      15000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "Eckhart_EscortShips_E_desc": {
    "bp": 1,
@@ -7433,7 +8757,7 @@
      800
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "Eckhart_EscortShips_H_desc": {
    "bp": 1,
@@ -7465,7 +8789,7 @@
      5800
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "Eckhart_EscortShips_M_desc": {
    "bp": 1,
@@ -7491,7 +8815,7 @@
      2200
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "Eckhart_EscortShips_S_desc": {
    "bp": 1,
@@ -7523,7 +8847,7 @@
      38000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "Eckhart_EscortShips_VE_desc": {
    "bp": 1,
@@ -7569,7 +8893,7 @@
      15000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "Eckhart_ShipAmbush_E_desc": {
    "bp": 2,
@@ -7590,7 +8914,7 @@
      800
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "Eckhart_ShipAmbush_H_desc": {
    "bp": 2,
@@ -7621,11 +8945,11 @@
      5800
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "Eckhart_ShipAmbush_Intro_desc": {
    "bp": 1,
-   "total": 2,
+   "total": 1,
    "items": [
     "Cirrus",
     "Lightstrike I Cannon",
@@ -7661,7 +8985,7 @@
      2200
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "Eckhart_ShipAmbush_S_desc": {
    "bp": 2,
@@ -7692,7 +9016,7 @@
      38000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "Eckhart_ShipAmbush_VE_desc": {
    "bp": 2,
@@ -7737,7 +9061,7 @@
      15000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
   "FTL_Courier_Nyx_Easy_Desc_001": {
    "bp": 4,
@@ -7755,8 +9079,8 @@
    ]
   },
   "FTL_Courier_Stanton_Easy_Desc_001": {
-   "bp": 15,
-   "total": 15,
+   "bp": 58,
+   "total": 58,
    "items": [
     "Agni",
     "Colossus",
@@ -7770,8 +9094,8 @@
    ]
   },
   "FTL_Courier_Stanton_Medium_Desc_001": {
-   "bp": 7,
-   "total": 7,
+   "bp": 28,
+   "total": 28,
    "items": [
     "Agni",
     "Colossus",
@@ -7791,6 +9115,90 @@
    ],
    "faction": "FTL Courier"
   },
+  "FTL_RecoverItem_E_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "FTL Courier"
+  },
+  "FTL_RecoverItem_H_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "FTL Courier"
+  },
+  "FTL_RecoverItem_Intro_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "FTL_RecoverItem_M_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "FTL Courier"
+  },
+  "FTL_RecoverItem_S_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    300
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "FTL Courier"
+  },
+  "FTL_RecoverItem_VE_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "FTL_RecoverItem_VH_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "FTL Courier"
+  },
   "Firesale_CFP_Description_01": {
    "bp": 0,
    "total": 2,
@@ -7804,7 +9212,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "Firesale_CFP_Description_LargeDonation": {
    "bp": 0,
@@ -7819,7 +9228,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "Firesale_CFP_Description_MediumDonation": {
    "bp": 0,
@@ -7834,7 +9244,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "Firesale_HH_Description_01": {
    "bp": 0,
@@ -7849,7 +9260,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "Firesale_HH_Description_LargeDonations": {
    "bp": 0,
@@ -7864,7 +9276,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "Firesale_HH_Description_MediumDonations": {
    "bp": 0,
@@ -7879,11 +9292,12 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "Foxwell_DefendDestructibleEntites_E_Desc_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "items": [
     "Antium Arms",
     "Antium Core",
@@ -7904,8 +9318,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendDestructibleEntites_H_Desc_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "items": [
     "Antium Arms",
     "Antium Core",
@@ -7921,17 +9335,13 @@
     [
      "Contractor",
      2200
-    ],
-    [
-     "Sr. Contractor",
-     5800
     ]
    ],
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendDestructibleEntites_M_Desc_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "items": [
     "Antium Arms",
     "Antium Core",
@@ -7952,8 +9362,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendDestructibleEntites_S_Desc_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "items": [
     "Antium Arms",
     "Antium Core",
@@ -7969,17 +9379,13 @@
     [
      "Sr. Contractor",
      5800
-    ],
-    [
-     "Head Contractor",
-     38000
     ]
    ],
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendDestructibleEntites_VE_Desc_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "items": [
     "Antium Arms",
     "Antium Core",
@@ -8000,8 +9406,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendDestructibleEntites_VH_Desc_001": {
-   "bp": 1,
-   "total": 3,
+   "bp": 4,
+   "total": 9,
    "items": [
     "Antium Arms",
     "Antium Core",
@@ -8017,17 +9423,13 @@
     [
      "Sr. Contractor",
      5800
-    ],
-    [
-     "Veteran Contractor",
-     15000
     ]
    ],
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendEntitesAndEscort_E_Desc": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "items": [
     "7CA 'Nargun'",
     "7MA 'Lorica'",
@@ -8037,6 +9439,7 @@
     "Berian",
     "Celestial",
     "ColdSnap",
+    "DayBreak",
     "Draug",
     "Elsen",
     "Fridan",
@@ -8070,15 +9473,15 @@
    ],
    "req": [
     [
-     "Jr. Contractor",
-     800
+     "Contractor",
+     2200
     ]
    ],
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendEntitesAndEscort_H_Desc": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "items": [
     "7CA 'Nargun'",
     "7MA 'Lorica'",
@@ -8102,6 +9505,7 @@
     "DR Model-XJ1 Repeater",
     "DR Model-XJ2 Repeater",
     "DR Model-XJ3 Repeater",
+    "DayBreak",
     "Draug",
     "Elsen",
     "FR-86",
@@ -8147,8 +9551,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendEntitesAndEscort_M_Desc": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "items": [
     "7CA 'Nargun'",
     "7MA 'Lorica'",
@@ -8158,6 +9562,7 @@
     "Berian",
     "Celestial",
     "ColdSnap",
+    "DayBreak",
     "Draug",
     "Elsen",
     "Fridan",
@@ -8191,15 +9596,15 @@
    ],
    "req": [
     [
-     "Contractor",
-     2200
+     "Sr. Contractor",
+     5800
     ]
    ],
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendEntitesAndEscort_S_Desc": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "items": [
     "7CA 'Nargun'",
     "7MA 'Lorica'",
@@ -8223,6 +9628,7 @@
     "DR Model-XJ1 Repeater",
     "DR Model-XJ2 Repeater",
     "DR Model-XJ3 Repeater",
+    "DayBreak",
     "Draug",
     "Elsen",
     "FR-86",
@@ -8261,15 +9667,15 @@
    ],
    "req": [
     [
-     "Head Contractor",
-     38000
+     "Veteran Contractor",
+     15000
     ]
    ],
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendEntitesAndEscort_VE_Desc": {
-   "bp": 6,
-   "total": 6,
+   "bp": 18,
+   "total": 18,
    "items": [
     "7CA 'Nargun'",
     "7MA 'Lorica'",
@@ -8279,6 +9685,7 @@
     "Berian",
     "Celestial",
     "ColdSnap",
+    "DayBreak",
     "Draug",
     "Elsen",
     "Fridan",
@@ -8309,11 +9716,18 @@
    ],
    "rep": [
     100
-   ]
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendEntitesAndEscort_VH_Desc": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "items": [
     "7CA 'Nargun'",
     "7MA 'Lorica'",
@@ -8337,6 +9751,7 @@
     "DR Model-XJ1 Repeater",
     "DR Model-XJ2 Repeater",
     "DR Model-XJ3 Repeater",
+    "DayBreak",
     "Draug",
     "Elsen",
     "FR-86",
@@ -8382,8 +9797,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendLocation_E_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Storm",
     "Antium Core Storm",
@@ -8404,8 +9819,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendLocation_H_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Storm",
     "Antium Core Storm",
@@ -8426,8 +9841,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendLocation_M_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Storm",
     "Antium Core Storm",
@@ -8448,8 +9863,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendLocation_S_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Storm",
     "Antium Core Storm",
@@ -8471,8 +9886,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendLocation_VE_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Storm",
     "Antium Core Storm",
@@ -8493,8 +9908,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_DefendLocation_VH_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Storm",
     "Antium Core Storm",
@@ -8515,13 +9930,13 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_EliminateAll_Allies_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8539,13 +9954,13 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_EliminateAll_NonHostiles_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8566,10 +9981,10 @@
    "bp": 1,
    "total": 1,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8583,10 +9998,10 @@
    "bp": 1,
    "total": 1,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8597,13 +10012,13 @@
    ]
   },
   "Foxwell_EliminateAll_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8621,13 +10036,13 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_EliminateSpecific_NonHostiles_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8645,13 +10060,13 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_EliminateSpecific_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8672,10 +10087,10 @@
    "bp": 1,
    "total": 1,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8686,10 +10101,10 @@
    "bp": 1,
    "total": 1,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8700,10 +10115,10 @@
    "bp": 1,
    "total": 1,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8712,19 +10127,19 @@
   },
   "Foxwell_Mercenary_Intro_desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 5,
    "rep": [
     100
    ]
   },
   "Foxwell_Mercenary_Rehire_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -8735,8 +10150,8 @@
    ]
   },
   "Foxwell_SecurityPatrol_E_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Sand",
     "Antium Core Sand",
@@ -8757,8 +10172,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_SecurityPatrol_H_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Sand",
     "Antium Core Sand",
@@ -8779,8 +10194,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_SecurityPatrol_M_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Sand",
     "Antium Core Sand",
@@ -8801,8 +10216,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_SecurityPatrol_S_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Sand",
     "Antium Core Sand",
@@ -8823,8 +10238,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_SecurityPatrol_VE_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Sand",
     "Antium Core Sand",
@@ -8838,8 +10253,8 @@
    ]
   },
   "Foxwell_SecurityPatrol_VH_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Sand",
     "Antium Core Sand",
@@ -8860,12 +10275,11 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_ShipAmbush_E_desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Jet",
     "Antium Core Jet",
-    "Antium Helmet Jet",
     "Antium Legs Jet",
     "Parallax \"Sunstone\" Energy Assault Rifle",
     "Parallax Rifle Battery (80 Cap)"
@@ -8882,12 +10296,11 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_ShipAmbush_H_desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Jet",
     "Antium Core Jet",
-    "Antium Helmet Jet",
     "Antium Legs Jet",
     "Parallax \"Sunstone\" Energy Assault Rifle",
     "Parallax Rifle Battery (80 Cap)"
@@ -8904,12 +10317,11 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_ShipAmbush_M_desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Jet",
     "Antium Core Jet",
-    "Antium Helmet Jet",
     "Antium Legs Jet",
     "Parallax \"Sunstone\" Energy Assault Rifle",
     "Parallax Rifle Battery (80 Cap)"
@@ -8926,12 +10338,11 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_ShipAmbush_S_desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Jet",
     "Antium Core Jet",
-    "Antium Helmet Jet",
     "Antium Legs Jet",
     "Parallax \"Sunstone\" Energy Assault Rifle",
     "Parallax Rifle Battery (80 Cap)"
@@ -8948,12 +10359,11 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_ShipAmbush_VE_desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Jet",
     "Antium Core Jet",
-    "Antium Helmet Jet",
     "Antium Legs Jet",
     "Parallax \"Sunstone\" Energy Assault Rifle",
     "Parallax Rifle Battery (80 Cap)"
@@ -8963,12 +10373,11 @@
    ]
   },
   "Foxwell_ShipAmbush_VH_desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Antium Arms Jet",
     "Antium Core Jet",
-    "Antium Helmet Jet",
     "Antium Legs Jet",
     "Parallax \"Sunstone\" Energy Assault Rifle",
     "Parallax Rifle Battery (80 Cap)"
@@ -8985,8 +10394,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_ShipWaveAttack_ClearHostiles_Desc_E_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Antium Arms",
     "Antium Core",
@@ -9007,8 +10416,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_ShipWaveAttack_ClearHostiles_Desc_H_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Antium Arms",
     "Antium Core",
@@ -9029,8 +10438,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_ShipWaveAttack_ClearHostiles_Desc_M_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Antium Arms",
     "Antium Core",
@@ -9051,8 +10460,8 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_ShipWaveAttack_ClearHostiles_Desc_VE_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Antium Arms",
     "Antium Core",
@@ -9074,40 +10483,40 @@
   },
   "Foxwell_X2_DrawOutBoss_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "scenario": [
     8400
    ]
   },
   "Foxwell_X2_ShipAmbush_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "scenario": [
     4000
    ]
   },
   "Foxwell_X2_ShipDefend_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "scenario": [
     4000
    ]
   },
   "Foxwell_X2_ShipWaves_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "scenario": [
     3800
    ]
   },
   "Foxwell_bombingrun_E_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -9125,13 +10534,13 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_bombingrun_H_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -9149,13 +10558,13 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_bombingrun_M_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -9173,13 +10582,13 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_bombingrun_S_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -9197,13 +10606,13 @@
    "faction": "Foxwell Enforcement"
   },
   "Foxwell_bombingrun_VE_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -9214,13 +10623,13 @@
    ]
   },
   "Foxwell_bombingrun_VH_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -9237,6 +10646,23 @@
    ],
    "faction": "Foxwell Enforcement"
   },
+  "Foxwell_destroyprobe_M_desc_001": {
+   "bp": 4,
+   "total": 4,
+   "items": [
+    "Antium Arms Moss Camo",
+    "Antium Core Maroon",
+    "Antium Core Moss Camo",
+    "Antium Helmet Jet",
+    "Antium Helmet Maroon",
+    "Antium Helmet Moss Camo",
+    "Antium Legs Maroon",
+    "Antium Legs Moss Camo"
+   ],
+   "rep": [
+    100
+   ]
+  },
   "HaulCargo_AtoB_desc": {
    "bp": 0,
    "total": 157,
@@ -9245,7 +10671,8 @@
     500,
     1000,
     2000
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "HaulCargo_MultiToSingle_desc": {
    "bp": 0,
@@ -9256,7 +10683,8 @@
     1000,
     2000,
     4000
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "HaulCargo_SingleToMulti_desc": {
    "bp": 0,
@@ -9268,11 +10696,12 @@
     2000,
     4000,
     8000
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "HeadHunters_DefendEntitesAndEscort_E_Desc": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "items": [
     "5CA 'Akura'",
     "5MA 'Chimalli'",
@@ -9317,15 +10746,19 @@
    ],
    "req": [
     [
-     "Jr. Contractor",
-     800
+     "Contractor",
+     2200
+    ],
+    [
+     "Sr. Contractor",
+     5800
     ]
    ],
    "faction": "Headhunters"
   },
   "HeadHunters_DefendEntitesAndEscort_H_Desc": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "items": [
     "5CA 'Akura'",
     "5MA 'Chimalli'",
@@ -9395,8 +10828,8 @@
    "faction": "Headhunters"
   },
   "HeadHunters_DefendEntitesAndEscort_M_Desc": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "items": [
     "5CA 'Akura'",
     "5MA 'Chimalli'",
@@ -9441,15 +10874,15 @@
    ],
    "req": [
     [
-     "Contractor",
-     2200
+     "Sr. Contractor",
+     5800
     ]
    ],
    "faction": "Headhunters"
   },
   "HeadHunters_DefendEntitesAndEscort_S_Desc": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "items": [
     "5CA 'Akura'",
     "5MA 'Chimalli'",
@@ -9512,15 +10945,15 @@
    ],
    "req": [
     [
-     "Head Contractor",
-     38000
+     "Veteran Contractor",
+     15000
     ]
    ],
    "faction": "Headhunters"
   },
   "HeadHunters_DefendEntitesAndEscort_VE_Desc": {
-   "bp": 6,
-   "total": 6,
+   "bp": 18,
+   "total": 18,
    "items": [
     "5CA 'Akura'",
     "5MA 'Chimalli'",
@@ -9562,11 +10995,18 @@
    ],
    "rep": [
     100
-   ]
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "HeadHunters_DefendEntitesAndEscort_VH_Desc": {
-   "bp": 3,
-   "total": 3,
+   "bp": 9,
+   "total": 9,
    "items": [
     "5CA 'Akura'",
     "5MA 'Chimalli'",
@@ -9637,7 +11077,7 @@
   },
   "HeadHunters_RecoverCargo_Easy_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ],
@@ -9651,7 +11091,7 @@
   },
   "HeadHunters_RecoverCargo_Hard_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -9665,7 +11105,7 @@
   },
   "HeadHunters_RecoverCargo_Medium_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ],
@@ -9679,7 +11119,7 @@
   },
   "HeadHunters_RecoverCargo_Super_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ],
@@ -9693,14 +11133,14 @@
   },
   "HeadHunters_RecoverCargo_VeryEasy_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "HeadHunters_RecoverCargo_VeryHard_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -9714,7 +11154,7 @@
   },
   "HeadHunters_ShipAmbush_E_desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     100
    ],
@@ -9728,7 +11168,7 @@
   },
   "HeadHunters_ShipAmbush_H_desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     200
    ],
@@ -9742,14 +11182,14 @@
   },
   "HeadHunters_ShipAmbush_Intro_desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "HeadHunters_ShipAmbush_M_desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     150
    ],
@@ -9763,7 +11203,7 @@
   },
   "HeadHunters_ShipAmbush_S_desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     300
    ],
@@ -9777,14 +11217,14 @@
   },
   "HeadHunters_ShipAmbush_VE_desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     100
    ]
   },
   "HeadHunters_ShipAmbush_VH_desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     250
    ],
@@ -9798,7 +11238,7 @@
   },
   "Headhunters_DefendDestructibleEntites_E_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ],
@@ -9812,21 +11252,21 @@
   },
   "Headhunters_DefendDestructibleEntites_H_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
    "req": [
     [
-     "Sr. Contractor",
-     5800
+     "Contractor",
+     2200
     ]
    ],
    "faction": "Headhunters"
   },
   "Headhunters_DefendDestructibleEntites_M_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ],
@@ -9840,42 +11280,49 @@
   },
   "Headhunters_DefendDestructibleEntites_S_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ],
    "req": [
     [
-     "Head Contractor",
-     38000
+     "Sr. Contractor",
+     5800
     ]
    ],
    "faction": "Headhunters"
   },
   "Headhunters_DefendDestructibleEntites_VE_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "Headhunters_DefendDestructibleEntites_VH_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     250
    ],
    "req": [
     [
-     "Veteran Contractor",
-     15000
+     "Sr. Contractor",
+     5800
     ]
    ],
    "faction": "Headhunters"
   },
   "Headhunters_DefendLocation_E_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ],
@@ -9889,7 +11336,7 @@
   },
   "Headhunters_DefendLocation_H_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -9897,17 +11344,13 @@
     [
      "Contractor",
      2200
-    ],
-    [
-     "Sr. Contractor",
-     5800
     ]
    ],
    "faction": "Headhunters"
   },
   "Headhunters_DefendLocation_M_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ],
@@ -9921,7 +11364,7 @@
   },
   "Headhunters_DefendLocation_S_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ],
@@ -9929,17 +11372,13 @@
     [
      "Sr. Contractor",
      5800
-    ],
-    [
-     "Head Contractor",
-     38000
     ]
    ],
    "faction": "Headhunters"
   },
   "Headhunters_DefendLocation_VE_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ],
@@ -9953,7 +11392,7 @@
   },
   "Headhunters_DefendLocation_VH_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     250
    ],
@@ -9961,10 +11400,6 @@
     [
      "Sr. Contractor",
      5800
-    ],
-    [
-     "Veteran Contractor",
-     15000
     ]
    ],
    "faction": "Headhunters"
@@ -10033,7 +11468,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_CrimBase_H_desc_001": {
    "bp": 0,
@@ -10047,7 +11483,8 @@
      15000
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_CrimBase_XT_VH_desc_001": {
    "bp": 0,
@@ -10061,21 +11498,24 @@
      38000
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_Intro_desc_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_Lagrange_E_desc_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_Lagrange_E_desc_002": {
    "bp": 0,
@@ -10089,7 +11529,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "Headhunters_RetrieveCargo_RegionLink_E_desc_001": {
    "bp": 0,
@@ -10103,18 +11544,26 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "Headhunters_SabotageRelays_CFP_001_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     75
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "Headhunters_SabotageRelays_XT_001_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 3,
    "rep": [
     100
    ],
@@ -10138,11 +11587,12 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "Headhunters_SecurityPatrol_E_Desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     100
    ],
@@ -10156,7 +11606,7 @@
   },
   "Headhunters_SecurityPatrol_H_Desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     200
    ],
@@ -10170,7 +11620,7 @@
   },
   "Headhunters_SecurityPatrol_M_Desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     150
    ],
@@ -10184,7 +11634,7 @@
   },
   "Headhunters_SecurityPatrol_S_Desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     300
    ],
@@ -10198,14 +11648,14 @@
   },
   "Headhunters_SecurityPatrol_VE_Desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     100
    ]
   },
   "Headhunters_SecurityPatrol_VH_Desc_001": {
    "bp": 0,
-   "total": 4,
+   "total": 10,
    "rep": [
     250
    ],
@@ -10270,14 +11720,16 @@
      800
     ]
    ],
-   "faction": "Highpoint Wilderness Specialists"
+   "faction": "Highpoint Wilderness Specialists",
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_AtLocation_desc": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_AtLocation_multi_desc": {
    "bp": 0,
@@ -10296,14 +11748,16 @@
      2200
     ]
    ],
-   "faction": "Highpoint Wilderness Specialists"
+   "faction": "Highpoint Wilderness Specialists",
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_Derelictoutpostscaves_Desc_E_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     75
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_Derelictoutpostscaves_Desc_H_001": {
    "bp": 0,
@@ -10317,7 +11771,8 @@
      15000
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_MultiType_H_desc": {
    "bp": 0,
@@ -10331,7 +11786,8 @@
      5800
     ]
    ],
-   "faction": "Highpoint Wilderness Specialists"
+   "faction": "Highpoint Wilderness Specialists",
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_MultiType_M_desc": {
    "bp": 0,
@@ -10345,7 +11801,8 @@
      2200
     ]
    ],
-   "faction": "Highpoint Wilderness Specialists"
+   "faction": "Highpoint Wilderness Specialists",
+   "asof": "4.10.1"
   },
   "Highpoint_KillAnimals_rockcracker_desc_E_001": {
    "bp": 1,
@@ -10371,7 +11828,8 @@
    "total": 1,
    "rep": [
     75
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_Killanimals_Derelictoutpostscaves_Desc_M_001": {
    "bp": 0,
@@ -10386,14 +11844,16 @@
      2200
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "Highpoint_Killanimals_Derelictoutpostscaves_Nearoutposts_Desc_E_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     75
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "Highpoint_Killanimals_Derelictoutpostscaves_Nearoutposts_Desc_M_001": {
    "bp": 0,
@@ -10407,7 +11867,8 @@
      2200
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "Hockcrow_SearchBody_Easy_Description_001": {
    "bp": 0,
@@ -10486,9 +11947,86 @@
    ],
    "faction": "Hockrow Agency"
   },
+  "Hockrow_BlackBox_space_E_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Hockrow Agency"
+  },
+  "Hockrow_BlackBox_space_H_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Hockrow Agency"
+  },
+  "Hockrow_BlackBox_space_M_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Hockrow Agency"
+  },
+  "Hockrow_BlackBox_space_S_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    300
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Hockrow Agency"
+  },
+  "Hockrow_BlackBox_space_VE_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "Hockrow_BlackBox_space_VH_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Hockrow Agency"
+  },
   "Hockrow_FacilityDelve_P2M1_Repeat_desc": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Corbel Arms Mire",
     "Corbel Arms Smolder",
@@ -10519,8 +12057,8 @@
    ]
   },
   "Hockrow_FacilityDelve_P2M2_Repeat_desc": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Corbel Arms Patina",
     "Corbel Core Patina",
@@ -10537,8 +12075,8 @@
    ]
   },
   "Hockrow_FacilityDelve_P2M3_Repeat_desc": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Corbel Arms Halcyon",
     "Corbel Core Halcyon",
@@ -10558,8 +12096,8 @@
    ]
   },
   "Hockrow_FacilityDelve_P3M1_desc": {
-   "bp": 1,
-   "total": 2,
+   "bp": 4,
+   "total": 8,
    "items": [
     "Bolide",
     "DynaFlux",
@@ -10572,6 +12110,90 @@
     "Zenith \"Darkwave\" Laser Sniper Rifle",
     "Zenith Laser Sniper Rifle Battery (22 Cap)"
    ]
+  },
+  "Hockrow_searchbody_space_E_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Hockrow Agency"
+  },
+  "Hockrow_searchbody_space_H_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Hockrow Agency"
+  },
+  "Hockrow_searchbody_space_Intro_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "Hockrow_searchbody_space_M_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Hockrow Agency"
+  },
+  "Hockrow_searchbody_space_S_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    300
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Hockrow Agency"
+  },
+  "Hockrow_searchbody_space_VE_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "Hockrow_searchbody_space_VH_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Hockrow Agency"
   },
   "InterSec_KillShip_Vanduul_Desc_Super_001": {
    "bp": 1,
@@ -11204,7 +12826,7 @@
   },
   "LingFamily_RecoverCargo_Easy_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ],
@@ -11218,7 +12840,7 @@
   },
   "LingFamily_RecoverCargo_Hard_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -11232,7 +12854,7 @@
   },
   "LingFamily_RecoverCargo_Medium_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ],
@@ -11246,7 +12868,7 @@
   },
   "LingFamily_RecoverCargo_Super_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ],
@@ -11260,14 +12882,14 @@
   },
   "LingFamily_RecoverCargo_VeryEasy_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     50
    ]
   },
   "LingFamily_RecoverCargo_VeryHard_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -11288,7 +12910,8 @@
      500
     ]
    ],
-   "faction": "Wallace Klim"
+   "faction": "Wallace Klim",
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Mining_Description": {
    "bp": 0,
@@ -11303,7 +12926,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Mining_Description_LargeDonation": {
    "bp": 0,
@@ -11318,7 +12942,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Mining_Description_MediumDonation": {
    "bp": 0,
@@ -11333,7 +12958,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Mining_Stanton_Description": {
    "bp": 0,
@@ -11347,7 +12973,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Mining_Stanton_Description_LargeDonation": {
    "bp": 0,
@@ -11361,7 +12988,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Mining_Stanton_Description_MediumDonation": {
    "bp": 0,
@@ -11375,7 +13003,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Salvage_Description_01": {
    "bp": 0,
@@ -11390,7 +13019,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Salvage_Description_LargeDonation": {
    "bp": 0,
@@ -11405,7 +13035,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "LocationRush_CFP_Salvage_Description_MediumDonation": {
    "bp": 0,
@@ -11420,7 +13051,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Mining_Description": {
    "bp": 0,
@@ -11435,7 +13067,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Mining_Description_MediumDonation": {
    "bp": 0,
@@ -11450,7 +13083,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Mining_Description_largeDonation": {
    "bp": 0,
@@ -11465,7 +13099,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Mining_Stanton_Description": {
    "bp": 0,
@@ -11479,7 +13114,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Mining_Stanton_Description_MediumDonation": {
    "bp": 0,
@@ -11493,7 +13129,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Mining_Stanton_Description_largeDonation": {
    "bp": 0,
@@ -11507,7 +13144,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Salvage_Description": {
    "bp": 0,
@@ -11522,7 +13160,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Salvage_Description_LargeDonation": {
    "bp": 0,
@@ -11537,7 +13176,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "LocationRush_HH_Salvage_Description_MediumDontation": {
    "bp": 0,
@@ -11552,7 +13192,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "Northrock_Bounty_OLP_Boss_H_desc_001": {
    "bp": 0,
@@ -11563,14 +13204,14 @@
   },
   "ORS_BunkerRaid_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "scenario": [
     2360
    ]
   },
   "ORS_Construct_Large_Desc": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "TH-01 Propulsor"
    ],
@@ -11579,21 +13220,15 @@
    ]
   },
   "ORS_Construct_Medium_Desc": {
-   "bp": 1,
-   "total": 1,
-   "items": [
-    "TH-01 Propulsor"
-   ],
+   "bp": 0,
+   "total": 4,
    "scenario": [
     8400
    ]
   },
   "ORS_Construct_Small_Desc": {
-   "bp": 1,
-   "total": 1,
-   "items": [
-    "TH-01 Propulsor"
-   ],
+   "bp": 0,
+   "total": 4,
    "scenario": [
     4200
    ]
@@ -11649,14 +13284,14 @@
   },
   "ORS_ShipAmb_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "scenario": [
     4000
    ]
   },
   "ORS_ShipWaveAt_Desc": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "scenario": [
     6000
    ]
@@ -11819,7 +13454,7 @@
   },
   "RedWind_HaulCargo_AToB_ASD_Desc": {
    "bp": 0,
-   "total": 2,
+   "total": 8,
    "rep": [
     50
    ],
@@ -11833,7 +13468,7 @@
   },
   "RedWind_HaulCargo_AToB_desc_01": {
    "bp": 0,
-   "total": 78,
+   "total": 81,
    "rep": [
     50,
     100,
@@ -11850,14 +13485,11 @@
      250
     ],
     [
-     "Jr. Contractor",
-     800
-    ],
-    [
      "Experienced",
      27750
     ]
-   ]
+   ],
+   "faction": "Red Wind Linehaul"
   },
   "RedWind_HaulCargo_AToB_desc_FromPyro_Danger": {
    "bp": 0,
@@ -12081,7 +13713,7 @@
   },
   "RedWind_HaulCargo_desc_intro": {
    "bp": 0,
-   "total": 3,
+   "total": 5,
    "rep": [
     100,
     250
@@ -12089,14 +13721,14 @@
   },
   "RedWind_RecoverCargo_Easy_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     100
    ]
   },
   "RedWind_RecoverCargo_Hard_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -12110,7 +13742,7 @@
   },
   "RedWind_RecoverCargo_Medium_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     150
    ],
@@ -12120,11 +13752,11 @@
      50
     ]
    ],
-   "faction": "Red Wind Linehaul"
+   "faction": "Citizens For Prosperity"
   },
   "RedWind_RecoverCargo_Super_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     300
    ],
@@ -12138,7 +13770,7 @@
   },
   "RedWind_RecoverCargo_VeryHard_Description": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ],
@@ -12150,9 +13782,79 @@
    ],
    "faction": "Red Wind Linehaul"
   },
+  "RedWind_RecoverItem_E_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Red Wind Linehaul"
+  },
+  "RedWind_RecoverItem_H_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Red Wind Linehaul"
+  },
+  "RedWind_RecoverItem_Intro_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "RedWind_RecoverItem_M_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Red Wind Linehaul"
+  },
+  "RedWind_RecoverItem_VE_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "RedWind_RecoverItem_VH_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Red Wind Linehaul"
+  },
   "SalvageContractor_Difficulty_Hard": {
    "bp": 0,
-   "total": 3,
+   "total": 9,
    "rep": [
     200
    ]
@@ -12173,7 +13875,7 @@
   },
   "Shubin_Industrial_GroundVehicle_Pyro_E_DiscoverPlanetary_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 18,
    "rep": [
     100
    ],
@@ -12187,7 +13889,7 @@
   },
   "Shubin_Industrial_GroundVehicle_Pyro_H_Solar_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 18,
    "rep": [
     200
    ],
@@ -12201,7 +13903,7 @@
   },
   "Shubin_Industrial_GroundVehicle_Pyro_M_PlanetarySystem_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 18,
    "rep": [
     150
    ],
@@ -12229,7 +13931,7 @@
   },
   "Shubin_Industrial_GroundVehicle_Stanton_E_DiscoverPlanetary_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 12,
    "rep": [
     100
    ],
@@ -12243,7 +13945,7 @@
   },
   "Shubin_Industrial_GroundVehicle_Stanton_H_Solar_Desc_001": {
    "bp": 0,
-   "total": 2,
+   "total": 8,
    "rep": [
     200
    ],
@@ -12257,7 +13959,7 @@
   },
   "Shubin_Industrial_GroundVehicle_Stanton_M_PlanetarySystem_Desc_001": {
    "bp": 0,
-   "total": 3,
+   "total": 12,
    "rep": [
     150
    ],
@@ -12271,7 +13973,7 @@
   },
   "Shubin_Industrial_GroundVehicle_Stanton_VH_Solar_Desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     200
    ],
@@ -12284,8 +13986,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_HandMining_Intro_Local_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 9,
+   "total": 9,
    "items": [
     "Arclight \"Desert Shadow\" Pistol",
     "Arclight \"Herrero\" Pistol",
@@ -12319,8 +14021,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_HandMining_Pyro_E_Local_Desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 5,
+   "total": 5,
    "items": [
     "Arclight \"Desert Shadow\" Pistol",
     "Arclight \"Herrero\" Pistol",
@@ -12358,8 +14060,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_HandMining_Pyro_M_DiscoverPlanetary_Desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 6,
+   "total": 6,
    "items": [
     "Arclight \"Desert Shadow\" Pistol",
     "Arclight \"Herrero\" Pistol",
@@ -12404,8 +14106,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_HandMining_Pyro_VH_Interstellar_Desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 5,
+   "total": 5,
    "items": [
     "Arclight \"Desert Shadow\" Pistol",
     "Arclight \"Herrero\" Pistol",
@@ -12427,8 +14129,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_HandMining_Stanton_E_Local_Desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Arclight \"Midnight\" Pistol",
     "Arclight Pistol Battery (30 cap)",
@@ -12442,8 +14144,8 @@
    ]
   },
   "Shubin_Industrial_HandMining_Stanton_E_PlanetarySystem_Desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Arclight \"Midnight\" Pistol",
     "Arclight Pistol Battery (30 cap)",
@@ -12457,8 +14159,8 @@
    ]
   },
   "Shubin_Industrial_HandMining_Stanton_H_PlanetarySystem_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Arclight \"Midnight\" Pistol",
     "Arclight Pistol Battery (30 cap)",
@@ -12479,8 +14181,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_HandMining_Stanton_H_Planetary_Solar_Desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Arclight \"Midnight\" Pistol",
     "Arclight Pistol Battery (30 cap)",
@@ -12501,8 +14203,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_HandMining_Stanton_M_DiscoverPlanetary_Desc_001": {
-   "bp": 3,
-   "total": 3,
+   "bp": 12,
+   "total": 12,
    "items": [
     "Arclight \"Midnight\" Pistol",
     "Arclight Pistol Battery (30 cap)",
@@ -12523,8 +14225,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_HandMining_Stanton_VH_Solar_Desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Arclight \"Midnight\" Pistol",
     "Arclight Pistol Battery (30 cap)",
@@ -12851,8 +14553,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_ShipMining_Pyro_H_PrimarySecondary_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 11,
+   "total": 11,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arclight \"Stormfall\" Pistol",
@@ -12884,8 +14586,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_ShipMining_Pyro_H_Secondary_Desc_001": {
-   "bp": 6,
-   "total": 6,
+   "bp": 20,
+   "total": 20,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arclight \"Stormfall\" Pistol",
@@ -12917,8 +14619,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_ShipMining_Pyro_M_Solar_Desc_001": {
-   "bp": 12,
-   "total": 12,
+   "bp": 66,
+   "total": 66,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arclight \"Stormfall\" Pistol",
@@ -13000,8 +14702,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_ShipMining_Pyro_VH_Secondary_Desc_001": {
-   "bp": 4,
-   "total": 4,
+   "bp": 18,
+   "total": 18,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arbor MH2 Mining Laser",
@@ -13061,7 +14763,8 @@
      38000
     ]
    ],
-   "faction": "Shubin Interstellar"
+   "faction": "Shubin Interstellar",
+   "asof": "4.10.1"
   },
   "Shubin_Industrial_ShipMining_Stanton_E_Local_Desc_001": {
    "bp": 4,
@@ -13095,8 +14798,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_ShipMining_Stanton_H_PrimarySecondary_Desc_001": {
-   "bp": 7,
-   "total": 7,
+   "bp": 20,
+   "total": 20,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arclight \"Nightstalker\" Pistol",
@@ -13128,8 +14831,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_ShipMining_Stanton_H_Secondary_Desc_001": {
-   "bp": 7,
-   "total": 7,
+   "bp": 22,
+   "total": 22,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arclight \"Nightstalker\" Pistol",
@@ -13161,8 +14864,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_ShipMining_Stanton_H_Secondary_Interstellar_Desc_001": {
-   "bp": 4,
-   "total": 4,
+   "bp": 10,
+   "total": 10,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arbor MH2 Mining Laser",
@@ -13217,8 +14920,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_ShipMining_Stanton_M_Solar_Desc_001": {
-   "bp": 17,
-   "total": 17,
+   "bp": 60,
+   "total": 60,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arclight \"Nightstalker\" Pistol",
@@ -13330,8 +15033,8 @@
    ]
   },
   "Shubin_Industrial_ShipMining_Stanton_VH_Interstellar_Desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 8,
+   "total": 8,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arbor MH2 Mining Laser",
@@ -13380,8 +15083,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_ShipMining_Stanton_VH_Secondary_Desc_001": {
-   "bp": 3,
-   "total": 3,
+   "bp": 12,
+   "total": 12,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arbor MH2 Mining Laser",
@@ -13430,8 +15133,8 @@
    "faction": "Shubin Interstellar"
   },
   "Shubin_Industrial_ShipMining_Stanton_VH_Secondary_Interstellar_Desc_001": {
-   "bp": 3,
-   "total": 3,
+   "bp": 5,
+   "total": 5,
    "items": [
     "Arbor MH1 Mining Laser",
     "Arbor MH2 Mining Laser",
@@ -13618,9 +15321,33 @@
     10
    ]
   },
+  "TheCollector_Recipes_Desc_GMNI_LMG": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "F55 \"Shadowflux\" LMG"
+   ],
+   "rep": [
+    10
+   ]
+  },
   "TheCollector_Recipes_Desc_GMNI_Shotgun": {
    "bp": 0,
    "total": 1,
+   "rep": [
+    10
+   ]
+  },
+  "TheCollector_Recipes_Desc_GreyHeavyCombat": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monolith Armor Arms Shadowflux",
+    "Monolith Armor Core Shadowflux",
+    "Monolith Armor Legs Shadowflux",
+    "Monolith Backpack Shadowflux",
+    "Monolith Helmet Shadowflux"
+   ],
    "rep": [
     10
    ]
@@ -14006,8 +15733,8 @@
    ]
   },
   "UWC_Refueling_easy_desc_001": {
-   "bp": 16,
-   "total": 16,
+   "bp": 31,
+   "total": 31,
    "items": [
     "Bendix",
     "Ezra",
@@ -14035,8 +15762,8 @@
    "faction": "United Wayfarers Club"
   },
   "UWC_Refueling_high_desc_001": {
-   "bp": 7,
-   "total": 7,
+   "bp": 10,
+   "total": 10,
    "items": [
     "Bendix",
     "Ezra",
@@ -14051,10 +15778,6 @@
     200
    ],
    "req": [
-    [
-     "Sr. Contractor",
-     5800
-    ],
     [
      "Head Contractor",
      38000
@@ -14091,11 +15814,12 @@
      800
     ]
    ],
-   "faction": "United Wayfarers Club"
+   "faction": "United Wayfarers Club",
+   "asof": "4.10.1"
   },
   "UWC_Refueling_multiple_hard_desc_001": {
-   "bp": 17,
-   "total": 17,
+   "bp": 56,
+   "total": 56,
    "items": [
     "Bendix",
     "Ezra",
@@ -14126,8 +15850,8 @@
    "faction": "United Wayfarers Club"
   },
   "UWC_Refueling_multiple_med_desc_001": {
-   "bp": 36,
-   "total": 36,
+   "bp": 81,
+   "total": 81,
    "items": [
     "Bendix",
     "Ezra",
@@ -14140,7 +15864,6 @@
    ],
    "rep": [
     100,
-    150,
     200
    ],
    "req": [
@@ -14151,17 +15874,13 @@
     [
      "Sr. Contractor",
      5800
-    ],
-    [
-     "Head Contractor",
-     38000
     ]
    ],
    "faction": "United Wayfarers Club"
   },
   "UWC_Refuelling_BespokeCapital_Desc": {
-   "bp": 2,
-   "total": 2,
+   "bp": 6,
+   "total": 6,
    "items": [
     "Bendix",
     "Ezra",
@@ -14184,8 +15903,8 @@
    "faction": "United Wayfarers Club"
   },
   "Vaughn_EliminateSpecific_FPS_Rockcracker_Maintenance_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 2,
+   "total": 2,
    "items": [
     "Monde Arms",
     "Monde Arms Hiro",
@@ -14259,7 +15978,8 @@
      800
     ]
    ],
-   "faction": "Vaughn"
+   "faction": "Vaughn",
+   "asof": "4.10.1"
   },
   "WSTR_TimeTrial_repeat_desc_01": {
    "bp": 0,
@@ -14290,7 +16010,8 @@
      16000
     ]
    ],
-   "faction": "Wildstar Racing"
+   "faction": "Wildstar Racing",
+   "asof": "4.10.1"
   },
   "assassin_desc": {
    "bp": 0,
@@ -14301,7 +16022,8 @@
      -500
     ]
    ],
-   "faction": "Tecia \"Twitch\" Pacheco"
+   "faction": "Tecia \"Twitch\" Pacheco",
+   "asof": "4.10.1"
   },
   "basesweep_desc": {
    "bp": 0,
@@ -14312,11 +16034,12 @@
      -500
     ]
    ],
-   "faction": "Tecia \"Twitch\" Pacheco"
+   "faction": "Tecia \"Twitch\" Pacheco",
+   "asof": "4.10.1"
   },
   "bhg_bounty_desc_ASD_Engineering_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 12,
+   "total": 12,
    "items": [
     "Palatino Arms Sunstone",
     "Palatino Core Sunstone",
@@ -14328,8 +16051,8 @@
    ]
   },
   "bhg_bounty_desc_ASD_Research_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 12,
+   "total": 12,
    "items": [
     "Palatino Arms Daystar",
     "Palatino Arms Metropolis",
@@ -14346,15 +16069,16 @@
   },
   "bhg_bounty_desc_FPS_intro": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     50
    ]
   },
   "bhg_bounty_desc_HeadHunters_001": {
    "bp": 0,
-   "total": 1,
+   "total": 12,
    "rep": [
+    2000,
     8000
    ],
    "req": [
@@ -14443,9 +16167,39 @@
    ],
    "faction": "Bounty Hunters Guild"
   },
+  "bhg_bounty_desc_ShatteredBlade_001": {
+   "bp": 6,
+   "total": 6,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    500,
+    1000,
+    2000,
+    8000,
+    16000
+   ],
+   "req": [
+    [
+     "Probationary Guild Member",
+     1
+    ]
+   ],
+   "faction": "Bounty Hunters Guild"
+  },
   "bhg_bounty_desc_XT_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     16000
    ],
@@ -14458,8 +16212,20 @@
    "faction": "Bounty Hunters Guild"
   },
   "bhg_bounty_desc_gen_001": {
-   "bp": 0,
-   "total": 7,
+   "bp": 13,
+   "total": 69,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
    "rep": [
     500,
     1000,
@@ -14483,7 +16249,8 @@
      "Jr. Contractor",
      800
     ]
-   ]
+   ],
+   "faction": "Bit Zeros"
   },
   "bitzeros_shipheist_H_XT_desc_001": {
    "bp": 0,
@@ -14493,7 +16260,8 @@
      "Head Contractor",
      38000
     ]
-   ]
+   ],
+   "faction": "Bit Zeros"
   },
   "bitzeros_shipheist_M_desc_001": {
    "bp": 0,
@@ -14503,7 +16271,8 @@
      "Sr. Contractor",
      5800
     ]
-   ]
+   ],
+   "faction": "Bit Zeros"
   },
   "blackbox_recover_desc_E_001": {
    "bp": 2,
@@ -14530,7 +16299,8 @@
      "Jr. Contractor",
      800
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_desc_H_001": {
    "bp": 2,
@@ -14558,7 +16328,8 @@
      5800
     ]
    ],
-   "faction": "Bit Zeros"
+   "faction": "Bit Zeros",
+   "asof": "4.10.1"
   },
   "blackbox_recover_desc_M_001": {
    "bp": 2,
@@ -14585,7 +16356,8 @@
      "Contractor",
      2200
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_desc_S_001": {
    "bp": 2,
@@ -14612,7 +16384,8 @@
      "Head Contractor",
      38000
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_desc_VE_001": {
    "bp": 2,
@@ -14633,7 +16406,8 @@
    ],
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_desc_VH_001": {
    "bp": 2,
@@ -14660,7 +16434,8 @@
      "Veteran Contractor",
      15000
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_desc_intro_001": {
    "bp": 2,
@@ -14681,7 +16456,8 @@
    ],
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "blackbox_recover_title_H_001": {
    "bp": 0,
@@ -14695,7 +16471,8 @@
      5800
     ]
    ],
-   "faction": "Hockrow Agency"
+   "faction": "Hockrow Agency",
+   "asof": "4.10.1"
   },
   "cfp_ChainElimAll_1C_ElimSpec_GenAttack_E_desc_001": {
    "bp": 1,
@@ -14732,7 +16509,14 @@
    ],
    "rep": [
     300
-   ]
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
   },
   "cfp_ChainElimAll_1C_HHAttack_M_desc_001": {
    "bp": 1,
@@ -14745,7 +16529,14 @@
    ],
    "rep": [
     300
-   ]
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
   },
   "cfp_ChainElimAll_2C_ElimSpec_GenAttack_M_desc_001": {
    "bp": 1,
@@ -14782,7 +16573,14 @@
    ],
    "rep": [
     300
-   ]
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
   },
   "cfp_ChainElimAll_2C_ElimSpec_XTAttack_H_desc_001": {
    "bp": 1,
@@ -14837,7 +16635,14 @@
    ],
    "rep": [
     300
-   ]
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
   },
   "cfp_ChainElimAll_3C_ElimSpec_XTAttack_VH_desc_001": {
    "bp": 1,
@@ -14972,8 +16777,8 @@
    ]
   },
   "cfp_defend-criminals_desc_001": {
-   "bp": 2,
-   "total": 2,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Artimex Arms",
     "Artimex Arms (Modified)",
@@ -15084,8 +16889,8 @@
    "faction": "Citizens For Prosperity"
   },
   "cfp_defend_cave_Generic_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Artimex Arms",
     "Artimex Core",
@@ -15111,7 +16916,14 @@
    ],
    "rep": [
     200
-   ]
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
   },
   "cfp_defend_headhunters_M_desc_001": {
    "bp": 1,
@@ -15126,7 +16938,14 @@
    ],
    "rep": [
     100
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
   },
   "cfp_defend_regionshift_desc_001": {
    "bp": 4,
@@ -15167,9 +16986,35 @@
     50
    ]
   },
-  "cfp_defendship_LRT_desc_001": {
+  "cfp_defendship_LRT_SB_Desc_001": {
    "bp": 1,
-   "total": 9,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
+  },
+  "cfp_defendship_LRT_desc_001": {
+   "bp": 2,
+   "total": 10,
    "items": [
     "Monde Arms",
     "Monde Arms Hiro",
@@ -15194,6 +17039,32 @@
    ],
    "faction": "Citizens For Prosperity"
   },
+  "cfp_defendship_MRT_SB_desc_001": {
+   "bp": 1,
+   "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
+  },
   "cfp_defendship_MRT_bombingrun_desc_001": {
    "bp": 0,
    "total": 4,
@@ -15209,8 +17080,8 @@
    "faction": "Citizens For Prosperity"
   },
   "cfp_defendship_MRT_desc_001": {
-   "bp": 1,
-   "total": 9,
+   "bp": 2,
+   "total": 10,
    "items": [
     "Monde Arms",
     "Monde Arms Hiro",
@@ -15235,9 +17106,9 @@
    ],
    "faction": "Citizens For Prosperity"
   },
-  "cfp_defendship_VLRT_desc_001": {
+  "cfp_defendship_VLRT_SB_desc_001": {
    "bp": 1,
-   "total": 9,
+   "total": 1,
    "items": [
     "Monde Arms",
     "Monde Arms Hiro",
@@ -15254,7 +17125,26 @@
     100
    ]
   },
-  "cfp_defendship_multi_HRT_desc_001": {
+  "cfp_defendship_VLRT_desc_001": {
+   "bp": 2,
+   "total": 10,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    100
+   ]
+  },
+  "cfp_defendship_multi_HRT_SB_desc_001": {
    "bp": 1,
    "total": 1,
    "items": [
@@ -15280,7 +17170,33 @@
    ],
    "faction": "Citizens For Prosperity"
   },
-  "cfp_defendship_multi_SRT_desc_001": {
+  "cfp_defendship_multi_HRT_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
+  },
+  "cfp_defendship_multi_SRT_SB_desc_001": {
    "bp": 1,
    "total": 1,
    "items": [
@@ -15306,9 +17222,61 @@
    ],
    "faction": "Citizens For Prosperity"
   },
-  "cfp_defendship_multi_VHRT_desc_001": {
+  "cfp_defendship_multi_SRT_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    300
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
+  },
+  "cfp_defendship_multi_VHRT_SB_desc_001": {
    "bp": 1,
    "total": 1,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
+  },
+  "cfp_defendship_multi_VHRT_desc_001": {
+   "bp": 2,
+   "total": 2,
    "items": [
     "Monde Arms",
     "Monde Arms Hiro",
@@ -15415,7 +17383,18 @@
    "rep": [
     100,
     200
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ],
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
   },
   "cfp_eliminateall_hh_E_desc_001": {
    "bp": 1,
@@ -15430,7 +17409,14 @@
    ],
    "rep": [
     100
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Citizens For Prosperity"
   },
   "cfp_eliminateall_intro_desc_001": {
    "bp": 0,
@@ -15523,7 +17509,8 @@
      5800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_chain_m_desc_01": {
    "bp": 0,
@@ -15537,7 +17524,8 @@
      5800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_e_criminalbase_desc_01": {
    "bp": 0,
@@ -15551,14 +17539,16 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_e_faunacave_desc_01": {
    "bp": 0,
    "total": 8,
    "rep": [
     25
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_e_regionlink_desc_01": {
    "bp": 0,
@@ -15572,7 +17562,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_h_xenothreat_desc_01": {
    "bp": 0,
@@ -15586,7 +17577,8 @@
      15000
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_m_criminalbase_desc_01": {
    "bp": 0,
@@ -15600,21 +17592,24 @@
      2200
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_m_headhunters_desc_01": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_inv_m_headhunters_xs_desc_01": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_multiple_sabotage_servers_H_XT_desc_001": {
    "bp": 0,
@@ -15628,14 +17623,16 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_missingperson_sabotage_servers_H_HH_desc_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1500
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_missingperson_sabotage_servers_H_XT_desc_001": {
    "bp": 0,
@@ -15649,7 +17646,8 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_missingperson_sabotage_servers_VH_XT_desc_001": {
    "bp": 0,
@@ -15663,7 +17661,8 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_missingperson_sabotage_servers_retrievecargo_VH_XT_desc_001": {
    "bp": 0,
@@ -15678,7 +17677,8 @@
      95250
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_sabotage_VH_desc_001": {
    "bp": 1,
@@ -15948,7 +17948,8 @@
      2200
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_searchbody_danger_outpost_desc_001": {
    "bp": 0,
@@ -15972,7 +17973,8 @@
      5800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_searchbody_nodanger_cave_desc_001": {
    "bp": 0,
@@ -15980,7 +17982,8 @@
    "rep": [
     25,
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "cfp_searchbody_nodanger_outpost_desc_001": {
    "bp": 0,
@@ -15996,7 +17999,8 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
   },
   "cfp_searchbody_nodanger_station_desc_001": {
    "bp": 0,
@@ -16010,7 +18014,78 @@
      2200
     ]
    ],
-   "faction": "Citizens For Prosperity"
+   "faction": "Citizens For Prosperity",
+   "asof": "4.10.1"
+  },
+  "deadsaints_recoveritem_E_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Dead Saints"
+  },
+  "deadsaints_recoveritem_H_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Dead Saints"
+  },
+  "deadsaints_recoveritem_Intro_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "deadsaints_recoveritem_M_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Dead Saints"
+  },
+  "deadsaints_recoveritem_VE_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "deadsaints_recoveritem_VH_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Dead Saints"
   },
   "destroyprobelegal_desc": {
    "bp": 1,
@@ -16027,9 +18102,10 @@
    ],
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
-  "eckhart_defendship_LRT_desc_001": {
+  "eckhart_defendship_LRT_SB_desc_001": {
    "bp": 1,
    "total": 1,
    "items": [
@@ -16053,9 +18129,35 @@
      800
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
-  "eckhart_defendship_MRT_desc_001": {
+  "eckhart_defendship_LRT_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Eckhart Security"
+  },
+  "eckhart_defendship_MRT_SB_desc_001": {
    "bp": 1,
    "total": 1,
    "items": [
@@ -16079,9 +18181,35 @@
      2200
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
-  "eckhart_defendship_VLRT_desc_001": {
+  "eckhart_defendship_MRT_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Eckhart Security"
+  },
+  "eckhart_defendship_VLRT_SB_desc_001": {
    "bp": 1,
    "total": 1,
    "items": [
@@ -16100,7 +18228,26 @@
     100
    ]
   },
-  "eckhart_defendship_multi_HRT_desc_001": {
+  "eckhart_defendship_VLRT_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    100
+   ]
+  },
+  "eckhart_defendship_multi_HRT_SB_desc_001": {
    "bp": 1,
    "total": 1,
    "items": [
@@ -16124,9 +18271,35 @@
      5800
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
-  "eckhart_defendship_multi_SRT_desc_001": {
+  "eckhart_defendship_multi_HRT_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Eckhart Security"
+  },
+  "eckhart_defendship_multi_SRT_SB_desc_001": {
    "bp": 1,
    "total": 1,
    "items": [
@@ -16150,9 +18323,35 @@
      38000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
   },
-  "eckhart_defendship_multi_VHRT_desc_001": {
+  "eckhart_defendship_multi_SRT_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    300
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Eckhart Security"
+  },
+  "eckhart_defendship_multi_VHRT_SB_desc_001": {
    "bp": 1,
    "total": 1,
    "items": [
@@ -16176,16 +18375,42 @@
      15000
     ]
    ],
-   "faction": "Miles Eckhart"
+   "faction": "Eckhart Security"
+  },
+  "eckhart_defendship_multi_VHRT_desc_001": {
+   "bp": 2,
+   "total": 2,
+   "items": [
+    "Monde Arms",
+    "Monde Arms Hiro",
+    "Monde Core",
+    "Monde Core Hiro",
+    "Monde Helmet",
+    "Monde Helmet Hiro",
+    "Monde Legs",
+    "Monde Legs Hiro",
+    "R97 Shotgun",
+    "R97 Shotgun Magazine (18 cap)"
+   ],
+   "rep": [
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Eckhart Security"
   },
   "foxwell_DefendShip_E_desc_001": {
-   "bp": 4,
-   "total": 4,
+   "bp": 13,
+   "total": 13,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -16196,13 +18421,13 @@
    ]
   },
   "foxwell_DefendShip_H_desc_001": {
-   "bp": 4,
-   "total": 4,
+   "bp": 13,
+   "total": 13,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -16228,13 +18453,13 @@
    "faction": "Foxwell Enforcement"
   },
   "foxwell_DefendShip_M_desc_001": {
-   "bp": 4,
-   "total": 4,
+   "bp": 13,
+   "total": 13,
    "items": [
-    "Antium Arms Maroon",
     "Antium Arms Moss Camo",
     "Antium Core Maroon",
     "Antium Core Moss Camo",
+    "Antium Helmet Jet",
     "Antium Helmet Maroon",
     "Antium Helmet Moss Camo",
     "Antium Legs Maroon",
@@ -16270,7 +18495,14 @@
    ],
    "rep": [
     300
-   ]
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_ChainElimAll_1C_AttackXT_M_desc_001": {
    "bp": 1,
@@ -16311,7 +18543,14 @@
    ],
    "rep": [
     150
-   ]
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_ChainElimAll_2C_ElimSpec_AttackCFP_H_desc_001": {
    "bp": 1,
@@ -16328,7 +18567,14 @@
    ],
    "rep": [
     300
-   ]
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_ChainElimAll_2C_ElimSpec_AttackXT_H_desc_001": {
    "bp": 1,
@@ -16369,7 +18615,14 @@
    ],
    "rep": [
     300
-   ]
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_ChainElimAll_3C_ElimSpec_AttackXT_VH_desc_001": {
    "bp": 1,
@@ -16410,7 +18663,14 @@
    ],
    "rep": [
     400
-   ]
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_ChainElimAll_AttackGen_E_desc_001": {
    "bp": 1,
@@ -16480,7 +18740,8 @@
      15000
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "headhunters_EliminateAll_Missing_Xenothreat_VH_desc_001": {
    "bp": 0,
@@ -16494,7 +18755,8 @@
      38000
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "headhunters_EliminateAll_XenoThreat_H_desc_001": {
    "bp": 1,
@@ -16595,7 +18857,14 @@
    ],
    "rep": [
     50
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_EliminateSpecific_CFP_H_desc_001": {
    "bp": 1,
@@ -16612,7 +18881,14 @@
    ],
    "rep": [
     1200
-   ]
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_EliminateSpecific_CFP_M_desc_001": {
    "bp": 4,
@@ -16640,7 +18916,18 @@
    "rep": [
     75,
     100
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ],
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_EliminateSpecific_Defector_desc_001": {
    "bp": 1,
@@ -16657,7 +18944,14 @@
    ],
    "rep": [
     100
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_EliminateSpecific_Generic_E_desc_001": {
    "bp": 2,
@@ -16817,11 +19111,22 @@
    "total": 3,
    "rep": [
     100
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ],
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_bombingrun_E_desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     100
    ],
@@ -16849,7 +19154,7 @@
   },
   "headhunters_bombingrun_H_desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     200
    ],
@@ -16866,7 +19171,32 @@
    "total": 4,
    "rep": [
     100
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ],
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Headhunters"
+  },
+  "headhunters_bombingrun_M_desc_001": {
+   "bp": 0,
+   "total": 4,
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_bombingrun_M_title_001": {
    "bp": 0,
@@ -16880,11 +19210,12 @@
      2200
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "headhunters_bombingrun_S_desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     300
    ],
@@ -16898,7 +19229,7 @@
   },
   "headhunters_bombingrun_VE_desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     100
    ]
@@ -16916,7 +19247,7 @@
   },
   "headhunters_bombingrun_VH_desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 4,
    "rep": [
     250
    ],
@@ -16935,6 +19266,17 @@
     [
      "Sr. Contractor",
      5800
+    ]
+   ],
+   "faction": "Headhunters"
+  },
+  "headhunters_bombingrun_multi_E_CFP_desc_001": {
+   "bp": 0,
+   "total": 1,
+   "req": [
+    [
+     "Jr. Contractor",
+     800
     ]
    ],
    "faction": "Headhunters"
@@ -16976,7 +19318,7 @@
   },
   "headhunters_defendship_LRT_PA_desc_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ],
@@ -17004,7 +19346,7 @@
   },
   "headhunters_defendship_MRT_PA_desc_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     150
    ],
@@ -17032,7 +19374,7 @@
   },
   "headhunters_defendship_VLRT_PA_desc_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ]
@@ -17046,7 +19388,7 @@
   },
   "headhunters_defendship_multi_HRT_PA_desc_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     200
    ],
@@ -17060,7 +19402,7 @@
   },
   "headhunters_defendship_multi_SRT_PA_desc_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     300
    ],
@@ -17074,7 +19416,7 @@
   },
   "headhunters_defendship_multi_VHRT_PA_desc_001": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     250
    ],
@@ -17157,7 +19499,14 @@
    ],
    "rep": [
     50
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_eliminateall_cfp_M_desc_001": {
    "bp": 1,
@@ -17174,7 +19523,14 @@
    ],
    "rep": [
     150
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_eliminateall_cfp_desc_001": {
    "bp": 1,
@@ -17191,7 +19547,14 @@
    ],
    "rep": [
     100
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_eliminateall_outpost_desc_01": {
    "bp": 3,
@@ -17381,7 +19744,14 @@
    ],
    "rep": [
     600
-   ]
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_killship_cfp_mrt_desc_001": {
    "bp": 4,
@@ -17415,7 +19785,14 @@
    ],
    "rep": [
     300
-   ]
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_killship_cfp_vhrt_desc_001": {
    "bp": 4,
@@ -17449,7 +19826,14 @@
    ],
    "rep": [
     1200
-   ]
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_killship_gen_hrt_desc_001": {
    "bp": 4,
@@ -17767,7 +20151,8 @@
      38000
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "headhunters_missingperson_sabotage_server_H_XT_desc_001": {
    "bp": 0,
@@ -17782,7 +20167,8 @@
      15000
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "headhunters_multikillship_base_Generic_M_desc_001": {
    "bp": 4,
@@ -17830,7 +20216,14 @@
    "total": 1,
    "rep": [
     75
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_sabotage_generators_VE_desc_001": {
    "bp": 0,
@@ -17853,6 +20246,17 @@
     [
      "Sr. Contractor",
      5800
+    ]
+   ],
+   "faction": "Headhunters"
+  },
+  "headhunters_sabotage_servers_E_CFP_desc_001": {
+   "bp": 0,
+   "total": 1,
+   "req": [
+    [
+     "Jr. Contractor",
+     800
     ]
    ],
    "faction": "Headhunters"
@@ -17881,7 +20285,14 @@
    "total": 4,
    "rep": [
     75
-   ]
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Headhunters"
   },
   "headhunters_sabotage_servers_VH_XT_desc_001": {
    "bp": 0,
@@ -17906,7 +20317,8 @@
      2200
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "headhunters_searchbody_danger_station_desc_001": {
    "bp": 0,
@@ -17920,14 +20332,16 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "headhunters_searchbody_nodanger_outpost_desc_001": {
    "bp": 0,
    "total": 3,
    "rep": [
     50
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "headhunters_searchbody_nodanger_station_desc_001": {
    "bp": 0,
@@ -17935,7 +20349,8 @@
    "rep": [
     25,
     50
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "hh_missingperson_inv_chain_h_xenothreat_desc_01": {
    "bp": 0,
@@ -17949,7 +20364,8 @@
      5800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "hh_missingperson_inv_e_criminalbase_desc_01": {
    "bp": 0,
@@ -17963,7 +20379,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "hh_missingperson_inv_e_faunacave_desc_01": {
    "bp": 0,
@@ -17979,7 +20396,8 @@
      800
     ]
    ],
-   "faction": "Headhunters"
+   "faction": "Headhunters",
+   "asof": "4.10.1"
   },
   "hh_missingperson_inv_m_criminalbase_desc_01": {
    "bp": 0,
@@ -17992,6 +20410,217 @@
      "Contractor",
      2200
     ]
+   ],
+   "asof": "4.10.1"
+  },
+  "iasi_Delivery_2H_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    417
+   ]
+  },
+  "iasi_EliminateAll_M_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    167
+   ]
+  },
+  "iasi_EliminateBoss_H_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    313
+   ]
+  },
+  "iasi_EliminateSpecific_E_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    125
+   ]
+  },
+  "iasi_GoldBox_Delivery_Desc": {
+   "bp": 0,
+   "total": 1,
+   "scenario": [
+    250
+   ]
+  },
+  "iasi_GoldBox_Delivery_Desc_0": {
+   "bp": 0,
+   "total": 1,
+   "scenario": [
+    250
+   ]
+  },
+  "iasi_Hauling_Small_Desc": {
+   "bp": 0,
+   "total": 1,
+   "scenario": [
+    354
+   ]
+  },
+  "iasi_Hauling_Supply_2_Desc": {
+   "bp": 0,
+   "total": 1,
+   "scenario": [
+    625
+   ]
+  },
+  "iasi_Hauling_Supply_Desc": {
+   "bp": 0,
+   "total": 1,
+   "scenario": [
+    417
+   ]
+  },
+  "iasi_Patrol_E_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    250
+   ]
+  },
+  "iasi_Patrol_H_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    417
+   ]
+  },
+  "iasi_Patrol_M_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    333
+   ]
+  },
+  "iasi_RecoverItem_E_Desc_001": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    313
+   ]
+  },
+  "iasi_RecoverItem_FPS_E_Desc_001": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    313
+   ]
+  },
+  "iasi_RecoverItem_FPS_H_Desc_001": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    333
+   ]
+  },
+  "iasi_RecoverItem_FPS_M_Desc_001": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    313
+   ]
+  },
+  "iasi_RecoverItem_H_Desc_001": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    313
+   ]
+  },
+  "iasi_RecoverItem_M_Desc_001": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    313
+   ]
+  },
+  "iasi_Refueling_E_Desc_001": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    104
+   ]
+  },
+  "iasi_Refueling_H_Desc_001": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    271
+   ]
+  },
+  "iasi_Refueling_M_Desc_001": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    104
+   ]
+  },
+  "iasi_ResourceGathering_Mining_Desc": {
+   "bp": 0,
+   "total": 1,
+   "scenario": [
+    669
+   ]
+  },
+  "iasi_ResourceGathering_Mining_E_Desc": {
+   "bp": 0,
+   "total": 1,
+   "scenario": [
+    408
+   ]
+  },
+  "iasi_ResourceGathering_Mining_H_Desc": {
+   "bp": 0,
+   "total": 1,
+   "scenario": [
+    1142
+   ]
+  },
+  "iasi_Salvage_ResourceGathering_L_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    486
+   ]
+  },
+  "iasi_Salvage_ResourceGathering_M_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    255
+   ]
+  },
+  "iasi_Salvage_ResourceGathering_S_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    183
+   ]
+  },
+  "iasi_SupportAttackedShip_E_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    146
+   ]
+  },
+  "iasi_SupportAttackedShip_H_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    417
+   ]
+  },
+  "iasi_SupportAttackedShip_M_Desc": {
+   "bp": 0,
+   "total": 4,
+   "scenario": [
+    208
    ]
   },
   "mgClovus_opensalvage_desc_001": {
@@ -18003,7 +20632,8 @@
      -500
     ]
    ],
-   "faction": "Clovus Darneely"
+   "faction": "Clovus Darneely",
+   "asof": "4.10.1"
   },
   "mg_pacheco_prisonerbreak_desc_002": {
    "bp": 0,
@@ -18014,7 +20644,8 @@
      -500
     ]
    ],
-   "faction": "Tecia \"Twitch\" Pacheco"
+   "faction": "Tecia \"Twitch\" Pacheco",
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_destroy_E_desc_001": {
    "bp": 0,
@@ -18028,7 +20659,8 @@
      500
     ]
    ],
-   "faction": "Ruto"
+   "faction": "Ruto",
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_destroy_H_desc_001": {
    "bp": 0,
@@ -18042,7 +20674,8 @@
      2000
     ]
    ],
-   "faction": "Ruto"
+   "faction": "Ruto",
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_destroy_desc_001": {
    "bp": 0,
@@ -18056,7 +20689,8 @@
      1500
     ]
    ],
-   "faction": "Ruto"
+   "faction": "Ruto",
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_eliminateall_Lawnocivs_desc_001": {
    "bp": 0,
@@ -18070,7 +20704,8 @@
      4000
     ]
    ],
-   "faction": "Ruto"
+   "faction": "Ruto",
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_eliminateall_civsonly_desc_001": {
    "bp": 0,
@@ -18084,7 +20719,8 @@
      1000
     ]
    ],
-   "faction": "Ruto"
+   "faction": "Ruto",
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_eliminateall_desc_001": {
    "bp": 0,
@@ -18098,7 +20734,8 @@
      2000
     ]
    ],
-   "faction": "Ruto"
+   "faction": "Ruto",
+   "asof": "4.10.1"
   },
   "mg_ruto_UGF_eliminateall_nocivs_desc_001": {
    "bp": 0,
@@ -18109,7 +20746,8 @@
      1000
     ]
    ],
-   "faction": "Ruto"
+   "faction": "Ruto",
+   "asof": "4.10.1"
   },
   "mg_ruto_clearcrimestat_norep_desc_01": {
    "bp": 0,
@@ -18120,7 +20758,8 @@
      -500
     ]
    ],
-   "faction": "Ruto"
+   "faction": "Ruto",
+   "asof": "4.10.1"
   },
   "mg_ruto_clearcrimestat_rep_desc_01": {
    "bp": 0,
@@ -18131,7 +20770,8 @@
      -500
     ]
    ],
-   "faction": "Ruto"
+   "faction": "Ruto",
+   "asof": "4.10.1"
   },
   "northrock_SOO_repeat_desc_001": {
    "bp": 1,
@@ -18144,14 +20784,14 @@
   },
   "northrock_boarders_890J_desc_001": {
    "bp": 0,
-   "total": 1,
+   "total": 2,
    "rep": [
     8000
    ]
   },
   "northrock_bounty_fps_UGF_boss_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Bellator Jacket",
     "Bellator Shirt and Waistcoat",
@@ -18174,8 +20814,8 @@
    ]
   },
   "northrock_bounty_fps_UGF_boss_nocivs_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Bellator Jacket",
     "Bellator Shirt and Waistcoat",
@@ -18202,7 +20842,8 @@
    "total": 1,
    "rep": [
     500
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "recovery_desc": {
    "bp": 13,
@@ -18245,7 +20886,8 @@
      "Jr. Contractor",
      800
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_desc_E": {
    "bp": 0,
@@ -18258,7 +20900,8 @@
      "Jr. Contractor",
      800
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_desc_H": {
    "bp": 0,
@@ -18271,7 +20914,8 @@
      "Sr. Contractor",
      5800
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_desc_M": {
    "bp": 0,
@@ -18284,7 +20928,8 @@
      "Contractor",
      2200
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_desc_S": {
    "bp": 0,
@@ -18297,14 +20942,16 @@
      "Head Contractor",
      38000
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_desc_VE": {
    "bp": 0,
    "total": 4,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_desc_VH": {
    "bp": 0,
@@ -18317,18 +20964,20 @@
      "Veteran Contractor",
      15000
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "searchbodyspace_desc_intro": {
    "bp": 0,
    "total": 2,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "shubin_rockcracker_pvp_desc_01": {
-   "bp": 1,
-   "total": 1,
+   "bp": 59,
+   "total": 59,
    "items": [
     "Monde Arms Delta Camo",
     "Monde Arms Hemlock Camo",
@@ -18385,7 +21034,8 @@
      "Jr. Contractor",
      800
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_desc_H_01": {
    "bp": 0,
@@ -18398,7 +21048,8 @@
      "Sr. Contractor",
      5800
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_desc_M_01": {
    "bp": 0,
@@ -18411,7 +21062,8 @@
      "Contractor",
      2200
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_desc_S_01": {
    "bp": 0,
@@ -18425,14 +21077,16 @@
      38000
     ]
    ],
-   "faction": "FTL Courier"
+   "faction": "FTL Courier",
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_desc_VE_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_desc_VH_01": {
    "bp": 0,
@@ -18445,14 +21099,16 @@
      "Veteran Contractor",
      15000
     ]
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_desc_intro_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "spacecollect_cargo_title_E_01": {
    "bp": 0,
@@ -18466,11 +21122,26 @@
      800
     ]
    ],
-   "faction": "Dead Saints"
+   "faction": "Dead Saints",
+   "asof": "4.10.1"
+  },
+  "vaughn_assassination_E_desc_001": {
+   "bp": 0,
+   "total": 6,
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Vaughn"
   },
   "vaughn_assassination_FPS_UGF_illegal_boss_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Carnifex Armor Core",
     "Carnifex Armor Legs",
@@ -18495,8 +21166,8 @@
    "faction": "Vaughn"
   },
   "vaughn_assassination_FPS_UGF_illegal_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Badami Helmet",
     "Deadrig Shotgun",
@@ -18511,9 +21182,6 @@
     "Piecemeal Armor Core",
     "Piecemeal Armor Legs"
    ],
-   "rep": [
-    100
-   ],
    "req": [
     [
      "Jr. Contractor",
@@ -18523,8 +21191,8 @@
    "faction": "Vaughn"
   },
   "vaughn_assassination_FPS_UGF_legal_boss_desc_001": {
-   "bp": 1,
-   "total": 1,
+   "bp": 4,
+   "total": 4,
    "items": [
     "Carnifex Armor Core",
     "Carnifex Armor Legs",
@@ -18553,14 +21221,149 @@
    "total": 1,
    "rep": [
     100
+   ],
+   "asof": "4.10.1"
+  },
+  "vaughn_assassination_H_desc_001": {
+   "bp": 0,
+   "total": 6,
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_assassination_M_desc_001": {
+   "bp": 0,
+   "total": 6,
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_assassination_PA_E_desc": {
+   "bp": 0,
+   "total": 1,
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_assassination_PA_H_desc": {
+   "bp": 0,
+   "total": 1,
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_assassination_PA_M_desc": {
+   "bp": 0,
+   "total": 1,
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_assassination_PA_S_desc": {
+   "bp": 0,
+   "total": 1,
+   "rep": [
+    300
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_assassination_PA_VH_desc": {
+   "bp": 0,
+   "total": 2,
+   "rep": [
+    100,
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_assassination_S_desc_001": {
+   "bp": 0,
+   "total": 6,
+   "rep": [
+    300
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_assassination_VE_desc_001": {
+   "bp": 0,
+   "total": 6,
+   "rep": [
+    100
    ]
   },
   "vaughn_assassination_VE_desc_intro": {
    "bp": 0,
-   "total": 2,
+   "total": 5,
    "rep": [
     100
    ]
+  },
+  "vaughn_assassination_VH_desc_001": {
+   "bp": 0,
+   "total": 6,
+   "rep": [
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Vaughn"
   },
   "vaughn_assassination_description_E": {
    "bp": 0,
@@ -18574,7 +21377,8 @@
      800
     ]
    ],
-   "faction": "Vaughn"
+   "faction": "Vaughn",
+   "asof": "4.10.1"
   },
   "vaughn_assassination_description_H": {
    "bp": 0,
@@ -18588,7 +21392,8 @@
      5800
     ]
    ],
-   "faction": "Vaughn"
+   "faction": "Vaughn",
+   "asof": "4.10.1"
   },
   "vaughn_assassination_description_M": {
    "bp": 0,
@@ -18602,7 +21407,8 @@
      2200
     ]
    ],
-   "faction": "Vaughn"
+   "faction": "Vaughn",
+   "asof": "4.10.1"
   },
   "vaughn_assassination_description_S": {
    "bp": 0,
@@ -18616,18 +21422,98 @@
      38000
     ]
    ],
-   "faction": "Vaughn"
+   "faction": "Vaughn",
+   "asof": "4.10.1"
   },
   "vaughn_assassination_description_VE": {
    "bp": 0,
    "total": 2,
    "rep": [
     100
-   ]
+   ],
+   "asof": "4.10.1"
   },
   "vaughn_assassination_description_VH": {
    "bp": 0,
    "total": 2,
+   "rep": [
+    250
+   ],
+   "req": [
+    [
+     "Veteran Contractor",
+     15000
+    ]
+   ],
+   "faction": "Vaughn",
+   "asof": "4.10.1"
+  },
+  "vaughn_searchbody_space_E_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ],
+   "req": [
+    [
+     "Jr. Contractor",
+     800
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_searchbody_space_H_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    200
+   ],
+   "req": [
+    [
+     "Sr. Contractor",
+     5800
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_searchbody_space_M_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    150
+   ],
+   "req": [
+    [
+     "Contractor",
+     2200
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_searchbody_space_S_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    300
+   ],
+   "req": [
+    [
+     "Head Contractor",
+     38000
+    ]
+   ],
+   "faction": "Vaughn"
+  },
+  "vaughn_searchbody_space_VE_Desc_001": {
+   "bp": 0,
+   "total": 5,
+   "rep": [
+    100
+   ]
+  },
+  "vaughn_searchbody_space_VH_Desc_001": {
+   "bp": 0,
+   "total": 5,
    "rep": [
     250
    ],

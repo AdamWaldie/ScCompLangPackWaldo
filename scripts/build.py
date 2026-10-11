@@ -449,7 +449,8 @@ def contract_info_lines(info: dict, asof: str = "") -> list[str]:
 def apply_contract_info(ini: IniFile, gamedata: dict, tagged: dict[str, str], asof: str = "") -> tuple[int, int]:
     """Mark contract titles with blueprint rewards ([BP] prefix) and reputation ([200 Rep] suffix), and
     add reputation, required standing, scenario progress and possible blueprints to descriptions.
-    With older game data the description says which patch the information is from."""
+    With older game data (or an entry only an older source has) the description says which patch
+    the information is from."""
     lower = {k.lower(): k for k in ini.keys()}
     titles = descs = 0
     for key, info in gamedata.get("titles", {}).items():
@@ -473,12 +474,14 @@ def apply_contract_info(ini: IniFile, gamedata: dict, tagged: dict[str, str], as
             continue
         # Values use literal "\n" escapes, like the rest of global.ini.
         new = value.rstrip()
-        lines = contract_info_lines(info, asof)
+        # Keys only the older source has carry their own patch.
+        entry_asof = info.get("asof") or asof
+        lines = contract_info_lines(info, entry_asof)
         if lines and not any(f"\\n\\n{label}" in new for label in (REP_LABEL, REQ_LABEL, SCENARIO_LABEL)):
             new += "\\n\\n" + "\\n".join(lines)
         items = info.get("items") or []
         if items and BP_HEADER not in new and BP_HEADER_SOME not in new:
-            header = bp_header(info["bp"] < info["total"], asof)
+            header = bp_header(info["bp"] < info["total"], entry_asof)
             new += "\\n\\n" + header + "".join("\\n- " + i for i in items)
         if new != value.rstrip():
             ini.set(real, new)

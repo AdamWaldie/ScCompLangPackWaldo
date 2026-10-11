@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
 import build  # noqa: E402
+import fetch_gamedata  # noqa: E402
 from fetch_stock import parse_message, version_key  # noqa: E402
 
 STOCK = (
@@ -142,6 +143,7 @@ class GameDataLayerTests(unittest.TestCase):
         "Shared_Title=Shared Job\r\n"
         "Rep_Title=Taking Back Our Goods\r\n"
         "Rep_Desc=Get the cargo.\r\n"
+        "Old_Desc=Old job.\r\n"
         "item_DescKGGR_NavigationLight=@Navigation light\r\n"
         "item_NamePistol=@mp_ePistol\r\n"
     )
@@ -152,7 +154,9 @@ class GameDataLayerTests(unittest.TestCase):
         "descriptions": {"Some_Contract_Desc": {"bp": 2, "total": 2, "items": ["Arclight Pistol", "Testudo Core"]},
                          "Rep_Desc": {"bp": 0, "total": 3, "rep": [200, 400, 800],
                                       "req": [["Contractor", 2200], ["Sr. Contractor", 5800]],
-                                      "faction": "Dead Saints", "scenario": [255]}},
+                                      "faction": "Dead Saints", "scenario": [255]},
+                         "Old_Desc": {"bp": 1, "total": 1, "items": ["Testudo Core"], "rep": [50],
+                                      "asof": "4.10.1"}},
     }
 
     def setUp(self):
@@ -191,6 +195,12 @@ class GameDataLayerTests(unittest.TestCase):
                          " (depends on the version offered)\\nScenario progress: 255 points")
         ini, _ = self.build_with("4.10.3")
         self.assertTrue(ini.get("Rep_Desc").startswith("Get the cargo.\\n\\nReputation awarded (as of 4.10.2): 200"))
+
+    def test_entry_from_older_source_labelled_with_its_patch(self):
+        ini, _ = self.build_with("4.10.2", "123")
+        self.assertEqual(ini.get("Old_Desc"),
+                         "Old job.\\n\\nReputation awarded (as of 4.10.1): 50"
+                         "\\n\\nBlueprints this contract can award (as of 4.10.1):\\n- Testudo Core")
 
     def test_older_game_data_used_as_of_its_patch(self):
         for version, build_no, asof in (("4.10.3", "", "4.10.2"), ("4.10.2", "999", "4.10.2 build 123")):
@@ -232,6 +242,35 @@ class GameDataLayerTests(unittest.TestCase):
             self.assertEqual(again.get("Rep_Desc").count("Reputation awarded"), 1)
             self.tearDown()
 
+
+
+class ScmdbSummaryTests(unittest.TestCase):
+    DATA = {
+        "version": "4.10.2-live.123",
+        "scopes": {"std": {"scopeName": "FactionReputation"}, "aff": {"scopeName": "Affinity"}},
+        "eventScopes": {"ev": {"eventName": "CleanAir"}},
+        "factions": {"f1": {"name": "Dead Saints"}},
+        "blueprintPools": {"p1": {"blueprints": [{"name": "Testudo Core"}, {"name": "@placeholder"}]}},
+        "factionRewardsPools": [[{"scopeGuid": "std", "amount": 200}, {"scopeGuid": "aff", "amount": 999}]],
+        "contracts": [
+            {"titleLocKey": "DS_Title", "descriptionLocKey": "DS_Desc", "factionGuid": "f1",
+             "factionRewardsIndex": 0, "contractDefinitionIds": ["a", "b"],
+             "blueprintRewards": [{"blueprintPool": "p1"}],
+             "minStanding": {"name": "Sr. Contractor", "minReputation": 5800}},
+            {"titleLocKey": "Event_Title", "descriptionLocKey": "Event_Desc", "factionGuid": "x",
+             "minStanding": {"name": "Neutral", "minReputation": 0},
+             "completionTags": [{"tag": "ev", "count": 225}, {"tag": "other", "count": 5}]},
+        ],
+        "legacyContracts": [],
+    }
+
+    def test_summarise(self):
+        titles, descs = fetch_gamedata.summarise_scmdb(self.DATA).result()
+        self.assertEqual(titles["DS_Title"], {"bp": 2, "total": 2, "rep": [200]})
+        self.assertEqual(descs["DS_Desc"], {"bp": 2, "total": 2, "items": ["Testudo Core"], "rep": [200],
+                                            "req": [["Sr. Contractor", 5800]], "faction": "Dead Saints"})
+        self.assertEqual(descs["Event_Desc"], {"bp": 0, "total": 1, "scenario": [225]})
+        self.assertNotIn("Event_Title", titles)
 
 if __name__ == "__main__":
     unittest.main()

@@ -54,10 +54,16 @@ Both formats also annotate contracts, generated each patch from the game's own c
   - Pulse "Rouge" Pistol
   ```
 
-The game data is the [StarCitizenWiki's scunpacked-data](https://github.com/StarCitizenWiki/scunpacked-data),
-extracted with [ScDataDumper](https://github.com/octfx/ScDataDumper). It is usually published some days after a
-patch, so until then the details come from the previous patch and say so: `Reputation awarded (as of 4.10.1): 200`.
-As soon as the current patch's data is published, a new release ("blueprint update") goes out automatically with it.
+The game data comes from two sources, checked every two hours:
+
+- [**SCMDB**](https://scmdb.net/) by Krovax, used with permission. It usually has the new patch within a day or
+  two and covers the contractor career and event contracts.
+- [StarCitizenWiki's scunpacked-data](https://github.com/StarCitizenWiki/scunpacked-data), extracted with
+  [ScDataDumper](https://github.com/octfx/ScDataDumper). It covers every contract but is often published later.
+
+The newer source is used wherever it has the contract and the other fills the gaps. Anything from an older patch
+says so: `Reputation awarded (as of 4.10.1): 200`. When newer data is published, a new release ("blueprint
+update") goes out automatically with it.
 
 ## Install
 
