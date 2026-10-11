@@ -36,16 +36,27 @@ Missiles and torpedoes are tagged with their tracking signal: **IR** (infrared),
 
 Capital-ship and Vanduul parts that have no grade, such as the Idris and 890J internals, keep their stock names.
 
-## Contracts: blueprint rewards
+## Contracts: rewards and requirements
 
-Both formats also mark contracts that can award blueprints, generated each patch from the game's
-own contract data:
+Both formats also annotate contracts, generated each patch from the game's own contract data:
 
-- **Title:** `[BP] Defend InterSec Operative`, or `[BP]*` when only some versions of a shared contract award.
-- **Description:** ends with the full list, e.g. `Blueprints this contract can award: - Pulse "Rouge" Pistol …`
+- **Title:** `[BP] Defend InterSec Operative [200 Rep]`. `[BP]` marks contracts that can award blueprints
+  (`[BP]*` when only some versions of a shared contract award), and the suffix is the reputation it pays
+  (`[200/400/800 Rep]` when one title covers several difficulties).
+- **Description:** ends with the details, e.g.
 
-Blueprint pools rarely change between patches, so right after a patch (before that patch's game data is
-published) the lists come from the previous patch and say so: `Blueprints this contract can award (as of 4.10.1):`.
+  ```
+  Reputation awarded: 200
+  Requires: Sr. Contractor standing with Dead Saints
+  Scenario progress: 255 points
+
+  Blueprints this contract can award:
+  - Pulse "Rouge" Pistol
+  ```
+
+The game data is the [StarCitizenWiki's scunpacked-data](https://github.com/StarCitizenWiki/scunpacked-data),
+extracted with [ScDataDumper](https://github.com/octfx/ScDataDumper). It is usually published some days after a
+patch, so until then the details come from the previous patch and say so: `Reputation awarded (as of 4.10.1): 200`.
 As soon as the current patch's data is published, a new release ("blueprint update") goes out automatically with it.
 
 ## Install

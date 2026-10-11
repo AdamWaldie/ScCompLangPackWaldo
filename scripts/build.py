@@ -325,7 +325,8 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
     counts["cig_fix"] = fix_literal_at_values(ini, tagged)
 
     gamedata, gamedata_status, asof = load_matching_gamedata(stock_path)
-    counts["bp_title"], counts["bp_desc"] = apply_blueprints(ini, gamedata, tagged, asof) if gamedata else (0, 0)
+    counts["contract_title"], counts["contract_desc"] = (apply_contract_info(ini, gamedata, tagged, asof)
+                                                         if gamedata else (0, 0))
 
     version_key = "Frontend_PU_Version"
     stock_version = ini.get(version_key)
@@ -371,17 +372,19 @@ def _version_tuple(v: str) -> tuple[int, ...]:
 
 
 def gamedata_match(gd: dict, meta: dict) -> str:
-    """'matched' (same patch, and same build when both are known), 'newer' or 'older' than the stock file."""
+    """'matched' (same patch, and same build when both are known), 'newer' or 'older' than the stock file.
+    PTU data is never 'matched': it stands in for the patch's LIVE data until that arrives."""
     gd_version, stock_version = _version_tuple(gd.get("version", "")), _version_tuple(meta.get("version", ""))
     builds_known = gd.get("build") and meta.get("build")
-    if gd_version == stock_version and not (builds_known and gd["build"] != meta["build"]):
+    if (gd_version == stock_version and gd.get("channel", "LIVE") != "PTU"
+            and not (builds_known and gd["build"] != meta["build"])):
         return "matched"
     return "newer" if gd_version > stock_version else "older"
 
 
 def load_matching_gamedata(stock_path: Path) -> tuple[dict | None, str, str]:
-    """Game data for the stock file's patch, or failing that the newest older dump: blueprint pools
-    rarely change between patches, so older data is used and labelled 'as of <version>'.
+    """Game data for the stock file's patch, or failing that older or PTU data: blueprint pools
+    rarely change between patches, so it is used and labelled 'as of <version>' (or '<version> PTU').
     Returns (game data, status, as-of version or '' when it matches)."""
     gd_path = DATA_DIR / "gamedata" / f"{stock_path.parent.name}.json"
     meta_path = stock_path.parent / "version.json"
@@ -395,7 +398,9 @@ def load_matching_gamedata(stock_path: Path) -> tuple[dict | None, str, str]:
     if match == "newer":
         return None, f"game data is newer ({gd.get('version')}) than stock {meta.get('version')}", ""
     asof = gd.get("version", "")
-    if _version_tuple(asof) == _version_tuple(meta.get("version", "")) and gd.get("build"):
+    if gd.get("channel") == "PTU":
+        asof += " PTU"
+    elif _version_tuple(asof) == _version_tuple(meta.get("version", "")) and gd.get("build"):
         asof += f" build {gd['build']}"
     return gd, f"as of {asof}; stock is {meta.get('version')}", asof
 
@@ -404,6 +409,10 @@ BP_TITLE = "[BP] "
 BP_TITLE_SOME = "[BP]* "
 BP_HEADER = "Blueprints this contract can award"
 BP_HEADER_SOME = "Blueprints (only some versions of this contract award these"
+REP_LABEL = "Reputation awarded"
+REQ_LABEL = "Requires"
+SCENARIO_LABEL = "Scenario progress"
+VARIES = " (depends on the version offered)"
 
 
 def bp_header(some: bool, asof: str = "") -> str:
@@ -412,32 +421,76 @@ def bp_header(some: bool, asof: str = "") -> str:
     return BP_HEADER + (f" (as of {asof})" if asof else "") + ":"
 
 
-def apply_blueprints(ini: IniFile, gamedata: dict, tagged: dict[str, str], asof: str = "") -> tuple[int, int]:
-    """Prefix titles of blueprint-awarding contracts and list the possible blueprints in descriptions.
-    With older game data the list header says which patch it is from."""
+def rep_tag(amounts: list[int]) -> str:
+    """Title suffix: " [200 Rep]", " [200/400/800 Rep]", or a range when a key covers many versions."""
+    if len(amounts) > 3:
+        return f" [{amounts[0]}-{amounts[-1]} Rep]"
+    return " [" + "/".join(str(a) for a in amounts) + " Rep]"
+
+
+def contract_info_lines(info: dict, asof: str = "") -> list[str]:
+    """Reputation, standing and scenario lines for a description. The first label says which patch
+    the numbers are from when the game data is older than the stock file."""
+    lines = []
+    if info.get("rep"):
+        rep = info["rep"]
+        lines.append([REP_LABEL, " / ".join(f"{a:,}" for a in rep) + (VARIES if len(rep) > 1 else "")])
+    if info.get("req"):
+        req = info["req"]
+        text = " / ".join(name for name, _ in req) + " standing"
+        if info.get("faction"):
+            text += f" with {info['faction']}"
+        lines.append([REQ_LABEL, text + (VARIES if len(req) > 1 else "")])
+    if info.get("scenario"):
+        pts = info["scenario"]
+        lines.append([SCENARIO_LABEL, " / ".join(f"{p:,}" for p in pts) + " points"
+                      + (VARIES if len(pts) > 1 else "")])
+    if lines and asof:
+        lines[0][0] += f" (as of {asof})"
+    return [f"{label}: {text}" for label, text in lines]
+
+
+def apply_contract_info(ini: IniFile, gamedata: dict, tagged: dict[str, str], asof: str = "") -> tuple[int, int]:
+    """Mark contract titles with blueprint rewards ([BP] prefix) and reputation ([200 Rep] suffix), and
+    add reputation, required standing, scenario progress and possible blueprints to descriptions.
+    With older game data (or an entry only an older source has) the description says which patch
+    the information is from."""
     lower = {k.lower(): k for k in ini.keys()}
     titles = descs = 0
     for key, info in gamedata.get("titles", {}).items():
         real = lower.get(key.lower())
         value = ini.get(real) if real else None
-        if not value or value.startswith(("[BP]", "[BP]*")):
+        if not value:
             continue
-        new = (BP_TITLE if info["bp"] >= info["total"] else BP_TITLE_SOME) + value
-        ini.set(real, new)
-        tagged[real] = new
-        titles += 1
+        new = value
+        if info.get("bp") and not new.startswith(("[BP]", "[BP]*")):
+            new = (BP_TITLE if info["bp"] >= info["total"] else BP_TITLE_SOME) + new
+        if info.get("rep") and not new.endswith(" Rep]"):
+            new = new.rstrip() + rep_tag(info["rep"])
+        if new != value:
+            ini.set(real, new)
+            tagged[real] = new
+            titles += 1
     for key, info in gamedata.get("descriptions", {}).items():
         real = lower.get(key.lower())
         value = ini.get(real) if real else None
-        items = info.get("items") or []
-        if not value or not items or BP_HEADER in value or BP_HEADER_SOME in value:
+        if not value:
             continue
-        header = bp_header(info["bp"] < info["total"], asof)
         # Values use literal "\n" escapes, like the rest of global.ini.
-        new = value.rstrip() + "\\n\\n" + header + "".join("\\n- " + i for i in items)
-        ini.set(real, new)
-        tagged[real] = new
-        descs += 1
+        new = value.rstrip()
+        # Keys only the older source has carry their own patch.
+        entry_asof = info.get("asof") or asof
+        lines = contract_info_lines(info, entry_asof)
+        if lines and not any(f"\\n\\n{label}" in new for label in (REP_LABEL, REQ_LABEL, SCENARIO_LABEL)):
+            new += "\\n\\n" + "\\n".join(lines)
+        items = info.get("items") or []
+        if items and BP_HEADER not in new and BP_HEADER_SOME not in new:
+            header = bp_header(info["bp"] < info["total"], entry_asof)
+            new += "\\n\\n" + header + "".join("\\n- " + i for i in items)
+        if new != value.rstrip():
+            ini.set(real, new)
+            tagged[real] = new
+            descs += 1
     return titles, descs
 
 
@@ -479,7 +532,7 @@ def main() -> int:
         print(f"[{channel}/{variant}] {stats['game_version']!r}: {c['component']} components, "
               f"{c['missile']} missiles, {c['bomb']} bombs, {c['short']} short names, "
               f"{c['override']} overrides, {c['cig_fix']} CIG text fixes, "
-              f"{c['bp_title']}/{c['bp_desc']} blueprint titles/descriptions ({stats['gamedata']}), "
+              f"{c['contract_title']}/{c['contract_desc']} contract titles/descriptions ({stats['gamedata']}), "
               f"{len(stats['bespoke'])} bespoke left as-is -> {out}")
         if stats["unresolved"]:
             print(f"  WARNING: {len(stats['unresolved'])} unclassified component-like keys "

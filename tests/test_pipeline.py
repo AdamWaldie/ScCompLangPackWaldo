@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
 import build  # noqa: E402
+import fetch_gamedata  # noqa: E402
 from fetch_stock import parse_message, version_key  # noqa: E402
 
 STOCK = (
@@ -140,13 +141,22 @@ class GameDataLayerTests(unittest.TestCase):
         "Some_Contract_Title=Defend the Outpost\r\n"
         "Some_Contract_Desc=Go there.\\nKill them.\r\n"
         "Shared_Title=Shared Job\r\n"
+        "Rep_Title=Taking Back Our Goods\r\n"
+        "Rep_Desc=Get the cargo.\r\n"
+        "Old_Desc=Old job.\r\n"
         "item_DescKGGR_NavigationLight=@Navigation light\r\n"
         "item_NamePistol=@mp_ePistol\r\n"
     )
     GAMEDATA = {
         "version": "4.10.2", "build": "123",
-        "titles": {"some_contract_title": {"bp": 2, "total": 2}, "Shared_Title": {"bp": 1, "total": 3}},
-        "descriptions": {"Some_Contract_Desc": {"bp": 2, "total": 2, "items": ["Arclight Pistol", "Testudo Core"]}},
+        "titles": {"some_contract_title": {"bp": 2, "total": 2}, "Shared_Title": {"bp": 1, "total": 3},
+                   "Rep_Title": {"bp": 0, "total": 3, "rep": [200, 400, 800]}},
+        "descriptions": {"Some_Contract_Desc": {"bp": 2, "total": 2, "items": ["Arclight Pistol", "Testudo Core"]},
+                         "Rep_Desc": {"bp": 0, "total": 3, "rep": [200, 400, 800],
+                                      "req": [["Contractor", 2200], ["Sr. Contractor", 5800]],
+                                      "faction": "Dead Saints", "scenario": [255]},
+                         "Old_Desc": {"bp": 1, "total": 1, "items": ["Testudo Core"], "rep": [50],
+                                      "asof": "4.10.1"}},
     }
 
     def setUp(self):
@@ -176,6 +186,22 @@ class GameDataLayerTests(unittest.TestCase):
                          "\\n- Arclight Pistol\\n- Testudo Core")
         self.assertIn("matched", stats["gamedata"])
 
+    def test_reputation_standing_and_scenario_added(self):
+        ini, _ = self.build_with("4.10.2", "123")
+        self.assertEqual(ini.get("Rep_Title"), "Taking Back Our Goods [200/400/800 Rep]")
+        self.assertEqual(ini.get("Rep_Desc"),
+                         "Get the cargo.\\n\\nReputation awarded: 200 / 400 / 800 (depends on the version offered)"
+                         "\\nRequires: Contractor / Sr. Contractor standing with Dead Saints"
+                         " (depends on the version offered)\\nScenario progress: 255 points")
+        ini, _ = self.build_with("4.10.3")
+        self.assertTrue(ini.get("Rep_Desc").startswith("Get the cargo.\\n\\nReputation awarded (as of 4.10.2): 200"))
+
+    def test_entry_from_older_source_labelled_with_its_patch(self):
+        ini, _ = self.build_with("4.10.2", "123")
+        self.assertEqual(ini.get("Old_Desc"),
+                         "Old job.\\n\\nReputation awarded (as of 4.10.1): 50"
+                         "\\n\\nBlueprints this contract can award (as of 4.10.1):\\n- Testudo Core")
+
     def test_older_game_data_used_as_of_its_patch(self):
         for version, build_no, asof in (("4.10.3", "", "4.10.2"), ("4.10.2", "999", "4.10.2 build 123")):
             ini, stats = self.build_with(version, build_no)
@@ -184,6 +210,15 @@ class GameDataLayerTests(unittest.TestCase):
                              f"Go there.\\nKill them.\\n\\nBlueprints this contract can award (as of {asof}):"
                              "\\n- Arclight Pistol\\n- Testudo Core")
             self.assertIn(f"as of {asof}", stats["gamedata"])
+
+    def test_ptu_game_data_labelled_until_live_arrives(self):
+        import json
+        gd = dict(self.GAMEDATA, channel="PTU")
+        (self.gd_dir / "gamedata" / "LIVE.json").write_text(json.dumps(gd))
+        ini, stats = self.build_with("4.10.2", "123")
+        self.assertTrue(ini.get("Some_Contract_Desc").endswith(
+            "Blueprints this contract can award (as of 4.10.2 PTU):\\n- Arclight Pistol\\n- Testudo Core"))
+        self.assertIn("as of 4.10.2 PTU", stats["gamedata"])
 
     def test_newer_game_data_not_used(self):
         ini, stats = self.build_with("4.10.1")
@@ -195,7 +230,9 @@ class GameDataLayerTests(unittest.TestCase):
                  ({"version": "4.10.2", "build": "1"}, {"version": "4.10.2", "build": ""}, "matched"),
                  ({"version": "4.10.2", "build": "1"}, {"version": "4.10.2", "build": "2"}, "older"),
                  ({"version": "4.10.1"}, {"version": "4.10.2"}, "older"),
-                 ({"version": "4.11.0"}, {"version": "4.10.2"}, "newer")]
+                 ({"version": "4.11.0"}, {"version": "4.10.2"}, "newer"),
+                 ({"version": "4.10.2", "channel": "PTU"}, {"version": "4.10.2"}, "older"),
+                 ({"version": "4.10.2", "channel": "LIVE"}, {"version": "4.10.2"}, "matched")]
         for gd, meta, want in cases:
             self.assertEqual(build.gamedata_match(gd, meta), want, (gd, meta))
 
@@ -212,8 +249,67 @@ class GameDataLayerTests(unittest.TestCase):
             again, _ = self.build_with(version, "123")
             self.assertEqual(again.get("Some_Contract_Title"), "[BP] Defend the Outpost")
             self.assertEqual(again.get("Some_Contract_Desc").count("Blueprints this contract"), 1)
+            self.assertEqual(again.get("Rep_Title").count(" Rep]"), 1)
+            self.assertEqual(again.get("Rep_Desc").count("Reputation awarded"), 1)
             self.tearDown()
 
+
+
+class ScmdbSummaryTests(unittest.TestCase):
+    DATA = {
+        "version": "4.10.2-live.123",
+        "scopes": {"std": {"scopeName": "FactionReputation"}, "aff": {"scopeName": "Affinity"}},
+        "eventScopes": {"ev": {"eventName": "CleanAir"}},
+        "factions": {"f1": {"name": "Dead Saints"}},
+        "blueprintPools": {"p1": {"blueprints": [{"name": "Testudo Core"}, {"name": "@placeholder"}]}},
+        "factionRewardsPools": [[{"scopeGuid": "std", "amount": 200}, {"scopeGuid": "aff", "amount": 999}]],
+        "contracts": [
+            {"titleLocKey": "DS_Title", "descriptionLocKey": "DS_Desc", "factionGuid": "f1",
+             "factionRewardsIndex": 0, "contractDefinitionIds": ["a", "b"],
+             "blueprintRewards": [{"blueprintPool": "p1"}],
+             "minStanding": {"name": "Sr. Contractor", "minReputation": 5800}},
+            {"titleLocKey": "Event_Title", "descriptionLocKey": "Event_Desc", "factionGuid": "x",
+             "minStanding": {"name": "Neutral", "minReputation": 0},
+             "completionTags": [{"tag": "ev", "count": 225}, {"tag": "other", "count": 5}]},
+        ],
+        "legacyContracts": [],
+    }
+
+    def test_summarise(self):
+        titles, descs = fetch_gamedata.summarise_scmdb(self.DATA).result()
+        self.assertEqual(titles["DS_Title"], {"bp": 2, "total": 2, "rep": [200]})
+        self.assertEqual(descs["DS_Desc"], {"bp": 2, "total": 2, "items": ["Testudo Core"], "rep": [200],
+                                            "req": [["Sr. Contractor", 5800]], "faction": "Dead Saints"})
+        self.assertEqual(descs["Event_Desc"], {"bp": 0, "total": 1, "scenario": [225]})
+        self.assertNotIn("Event_Title", titles)
+
+
+class FetchMergeTests(unittest.TestCase):
+    def test_parse_version_channels(self):
+        self.assertEqual(fetch_gamedata.parse_version("4.10.2-live.12881860"),
+                         {"version": "4.10.2", "channel": "LIVE", "build": "12881860"})
+        self.assertEqual(fetch_gamedata.parse_version("4.11.0-PTU.13000000")["channel"], "PTU")
+
+    def test_rank_prefers_newer_patch_then_live_then_source(self):
+        def src(name, version, channel, build="1"):
+            return {"name": name, "version": version, "channel": channel, "build": build}
+        ranked = sorted([src("fleetyards", "4.10.2", "LIVE"), src("scmdb", "4.10.2", "PTU", "9"),
+                         src("scunpacked", "4.10.1", "LIVE"), src("scmdb", "4.10.2", "LIVE")],
+                        key=fetch_gamedata._rank, reverse=True)
+        self.assertEqual([(s["name"], s["channel"]) for s in ranked],
+                         [("scmdb", "LIVE"), ("fleetyards", "LIVE"), ("scmdb", "PTU"), ("scunpacked", "LIVE")])
+
+    def test_unstated_standing_reputation_filled_from_other_sources(self):
+        descs = {"A": {"req": [["Contractor", 2200]]},
+                 "B": {"req": [["Contractor", None], ["Sr. Contractor", None]], "faction": "X"},
+                 "C": {"req": [["Neutral", None]], "faction": "Y"}}
+        fetch_gamedata.resolve_standings(descs)
+        self.assertEqual(descs["B"], {"req": [["Contractor", 2200]], "faction": "X"})
+        self.assertEqual(descs["C"], {})
+
+    def test_fleetyards_text_matching(self):
+        self.assertEqual(fetch_gamedata.normalise_text("Line one\n\nLine  two "),
+                         fetch_gamedata.normalise_text("Line one\\n\\nLine two"))
 
 if __name__ == "__main__":
     unittest.main()

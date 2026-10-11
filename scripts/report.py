@@ -78,7 +78,8 @@ def main() -> int:
     if new_path.parent.name == channel:
         _, built = build(new_path, "remix")
         c = built["counts"]
-        print(f"Blueprint rewards: **{c['bp_title']}** contract titles and **{c['bp_desc']}** descriptions "
+        print(f"Contract info (blueprints, reputation, standing, scenario progress): **{c['contract_title']}** "
+              f"titles and **{c['contract_desc']}** descriptions "
               f"annotated ({built['gamedata']}). CIG text fixes: **{c['cig_fix']}**.\n")
 
     if old_path is None:
