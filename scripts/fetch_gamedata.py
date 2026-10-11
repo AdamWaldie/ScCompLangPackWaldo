@@ -3,7 +3,7 @@
 Fetch contract game data and write the compact summary the build uses.
 
 Two public sources, both extracted from the game files each patch:
-  * SCMDB (https://scmdb.net, used with its author's permission): usually has the current LIVE build
+  * SCMDB (https://scmdb.net): usually has the current LIVE build
     within a day or two of a patch. It lists the contractor career and event contracts.
   * StarCitizenWiki's scunpacked-data (extracted with octfx/ScDataDumper): every contract, but often
     published days or weeks after a patch.

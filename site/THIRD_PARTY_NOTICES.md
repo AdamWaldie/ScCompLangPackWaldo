@@ -26,13 +26,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
-
-## Game data
-
-Contract reputation, standing, scenario progress and blueprint information in the packs is generated from:
-
-- [SCMDB](https://scmdb.net/) by Krovax (CC BY-NC-ND 4.0), used with the author's permission.
-- [StarCitizenWiki's scunpacked-data](https://github.com/StarCitizenWiki/scunpacked-data), extracted with
-  [ScDataDumper](https://github.com/octfx/ScDataDumper).
-
-Star Citizen®, Roberts Space Industries® and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC.
