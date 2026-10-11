@@ -2,37 +2,44 @@
 """
 Fetch contract game data and write the compact summary the build uses.
 
-Two public sources, both extracted from the game files each patch:
-  * SCMDB (https://scmdb.net): usually has the current LIVE build
-    within a day or two of a patch. It lists the contractor career and event contracts.
-  * StarCitizenWiki's scunpacked-data (extracted with octfx/ScDataDumper): every contract, but often
-    published days or weeks after a patch.
-The newer source wins for every key it has; the other fills the keys it lacks, marked "asof" with
-its own patch when that is older. If one source can't be fetched the other is used alone.
+Several public sources, each extracted from the game files every patch, are combined:
+  * SCMDB (https://scmdb.net): usually has a new build within a day or two. Career and event
+    contracts, keyed by their global.ini keys.
+  * StarCitizenWiki's scunpacked-data (extracted with octfx/ScDataDumper): every contract, keyed,
+    but often published days or weeks after a patch.
+  * FleetYards (https://fleetyards.net), parsed nightly: every contract, but without global.ini keys,
+    so its contracts are matched to keys by their exact text in the stock file (text shared by more
+    than one key is skipped). Its reputation is used only when a contract pays exactly one, since it
+    doesn't say which rewards are the hidden "Affinity" reputation.
+Each source can offer its LIVE and its PTU build. PTU is a test build of the coming LIVE patch, so its
+contract data usually appears there first: PTU data for the stock file's own patch is used (labelled
+as PTU) until LIVE data arrives. Data for a patch newer than the stock file is never used.
+
+The best build wins for every key it has (newest patch, then LIVE over PTU, then newest build, then
+SCMDB > scunpacked-data > FleetYards); the others fill the keys it lacks, marked "asof" with their own
+patch when that differs. A source that can't be fetched or looks broken is skipped.
 
 Writes data/gamedata/LIVE.json:
     {
-      "version": "4.10.2", "build": "12881860", "format": 3,
-      "sources": {"scmdb": {"version": ..., "build": ..., "id": ...}, "scunpacked": {...}},
+      "version": "4.10.2", "build": "12881860", "channel": "LIVE", "format": 4,
+      "sources": {"scmdb/LIVE": {"version": ..., "build": ..., "id": ...}, ...},
       "titles":       {"<title key>": {"bp": 3, "total": 4, "rep": [200]}},
       "descriptions": {"<desc key>":  {"bp": 3, "total": 4, "items": ["A", "B", ...], "rep": [200],
                                        "req": [["Sr. Contractor", 5800]], "faction": "Dead Saints",
                                        "scenario": [255], "asof": "4.10.1"}}
     }
-"version"/"build" are the newest source's. "bp" counts contracts using that key that award
+"version"/"build"/"channel" are the best build's. "bp" counts contracts using that key that award
 blueprints, "total" all contracts using it, so the build can tell "always awards" from "only some
 versions award". "rep" is the distinct reputation amounts a contract pays (hidden "Affinity"
 reputation left out), "req" the distinct minimum standings needed to be offered it (entry level left
 out), "faction" whose standing that is when every version agrees, and "scenario" the distinct
 scenario progress points. Keys with none of these are left out.
 
-The build only uses this file when its version is not newer than the stock file, and labels older
-information "as of <patch>".
-
 Usage:
-    python scripts/fetch_gamedata.py                       # fetch both sources, update data/gamedata/LIVE.json
+    python scripts/fetch_gamedata.py                       # fetch every source, update data/gamedata/LIVE.json
     python scripts/fetch_gamedata.py --source-dir <clone>  # use an existing scunpacked-data checkout
     python scripts/fetch_gamedata.py --scmdb-file <json>   # use a downloaded SCMDB merged-*.json
+    python scripts/fetch_gamedata.py --no-fleetyards       # skip FleetYards (about 2,000 API calls)
 """
 
 from __future__ import annotations
@@ -43,17 +50,24 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
+import urllib.parse
 import urllib.request
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OUT = REPO_ROOT / "data" / "gamedata" / "LIVE.json"
+STOCK_DIR = REPO_ROOT / "stock" / "LIVE"
 SOURCE_REPO = "https://github.com/StarCitizenWiki/scunpacked-data"
 SCMDB_DATA = "https://scmdb.net/data"
+FLEETYARDS_API = "https://api.fleetyards.net/v1"
 USER_AGENT = "ScCompLangPackWaldo (+https://github.com/AdamWaldie/ScCompLangPackWaldo)"
 # Bump when the summary gains or changes fields, so the next run rebuilds it from the same data.
-FORMAT = 3
+FORMAT = 4
+# Which source wins between builds of the same patch, channel and build number.
+PRIORITY = {"scmdb": 2, "scunpacked": 1, "fleetyards": 0}
 
 SUBJECT_RE = re.compile(r"(\d+\.\d+(?:\.\d+)?)[-_ ]?(LIVE|PTU|EPTU|HOTFIX)?[.\-_ ]?(\d{6,9})?", re.IGNORECASE)
 
@@ -71,10 +85,30 @@ def clone(dest: Path) -> None:
 
 
 def parse_version(subject: str) -> dict:
+    """{"version", "channel" ("LIVE"/"PTU", or "" when the label doesn't say), "build"}, or {}."""
     m = SUBJECT_RE.search(subject)
     if not m:
         return {}
-    return {"version": m.group(1), "channel": (m.group(2) or "").upper(), "build": m.group(3) or ""}
+    channel = (m.group(2) or "").upper()
+    channel = {"EPTU": "PTU", "HOTFIX": "LIVE"}.get(channel, channel)
+    return {"version": m.group(1), "channel": channel, "build": m.group(3) or ""}
+
+
+def version_tuple(v: str) -> tuple[int, ...]:
+    parts = [int(x) for x in re.findall(r"\d+", v or "")]
+    return tuple((parts + [0, 0, 0])[:3])
+
+
+def get_json(url: str, retries: int = 2):
+    for attempt in range(retries + 1):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except (OSError, ValueError):
+            if attempt == retries:
+                raise
+            time.sleep(2 * (attempt + 1))
 
 
 class Summary:
@@ -89,8 +123,9 @@ class Summary:
         self.awarding = 0
 
     def add(self, title_key: str, desc_key: str, items: list[str], rep: int,
-            req: tuple[str, int, str] | None, scenario: int, count: int = 1) -> None:
-        """One contract (or `count` identical variants of it). req is (standing, reputation, faction)."""
+            req: tuple[str, int | None, str] | None, scenario: int, count: int = 1) -> None:
+        """One contract (or `count` identical variants of it). req is (standing, reputation it starts
+        at, faction); the reputation may be None when the source doesn't state it."""
         items = [i for i in items if i and not i.startswith("@") and "PLACEHOLDER" not in i]
         awards = bool(items)
         self.awarding += awards * count
@@ -117,7 +152,7 @@ class Summary:
             if e["rep"]:
                 out["rep"] = sorted(e["rep"])
             if full and e["req"]:
-                out["req"] = [list(r) for r in sorted(e["req"], key=lambda r: (r[1], r[0]))]
+                out["req"] = [list(r) for r in sorted(e["req"], key=lambda r: (r[1] or 0, r[0]))]
                 if len(e["factions"]) == 1 and next(iter(e["factions"])):
                     out["faction"] = next(iter(e["factions"]))
             if full and e["scenario"]:
@@ -137,6 +172,16 @@ def standing(std: dict | None, faction: str) -> tuple[str, int, str] | None:
     if not std or not std.get("name") or not std.get("minReputation"):
         return None
     return std["name"], int(std["minReputation"]), faction
+
+
+def candidate(name: str, label: str, ident: str, load) -> dict | None:
+    """A build a source offers, from a version label like "4.10.2-live.12881860"."""
+    meta = parse_version(label)
+    if not meta.get("version") or meta["channel"] not in ("LIVE", "PTU"):
+        print(f"note: {name} build {label!r} is not LIVE or PTU; not using it", file=sys.stderr)
+        return None
+    return {"name": name, "channel": meta["channel"], "version": meta["version"], "build": meta["build"],
+            "id": ident, "load": load}
 
 
 # --- scunpacked-data ---
@@ -164,18 +209,19 @@ def summarise_scunpacked(contracts_dir: Path) -> Summary:
     return summary
 
 
-def fetch_scunpacked(source_dir: Path | None) -> dict | None:
+def fetch_scunpacked(source_dir: Path | None) -> list[dict]:
+    """The dump's latest commit, which names its build, e.g. "4.10.1-LIVE.12660092"."""
     src = source_dir
     if src is None:
         src = Path(tempfile.mkdtemp()) / "gamedata"
         clone(src)
     subject = git("log", "-1", "--format=%s", cwd=src).strip()
     meta = parse_version(subject)
-    if not meta.get("version") or meta.get("channel") not in ("", "LIVE"):
-        print(f"note: scunpacked-data is not a LIVE build ({subject!r}); not using it", file=sys.stderr)
-        return None
-    return {"name": "scunpacked", "version": meta["version"], "build": meta["build"],
-            "id": git("rev-parse", "HEAD", cwd=src).strip(), "load": lambda: summarise_scunpacked(src / "contracts")}
+    if meta and not meta["channel"]:
+        subject += " LIVE"  # older commit subjects name no channel; the dump's default branch is LIVE
+    found = candidate("scunpacked", subject, git("rev-parse", "HEAD", cwd=src).strip(),
+                      lambda: summarise_scunpacked(src / "contracts"))
+    return [found] if found else []
 
 
 # --- SCMDB ---
@@ -205,114 +251,203 @@ def summarise_scmdb(data: dict) -> Summary:
     return summary
 
 
-def get_json(url: str):
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+def fetch_scmdb(scmdb_file: Path | None) -> list[dict]:
+    """The newest LIVE and the newest PTU build SCMDB lists."""
+    if scmdb_file:
+        data = json.loads(scmdb_file.read_text(encoding="utf-8"))
+        found = candidate("scmdb", data.get("version") or "", data.get("version") or "", lambda: summarise_scmdb(data))
+        return [found] if found else []
+    found = {}
+    for v in get_json(f"{SCMDB_DATA}/game-versions.json"):
+        label, file = v.get("version") or "", v.get("file") or ""
+        c = candidate("scmdb", label, label, lambda file=file: summarise_scmdb(get_json(f"{SCMDB_DATA}/{file}")))
+        if c and (c["channel"] not in found or _rank(c) > _rank(found[c["channel"]])):
+            found[c["channel"]] = c
+    return list(found.values())
 
 
-def fetch_scmdb(scmdb_file: Path | None) -> dict | None:
-    try:
-        if scmdb_file:
-            data = json.loads(scmdb_file.read_text(encoding="utf-8"))
-            name = scmdb_file.name
-        else:
-            versions = get_json(f"{SCMDB_DATA}/game-versions.json")
-            live = [v for v in versions if "-live." in (v.get("version") or "").lower()]
-            if not live:
-                print("note: SCMDB lists no LIVE build; not using it", file=sys.stderr)
-                return None
-            name = live[0]["file"]
-            data = None
-    except (OSError, ValueError, KeyError) as e:
-        print(f"note: SCMDB unavailable ({e}); not using it", file=sys.stderr)
-        return None
-    if data is not None:
-        label = data.get("version") or ""
-    else:
-        label = live[0]["version"]
-    meta = parse_version(label)
-    if not meta.get("version") or meta.get("channel") not in ("", "LIVE"):
-        print(f"note: SCMDB data is not a LIVE build ({label!r}); not using it", file=sys.stderr)
-        return None
+# --- FleetYards ---
 
-    def load() -> Summary:
-        return summarise_scmdb(data if data is not None else get_json(f"{SCMDB_DATA}/{name}"))
-    return {"name": "scmdb", "version": meta["version"], "build": meta["build"], "id": label, "load": load}
+def normalise_text(text: str) -> str:
+    """Compare FleetYards text (real line breaks) with global.ini values (literal "\\n" escapes)."""
+    return re.sub(r"\s+", " ", (text or "").replace("\\n", "\n")).strip()
+
+
+def stock_text_index() -> dict[str, str]:
+    """Normalised stock text -> its global.ini key, for text only one key has."""
+    seen: dict[str, list[str]] = defaultdict(list)
+    path = STOCK_DIR / "global.ini"
+    for line in path.read_text(encoding="utf-8-sig", errors="replace").splitlines():
+        key, sep, value = line.partition("=")
+        if sep and value.strip():
+            seen[normalise_text(value)].append(key.split(",")[0].strip())
+    return {text: keys[0] for text, keys in seen.items() if len(keys) == 1}
+
+
+def summarise_fleetyards(env: str) -> Summary:
+    query = "q[released]=true&q[rewardingIn][]=reputation&q[rewardingIn][]=blueprint&perPage=100"
+    slugs, page = [], 1
+    while True:
+        listing = get_json(f"{FLEETYARDS_API}/missions?{query}&source={env}&page={page}")
+        slugs += [m["slug"] for m in listing.get("items") or []]
+        if page >= ((listing.get("meta") or {}).get("pagination") or {}).get("totalPages", 0):
+            break
+        page += 1
+
+    def detail(slug: str) -> dict | None:
+        try:
+            return get_json(f"{FLEETYARDS_API}/missions/{urllib.parse.quote(slug)}?source={env}")
+        except (OSError, ValueError):
+            return None
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        missions = list(pool.map(detail, slugs))
+    failed = sum(m is None for m in missions)
+    if failed > len(slugs) // 20:
+        raise OSError(f"{failed} of {len(slugs)} FleetYards contracts could not be read")
+
+    keys = stock_text_index()
+    summary = Summary()
+    for m in filter(None, missions):
+        title_key = keys.get(normalise_text(m.get("name")), "")
+        desc_key = keys.get(normalise_text(m.get("description")), "")
+        if not (title_key or desc_key):
+            continue
+        reps = [r.get("amount") or 0 for r in (m.get("rewards") or [])
+                if r.get("kind") == "reputation" and (r.get("amount") or 0) > 0]
+        org = (m.get("org") or {}).get("name") or ""
+        # The reputation a standing starts at isn't stated; it is filled in from the other sources.
+        req = (m["minStanding"], None, org) if m.get("minStanding") else None
+        summary.add(title_key, desc_key, [b.get("name") or "" for b in (m.get("blueprints") or [])],
+                    reps[0] if len(reps) == 1 else 0, req, 0)
+    return summary
+
+
+def fetch_fleetyards(_: object = None) -> list[dict]:
+    """Every build FleetYards serves (its `source` parameter picks one, e.g. live or ptu)."""
+    found = []
+    for s in (get_json(f"{FLEETYARDS_API}/sc-data/sources").get("items") or []):
+        env, label = s.get("environment") or "", s.get("version") or ""
+        c = candidate("fleetyards", label, label, lambda env=env: summarise_fleetyards(env))
+        if c:
+            found.append(c)
+    return found
 
 
 # --- merge ---
 
-def _version_key(source: dict) -> tuple:
-    return (tuple(int(p) for p in source["version"].split(".")), int(source["build"] or 0),
-            source["name"] == "scmdb")
+def _rank(source: dict) -> tuple:
+    return (version_tuple(source["version"]), source["channel"] == "LIVE", int(source["build"] or 0),
+            PRIORITY[source["name"]])
+
+
+def label(source: dict) -> str:
+    return source["version"] + (" PTU" if source["channel"] == "PTU" else "")
+
+
+def resolve_standings(descs: dict[str, dict]) -> None:
+    """Fill in the reputation a standing starts at where a source didn't state it, from the sources
+    that do; standings still unknown, or at entry level, are dropped."""
+    known: dict[str, int] = {}
+    for info in descs.values():
+        for name, rep in info.get("req") or []:
+            if rep:
+                known.setdefault(name, rep)
+    for info in descs.values():
+        if not info.get("req") or all(rep for _, rep in info["req"]):
+            continue
+        req = sorted({(name, rep or known.get(name, 0)) for name, rep in info["req"]}, key=lambda r: (r[1], r[0]))
+        req = [list(r) for r in req if r[1]]
+        if req:
+            info["req"] = req
+        else:
+            info.pop("req")
+            info.pop("faction", None)
+
+
+def stock_version() -> str:
+    path = STOCK_DIR / "version.json"
+    return json.loads(path.read_text(encoding="utf-8")).get("version", "") if path.exists() else ""
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--source-dir", type=Path, help="Existing checkout of scunpacked-data")
     parser.add_argument("--scmdb-file", type=Path, help="Downloaded SCMDB merged-*.json")
+    parser.add_argument("--no-fleetyards", action="store_true", help="Skip FleetYards")
     args = parser.parse_args()
 
+    fetchers = [(fetch_scmdb, args.scmdb_file), (fetch_scunpacked, args.source_dir)]
+    if not args.no_fleetyards:
+        fetchers.append((fetch_fleetyards, None))
+    stock = stock_version()
     sources = []
-    for fetch, arg in ((fetch_scmdb, args.scmdb_file), (fetch_scunpacked, args.source_dir)):
+    for fetch, arg in fetchers:
+        name = fetch.__name__.removeprefix("fetch_")
         try:
-            src = fetch(arg)
-        except (OSError, subprocess.CalledProcessError) as e:
-            print(f"note: {fetch.__name__[6:]} unavailable ({e}); not using it", file=sys.stderr)
-            src = None
-        if src:
-            sources.append(src)
+            found = fetch(arg)
+        except (OSError, ValueError, KeyError, subprocess.CalledProcessError) as e:
+            print(f"note: {name} unavailable ({e}); not using it", file=sys.stderr)
+            continue
+        for src in found:
+            if stock and version_tuple(src["version"]) > version_tuple(stock):
+                print(f"note: {name} {label(src)} is newer than stock {stock}; not using it", file=sys.stderr)
+            else:
+                sources.append(src)
     if not sources:
         print("ERROR: no game data source available; leaving the current summary unchanged", file=sys.stderr)
         return 1
 
+    def key(src: dict) -> str:
+        return f"{src['name']}/{src['channel']}"
+
+    wanted = {key(s): {"version": s["version"], "build": s["build"], "id": s["id"]} for s in sources}
     current = json.loads(OUT.read_text()) if OUT.exists() else {}
-    wanted = {s["name"]: {"version": s["version"], "build": s["build"], "id": s["id"]} for s in sources}
     if current.get("format") == FORMAT and current.get("sources") == wanted:
         return 0
 
     titles: dict[str, dict] = {}
     descs: dict[str, dict] = {}
-    used = {}
-    sources.sort(key=_version_key, reverse=True)
-    newest = sources[0]  # the newest source that turns out usable
-    for src in sources:
+    used: list[str] = []
+    best = None
+    for src in sorted(sources, key=_rank, reverse=True):
         try:
             summary = src["load"]()
-        except (OSError, ValueError) as e:
-            print(f"note: {src['name']} could not be read ({e}); not using it", file=sys.stderr)
+        except (OSError, ValueError, KeyError) as e:
+            print(f"note: {key(src)} could not be read ({e}); not using it", file=sys.stderr)
             continue
         if summary.awarding == 0:
-            # A dump with no blueprint rewards at all is almost certainly broken.
-            print(f"note: {src['name']} has no blueprint rewards; not using it", file=sys.stderr)
+            # Data with no blueprint rewards at all is almost certainly broken.
+            print(f"note: {key(src)} has no blueprint rewards; not using it", file=sys.stderr)
             continue
-        if not used:
-            newest = src
-        asof = "" if (src["version"], src["build"]) == (newest["version"], newest["build"]) else src["version"]
+        best = best or src
+        same = (src["version"], src["build"], src["channel"]) == (best["version"], best["build"], best["channel"])
+        asof = "" if same else label(src)
         t, d = summary.result()
         for table, new in ((titles, t), (descs, d)):
             # The build matches keys case-insensitively, and the sources don't always agree on case.
             have = {k.lower() for k in table}
-            for key, info in new.items():
-                if key.lower() not in have:
-                    table[key] = {**info, "asof": asof} if asof else info
-        used[src["name"]] = wanted[src["name"]]
-    if not used:
+            for k, info in new.items():
+                if k.lower() not in have:
+                    table[k] = {**info, "asof": asof} if asof else info
+        used.append(key(src))
+    if best is None:
         print("ERROR: game data has no blueprint rewards; refusing to replace the current summary", file=sys.stderr)
         return 1
+    resolve_standings(descs)
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({
-        "version": newest["version"],
-        "build": newest["build"],
+        "version": best["version"],
+        "build": best["build"],
+        "channel": best["channel"],
         "format": FORMAT,
         "sources": wanted,
         "titles": dict(sorted(titles.items())),
         "descriptions": dict(sorted(descs.items())),
     }, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(json.dumps({"version": newest["version"], "build": newest["build"], "sources": list(used),
-                      "descriptions": len(descs), "titles": len(titles)}))
+    print(json.dumps({"version": best["version"], "build": best["build"], "channel": best["channel"],
+                      "sources": used, "descriptions": len(descs), "titles": len(titles)}))
     return 0
 
 

@@ -211,6 +211,15 @@ class GameDataLayerTests(unittest.TestCase):
                              "\\n- Arclight Pistol\\n- Testudo Core")
             self.assertIn(f"as of {asof}", stats["gamedata"])
 
+    def test_ptu_game_data_labelled_until_live_arrives(self):
+        import json
+        gd = dict(self.GAMEDATA, channel="PTU")
+        (self.gd_dir / "gamedata" / "LIVE.json").write_text(json.dumps(gd))
+        ini, stats = self.build_with("4.10.2", "123")
+        self.assertTrue(ini.get("Some_Contract_Desc").endswith(
+            "Blueprints this contract can award (as of 4.10.2 PTU):\\n- Arclight Pistol\\n- Testudo Core"))
+        self.assertIn("as of 4.10.2 PTU", stats["gamedata"])
+
     def test_newer_game_data_not_used(self):
         ini, stats = self.build_with("4.10.1")
         self.assertEqual(ini.get("Some_Contract_Title"), "Defend the Outpost")
@@ -221,7 +230,9 @@ class GameDataLayerTests(unittest.TestCase):
                  ({"version": "4.10.2", "build": "1"}, {"version": "4.10.2", "build": ""}, "matched"),
                  ({"version": "4.10.2", "build": "1"}, {"version": "4.10.2", "build": "2"}, "older"),
                  ({"version": "4.10.1"}, {"version": "4.10.2"}, "older"),
-                 ({"version": "4.11.0"}, {"version": "4.10.2"}, "newer")]
+                 ({"version": "4.11.0"}, {"version": "4.10.2"}, "newer"),
+                 ({"version": "4.10.2", "channel": "PTU"}, {"version": "4.10.2"}, "older"),
+                 ({"version": "4.10.2", "channel": "LIVE"}, {"version": "4.10.2"}, "matched")]
         for gd, meta, want in cases:
             self.assertEqual(build.gamedata_match(gd, meta), want, (gd, meta))
 
@@ -271,6 +282,34 @@ class ScmdbSummaryTests(unittest.TestCase):
                                             "req": [["Sr. Contractor", 5800]], "faction": "Dead Saints"})
         self.assertEqual(descs["Event_Desc"], {"bp": 0, "total": 1, "scenario": [225]})
         self.assertNotIn("Event_Title", titles)
+
+
+class FetchMergeTests(unittest.TestCase):
+    def test_parse_version_channels(self):
+        self.assertEqual(fetch_gamedata.parse_version("4.10.2-live.12881860"),
+                         {"version": "4.10.2", "channel": "LIVE", "build": "12881860"})
+        self.assertEqual(fetch_gamedata.parse_version("4.11.0-PTU.13000000")["channel"], "PTU")
+
+    def test_rank_prefers_newer_patch_then_live_then_source(self):
+        def src(name, version, channel, build="1"):
+            return {"name": name, "version": version, "channel": channel, "build": build}
+        ranked = sorted([src("fleetyards", "4.10.2", "LIVE"), src("scmdb", "4.10.2", "PTU", "9"),
+                         src("scunpacked", "4.10.1", "LIVE"), src("scmdb", "4.10.2", "LIVE")],
+                        key=fetch_gamedata._rank, reverse=True)
+        self.assertEqual([(s["name"], s["channel"]) for s in ranked],
+                         [("scmdb", "LIVE"), ("fleetyards", "LIVE"), ("scmdb", "PTU"), ("scunpacked", "LIVE")])
+
+    def test_unstated_standing_reputation_filled_from_other_sources(self):
+        descs = {"A": {"req": [["Contractor", 2200]]},
+                 "B": {"req": [["Contractor", None], ["Sr. Contractor", None]], "faction": "X"},
+                 "C": {"req": [["Neutral", None]], "faction": "Y"}}
+        fetch_gamedata.resolve_standings(descs)
+        self.assertEqual(descs["B"], {"req": [["Contractor", 2200]], "faction": "X"})
+        self.assertEqual(descs["C"], {})
+
+    def test_fleetyards_text_matching(self):
+        self.assertEqual(fetch_gamedata.normalise_text("Line one\n\nLine  two "),
+                         fetch_gamedata.normalise_text("Line one\\n\\nLine two"))
 
 if __name__ == "__main__":
     unittest.main()

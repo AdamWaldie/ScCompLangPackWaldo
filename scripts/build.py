@@ -372,17 +372,19 @@ def _version_tuple(v: str) -> tuple[int, ...]:
 
 
 def gamedata_match(gd: dict, meta: dict) -> str:
-    """'matched' (same patch, and same build when both are known), 'newer' or 'older' than the stock file."""
+    """'matched' (same patch, and same build when both are known), 'newer' or 'older' than the stock file.
+    PTU data is never 'matched': it stands in for the patch's LIVE data until that arrives."""
     gd_version, stock_version = _version_tuple(gd.get("version", "")), _version_tuple(meta.get("version", ""))
     builds_known = gd.get("build") and meta.get("build")
-    if gd_version == stock_version and not (builds_known and gd["build"] != meta["build"]):
+    if (gd_version == stock_version and gd.get("channel", "LIVE") != "PTU"
+            and not (builds_known and gd["build"] != meta["build"])):
         return "matched"
     return "newer" if gd_version > stock_version else "older"
 
 
 def load_matching_gamedata(stock_path: Path) -> tuple[dict | None, str, str]:
-    """Game data for the stock file's patch, or failing that the newest older dump: blueprint pools
-    rarely change between patches, so older data is used and labelled 'as of <version>'.
+    """Game data for the stock file's patch, or failing that older or PTU data: blueprint pools
+    rarely change between patches, so it is used and labelled 'as of <version>' (or '<version> PTU').
     Returns (game data, status, as-of version or '' when it matches)."""
     gd_path = DATA_DIR / "gamedata" / f"{stock_path.parent.name}.json"
     meta_path = stock_path.parent / "version.json"
@@ -396,7 +398,9 @@ def load_matching_gamedata(stock_path: Path) -> tuple[dict | None, str, str]:
     if match == "newer":
         return None, f"game data is newer ({gd.get('version')}) than stock {meta.get('version')}", ""
     asof = gd.get("version", "")
-    if _version_tuple(asof) == _version_tuple(meta.get("version", "")) and gd.get("build"):
+    if gd.get("channel") == "PTU":
+        asof += " PTU"
+    elif _version_tuple(asof) == _version_tuple(meta.get("version", "")) and gd.get("build"):
         asof += f" build {gd['build']}"
     return gd, f"as of {asof}; stock is {meta.get('version')}", asof
 
