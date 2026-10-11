@@ -30,7 +30,7 @@ every LIVE patch, automatically.
 | **R** | Racing (in-game "Competition") | **D** | Basic |
 | **S** | Stealth | | |
 
-The tags cover coolers, power plants, shield generators, quantum drives and radars.
+The tags cover coolers, power plants, shield generators, quantum drives, radars and computers.
 Missiles and torpedoes are tagged with their tracking signal: **IR** (infrared), **EM**
 (electromagnetic) or **CS** (cross-section).
 

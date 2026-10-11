@@ -22,7 +22,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build import CHANGES_FILE, REPO_ROOT, VARIANTS, IniFile, build  # noqa: E402
+from build import CHANGES_FILE, REPO_ROOT, VARIANTS, IniFile, build, is_placeholder  # noqa: E402
 
 REMIX_COMPONENT_TAG = re.compile(r"^[MICRS]\d{1,2}[A-D] \S")
 
@@ -69,7 +69,7 @@ def validate(channel: str) -> list[str]:
 
         if variant == "remix":
             bad = [k for k, v in stats["tagged"].items()
-                   if "_short" not in k.lower() and re.match(r"^item_?name_?(COOL|POWR|SHLD|QDRV|RADR)", k, re.I)
+                   if "_short" not in k.lower() and k not in stats["text_fixed"] and re.match(r"^item_?name_?(COOL|POWR|SHLD|QDRV|RADR|COMP)", k, re.I)
                    and not REMIX_COMPONENT_TAG.match(v)]
             if bad:
                 errors.append(f"{where}: malformed component tags: {bad[:5]}")
@@ -93,6 +93,15 @@ def validate(channel: str) -> list[str]:
                     and m.group(1).lower() not in lower]
         if dangling:
             errors.append(f"{where}: {len(dangling)} values reference keys that don't exist, e.g. {dangling[:5]}")
+
+        # Item names and descriptions must never be blank, placeholders or raw identifiers, and no text
+        # may start with a [PH] marker (fix_stock_text handles these; this catches anything new).
+        unfinished = [k for k in out.keys()
+                      if re.match(r"^item_?(name|desc)_?\w", k, re.I) and k.lower() not in {"item_name", "item_desc"}
+                      and (not (out.get(k) or "").strip() or is_placeholder(out.get(k) or ""))]
+        unfinished += [k for k in out.keys() if re.search(r"\[PH\]", out.get(k) or "", re.I)]
+        if unfinished:
+            errors.append(f"{where}: {len(unfinished)} values are blank or placeholders, e.g. {unfinished[:5]}")
 
         if stats["unresolved"]:
             errors.append(f"{where}: {len(stats['unresolved'])} unclassified component keys "

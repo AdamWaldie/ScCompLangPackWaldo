@@ -14,6 +14,18 @@ from fetch_stock import parse_message, version_key  # noqa: E402
 STOCK = (
     "﻿Frontend_PU_Version,P=4.10 - Test\r\n"
     "item_NameCOOL_AEGS_S01_Bracer=Bracer\r\n"
+    "item_Name_COMP_BEHR_S02_CSMTL=CSM-TL\r\n"
+    "item_Desc_COMP_BEHR_S02_CSMTL=Item Type: Computer\\nManufacturer: Behring\\nSize: 2\\nGrade: B\\nClass: Military\\n\\nFlavour.\r\n"
+    "item_Name_dmc_frontier_gloves_01_02_11,P=PLACEHOLDER - dmc_frontier_gloves_01_02_11\r\n"
+    "item_Desc_dmc_frontier_gloves_01_02_11,P=PLACEHOLDER - dmc_frontier_gloves_01_02_11\r\n"
+    "item_Name_cbd_boots_01_01_01,P=Placeholder - CBD Boots\r\n"
+    "item_NameHangarGravPallet=\r\n"
+    "item_Desc_cbd_jacket_02_01_01,P=Placeholder - CBD Jacket Desc\\n\\nCarrying Capacity: 1K\r\n"
+    "Miners_RepUI_Name,P=[PH] Miners\r\n"
+    "kiosk_Armor_Shop,P=Armor_Shop\r\n"
+    "mg_clovus_satrecover_title=CitCon_Prototype\r\n"
+    "chat_emote_asl_hello=asl_hello\r\n"
+    "DXSM_Screen_Slot=\r\n"
     "item_DescCOOL_AEGS_S01_Bracer=Item Type: Cooler\\nManufacturer: Aegis\\nSize: 1\\nGrade: C\\nClass: Military\\n\\nFlavour.\r\n"
     "item_NamePOWR_JUST_S01_Endurance_SCItem=Endurance\r\n"
     "item_Desc_POWR_JUST_S01_Endurance=Item Type: Power Plant\\nSize: 1\\nGrade: B\\nClass: Industrial\\n\\nText\r\n"
@@ -53,6 +65,27 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(ini.get("item_NameCOOL_AEGS_S01_Bracer"), "Bracer Military C")
         self.assertEqual(ini.get("item_NameMISL_S02_EM_TALN_Dominator"), "[EM] Dominator II Missile")
         self.assertEqual(ini.get("item_NameBOMB_S05_FSKI_Stormburst"), "Stormburst Bomb")
+
+    def test_computers_tagged(self):
+        ini, _ = self.built("remix")
+        self.assertEqual(ini.get("item_Name_COMP_BEHR_S02_CSMTL"), "M2B CSM-TL")
+        ini, _ = self.built("classic")
+        self.assertEqual(ini.get("item_Name_COMP_BEHR_S02_CSMTL"), "CSM-TL Military B")
+
+    def test_unfinished_stock_text_never_shown(self):
+        ini, stats = self.built("remix")
+        self.assertEqual(ini.get("item_Name_dmc_frontier_gloves_01_02_11"), "DMC Frontier Gloves")
+        self.assertEqual(ini.get("item_Desc_dmc_frontier_gloves_01_02_11"), "DMC Frontier Gloves")
+        self.assertEqual(ini.get("item_Name_cbd_boots_01_01_01"), "CBD Boots")
+        self.assertEqual(ini.get("item_NameHangarGravPallet"), "Hangar Grav Pallet")
+        self.assertEqual(ini.get("item_Desc_cbd_jacket_02_01_01"), "Carrying Capacity: 1K")
+        self.assertEqual(ini.get("Miners_RepUI_Name"), "Miners")
+        self.assertEqual(ini.get("kiosk_Armor_Shop"), "Armor Shop")
+        self.assertEqual(ini.get("mg_clovus_satrecover_title"), "CitCon Prototype")
+        # Deliberate identifiers and blanks are kept.
+        self.assertEqual(ini.get("chat_emote_asl_hello"), "asl_hello")
+        self.assertEqual(ini.get("DXSM_Screen_Slot"), "")
+        self.assertEqual(stats["left_blank"], [])
 
     def test_bespoke_left_alone(self):
         ini, stats = self.built("remix")

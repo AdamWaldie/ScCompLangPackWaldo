@@ -80,7 +80,7 @@ def main() -> int:
         c = built["counts"]
         print(f"Contract info (blueprints, reputation, standing, scenario progress): **{c['contract_title']}** "
               f"titles and **{c['contract_desc']}** descriptions "
-              f"annotated ({built['gamedata']}). CIG text fixes: **{c['cig_fix']}**.\n")
+              f"annotated ({built['gamedata']}). CIG text fixes: **{c['cig_fix'] + c['stock_text']}**.\n")
 
     if old_path is None:
         print("_No previous stock file to compare against (first build for this channel)._\n")
