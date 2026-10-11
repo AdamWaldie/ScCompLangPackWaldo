@@ -39,6 +39,13 @@
             "^[Ii]tem_[Nn]ame_?RADR_"
           ],
           "description": "Radar and sensor arrays"
+        },
+        {
+          "name": "Computers",
+          "patterns": [
+            "^[Ii]tem_[Nn]ame_?COMP_"
+          ],
+          "description": "Ship computers"
         }
       ]
     },

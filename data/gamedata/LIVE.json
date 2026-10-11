@@ -2,7 +2,7 @@
  "version": "4.10.2",
  "build": "12881860",
  "channel": "LIVE",
- "format": 4,
+ "format": 5,
  "sources": {
   "scmdb/LIVE": {
    "version": "4.10.2",
@@ -12845,17 +12845,6 @@
    ],
    "faction": "Ling Family Hauling"
   },
-  "LocalDelivery_DrugProd_desc_01": {
-   "bp": 0,
-   "total": 1,
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     500
-    ]
-   ],
-   "faction": "Wallace Klim"
-  },
   "LocationRush_CFP_Mining_Description": {
    "bp": 0,
    "total": 2,
@@ -15941,27 +15930,12 @@
    ],
    "faction": "Wildstar Racing"
   },
-  "assassin_desc": {
-   "bp": 0,
-   "total": 1,
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     -500
-    ]
-   ],
-   "faction": "Tecia \"Twitch\" Pacheco"
-  },
   "basesweep_desc": {
    "bp": 0,
    "total": 1,
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     -500
-    ]
-   ],
-   "faction": "Tecia \"Twitch\" Pacheco"
+   "rep": [
+    100
+   ]
   },
   "bhg_bounty_desc_ASD_Engineering_001": {
    "bp": 12,
@@ -20508,17 +20482,6 @@
     208
    ]
   },
-  "mgClovus_opensalvage_desc_001": {
-   "bp": 0,
-   "total": 1,
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     -500
-    ]
-   ],
-   "faction": "Clovus Darneely"
-  },
   "mg_miles_capturegang_desc_001": {
    "bp": 0,
    "total": 1,
@@ -20564,130 +20527,72 @@
   "mg_pacheco_prisonerbreak_desc_002": {
    "bp": 0,
    "total": 1,
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     -500
-    ]
-   ],
-   "faction": "Tecia \"Twitch\" Pacheco"
+   "rep": [
+    100
+   ]
   },
   "mg_ruto_UGF_destroy_E_desc_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1000
-   ],
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     500
-    ]
-   ],
-   "faction": "Ruto"
+   ]
   },
   "mg_ruto_UGF_destroy_H_desc_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     4000
-   ],
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     2000
-    ]
-   ],
-   "faction": "Ruto"
+   ]
   },
   "mg_ruto_UGF_destroy_desc_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     2000
-   ],
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     1500
-    ]
-   ],
-   "faction": "Ruto"
+   ]
   },
   "mg_ruto_UGF_eliminateall_Lawnocivs_desc_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     2000
-   ],
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     4000
-    ]
-   ],
-   "faction": "Ruto"
+   ]
   },
   "mg_ruto_UGF_eliminateall_civsonly_desc_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1000
-   ],
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     1000
-    ]
-   ],
-   "faction": "Ruto"
+   ]
   },
   "mg_ruto_UGF_eliminateall_desc_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     1000
-   ],
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     2000
-    ]
-   ],
-   "faction": "Ruto"
+   ]
   },
   "mg_ruto_UGF_eliminateall_nocivs_desc_001": {
    "bp": 0,
    "total": 1,
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     1000
-    ]
-   ],
-   "faction": "Ruto"
+   "rep": [
+    100
+   ]
   },
   "mg_ruto_clearcrimestat_norep_desc_01": {
    "bp": 0,
    "total": 1,
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     -500
-    ]
-   ],
-   "faction": "Ruto"
+   "rep": [
+    100
+   ]
   },
   "mg_ruto_clearcrimestat_rep_desc_01": {
    "bp": 0,
    "total": 1,
-   "req": [
-    [
-     "<= PLACEHOLDER =>",
-     -500
-    ]
-   ],
-   "faction": "Ruto"
+   "rep": [
+    100
+   ]
   },
   "northrock_SOO_repeat_desc_001": {
    "bp": 1,

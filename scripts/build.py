@@ -35,6 +35,7 @@ COMPONENT_TYPES = {
     "Shield Generator",
     "Quantum Drive",
     "Radar",
+    "Computer",
 }
 
 CLASS_PREFIX = {
@@ -249,7 +250,7 @@ def classify(ini: IniFile) -> Classification:
                 result.bespoke.append(key)
             else:
                 unresolved.append(key)
-        elif desc_key is None and re.match(r"^item_?name_?(COOL|POWR|SHLD|QDRV|QRDV|RADR)_", key, re.IGNORECASE):
+        elif desc_key is None and re.match(r"^item_?name_?(COOL|POWR|SHLD|QDRV|QRDV|RADR|COMP)_", key, re.IGNORECASE):
             result.no_description.append(key)
 
     return result
@@ -323,6 +324,8 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
                 counts["override"] += 1
 
     counts["cig_fix"] = fix_literal_at_values(ini, tagged)
+    text_fixed: set[str] = set()
+    counts["stock_text"], left_blank = fix_stock_text(ini, tagged, text_fixed)
 
     gamedata, gamedata_status, asof = load_matching_gamedata(stock_path)
     counts["contract_title"], counts["contract_desc"] = (apply_contract_info(ini, gamedata, tagged, asof)
@@ -339,6 +342,8 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
         "unresolved": sorted(result.unresolved),
         "bespoke": sorted(result.bespoke),
         "no_description": sorted(result.no_description),
+        "left_blank": left_blank,
+        "text_fixed": sorted(text_fixed),
         "tagged": dict(sorted(tagged.items())),
         "gamedata": gamedata_status,
     }
@@ -350,20 +355,138 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
 # --------------------------------------------------------------------------- #
 
 LITERAL_AT_RE = re.compile(r"^@([A-Za-z0-9].*\s.*)$")
+KEY_REF_RE = re.compile(r"^@([A-Za-z_][\w.\-]*)$")
+
+
+def readable_key_name(key: str) -> str:
+    """'item_NameClothingCabinet' -> 'Clothing Cabinet', 'item_NameSCAR' -> 'SCAR'."""
+    name = re.sub(r"^item_?(name|desc)_?", "", key, flags=re.IGNORECASE)
+    name = re.sub(r"(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])", " ", name)
+    return re.sub(r"[_\s]+", " ", name).strip() or key
 
 
 def fix_literal_at_values(ini: IniFile, tagged: dict[str, str]) -> int:
     """CIG sometimes writes plain text as '@Navigation light', which the game shows with the '@'.
-    Drop the '@' when what follows is readable text (has a space) rather than a key reference."""
+    Drop the '@' when what follows is readable text (has a space) rather than a key reference.
+    A key reference to a key that doesn't exist ('@mp_eFlashlightNova') would also show raw, so it
+    becomes a readable name made from the referring key ('Clothing Cabinet')."""
     fixed = 0
+    lower = {k.lower() for k in ini.index}
     for key in list(ini.keys()):
-        value = ini.get(key) or ""
-        m = LITERAL_AT_RE.match(value.strip())
+        value = (ini.get(key) or "").strip()
+        m = LITERAL_AT_RE.match(value)
+        new = None
         if m and m.group(1) not in ini.index:
-            ini.set(key, m.group(1))
-            tagged[key] = m.group(1)
+            new = m.group(1)
+        else:
+            ref = KEY_REF_RE.match(value)
+            if ref and ref.group(1).lower() not in lower:
+                new = readable_key_name(key)
+        if new:
+            ini.set(key, new)
+            tagged[key] = new
             fixed += 1
     return fixed
+
+
+PH_PREFIX_RE = re.compile(r"^\s*\[PH\]\s*", re.IGNORECASE)
+PH_ANYWHERE_RE = re.compile(r"[ \t]*\[PH\][ \t]*", re.IGNORECASE)
+PLACEHOLDER_PREFIX_RE = re.compile(r"^\s*(?:<\s*)?placeholder\s*(?:>\s*)?(?:[-:]\s*)?", re.IGNORECASE)
+IDENTIFIER_RE = re.compile(r"^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)+$")
+# Identifier-looking text that is meant to look that way: chat emote commands players type, in-fiction
+# usernames, e-mail handles and file names, and developer-only beacons.
+KEEP_IDENTIFIER_KEY_RE = re.compile(
+    r"^(chat_emote_|datapad_|ea_ui_player_|FW2022_|FW22_|MissionManager_|QT_Beacon|PBay_|BBT_|storm_datafac)",
+    re.IGNORECASE)
+ITEM_NAME_KEY_RE = re.compile(r"^item_?name", re.IGNORECASE)
+ITEM_DESC_KEY_RE = re.compile(r"^item_?desc", re.IGNORECASE)
+
+
+def humanise(text: str, codes: bool = False) -> str:
+    """'Armor_Shop' -> 'Armor Shop'; with codes=True a key like 'dmc_frontier_gloves_01_02_11'
+    -> 'DMC Frontier Gloves' (bare numbers dropped, a short leading maker code upper-cased)."""
+    if codes:
+        text = re.sub(r"(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])", " ", text)
+    words = [w for w in re.split(r"[_\s]+", text) if w]
+    if codes:
+        words = [w for w in words if not re.fullmatch(r"\d+\w{0,8}", w)] or words
+    out = []
+    for i, w in enumerate(words):
+        if codes and i == 0 and w.islower() and len(w) <= 4 and len(words) > 1:
+            out.append(w.upper())
+        else:
+            out.append(w[:1].upper() + w[1:] if w.islower() else w)
+    return " ".join(out)
+
+
+def is_placeholder(value: str) -> bool:
+    return bool(PH_PREFIX_RE.match(value) or PLACEHOLDER_PREFIX_RE.match(value))
+
+
+def fix_stock_text(ini: IniFile, tagged: dict[str, str], text_fixed: set[str]) -> tuple[int, list[str]]:
+    """Text CIG left unfinished, which players would see as-is. Applied every build, so new strings
+    of the same kinds are covered automatically:
+      * item names that are blank or placeholders get a readable name from the remaining text or the
+        key ('PLACEHOLDER - dmc_frontier_gloves_01_02_11' -> 'DMC Frontier Gloves');
+      * item descriptions that are blank or placeholders keep any real text after the placeholder,
+        otherwise get the item's name;
+      * a '[PH]' marker anywhere in any text is dropped;
+      * labels written as identifiers ('Armor_Shop') get spaces, except where that is intended.
+    Other blank values (ship screen slots, engine sentinels like LOC_EMPTY) are deliberate and kept.
+    Returns (values fixed, item descriptions still blank)."""
+    fixed = 0
+    lower = {k.lower(): k for k in ini.keys()}
+
+    def put(key: str, value: str) -> None:
+        nonlocal fixed
+        if value and value != ini.get(key):
+            ini.set(key, value)
+            tagged[key] = value
+            text_fixed.add(key)
+            fixed += 1
+
+    def readable_name(key: str, value: str) -> str:
+        rest = PLACEHOLDER_PREFIX_RE.sub("", PH_PREFIX_RE.sub("", value)).strip()
+        if rest and not IDENTIFIER_RE.match(rest):
+            return rest
+        return humanise(rest or re.sub(r"^item_?name_?", "", key, flags=re.IGNORECASE), codes=True)
+
+    for key in list(ini.keys()):
+        value = ini.get(key) or ""
+        if ITEM_NAME_KEY_RE.match(key) and re.sub(r"^item_?name", "", key, flags=re.IGNORECASE).strip("_"):
+            if not value.strip() or is_placeholder(value):
+                put(key, readable_name(key, value))
+                continue
+        if ITEM_DESC_KEY_RE.match(key) and (not value.strip() or is_placeholder(value)):
+            continue  # descriptions are handled below, once every name is fixed
+        new = value
+        if PH_ANYWHERE_RE.search(value):
+            new = PH_ANYWHERE_RE.sub(" ", value)
+            new = re.sub(r"(?<=>) +| +(?=<)", "", new)  # no stray space inside markup like <span> Hey</span>
+            new = re.sub(r"\s+(Name|Desc|Description)$", "", re.sub(r" {2,}", " ", new).strip())
+        if IDENTIFIER_RE.match(new.strip()) and not KEEP_IDENTIFIER_KEY_RE.match(key) \
+                and new.strip().lower() not in lower:
+            new = humanise(new.strip())
+        put(key, new)
+
+    left_blank = []
+    for key in list(ini.keys()):
+        value = ini.get(key) or ""
+        if not ITEM_DESC_KEY_RE.match(key) or not (not value.strip() or is_placeholder(value)):
+            continue
+        # Keep real text after the placeholder line, e.g. 'Placeholder - CBD Jacket Desc\n\nCarrying ...'.
+        lines = value.split("\\n")
+        rest = "\\n".join(lines[1:]).strip("\\n ").replace("\\n\\n\\n", "\\n\\n") if is_placeholder(value) else ""
+        if not rest:
+            name_key = lower.get(re.sub(r"desc", "name", key, count=1, flags=re.IGNORECASE).lower())
+            rest = (ini.get(name_key) or "").strip() if name_key else ""
+        if not rest or is_placeholder(rest):
+            rest = humanise(re.sub(r"^item_?desc_?", "", key, flags=re.IGNORECASE), codes=True)
+        if rest:
+            put(key, rest)
+        else:
+            left_blank.append(key)
+    return fixed, sorted(left_blank)
 
 
 def _version_tuple(v: str) -> tuple[int, ...]:
@@ -531,7 +654,7 @@ def main() -> int:
         c = stats["counts"]
         print(f"[{channel}/{variant}] {stats['game_version']!r}: {c['component']} components, "
               f"{c['missile']} missiles, {c['bomb']} bombs, {c['short']} short names, "
-              f"{c['override']} overrides, {c['cig_fix']} CIG text fixes, "
+              f"{c['override']} overrides, {c['cig_fix'] + c['stock_text']} CIG text fixes, "
               f"{c['contract_title']}/{c['contract_desc']} contract titles/descriptions ({stats['gamedata']}), "
               f"{len(stats['bespoke'])} bespoke left as-is -> {out}")
         if stats["unresolved"]:

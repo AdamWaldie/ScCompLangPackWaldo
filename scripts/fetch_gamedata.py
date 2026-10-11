@@ -65,7 +65,7 @@ SCMDB_DATA = "https://scmdb.net/data"
 FLEETYARDS_API = "https://api.fleetyards.net/v1"
 USER_AGENT = "ScCompLangPackWaldo (+https://github.com/AdamWaldie/ScCompLangPackWaldo)"
 # Bump when the summary gains or changes fields, so the next run rebuilds it from the same data.
-FORMAT = 4
+FORMAT = 5
 # Which source wins between builds of the same patch, channel and build number.
 PRIORITY = {"scmdb": 2, "scunpacked": 1, "fleetyards": 0}
 
@@ -126,7 +126,7 @@ class Summary:
             req: tuple[str, int | None, str] | None, scenario: int, count: int = 1) -> None:
         """One contract (or `count` identical variants of it). req is (standing, reputation it starts
         at, faction); the reputation may be None when the source doesn't state it."""
-        items = [i for i in items if i and not i.startswith("@") and "PLACEHOLDER" not in i]
+        items = [i.strip() for i in items if readable(i)]
         awards = bool(items)
         self.awarding += awards * count
         for key, table in ((title_key, self.titles), (desc_key, self.descs)):
@@ -153,7 +153,7 @@ class Summary:
                 out["rep"] = sorted(e["rep"])
             if full and e["req"]:
                 out["req"] = [list(r) for r in sorted(e["req"], key=lambda r: (r[1] or 0, r[0]))]
-                if len(e["factions"]) == 1 and next(iter(e["factions"])):
+                if len(e["factions"]) == 1 and readable(next(iter(e["factions"]))):
                     out["faction"] = next(iter(e["factions"]))
             if full and e["scenario"]:
                 out["scenario"] = sorted(e["scenario"])
@@ -166,12 +166,21 @@ class Summary:
                 {k: compact(v, True) for k, v in sorted(self.descs.items()) if useful(v, True)})
 
 
+PLACEHOLDER_RE = re.compile(r"PLACEHOLDER|UNINITIALI[SZ]ED|<=|=>|^@|^\[PH\]", re.IGNORECASE)
+
+
+def readable(name: str | None) -> str:
+    """The name, or "" when it is empty or a game-data placeholder (e.g. "<= PLACEHOLDER =>")."""
+    name = (name or "").strip()
+    return "" if not name or PLACEHOLDER_RE.search(name) else name
+
+
 def standing(std: dict | None, faction: str) -> tuple[str, int, str] | None:
     """(standing, reputation it starts at, faction) needed to be offered a contract, or None when the
-    entry level (Neutral/Applicant, 0 reputation) is enough."""
-    if not std or not std.get("name") or not std.get("minReputation"):
+    entry level (Neutral/Applicant, 0 reputation) is enough or the standing has no real name."""
+    if not std or not readable(std.get("name")) or (std.get("minReputation") or 0) <= 0:
         return None
-    return std["name"], int(std["minReputation"]), faction
+    return std["name"].strip(), int(std["minReputation"]), readable(faction)
 
 
 def candidate(name: str, label: str, ident: str, load) -> dict | None:
@@ -317,7 +326,7 @@ def summarise_fleetyards(env: str) -> Summary:
                 if r.get("kind") == "reputation" and (r.get("amount") or 0) > 0]
         org = (m.get("org") or {}).get("name") or ""
         # The reputation a standing starts at isn't stated; it is filled in from the other sources.
-        req = (m["minStanding"], None, org) if m.get("minStanding") else None
+        req = (m["minStanding"], None, readable(org)) if readable(m.get("minStanding")) else None
         summary.add(title_key, desc_key, [b.get("name") or "" for b in (m.get("blueprints") or [])],
                     reps[0] if len(reps) == 1 else 0, req, 0)
     return summary
@@ -357,7 +366,7 @@ def resolve_standings(descs: dict[str, dict]) -> None:
         if not info.get("req") or all(rep for _, rep in info["req"]):
             continue
         req = sorted({(name, rep or known.get(name, 0)) for name, rep in info["req"]}, key=lambda r: (r[1], r[0]))
-        req = [list(r) for r in req if r[1]]
+        req = [list(r) for r in req if r[1] and r[1] > 0 and readable(r[0])]
         if req:
             info["req"] = req
         else:
