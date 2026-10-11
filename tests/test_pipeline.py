@@ -146,6 +146,9 @@ class GameDataLayerTests(unittest.TestCase):
         "Old_Desc=Old job.\r\n"
         "item_DescKGGR_NavigationLight=@Navigation light\r\n"
         "item_NamePistol=@mp_ePistol\r\n"
+        "item_NameClothingCabinet=@mp_eFlashlightNova\r\n"
+        "mp_eGood=Good item\r\n"
+        "item_NameGood=@mp_eGood\r\n"
     )
     GAMEDATA = {
         "version": "4.10.2", "build": "123",
@@ -236,10 +239,13 @@ class GameDataLayerTests(unittest.TestCase):
         for gd, meta, want in cases:
             self.assertEqual(build.gamedata_match(gd, meta), want, (gd, meta))
 
-    def test_literal_at_text_fixed_but_key_references_kept(self):
+    def test_literal_at_text_and_dangling_references_fixed(self):
         ini, _ = self.build_with("4.10.1")
         self.assertEqual(ini.get("item_DescKGGR_NavigationLight"), "Navigation light")
-        self.assertEqual(ini.get("item_NamePistol"), "@mp_ePistol")
+        # References to keys that exist are kept; ones to missing keys would show raw, so get a name.
+        self.assertEqual(ini.get("item_NameGood"), "@mp_eGood")
+        self.assertEqual(ini.get("item_NamePistol"), "Pistol")
+        self.assertEqual(ini.get("item_NameClothingCabinet"), "Clothing Cabinet")
 
     def test_rebuild_is_idempotent(self):
         for version in ("4.10.2", "4.10.3"):
@@ -298,6 +304,12 @@ class FetchMergeTests(unittest.TestCase):
                         key=fetch_gamedata._rank, reverse=True)
         self.assertEqual([(s["name"], s["channel"]) for s in ranked],
                          [("scmdb", "LIVE"), ("fleetyards", "LIVE"), ("scmdb", "PTU"), ("scunpacked", "LIVE")])
+
+    def test_placeholder_and_negative_standings_dropped(self):
+        self.assertIsNone(fetch_gamedata.standing({"name": "<= PLACEHOLDER =>", "minReputation": 500}, "Ruto"))
+        self.assertIsNone(fetch_gamedata.standing({"name": "Hostile", "minReputation": -500}, "Ruto"))
+        self.assertEqual(fetch_gamedata.standing({"name": "Contractor", "minReputation": 2200}, "<= PLACEHOLDER =>"),
+                         ("Contractor", 2200, ""))
 
     def test_unstated_standing_reputation_filled_from_other_sources(self):
         descs = {"A": {"req": [["Contractor", 2200]]},

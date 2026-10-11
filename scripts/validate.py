@@ -27,6 +27,9 @@ from build import CHANGES_FILE, REPO_ROOT, VARIANTS, IniFile, build  # noqa: E40
 REMIX_COMPONENT_TAG = re.compile(r"^[MICRS]\d{1,2}[A-D] \S")
 
 
+PLACEHOLDER_TEXT = re.compile(r"PLACEHOLDER|UNINITIALI[SZ]ED|<=\s*\w|\[PH\]", re.IGNORECASE)
+
+
 def validate(channel: str) -> list[str]:
     errors: list[str] = []
     stock_path = REPO_ROOT / "stock" / channel / "global.ini"
@@ -77,6 +80,19 @@ def validate(channel: str) -> list[str]:
                   or (not v.strip() and (stock.get(k) or "").strip())]
         if broken:
             errors.append(f"{where}: {len(broken)} changed values would be broken in game, e.g. {broken[:5]}")
+
+        # Placeholder text from game data must never reach the player.
+        placeholder = [k for k, v in stats["tagged"].items()
+                       if PLACEHOLDER_TEXT.search(v) and not PLACEHOLDER_TEXT.search(stock.get(k) or "")]
+        if placeholder:
+            errors.append(f"{where}: {len(placeholder)} values gained placeholder text, e.g. {placeholder[:5]}")
+
+        # A value that only references a key that doesn't exist shows the raw "@key" in game.
+        lower = {k.lower() for k in out.index}
+        dangling = [k for k in out.keys() if (m := re.match(r"^@([A-Za-z_][\w.\-]*)$", (out.get(k) or "").strip()))
+                    and m.group(1).lower() not in lower]
+        if dangling:
+            errors.append(f"{where}: {len(dangling)} values reference keys that don't exist, e.g. {dangling[:5]}")
 
         if stats["unresolved"]:
             errors.append(f"{where}: {len(stats['unresolved'])} unclassified component keys "

@@ -350,18 +350,36 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
 # --------------------------------------------------------------------------- #
 
 LITERAL_AT_RE = re.compile(r"^@([A-Za-z0-9].*\s.*)$")
+KEY_REF_RE = re.compile(r"^@([A-Za-z_][\w.\-]*)$")
+
+
+def readable_key_name(key: str) -> str:
+    """'item_NameClothingCabinet' -> 'Clothing Cabinet', 'item_NameSCAR' -> 'SCAR'."""
+    name = re.sub(r"^item_?(name|desc)_?", "", key, flags=re.IGNORECASE)
+    name = re.sub(r"(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])", " ", name)
+    return re.sub(r"[_\s]+", " ", name).strip() or key
 
 
 def fix_literal_at_values(ini: IniFile, tagged: dict[str, str]) -> int:
     """CIG sometimes writes plain text as '@Navigation light', which the game shows with the '@'.
-    Drop the '@' when what follows is readable text (has a space) rather than a key reference."""
+    Drop the '@' when what follows is readable text (has a space) rather than a key reference.
+    A key reference to a key that doesn't exist ('@mp_eFlashlightNova') would also show raw, so it
+    becomes a readable name made from the referring key ('Clothing Cabinet')."""
     fixed = 0
+    lower = {k.lower() for k in ini.index}
     for key in list(ini.keys()):
-        value = ini.get(key) or ""
-        m = LITERAL_AT_RE.match(value.strip())
+        value = (ini.get(key) or "").strip()
+        m = LITERAL_AT_RE.match(value)
+        new = None
         if m and m.group(1) not in ini.index:
-            ini.set(key, m.group(1))
-            tagged[key] = m.group(1)
+            new = m.group(1)
+        else:
+            ref = KEY_REF_RE.match(value)
+            if ref and ref.group(1).lower() not in lower:
+                new = readable_key_name(key)
+        if new:
+            ini.set(key, new)
+            tagged[key] = new
             fixed += 1
     return fixed
 
