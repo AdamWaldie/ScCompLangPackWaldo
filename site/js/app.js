@@ -339,7 +339,7 @@ class PackMergerApp {
                 this.clearActivePreset();
                 if (checkbox.checked) {
                     card.classList.add('enabled');
-                    this.enableSource(source).then(() => this.saveState());
+                    this.enableSource(source).then(() => this.fillFromSource(source.id)).then(() => this.saveState());
                 } else {
                     card.classList.remove('enabled');
                     this.disableSource(source);
@@ -461,7 +461,7 @@ class PackMergerApp {
     applyInitialSelections() {
         if (!this.stockLoaded || this.initialSelectionsDone) return;
         const saved = this.savedState?.selections;
-        if (saved) {
+        if (saved && Object.keys(saved).length) {
             for (const [cat, src] of Object.entries(saved)) {
                 if (this.mergeEngine.imports.has(src)) this.categorySelections.set(cat, src);
             }
@@ -472,10 +472,29 @@ class PackMergerApp {
             this.updateMergeButton();
             return;
         }
-        const source = LANGUAGE_PACK_SOURCES.find(s => s.preselect && this.mergeEngine.imports.has(s.id));
+        // No saved choices (first visit, or after Reset): use our own pack, or else whichever pack is on.
+        const source = LANGUAGE_PACK_SOURCES.find(s => s.preselect && this.mergeEngine.imports.has(s.id))
+            || LANGUAGE_PACK_SOURCES.find(s => this.mergeEngine.imports.has(s.id));
         if (!source) return;
         this.initialSelectionsDone = true;
         this.setAllToSource(source.id);
+    }
+
+    /**
+     * A pack the user switches on takes every category it changes that no other pack covers yet,
+     * so switching a pack on always changes the download. Existing choices are kept.
+     */
+    async fillFromSource(sourceId) {
+        if (!this.mergeEngine.imports.has(sourceId)) return;
+        if (!this.stockLoaded) await this.stockPromise;
+        const diffs = this.mergeEngine.getAllCategoryDiffs().get(sourceId);
+        if (!diffs) return;
+        for (const [cat, stats] of diffs) {
+            if (stats.modified > 0 && !this.categorySelections.has(cat)) this.categorySelections.set(cat, sourceId);
+        }
+        this.initialSelectionsDone = true;
+        this.renderCategoryTree();
+        this.updateMergeButton();
     }
 
     setAllToSource(sourceId) {
@@ -761,7 +780,7 @@ class PackMergerApp {
         btn.disabled = mobileBtn.disabled = !ready;
 
         if (this.categorySelections.size === 0) {
-            list.innerHTML = '<li class="muted">Nothing selected yet — pick a preset to start.</li>';
+            list.innerHTML = '<li class="muted">Nothing selected yet — switch on a pack or pick a preset.</li>';
             summary.textContent = this.stockLoaded ? 'Your download would be the unchanged stock file.' : '';
             mobileText.textContent = 'Nothing selected';
             return;

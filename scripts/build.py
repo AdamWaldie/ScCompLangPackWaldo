@@ -325,7 +325,8 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
     counts["cig_fix"] = fix_literal_at_values(ini, tagged)
 
     gamedata, gamedata_status, asof = load_matching_gamedata(stock_path)
-    counts["bp_title"], counts["bp_desc"] = apply_blueprints(ini, gamedata, tagged, asof) if gamedata else (0, 0)
+    counts["contract_title"], counts["contract_desc"] = (apply_contract_info(ini, gamedata, tagged, asof)
+                                                         if gamedata else (0, 0))
 
     version_key = "Frontend_PU_Version"
     stock_version = ini.get(version_key)
@@ -404,6 +405,10 @@ BP_TITLE = "[BP] "
 BP_TITLE_SOME = "[BP]* "
 BP_HEADER = "Blueprints this contract can award"
 BP_HEADER_SOME = "Blueprints (only some versions of this contract award these"
+REP_LABEL = "Reputation awarded"
+REQ_LABEL = "Requires"
+SCENARIO_LABEL = "Scenario progress"
+VARIES = " (depends on the version offered)"
 
 
 def bp_header(some: bool, asof: str = "") -> str:
@@ -412,32 +417,73 @@ def bp_header(some: bool, asof: str = "") -> str:
     return BP_HEADER + (f" (as of {asof})" if asof else "") + ":"
 
 
-def apply_blueprints(ini: IniFile, gamedata: dict, tagged: dict[str, str], asof: str = "") -> tuple[int, int]:
-    """Prefix titles of blueprint-awarding contracts and list the possible blueprints in descriptions.
-    With older game data the list header says which patch it is from."""
+def rep_tag(amounts: list[int]) -> str:
+    """Title suffix: " [200 Rep]", " [200/400/800 Rep]", or a range when a key covers many versions."""
+    if len(amounts) > 3:
+        return f" [{amounts[0]}-{amounts[-1]} Rep]"
+    return " [" + "/".join(str(a) for a in amounts) + " Rep]"
+
+
+def contract_info_lines(info: dict, asof: str = "") -> list[str]:
+    """Reputation, standing and scenario lines for a description. The first label says which patch
+    the numbers are from when the game data is older than the stock file."""
+    lines = []
+    if info.get("rep"):
+        rep = info["rep"]
+        lines.append([REP_LABEL, " / ".join(f"{a:,}" for a in rep) + (VARIES if len(rep) > 1 else "")])
+    if info.get("req"):
+        req = info["req"]
+        text = " / ".join(name for name, _ in req) + " standing"
+        if info.get("faction"):
+            text += f" with {info['faction']}"
+        lines.append([REQ_LABEL, text + (VARIES if len(req) > 1 else "")])
+    if info.get("scenario"):
+        pts = info["scenario"]
+        lines.append([SCENARIO_LABEL, " / ".join(f"{p:,}" for p in pts) + " points"
+                      + (VARIES if len(pts) > 1 else "")])
+    if lines and asof:
+        lines[0][0] += f" (as of {asof})"
+    return [f"{label}: {text}" for label, text in lines]
+
+
+def apply_contract_info(ini: IniFile, gamedata: dict, tagged: dict[str, str], asof: str = "") -> tuple[int, int]:
+    """Mark contract titles with blueprint rewards ([BP] prefix) and reputation ([200 Rep] suffix), and
+    add reputation, required standing, scenario progress and possible blueprints to descriptions.
+    With older game data the description says which patch the information is from."""
     lower = {k.lower(): k for k in ini.keys()}
     titles = descs = 0
     for key, info in gamedata.get("titles", {}).items():
         real = lower.get(key.lower())
         value = ini.get(real) if real else None
-        if not value or value.startswith(("[BP]", "[BP]*")):
+        if not value:
             continue
-        new = (BP_TITLE if info["bp"] >= info["total"] else BP_TITLE_SOME) + value
-        ini.set(real, new)
-        tagged[real] = new
-        titles += 1
+        new = value
+        if info.get("bp") and not new.startswith(("[BP]", "[BP]*")):
+            new = (BP_TITLE if info["bp"] >= info["total"] else BP_TITLE_SOME) + new
+        if info.get("rep") and not new.endswith(" Rep]"):
+            new = new.rstrip() + rep_tag(info["rep"])
+        if new != value:
+            ini.set(real, new)
+            tagged[real] = new
+            titles += 1
     for key, info in gamedata.get("descriptions", {}).items():
         real = lower.get(key.lower())
         value = ini.get(real) if real else None
-        items = info.get("items") or []
-        if not value or not items or BP_HEADER in value or BP_HEADER_SOME in value:
+        if not value:
             continue
-        header = bp_header(info["bp"] < info["total"], asof)
         # Values use literal "\n" escapes, like the rest of global.ini.
-        new = value.rstrip() + "\\n\\n" + header + "".join("\\n- " + i for i in items)
-        ini.set(real, new)
-        tagged[real] = new
-        descs += 1
+        new = value.rstrip()
+        lines = contract_info_lines(info, asof)
+        if lines and not any(f"\\n\\n{label}" in new for label in (REP_LABEL, REQ_LABEL, SCENARIO_LABEL)):
+            new += "\\n\\n" + "\\n".join(lines)
+        items = info.get("items") or []
+        if items and BP_HEADER not in new and BP_HEADER_SOME not in new:
+            header = bp_header(info["bp"] < info["total"], asof)
+            new += "\\n\\n" + header + "".join("\\n- " + i for i in items)
+        if new != value.rstrip():
+            ini.set(real, new)
+            tagged[real] = new
+            descs += 1
     return titles, descs
 
 
@@ -479,7 +525,7 @@ def main() -> int:
         print(f"[{channel}/{variant}] {stats['game_version']!r}: {c['component']} components, "
               f"{c['missile']} missiles, {c['bomb']} bombs, {c['short']} short names, "
               f"{c['override']} overrides, {c['cig_fix']} CIG text fixes, "
-              f"{c['bp_title']}/{c['bp_desc']} blueprint titles/descriptions ({stats['gamedata']}), "
+              f"{c['contract_title']}/{c['contract_desc']} contract titles/descriptions ({stats['gamedata']}), "
               f"{len(stats['bespoke'])} bespoke left as-is -> {out}")
         if stats["unresolved"]:
             print(f"  WARNING: {len(stats['unresolved'])} unclassified component-like keys "

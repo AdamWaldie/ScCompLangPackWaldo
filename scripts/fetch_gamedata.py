@@ -10,11 +10,18 @@ e.g. "4.10.1-LIVE.12660092".
 Writes data/gamedata/LIVE.json:
     {
       "version": "4.10.1", "build": "12660092", "source_sha": "...",
-      "titles":       {"<title key>": {"bp": 3, "total": 4}},
-      "descriptions": {"<desc key>":  {"bp": 3, "total": 4, "items": ["A", "B", ...]}}
+      "titles":       {"<title key>": {"bp": 3, "total": 4, "rep": [200]}},
+      "descriptions": {"<desc key>":  {"bp": 3, "total": 4, "items": ["A", "B", ...], "rep": [200],
+                                       "req": [["Sr. Contractor", 5800]], "faction": "Dead Saints",
+                                       "scenario": [255]}}
     }
 "bp" counts contracts using that key that award blueprints, "total" all contracts using it, so
-the build can tell "always awards" from "only some versions award".
+the build can tell "always awards" from "only some versions award". "rep" is the distinct reputation
+amounts a contract pays (hidden "Affinity" reputation left out), "req" the distinct minimum standings
+needed to be offered it (entry level left out), "faction" whose standing that is when every version
+agrees, and "scenario" the distinct scenario progress points. Keys with none of these are left out.
+
+The game data is the StarCitizenWiki's scunpacked-data, extracted from each patch by octfx/ScDataDumper.
 
 The build only uses this file when its version matches the stock file, so blueprint lists are
 never shown for the wrong patch.
@@ -38,6 +45,8 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OUT = REPO_ROOT / "data" / "gamedata" / "LIVE.json"
 SOURCE_REPO = "https://github.com/StarCitizenWiki/scunpacked-data"
+# Bump when the summary gains or changes fields, so the next run rebuilds it from the same dump.
+FORMAT = 2
 
 SUBJECT_RE = re.compile(r"(\d+\.\d+(?:\.\d+)?)[-_ ]?(LIVE|PTU|EPTU|HOTFIX)?[.\-_ ]?(\d{6,9})?", re.IGNORECASE)
 
@@ -61,9 +70,31 @@ def parse_version(subject: str) -> dict:
     return {"version": m.group(1), "channel": (m.group(2) or "").upper(), "build": m.group(3) or ""}
 
 
+def contract_rep(c: dict) -> int:
+    """Reputation a contract pays in its career scope. "Affinity" is a hidden per-faction relationship
+    the game doesn't show for contracts, so it is left out; the biggest remaining gain is the one shown."""
+    amounts = [r.get("Amount") or 0 for r in (c.get("ReputationGained") or []) if r.get("Scope") != "Affinity"]
+    return max([a for a in amounts if a > 0], default=0)
+
+
+def contract_req(c: dict) -> tuple[str, int, str] | None:
+    """(standing name, reputation it starts at, faction) needed to be offered the contract, or None
+    when anyone can take it."""
+    pre = c.get("ReputationPrerequisite") or {}
+    std = pre.get("MinStanding") or c.get("MinStanding") or {}
+    if not std.get("Name") or not std.get("MinReputation"):
+        return None
+    faction = pre.get("Faction") or (c.get("Faction") or {}).get("Name") or ""
+    return std["Name"], int(std["MinReputation"]), faction
+
+
 def summarise(contracts_dir: Path) -> tuple[dict, dict, int]:
-    titles: dict[str, dict] = defaultdict(lambda: {"bp": 0, "total": 0})
-    descs: dict[str, dict] = defaultdict(lambda: {"bp": 0, "total": 0, "items": set()})
+    def entry() -> dict:
+        return {"bp": 0, "total": 0, "items": set(), "rep": set(), "req": set(), "factions": set(),
+                "scenario": set()}
+
+    titles: dict[str, dict] = defaultdict(entry)
+    descs: dict[str, dict] = defaultdict(entry)
     awarding = 0
     for path in sorted(contracts_dir.glob("*.json")):
         try:
@@ -78,18 +109,43 @@ def summarise(contracts_dir: Path) -> tuple[dict, dict, int]:
         items = [i for i in items if not i.startswith("@") and "PLACEHOLDER" not in i]
         awards = bool(items)
         awarding += awards
-        if c.get("TitleKey"):
-            t = titles[c["TitleKey"]]
-            t["total"] += 1
-            t["bp"] += awards
-        if c.get("DescriptionKey"):
-            d = descs[c["DescriptionKey"]]
-            d["total"] += 1
-            d["bp"] += awards
-            d["items"].update(items)
-    titles_out = {k: v for k, v in sorted(titles.items()) if v["bp"]}
-    descs_out = {k: {"bp": v["bp"], "total": v["total"], "items": sorted(v["items"])}
-                 for k, v in sorted(descs.items()) if v["bp"]}
+        rep = contract_rep(c)
+        req = contract_req(c)
+        scenario = c.get("ScenarioProgress") or 0
+        for key, table in ((c.get("TitleKey"), titles), (c.get("DescriptionKey"), descs)):
+            if not key:
+                continue
+            e = table[key]
+            e["total"] += 1
+            e["bp"] += awards
+            e["items"].update(items)
+            if rep:
+                e["rep"].add(rep)
+            if req:
+                e["req"].add(req[:2])
+                e["factions"].add(req[2])
+            if scenario > 0:
+                e["scenario"].add(int(scenario))
+
+    def compact(e: dict, with_items: bool) -> dict:
+        out = {"bp": e["bp"], "total": e["total"]}
+        if with_items and e["bp"]:
+            out["items"] = sorted(e["items"])
+        if e["rep"]:
+            out["rep"] = sorted(e["rep"])
+        if e["req"] and with_items:
+            out["req"] = [list(r) for r in sorted(e["req"], key=lambda r: (r[1], r[0]))]
+            if len(e["factions"]) == 1 and next(iter(e["factions"])):
+                out["faction"] = next(iter(e["factions"]))
+        if e["scenario"] and with_items:
+            out["scenario"] = sorted(e["scenario"])
+        return out
+
+    def useful(e: dict, with_items: bool) -> bool:
+        return bool(e["bp"] or e["rep"] or (with_items and (e["req"] or e["scenario"])))
+
+    titles_out = {k: compact(v, False) for k, v in sorted(titles.items()) if useful(v, False)}
+    descs_out = {k: compact(v, True) for k, v in sorted(descs.items()) if useful(v, True)}
     return titles_out, descs_out, awarding
 
 
@@ -111,7 +167,7 @@ def main() -> int:
         return 0
 
     current = json.loads(OUT.read_text()) if OUT.exists() else {}
-    if current.get("source_sha") == sha:
+    if current.get("source_sha") == sha and current.get("format") == FORMAT:
         return 0
 
     titles, descs, awarding = summarise(src / "contracts")
@@ -125,6 +181,7 @@ def main() -> int:
         "version": meta["version"],
         "build": meta["build"],
         "source_sha": sha,
+        "format": FORMAT,
         "contracts_awarding": awarding,
         "titles": titles,
         "descriptions": descs,

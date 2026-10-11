@@ -140,13 +140,19 @@ class GameDataLayerTests(unittest.TestCase):
         "Some_Contract_Title=Defend the Outpost\r\n"
         "Some_Contract_Desc=Go there.\\nKill them.\r\n"
         "Shared_Title=Shared Job\r\n"
+        "Rep_Title=Taking Back Our Goods\r\n"
+        "Rep_Desc=Get the cargo.\r\n"
         "item_DescKGGR_NavigationLight=@Navigation light\r\n"
         "item_NamePistol=@mp_ePistol\r\n"
     )
     GAMEDATA = {
         "version": "4.10.2", "build": "123",
-        "titles": {"some_contract_title": {"bp": 2, "total": 2}, "Shared_Title": {"bp": 1, "total": 3}},
-        "descriptions": {"Some_Contract_Desc": {"bp": 2, "total": 2, "items": ["Arclight Pistol", "Testudo Core"]}},
+        "titles": {"some_contract_title": {"bp": 2, "total": 2}, "Shared_Title": {"bp": 1, "total": 3},
+                   "Rep_Title": {"bp": 0, "total": 3, "rep": [200, 400, 800]}},
+        "descriptions": {"Some_Contract_Desc": {"bp": 2, "total": 2, "items": ["Arclight Pistol", "Testudo Core"]},
+                         "Rep_Desc": {"bp": 0, "total": 3, "rep": [200, 400, 800],
+                                      "req": [["Contractor", 2200], ["Sr. Contractor", 5800]],
+                                      "faction": "Dead Saints", "scenario": [255]}},
     }
 
     def setUp(self):
@@ -175,6 +181,16 @@ class GameDataLayerTests(unittest.TestCase):
                          "Go there.\\nKill them.\\n\\nBlueprints this contract can award:"
                          "\\n- Arclight Pistol\\n- Testudo Core")
         self.assertIn("matched", stats["gamedata"])
+
+    def test_reputation_standing_and_scenario_added(self):
+        ini, _ = self.build_with("4.10.2", "123")
+        self.assertEqual(ini.get("Rep_Title"), "Taking Back Our Goods [200/400/800 Rep]")
+        self.assertEqual(ini.get("Rep_Desc"),
+                         "Get the cargo.\\n\\nReputation awarded: 200 / 400 / 800 (depends on the version offered)"
+                         "\\nRequires: Contractor / Sr. Contractor standing with Dead Saints"
+                         " (depends on the version offered)\\nScenario progress: 255 points")
+        ini, _ = self.build_with("4.10.3")
+        self.assertTrue(ini.get("Rep_Desc").startswith("Get the cargo.\\n\\nReputation awarded (as of 4.10.2): 200"))
 
     def test_older_game_data_used_as_of_its_patch(self):
         for version, build_no, asof in (("4.10.3", "", "4.10.2"), ("4.10.2", "999", "4.10.2 build 123")):
@@ -212,6 +228,8 @@ class GameDataLayerTests(unittest.TestCase):
             again, _ = self.build_with(version, "123")
             self.assertEqual(again.get("Some_Contract_Title"), "[BP] Defend the Outpost")
             self.assertEqual(again.get("Some_Contract_Desc").count("Blueprints this contract"), 1)
+            self.assertEqual(again.get("Rep_Title").count(" Rep]"), 1)
+            self.assertEqual(again.get("Rep_Desc").count("Reputation awarded"), 1)
             self.tearDown()
 
 
