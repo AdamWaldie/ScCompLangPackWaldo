@@ -12,6 +12,7 @@ class MergeEngine {
         this.categoryDB = categoryDB;
         this.stock = null;              // Map<key, value>
         this.imports = new Map();       // Map<sourceName, Map<key, value>>
+        this.keyAdders = new Set();     // packs whose keys missing from stock are written too
         this.stockClassification = null; // Map<key, category> — cached
     }
 
@@ -28,9 +29,13 @@ class MergeEngine {
      * Add an imported language pack.
      * @param {string} name - Display name / source ID
      * @param {Map<string, string>} iniMap - Parsed INI from this pack
+     * @param {{addsKeys?: boolean}} [options] - addsKeys: the pack adds text for keys stock lacks
+     *   (other packs' extra keys are usually ones CIG has since removed, so they are left out)
      */
-    addImport(name, iniMap) {
+    addImport(name, iniMap, { addsKeys = false } = {}) {
         this.imports.set(name, iniMap);
+        if (addsKeys) this.keyAdders.add(name);
+        else this.keyAdders.delete(name);
     }
 
     /**
@@ -39,6 +44,7 @@ class MergeEngine {
      */
     removeImport(name) {
         this.imports.delete(name);
+        this.keyAdders.delete(name);
     }
 
     /**
@@ -46,6 +52,39 @@ class MergeEngine {
      */
     clearImports() {
         this.imports.clear();
+        this.keyAdders.clear();
+    }
+
+    /**
+     * Every key to write: the stock keys in order, then keys the given packs add that stock lacks
+     * (e.g. text CIG never wrote for "@item_TypeUtilityTurret"; only packs added with addsKeys),
+     * each with its stock value (undefined for an added key, so any pack's value counts as a change).
+     * @param {string[]} sourceIds - Packs whose added keys to include
+     * @returns {Array<[string, string|undefined]>}
+     */
+    _entries(sourceIds) {
+        const entries = [...this.stock];
+        const bare = key => key.split(',')[0].trim().toLowerCase();
+        const known = new Set([...this.stock.keys()].map(bare));
+        for (const id of sourceIds) {
+            const importData = this.imports.get(id);
+            if (!importData || !this.keyAdders.has(id)) continue;
+            for (const key of importData.keys()) {
+                if (known.has(bare(key))) continue;
+                known.add(bare(key));
+                entries.push([key, undefined]);
+            }
+        }
+        return entries;
+    }
+
+    /**
+     * Category of a key: cached for stock keys, classified on demand for keys only a pack has.
+     * @param {string} key
+     * @returns {string}
+     */
+    _category(key) {
+        return this.stockClassification.get(key) ?? this.categoryDB.classify(key);
     }
 
     /**
@@ -61,8 +100,8 @@ class MergeEngine {
 
         const diffs = new Map();
 
-        for (const [key, stockValue] of this.stock) {
-            const category = this.stockClassification.get(key);
+        for (const [key, stockValue] of this._entries([importName])) {
+            const category = this._category(key);
             if (!diffs.has(category)) {
                 diffs.set(category, { modified: 0, total: 0 });
             }
@@ -97,8 +136,8 @@ class MergeEngine {
     getSourcesForCategory(category) {
         const sources = [];
         for (const [name, importData] of this.imports) {
-            for (const [key, stockValue] of this.stock) {
-                if (this.stockClassification.get(key) !== category) continue;
+            for (const [key, stockValue] of this._entries([name])) {
+                if (this._category(key) !== category) continue;
                 const importValue = importData.get(key);
                 if (importValue !== undefined && importValue !== stockValue) {
                     sources.push(name);
@@ -124,8 +163,8 @@ class MergeEngine {
         // With fillGaps, a line the chosen pack leaves at stock can come from another pack in the build.
         const buildSources = [...new Set(selections.values())].filter(id => this.imports.has(id));
 
-        for (const [key, stockValue] of this.stock) {
-            const category = this.stockClassification.get(key);
+        for (const [key, stockValue] of this._entries(buildSources)) {
+            const category = this._category(key);
             const selectedSource = selections.get(category);
             let value = stockValue;
 
@@ -145,6 +184,7 @@ class MergeEngine {
                 }
             }
 
+            if (value === undefined) continue;  // a key only another pack adds, not chosen here
             if (value !== stockValue) {
                 overriddenKeys++;
                 categoriesUsed.add(category);
@@ -176,7 +216,7 @@ class MergeEngine {
         let overriddenKeys = 0;
         const perSource = orderedSources.map(id => ({ sourceId: id, applied: 0, overlapped: 0 }));
 
-        for (const [key, stockValue] of this.stock) {
+        for (const [key, stockValue] of this._entries(orderedSources)) {
             let finalValue = stockValue;
             let claimed = false;
 
@@ -198,7 +238,7 @@ class MergeEngine {
             }
 
             if (claimed) overriddenKeys++;
-            merged.set(key, finalValue);
+            if (finalValue !== undefined) merged.set(key, finalValue);
         }
 
         this._applyVersionOverride(merged);
@@ -224,7 +264,7 @@ class MergeEngine {
         const perSource = orderedSources.map(id => ({ sourceId: id, applied: 0, overlapped: 0 }));
         let overriddenKeys = 0;
 
-        for (const [key, stockValue] of this.stock) {
+        for (const [key, stockValue] of this._entries(orderedSources)) {
             let claimed = false;
 
             for (let i = 0; i < orderedSources.length; i++) {

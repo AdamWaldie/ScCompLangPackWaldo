@@ -103,13 +103,21 @@ class IniFile:
         cr = "\r" if self.lines[i].endswith("\r") else ""
         self.lines[i] = f"{self.raw_keys[key]}={value}{cr}"
 
+    def add(self, key: str, value: str) -> None:
+        """Append a key the file doesn't have, with the same line ending as the file."""
+        cr = "\r" if self.lines and self.lines[-1].endswith("\r") else ""
+        self.index[key] = len(self.lines)
+        self.raw_keys[key] = key
+        self.lines.append(f"{key}={value}{cr}")
+
     def keys(self):
         return self.index.keys()
 
     def changes_since(self, stock: "IniFile", skip: set[str] = frozenset()) -> list[str]:
-        """Lines whose value differs from stock, in file order (for tools that merge packs)."""
+        """Lines whose value differs from stock, or that stock lacks, in file order (for tools that
+        merge packs)."""
         return [self.lines[i] for key, i in self.index.items()
-                if key not in skip and self.lines[i] != stock.lines[stock.index[key]]]
+                if key not in skip and (key not in stock.index or self.lines[i] != stock.lines[stock.index[key]])]
 
     def save(self, path: Path) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -323,6 +331,8 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
                 tagged[key] = value
                 counts["override"] += 1
 
+    added: list[str] = []
+    counts["ui_text"] = add_ui_text(ini, stock_path, tagged, added)
     counts["cig_fix"] = fix_literal_at_values(ini, tagged)
     text_fixed: set[str] = set()
     counts["stock_text"], left_blank = fix_stock_text(ini, tagged, text_fixed)
@@ -344,6 +354,7 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
         "no_description": sorted(result.no_description),
         "left_blank": left_blank,
         "text_fixed": sorted(text_fixed),
+        "added": added,
         "tagged": dict(sorted(tagged.items())),
         "gamedata": gamedata_status,
     }
@@ -387,6 +398,60 @@ def fix_literal_at_values(ini: IniFile, tagged: dict[str, str]) -> int:
             tagged[key] = new
             fixed += 1
     return fixed
+
+
+UI_KEY_PREFIX_RE = re.compile(r"^(item_?SubType|item_?Type|itemPort_port_Name|itemport_|ui_shiploadout_)",
+                              re.IGNORECASE)
+UI_KEY_SUFFIX_RE = re.compile(r"(_(title|name|desc|description))?(_\d+)?$", re.IGNORECASE)
+
+
+def load_ui_keys(stock_path: Path) -> tuple[list[str], dict[str, str]]:
+    """Keys the game looks up at runtime and shows (item types, subtypes, port names, ship names,
+    contract titles), and description keys -> the name key each belongs to, as listed by
+    scripts/fetch_gamedata.py. Any patch's lists will do: only keys the stock file lacks are used."""
+    gd_path = DATA_DIR / "gamedata" / f"{stock_path.parent.name}.json"
+    if not gd_path.exists():
+        return [], {}
+    gd = json.loads(gd_path.read_text(encoding="utf-8"))
+    return gd.get("ui_keys") or [], gd.get("ui_desc_keys") or {}
+
+
+def ui_key_text(key: str) -> str:
+    """'item_TypeUtilityTurret' -> 'Utility Turret', 'item_TypeFPS_Deployable' -> 'Deployable',
+    'CFP_EliminateAll_Rockcracker_title_001' -> 'CFP Eliminate All Rockcracker'."""
+    name = UI_KEY_SUFFIX_RE.sub("", UI_KEY_PREFIX_RE.sub("", key)) or key
+    name = re.sub(r"(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])", " ", name)
+    words = [w for w in re.split(r"[_\s]+", name) if w]
+    words = [w for w in words if w.upper() not in ("CHAR", "FPS") and not w.isdigit()] or words
+    return " ".join(w[:1].upper() + w[1:] for w in words) or key
+
+
+def add_ui_text(ini: IniFile, stock_path: Path, tagged: dict[str, str], added: list[str]) -> int:
+    """The game names item types, subtypes and item ports by looking up "@item_Type<type>" and the
+    like, and shows the raw key when CIG never wrote the text (4.10.2's mining-ship turrets show
+    "@item_TypeUtilityTurret" in the ship's component list). The same goes for ship names and
+    contract titles and descriptions. Each such key the stock file lacks is added: the hand-written
+    text in data/ui_text.ini; otherwise a name made from the key, and for a description the text of
+    the name it belongs to (as fix_stock_text does for item descriptions). Once CIG adds a key,
+    theirs is used."""
+    lower = {k.lower(): k for k in ini.keys()}
+    written = {k.lower(): v for k, v in load_kv(DATA_DIR / "ui_text.ini").items()}
+    names, descs = load_ui_keys(stock_path)
+
+    def put(key: str, value: str) -> None:
+        ini.add(key, value)
+        tagged[key] = value
+        added.append(key)
+        lower[key.lower()] = key
+
+    for key in names:
+        if key.lower() not in lower:
+            put(key, written.get(key.lower()) or ui_key_text(key))
+    for key, name_key in descs.items():
+        if key.lower() not in lower:
+            name = ini.get(lower[name_key.lower()]) if name_key.lower() in lower else None
+            put(key, written.get(key.lower()) or (name or "").strip() or ui_key_text(key))
+    return len(added)
 
 
 PH_PREFIX_RE = re.compile(r"^\s*\[PH\]\s*", re.IGNORECASE)
@@ -655,6 +720,7 @@ def main() -> int:
         print(f"[{channel}/{variant}] {stats['game_version']!r}: {c['component']} components, "
               f"{c['missile']} missiles, {c['bomb']} bombs, {c['short']} short names, "
               f"{c['override']} overrides, {c['cig_fix'] + c['stock_text']} CIG text fixes, "
+              f"{c['ui_text']} missing UI names added, "
               f"{c['contract_title']}/{c['contract_desc']} contract titles/descriptions ({stats['gamedata']}), "
               f"{len(stats['bespoke'])} bespoke left as-is -> {out}")
         if stats["unresolved"]:

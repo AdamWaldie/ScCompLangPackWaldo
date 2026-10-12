@@ -114,13 +114,20 @@ It's fully automatic and runs entirely on GitHub. Nobody's PC is involved.
   no `unforge.exe`, no 5 GB DataForge dump, and the tags always match what the game shows in the item description.
 - **New items are tagged automatically.** The build scans every item in the new stock file, so a new
   component is tagged the first time it appears. Nothing has to be added by hand.
-- **Validation gates every release.** It checks that the output has the same keys in the same order as stock,
-  that it has a UTF-8 BOM, that only intended keys changed, that tags are well-formed, and that every component
-  was classified. If anything fails, nothing is released and an `auto-update-blocked` issue explains why.
+- **Validation gates every release.** It checks that the output has the same keys in the same order as stock
+  (plus the missing names below, added at the end), that it has a UTF-8 BOM, that only intended keys changed,
+  that tags are well-formed, and that every component was classified. If anything fails, nothing is released and an `auto-update-blocked` issue explains why.
 - **No missing or raw `@key` text from us.** Every build is the complete current stock file plus our changes, and
   validation refuses a release that drops a key, adds a line break, starts a value with `@` or blanks a line.
   Text CIG itself ships as `@Some text` (shown with the `@` in game) is cleaned up automatically. The Pack Merger
   always merges onto the current stock file, so other packs that are older than the game can't leave gaps either.
+- **Names CIG never wrote are filled in.** The game names item types, subtypes and item ports by looking up keys
+  such as `item_TypeUtilityTurret`, and shows the raw key when CIG left it out of `global.ini` (4.10.2's mining-ship
+  turrets show `@ITEM_TYPEUTILITYTURRET` in the component list). The same holds for ship names, careers and roles,
+  and released contracts' titles and descriptions. `scripts/fetch_gamedata.py` lists every such key from the
+  patch's game data; the build adds the ones stock lacks (`Utility Turret`; a missing description gets its
+  title's text), and validation fails if any is left without text or the list itself goes missing. Once CIG adds
+  a key, theirs is used. Each patch's change report lists the new ones, so their wording gets a look.
 - **Every release has a change report** listing new, changed and removed items.
 - **Backstop.** Every 6 hours a job compares our build with the CIG build string in the
   README of another community pack (set in `scripts/check_patch.py`). If the auto-update source is lagging, it opens a
@@ -134,8 +141,9 @@ Only **LIVE** is supported. PTU changes too often between builds to keep a pack 
 
 ### Maintainer: when something needs a person
 
-- **`auto-update-blocked` issue:** a new component's stats couldn't be read. Add a row for it to
-  `data/component_overrides.csv` on `main`; the next run releases. You can also start one from
+- **`auto-update-blocked` issue:** usually a new component's stats couldn't be read. Add a row for it to
+  `data/component_overrides.csv` on `main`; the next run releases. If it says the game data lists too few UI
+  keys, scunpacked-data changed its layout: update `summarise_ui_keys`/`ship_keys` in `scripts/fetch_gamedata.py`. You can also start one from
   **Actions → Auto-update → Run workflow**.
 - **Releasing faster than the source** (optional): after the RSI launcher patches, double-click `update.bat`.
   It extracts the stock file from your own `Data.p4k` in seconds and opens a pull request; merging it releases.
@@ -151,6 +159,7 @@ Every release creates a versioned release (e.g. `4.10.2-LIVE`) and refreshes the
 | `data/component_overrides.csv` | Stats for components whose description is missing or wrong, or `skip` to leave one alone |
 | `data/overrides/common.ini` | Final text for any key, in both formats (e.g. `Hephaestanite` → `Heph`) |
 | `data/overrides/remix.ini` / `classic.ini` | Final text for one format only |
+| `data/ui_text.ini` | Wording for item type/port names CIG left out (otherwise made from the key) |
 
 Overrides are matched by key, so they carry over to later patches automatically.
 

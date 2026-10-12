@@ -34,7 +34,9 @@ const LANGUAGE_PACK_SOURCES = [
             return `${GITHUB_RAW_BASE}/${this.repo}/${this.branch}/${this.path}`;
         },
         defaultEnabled: true,
-        preselect: true
+        preselect: true,
+        // Adds text for item type/port keys CIG left out of global.ini (see scripts/build.py add_ui_text)
+        addsKeys: true
     },
     {
         id: 'waldo-classic',
@@ -47,7 +49,8 @@ const LANGUAGE_PACK_SOURCES = [
         get url() {
             return `${GITHUB_RAW_BASE}/${this.repo}/${this.branch}/${this.path}`;
         },
-        defaultEnabled: false
+        defaultEnabled: false,
+        addsKeys: true
     },
     {
         id: 'mrkraken-starstrings',
