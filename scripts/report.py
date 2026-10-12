@@ -24,7 +24,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build import REPO_ROOT, IniFile, build, classify, rename  # noqa: E402
+from build import DATA_DIR, REPO_ROOT, IniFile, build, classify, load_kv, rename  # noqa: E402
 
 
 def describe(ini: IniFile) -> tuple[dict[str, tuple[str, str]], list[str], list[str]]:
@@ -37,8 +37,8 @@ def describe(ini: IniFile) -> tuple[dict[str, tuple[str, str]], list[str], list[
     return out, result.unresolved, result.bespoke
 
 
-def stock_at_ref(channel: str, ref: str) -> Path | None:
-    rel = f"stock/{channel}/global.ini"
+def stock_at_ref(channel: str, ref: str, rel: str = "") -> Path | None:
+    rel = rel or f"stock/{channel}/global.ini"
     proc = subprocess.run(["git", "-C", str(REPO_ROOT), "show", f"{ref}:{rel}"], capture_output=True)
     if proc.returncode != 0:
         return None
@@ -69,6 +69,7 @@ def main() -> int:
     old_path = args.old or stock_at_ref(channel, args.base_ref)
 
     new_ini = IniFile.load(new_path)
+    built = None
     new_items, unresolved, bespoke = describe(new_ini)
     version = new_ini.get("Frontend_PU_Version") or "unknown"
 
@@ -101,6 +102,19 @@ def main() -> int:
         print(table(changed, ("Key", "Before", "After")))
         print(f"### Removed items ({len(removed)})\n")
         print(table(removed, ("Key", "Was")))
+
+    if built and built["added"]:
+        # Names CIG never wrote. The ones without hand-written text in data/ui_text.ini were made from the
+        # key; they read well almost always, but a person should glance at them once.
+        written = {k.lower() for k in load_kv(DATA_DIR / "ui_text.ini")}
+        prev = stock_at_ref(channel, args.base_ref, f"dist/{channel}/remix/data/Localization/english/global.ini")
+        before = {k.lower() for k in IniFile.load(prev).index} if prev and not args.old else set()
+        new = [k for k in built["added"] if k.lower() not in before]
+        auto = [(k, built["tagged"][k]) for k in new if k.lower() not in written]
+        print(f"### Names CIG left out ({len(built['added'])} added, {len(new)} new)\n")
+        print("The game shows these keys raw (e.g. `@item_TypeUtilityTurret`) without text, so the pack adds "
+              "them. New ones named from their key are listed; to reword one, add it to `data/ui_text.ini`.\n")
+        print(table(auto, ("Key", "Text from key")))
 
     no_desc = classify(new_ini).no_description
     if no_desc:

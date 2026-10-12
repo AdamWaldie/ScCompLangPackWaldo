@@ -27,7 +27,8 @@ Writes data/gamedata/LIVE.json:
       "descriptions": {"<desc key>":  {"bp": 3, "total": 4, "items": ["A", "B", ...], "rep": [200],
                                        "req": [["Sr. Contractor", 5800]], "faction": "Dead Saints",
                                        "scenario": [255], "asof": "4.10.1"}}
-      "ui_keys":      ["item_TypeUtilityTurret", ...]
+      "ui_keys":      ["item_TypeUtilityTurret", ...],
+      "ui_desc_keys": {"<description key>": "<the name key it belongs to>"}
     }
 "version"/"build"/"channel" are the best build's. "bp" counts contracts using that key that award
 blueprints, "total" all contracts using it, so the build can tell "always awards" from "only some
@@ -36,10 +37,12 @@ reputation left out), "req" the distinct minimum standings needed to be offered 
 out), "faction" whose standing that is when every version agrees, and "scenario" the distinct
 scenario progress points. Keys with none of these are left out.
 
-"ui_keys" are the global.ini keys the game builds from item data at runtime and shows in its UI
-("@item_Type" + item type, "@item_SubType" + subtype, unresolved item port names), from
-scunpacked-data's items.json. CIG doesn't always add text for them (4.10.2 shows
-"@item_TypeUtilityTurret" on mining ships' turrets), so the build adds the ones the stock file lacks.
+"ui_keys" are global.ini keys the game looks up at runtime and shows as names: item types
+("@item_Type" + item type), subtypes, unresolved item port names, ship names/careers/roles and
+released contract titles, from scunpacked-data. "ui_desc_keys" are the matching descriptions (ships
+and released contracts), each with the name key it belongs to. CIG doesn't always write the text
+(4.10.2 shows "@item_TypeUtilityTurret" on mining ships' turrets), so the build adds the ones the
+stock file lacks.
 
 Usage:
     python scripts/fetch_gamedata.py                       # fetch every source, update data/gamedata/LIVE.json
@@ -71,7 +74,7 @@ SCMDB_DATA = "https://scmdb.net/data"
 FLEETYARDS_API = "https://api.fleetyards.net/v1"
 USER_AGENT = "ScCompLangPackWaldo (+https://github.com/AdamWaldie/ScCompLangPackWaldo)"
 # Bump when the summary gains or changes fields, so the next run rebuilds it from the same data.
-FORMAT = 6
+FORMAT = 7
 # Which source wins between builds of the same patch, channel and build number.
 PRIORITY = {"scmdb": 2, "scunpacked": 1, "fleetyards": 0}
 
@@ -129,6 +132,7 @@ class Summary:
         self.descs: dict[str, dict] = defaultdict(entry)
         self.awarding = 0
         self.ui_keys: set[str] = set()
+        self.ui_desc_keys: dict[str, str] = {}
 
     def add(self, title_key: str, desc_key: str, items: list[str], rep: int,
             req: tuple[str, int | None, str] | None, scenario: int, count: int = 1) -> None:
@@ -233,6 +237,18 @@ def summarise_ui_keys(items_path: Path) -> set[str]:
     return keys
 
 
+def ship_keys(ships_path: Path) -> tuple[set[str], dict[str, str]]:
+    """Ship name, career and role keys, and each ship's description key -> its name key."""
+    names: set[str] = set()
+    descs: dict[str, str] = {}
+    for ship in json.loads(ships_path.read_text(encoding="utf-8")):
+        keys = {f: (ship.get(f) or "").lstrip("@").strip() for f in ("NameKey", "CareerKey", "RoleKey", "DescriptionKey")}
+        names.update(k for f, k in keys.items() if f != "DescriptionKey" and UI_KEY_RE.match(k))
+        if UI_KEY_RE.match(keys["DescriptionKey"]):
+            descs[keys["DescriptionKey"]] = keys["NameKey"]
+    return names, descs
+
+
 def summarise_scunpacked(contracts_dir: Path) -> Summary:
     summary = Summary()
     for path in sorted(contracts_dir.glob("*.json")):
@@ -253,11 +269,25 @@ def summarise_scunpacked(contracts_dir: Path) -> Summary:
                        pre.get("Faction") or (c.get("Faction") or {}).get("Name") or "")
         summary.add(c.get("TitleKey") or "", c.get("DescriptionKey") or "", items, rep, req,
                     c.get("ScenarioProgress") or 0)
-    items_path = contracts_dir.parent / "items.json"
-    if items_path.exists():
-        summary.ui_keys = summarise_ui_keys(items_path)
+        # A released contract's title and description are shown in the contract manager. Keys CIG
+        # names "WIP_..." belong to unfinished debug contracts that aren't flagged as such.
+        title, desc = ((c.get(f) or "").lstrip("@").strip() for f in ("TitleKey", "DescriptionKey"))
+        if title.upper().startswith("WIP_"):
+            continue
+        if UI_KEY_RE.match(title):
+            summary.ui_keys.add(title)
+        if UI_KEY_RE.match(desc):
+            summary.ui_desc_keys[desc] = title
+    root = contracts_dir.parent
+    if (root / "items.json").exists() and (root / "ships.json").exists():
+        summary.ui_keys |= summarise_ui_keys(root / "items.json")
+        names, descs = ship_keys(root / "ships.json")
+        summary.ui_keys |= names
+        summary.ui_desc_keys.update(descs)
     else:
-        print("note: scunpacked items.json not found; item type names not updated", file=sys.stderr)
+        # Without the item list the summary would lose most keys; the caller keeps the last one instead.
+        print("note: scunpacked items.json/ships.json not found; UI names not updated", file=sys.stderr)
+        summary.ui_keys, summary.ui_desc_keys = set(), {}
     return summary
 
 
@@ -461,6 +491,7 @@ def main() -> int:
     titles: dict[str, dict] = {}
     descs: dict[str, dict] = {}
     ui_keys: set[str] = set()
+    ui_desc_keys: dict[str, str] = {}
     used: list[str] = []
     best = None
     for src in sorted(sources, key=_rank, reverse=True):
@@ -476,7 +507,8 @@ def main() -> int:
         best = best or src
         same = (src["version"], src["build"], src["channel"]) == (best["version"], best["build"], best["channel"])
         asof = "" if same else label(src)
-        ui_keys = ui_keys or summary.ui_keys
+        if not ui_keys:
+            ui_keys, ui_desc_keys = summary.ui_keys, summary.ui_desc_keys
         t, d = summary.result()
         for table, new in ((titles, t), (descs, d)):
             # The build matches keys case-insensitively, and the sources don't always agree on case.
@@ -490,8 +522,9 @@ def main() -> int:
         return 1
     resolve_standings(descs)
     if not ui_keys:
-        # Only scunpacked-data lists items; keep the last list rather than lose the fixes.
+        # Only scunpacked-data lists items; keep the last lists rather than lose the fixes.
         ui_keys = set(current.get("ui_keys") or [])
+        ui_desc_keys = current.get("ui_desc_keys") or {}
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({
@@ -503,6 +536,7 @@ def main() -> int:
         "titles": dict(sorted(titles.items())),
         "descriptions": dict(sorted(descs.items())),
         "ui_keys": sorted(ui_keys, key=str.lower),
+        "ui_desc_keys": dict(sorted(ui_desc_keys.items(), key=lambda kv: kv[0].lower())),
     }, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"version": best["version"], "build": best["build"], "channel": best["channel"],
                       "sources": used, "descriptions": len(descs), "titles": len(titles)}))

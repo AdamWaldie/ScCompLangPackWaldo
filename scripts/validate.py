@@ -5,7 +5,8 @@ Sanity-check built packs against their stock file before anything is released.
 Checks, per channel and variant:
   * output exists, starts with a UTF-8 BOM and isn't truncated
   * same keys, in the same order, as the stock file, plus the UI keys the build adds at the end
-  * every item type, subtype and item port name the game looks up has text
+  * every item type/subtype/port name, ship name and contract title/description the game looks up
+    has text
   * only keys the build meant to change differ from stock
   * remix component tags are well-formed ([MICRS][0-9][A-D])
   * no component-like keys were left unclassified
@@ -28,6 +29,8 @@ from build import CHANGES_FILE, REPO_ROOT, VARIANTS, IniFile, build, is_placehol
 REMIX_COMPONENT_TAG = re.compile(r"^[MICRS]\d{1,2}[A-D] \S")
 
 
+# 4.10.2 lists ~1,400 (item types, subtypes, ship and contract names); far fewer means the list broke.
+MIN_UI_KEYS = 500
 PLACEHOLDER_TEXT = re.compile(r"PLACEHOLDER|UNINITIALI[SZ]ED|<=\s*\w|\[PH\]", re.IGNORECASE)
 
 
@@ -96,10 +99,15 @@ def validate(channel: str) -> list[str]:
             errors.append(f"{where}: {len(dangling)} values reference keys that don't exist, e.g. {dangling[:5]}")
 
         # Keys the game builds from item data (e.g. "@item_TypeUtilityTurret") show raw without text.
-        missing = [k for k in load_ui_keys(stock_path) if k.lower() not in lower]
+        names, descs = load_ui_keys(stock_path)
+        if (REPO_ROOT / "data" / "gamedata" / f"{channel}.json").exists() and len(names) < MIN_UI_KEYS:
+            # An empty or tiny list would silently switch this check off (e.g. a game-data format change).
+            errors.append(f"{where}: game data lists only {len(names)} UI keys (expected {MIN_UI_KEYS}+); "
+                          f"check scripts/fetch_gamedata.py against the scunpacked-data layout")
+        missing = [k for k in [*names, *descs] if k.lower() not in lower]
         missing += [k for k in stats["added"] if not (out.get(k) or "").strip()]
         if missing:
-            errors.append(f"{where}: {len(missing)} item type/port names the game looks up have no text, "
+            errors.append(f"{where}: {len(missing)} names/descriptions the game looks up have no text, "
                           f"e.g. {missing[:5]}")
 
         # Item names and descriptions must never be blank, placeholders or raw identifiers, and no text

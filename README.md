@@ -123,9 +123,11 @@ It's fully automatic and runs entirely on GitHub. Nobody's PC is involved.
   always merges onto the current stock file, so other packs that are older than the game can't leave gaps either.
 - **Names CIG never wrote are filled in.** The game names item types, subtypes and item ports by looking up keys
   such as `item_TypeUtilityTurret`, and shows the raw key when CIG left it out of `global.ini` (4.10.2's mining-ship
-  turrets show `@ITEM_TYPEUTILITYTURRET` in the component list). `scripts/fetch_gamedata.py` lists every such key
-  from the patch's item data, the build adds the ones stock lacks (`Utility Turret`), and validation fails if any
-  is left without text. Once CIG adds a key, theirs is used.
+  turrets show `@ITEM_TYPEUTILITYTURRET` in the component list). The same holds for ship names, careers and roles,
+  and released contracts' titles and descriptions. `scripts/fetch_gamedata.py` lists every such key from the
+  patch's game data; the build adds the ones stock lacks (`Utility Turret`; a missing description gets its
+  title's text), and validation fails if any is left without text or the list itself goes missing. Once CIG adds
+  a key, theirs is used. Each patch's change report lists the new ones, so their wording gets a look.
 - **Every release has a change report** listing new, changed and removed items.
 - **Backstop.** Every 6 hours a job compares our build with the CIG build string in the
   README of another community pack (set in `scripts/check_patch.py`). If the auto-update source is lagging, it opens a
@@ -139,8 +141,9 @@ Only **LIVE** is supported. PTU changes too often between builds to keep a pack 
 
 ### Maintainer: when something needs a person
 
-- **`auto-update-blocked` issue:** a new component's stats couldn't be read. Add a row for it to
-  `data/component_overrides.csv` on `main`; the next run releases. You can also start one from
+- **`auto-update-blocked` issue:** usually a new component's stats couldn't be read. Add a row for it to
+  `data/component_overrides.csv` on `main`; the next run releases. If it says the game data lists too few UI
+  keys, scunpacked-data changed its layout: update `summarise_ui_keys`/`ship_keys` in `scripts/fetch_gamedata.py`. You can also start one from
   **Actions → Auto-update → Run workflow**.
 - **Releasing faster than the source** (optional): after the RSI launcher patches, double-click `update.bat`.
   It extracts the stock file from your own `Data.p4k` in seconds and opens a pull request; merging it releases.

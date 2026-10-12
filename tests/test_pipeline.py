@@ -197,6 +197,13 @@ class GameDataLayerTests(unittest.TestCase):
         "ui_keys": ["item_TypeTurret", "item_TypeUtilityTurret", "item_TypeFPS_Deployable",
                     "item_SubTypeMidRangeRadar", "itemPort_port_NameFuelPort"],
     }
+    UI_DESC_GAMEDATA = {
+        "version": "4.10.2", "titles": {}, "descriptions": {},
+        "ui_keys": ["Rep_Title", "CFP_EliminateAll_Rockcracker_title_001"],
+        "ui_desc_keys": {"Rep_Desc": "Rep_Title", "New_Contract_Desc": "Rep_Title",
+                         "CFP_EliminateAll_Rockcracker_desc": "CFP_EliminateAll_Rockcracker_title_001",
+                         "Orphan_Ship_Desc_001": "Missing_Ship_Name"},
+    }
 
     def setUp(self):
         import json
@@ -302,6 +309,19 @@ class GameDataLayerTests(unittest.TestCase):
         self.assertEqual(list(ini.index)[:len(stock.index)], list(stock.index))
         self.assertIn("item_TypeUtilityTurret=Utility Turret\r", ini.changes_since(stock))
 
+    def test_missing_titles_and_descriptions_added(self):
+        import json
+        (self.gd_dir / "gamedata" / "LIVE.json").write_text(json.dumps(self.UI_DESC_GAMEDATA))
+        ini, stats = self.build_with("4.10.2")
+        # Existing text is kept; a missing title gets a name from its key, a missing description the
+        # text of its title (or a name from its own key when the title is unknown too).
+        self.assertEqual(ini.get("Rep_Desc"), "Get the cargo.")
+        self.assertEqual(ini.get("CFP_EliminateAll_Rockcracker_title_001"), "CFP Eliminate All Rockcracker")
+        self.assertEqual(ini.get("CFP_EliminateAll_Rockcracker_desc"), "CFP Eliminate All Rockcracker")
+        self.assertEqual(ini.get("New_Contract_Desc"), "Taking Back Our Goods")
+        self.assertEqual(ini.get("Orphan_Ship_Desc_001"), "Orphan Ship")
+        self.assertEqual(len(stats["added"]), 4)
+
     def test_rebuild_is_idempotent(self):
         for version in ("4.10.2", "4.10.3"):
             self.setUp()
@@ -389,6 +409,28 @@ class FetchMergeTests(unittest.TestCase):
         self.assertEqual(fetch_gamedata.summarise_ui_keys(path),
                          {"item_TypeUtilityTurret", "item_SubTypeMannedTurret", "item_TypeCooler",
                           "itemPort_port_NameFuelPort", "ui_shiploadout_slot"})
+
+    def test_ship_and_contract_keys(self):
+        import json
+        root = Path(tempfile.mkdtemp())
+        (root / "contracts").mkdir()
+        (root / "items.json").write_text(json.dumps([{"type": "UtilityTurret"}]))
+        (root / "ships.json").write_text(json.dumps([
+            {"NameKey": "@vehicle_NameMISC_Prospector", "CareerKey": "@vehicle_focus_industrial",
+             "RoleKey": "@vehicle_class_mining", "DescriptionKey": "@vehicle_DescMISC_Prospector"}]))
+        contracts = [
+            {"TitleKey": "Live_Title", "DescriptionKey": "Live_Desc"},
+            {"TitleKey": "Hidden_Title", "DescriptionKey": "Hidden_Desc", "NotForRelease": True},
+            {"TitleKey": "Draft_Title", "DescriptionKey": "Draft_Desc", "WorkInProgress": True},
+            {"TitleKey": "WIP_Goto_Manfred_Title", "DescriptionKey": "WIP_Goto_Manfred_Desc"},
+        ]
+        for i, c in enumerate(contracts):
+            (root / "contracts" / f"{i}.json").write_text(json.dumps(c))
+        summary = fetch_gamedata.summarise_scunpacked(root / "contracts")
+        self.assertEqual(summary.ui_keys, {"item_TypeUtilityTurret", "vehicle_NameMISC_Prospector",
+                                           "vehicle_focus_industrial", "vehicle_class_mining", "Live_Title"})
+        self.assertEqual(summary.ui_desc_keys, {"vehicle_DescMISC_Prospector": "vehicle_NameMISC_Prospector",
+                                                "Live_Desc": "Live_Title"})
 
     def test_fleetyards_text_matching(self):
         self.assertEqual(fetch_gamedata.normalise_text("Line one\n\nLine  two "),
