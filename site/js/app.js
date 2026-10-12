@@ -385,7 +385,7 @@ class PackMergerApp {
             const text = await response.text();
             const data = parseIni(text);
 
-            this.mergeEngine.addImport(source.id, data);
+            this.mergeEngine.addImport(source.id, data, { addsKeys: !!source.addsKeys });
             statusEl.innerHTML = `<span class="status status-loaded" title="${age || ''}">${age ? age.replace(/^Last updated [^,]*, /, 'Updated ') : 'Loaded'}</span>`;
 
             if (this.stockLoaded) {

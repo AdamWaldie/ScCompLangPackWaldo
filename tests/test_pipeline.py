@@ -182,6 +182,7 @@ class GameDataLayerTests(unittest.TestCase):
         "item_NameClothingCabinet=@mp_eFlashlightNova\r\n"
         "mp_eGood=Good item\r\n"
         "item_NameGood=@mp_eGood\r\n"
+        "item_typeturret=Turret\r\n"
     )
     GAMEDATA = {
         "version": "4.10.2", "build": "123",
@@ -193,6 +194,8 @@ class GameDataLayerTests(unittest.TestCase):
                                       "faction": "Dead Saints", "scenario": [255]},
                          "Old_Desc": {"bp": 1, "total": 1, "items": ["Testudo Core"], "rep": [50],
                                       "asof": "4.10.1"}},
+        "ui_keys": ["item_TypeTurret", "item_TypeUtilityTurret", "item_TypeFPS_Deployable",
+                    "item_SubTypeMidRangeRadar", "itemPort_port_NameFuelPort"],
     }
 
     def setUp(self):
@@ -280,6 +283,25 @@ class GameDataLayerTests(unittest.TestCase):
         self.assertEqual(ini.get("item_NamePistol"), "Pistol")
         self.assertEqual(ini.get("item_NameClothingCabinet"), "Clothing Cabinet")
 
+    def test_missing_ui_names_added(self):
+        (self.gd_dir / "ui_text.ini").write_text("# comment\nitem_SubTypeMidRangeRadar=Mid-Range Radar\n"
+                                                 "item_TypeTurret=Not used: stock has it\n")
+        ini, stats = self.build_with("4.10.1")
+        # The game shows "@item_TypeUtilityTurret" when the key is missing; stock keys are left alone.
+        self.assertEqual(ini.get("item_typeturret"), "Turret")
+        self.assertNotIn("item_TypeTurret", ini.index)
+        self.assertEqual(ini.get("item_TypeUtilityTurret"), "Utility Turret")
+        self.assertEqual(ini.get("item_TypeFPS_Deployable"), "Deployable")
+        self.assertEqual(ini.get("item_SubTypeMidRangeRadar"), "Mid-Range Radar")
+        self.assertEqual(ini.get("itemPort_port_NameFuelPort"), "Fuel Port")
+        self.assertEqual(stats["added"], ["item_TypeUtilityTurret", "item_TypeFPS_Deployable",
+                                          "item_SubTypeMidRangeRadar", "itemPort_port_NameFuelPort"])
+        # Appended after the stock keys, with the file's line ending, and listed for merge tools.
+        self.assertEqual(ini.lines[-1], "itemPort_port_NameFuelPort=Fuel Port\r")
+        stock = build.IniFile.load(self.dir / "global.ini")
+        self.assertEqual(list(ini.index)[:len(stock.index)], list(stock.index))
+        self.assertIn("item_TypeUtilityTurret=Utility Turret\r", ini.changes_since(stock))
+
     def test_rebuild_is_idempotent(self):
         for version in ("4.10.2", "4.10.3"):
             self.setUp()
@@ -290,6 +312,7 @@ class GameDataLayerTests(unittest.TestCase):
             self.assertEqual(again.get("Some_Contract_Desc").count("Blueprints this contract"), 1)
             self.assertEqual(again.get("Rep_Title").count(" Rep]"), 1)
             self.assertEqual(again.get("Rep_Desc").count("Reputation awarded"), 1)
+            self.assertEqual(list(again.index).count("item_TypeUtilityTurret"), 1)
             self.tearDown()
 
 
@@ -351,6 +374,21 @@ class FetchMergeTests(unittest.TestCase):
         fetch_gamedata.resolve_standings(descs)
         self.assertEqual(descs["B"], {"req": [["Contractor", 2200]], "faction": "X"})
         self.assertEqual(descs["C"], {})
+
+    def test_ui_keys_from_items(self):
+        import json
+        items = [
+            {"type": "UtilityTurret", "subType": "MannedTurret",
+             "stdItem": {"Ports": [{"DisplayName": "@itemPort_port_NameFuelPort"},
+                                   {"DisplayName": "Resolved name", "Ports": [{"DisplayName": "@ui_shiploadout_slot"}]},
+                                   {"DisplayName": "@Magazine Slot"}, {"DisplayName": "@Placeholder"}]}},
+            {"type": "Cooler", "subType": "", "stdItem": {}},
+        ]
+        path = Path(tempfile.mkdtemp()) / "items.json"
+        path.write_text(json.dumps(items))
+        self.assertEqual(fetch_gamedata.summarise_ui_keys(path),
+                         {"item_TypeUtilityTurret", "item_SubTypeMannedTurret", "item_TypeCooler",
+                          "itemPort_port_NameFuelPort", "ui_shiploadout_slot"})
 
     def test_fleetyards_text_matching(self):
         self.assertEqual(fetch_gamedata.normalise_text("Line one\n\nLine  two "),

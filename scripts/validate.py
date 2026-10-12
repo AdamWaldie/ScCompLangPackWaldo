@@ -4,7 +4,8 @@ Sanity-check built packs against their stock file before anything is released.
 
 Checks, per channel and variant:
   * output exists, starts with a UTF-8 BOM and isn't truncated
-  * same keys, in the same order, as the stock file
+  * same keys, in the same order, as the stock file, plus the UI keys the build adds at the end
+  * every item type, subtype and item port name the game looks up has text
   * only keys the build meant to change differ from stock
   * remix component tags are well-formed ([MICRS][0-9][A-D])
   * no component-like keys were left unclassified
@@ -22,7 +23,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build import CHANGES_FILE, REPO_ROOT, VARIANTS, IniFile, build, is_placeholder  # noqa: E402
+from build import CHANGES_FILE, REPO_ROOT, VARIANTS, IniFile, build, is_placeholder, load_ui_keys  # noqa: E402
 
 REMIX_COMPONENT_TAG = re.compile(r"^[MICRS]\d{1,2}[A-D] \S")
 
@@ -47,12 +48,12 @@ def validate(channel: str) -> list[str]:
             errors.append(f"{where}: missing user.cfg")
 
         out = IniFile.load(out_path)
-        if list(out.index) != list(stock.index):
-            errors.append(f"{where}: key list differs from stock ({len(out.index)} vs {len(stock.index)} keys) "
-                          f"- truncated or stale build")
+        expected, stats = build(stock_path, variant)
+        if list(out.index) != list(stock.index) + stats["added"]:
+            errors.append(f"{where}: key list differs from stock plus added UI keys ({len(out.index)} vs "
+                          f"{len(stock.index)} + {len(stats['added'])} keys) - truncated or stale build")
             continue
 
-        expected, stats = build(stock_path, variant)
         if out.lines != expected.lines:
             errors.append(f"{where}: committed output is out of date with stock/data/scripts "
                           f"(run scripts/build.py --channel {channel})")
@@ -93,6 +94,13 @@ def validate(channel: str) -> list[str]:
                     and m.group(1).lower() not in lower]
         if dangling:
             errors.append(f"{where}: {len(dangling)} values reference keys that don't exist, e.g. {dangling[:5]}")
+
+        # Keys the game builds from item data (e.g. "@item_TypeUtilityTurret") show raw without text.
+        missing = [k for k in load_ui_keys(stock_path) if k.lower() not in lower]
+        missing += [k for k in stats["added"] if not (out.get(k) or "").strip()]
+        if missing:
+            errors.append(f"{where}: {len(missing)} item type/port names the game looks up have no text, "
+                          f"e.g. {missing[:5]}")
 
         # Item names and descriptions must never be blank, placeholders or raw identifiers, and no text
         # may start with a [PH] marker (fix_stock_text handles these; this catches anything new).

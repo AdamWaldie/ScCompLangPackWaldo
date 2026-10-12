@@ -114,13 +114,18 @@ It's fully automatic and runs entirely on GitHub. Nobody's PC is involved.
   no `unforge.exe`, no 5 GB DataForge dump, and the tags always match what the game shows in the item description.
 - **New items are tagged automatically.** The build scans every item in the new stock file, so a new
   component is tagged the first time it appears. Nothing has to be added by hand.
-- **Validation gates every release.** It checks that the output has the same keys in the same order as stock,
-  that it has a UTF-8 BOM, that only intended keys changed, that tags are well-formed, and that every component
-  was classified. If anything fails, nothing is released and an `auto-update-blocked` issue explains why.
+- **Validation gates every release.** It checks that the output has the same keys in the same order as stock
+  (plus the missing names below, added at the end), that it has a UTF-8 BOM, that only intended keys changed,
+  that tags are well-formed, and that every component was classified. If anything fails, nothing is released and an `auto-update-blocked` issue explains why.
 - **No missing or raw `@key` text from us.** Every build is the complete current stock file plus our changes, and
   validation refuses a release that drops a key, adds a line break, starts a value with `@` or blanks a line.
   Text CIG itself ships as `@Some text` (shown with the `@` in game) is cleaned up automatically. The Pack Merger
   always merges onto the current stock file, so other packs that are older than the game can't leave gaps either.
+- **Names CIG never wrote are filled in.** The game names item types, subtypes and item ports by looking up keys
+  such as `item_TypeUtilityTurret`, and shows the raw key when CIG left it out of `global.ini` (4.10.2's mining-ship
+  turrets show `@ITEM_TYPEUTILITYTURRET` in the component list). `scripts/fetch_gamedata.py` lists every such key
+  from the patch's item data, the build adds the ones stock lacks (`Utility Turret`), and validation fails if any
+  is left without text. Once CIG adds a key, theirs is used.
 - **Every release has a change report** listing new, changed and removed items.
 - **Backstop.** Every 6 hours a job compares our build with the CIG build string in the
   README of another community pack (set in `scripts/check_patch.py`). If the auto-update source is lagging, it opens a
@@ -151,6 +156,7 @@ Every release creates a versioned release (e.g. `4.10.2-LIVE`) and refreshes the
 | `data/component_overrides.csv` | Stats for components whose description is missing or wrong, or `skip` to leave one alone |
 | `data/overrides/common.ini` | Final text for any key, in both formats (e.g. `Hephaestanite` → `Heph`) |
 | `data/overrides/remix.ini` / `classic.ini` | Final text for one format only |
+| `data/ui_text.ini` | Wording for item type/port names CIG left out (otherwise made from the key) |
 
 Overrides are matched by key, so they carry over to later patches automatically.
 

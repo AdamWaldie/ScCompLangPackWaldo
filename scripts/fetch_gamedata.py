@@ -27,6 +27,7 @@ Writes data/gamedata/LIVE.json:
       "descriptions": {"<desc key>":  {"bp": 3, "total": 4, "items": ["A", "B", ...], "rep": [200],
                                        "req": [["Sr. Contractor", 5800]], "faction": "Dead Saints",
                                        "scenario": [255], "asof": "4.10.1"}}
+      "ui_keys":      ["item_TypeUtilityTurret", ...]
     }
 "version"/"build"/"channel" are the best build's. "bp" counts contracts using that key that award
 blueprints, "total" all contracts using it, so the build can tell "always awards" from "only some
@@ -34,6 +35,11 @@ versions award". "rep" is the distinct reputation amounts a contract pays (hidde
 reputation left out), "req" the distinct minimum standings needed to be offered it (entry level left
 out), "faction" whose standing that is when every version agrees, and "scenario" the distinct
 scenario progress points. Keys with none of these are left out.
+
+"ui_keys" are the global.ini keys the game builds from item data at runtime and shows in its UI
+("@item_Type" + item type, "@item_SubType" + subtype, unresolved item port names), from
+scunpacked-data's items.json. CIG doesn't always add text for them (4.10.2 shows
+"@item_TypeUtilityTurret" on mining ships' turrets), so the build adds the ones the stock file lacks.
 
 Usage:
     python scripts/fetch_gamedata.py                       # fetch every source, update data/gamedata/LIVE.json
@@ -65,7 +71,7 @@ SCMDB_DATA = "https://scmdb.net/data"
 FLEETYARDS_API = "https://api.fleetyards.net/v1"
 USER_AGENT = "ScCompLangPackWaldo (+https://github.com/AdamWaldie/ScCompLangPackWaldo)"
 # Bump when the summary gains or changes fields, so the next run rebuilds it from the same data.
-FORMAT = 5
+FORMAT = 6
 # Which source wins between builds of the same patch, channel and build number.
 PRIORITY = {"scmdb": 2, "scunpacked": 1, "fleetyards": 0}
 
@@ -78,10 +84,11 @@ def git(*args: str, cwd: Path) -> str:
 
 
 def clone(dest: Path) -> None:
-    # Only the contracts folder is needed; skip the rest of the (large) dump.
+    # Only the contracts folder and the top-level files (items.json) are needed; skip the rest of the
+    # (large) dump. A cone-mode sparse checkout always includes the top-level files.
     subprocess.run(["git", "clone", "--quiet", "--depth=1", "--filter=blob:none", "--sparse",
                     SOURCE_REPO, str(dest)], check=True)
-    subprocess.run(["git", "sparse-checkout", "set", "contracts"], cwd=dest, check=True)
+    subprocess.run(["git", "sparse-checkout", "set", "--cone", "contracts"], cwd=dest, check=True)
 
 
 def parse_version(subject: str) -> dict:
@@ -121,6 +128,7 @@ class Summary:
         self.titles: dict[str, dict] = defaultdict(entry)
         self.descs: dict[str, dict] = defaultdict(entry)
         self.awarding = 0
+        self.ui_keys: set[str] = set()
 
     def add(self, title_key: str, desc_key: str, items: list[str], rep: int,
             req: tuple[str, int | None, str] | None, scenario: int, count: int = 1) -> None:
@@ -195,6 +203,36 @@ def candidate(name: str, label: str, ident: str, load) -> dict | None:
 
 # --- scunpacked-data ---
 
+UI_KEY_RE = re.compile(r"^[A-Za-z_][\w.\-]*$")
+
+
+def summarise_ui_keys(items_path: Path) -> set[str]:
+    """Keys the game looks up for item types, subtypes and item port names (see "ui_keys" above).
+    Port names the dumper resolved are plain text; those still "@key" have no text in global.ini.
+    Port names written as "@Some text" aren't keys, and "@Placeholder" only marks unused templates."""
+    keys: set[str] = set()
+
+    def ports(node) -> None:
+        if isinstance(node, dict):
+            name = node.get("DisplayName")
+            if isinstance(name, str) and name.startswith("@") and UI_KEY_RE.match(name[1:]) \
+                    and name[1:].lower() != "placeholder":
+                keys.add(name[1:])
+            for value in node.values():
+                ports(value)
+        elif isinstance(node, list):
+            for value in node:
+                ports(value)
+
+    for item in json.loads(items_path.read_text(encoding="utf-8")):
+        for prefix, field in (("item_Type", "type"), ("item_SubType", "subType")):
+            value = (item.get(field) or "").strip()
+            if value and UI_KEY_RE.match(value):
+                keys.add(prefix + value)
+        ports((item.get("stdItem") or {}).get("Ports"))
+    return keys
+
+
 def summarise_scunpacked(contracts_dir: Path) -> Summary:
     summary = Summary()
     for path in sorted(contracts_dir.glob("*.json")):
@@ -215,6 +253,11 @@ def summarise_scunpacked(contracts_dir: Path) -> Summary:
                        pre.get("Faction") or (c.get("Faction") or {}).get("Name") or "")
         summary.add(c.get("TitleKey") or "", c.get("DescriptionKey") or "", items, rep, req,
                     c.get("ScenarioProgress") or 0)
+    items_path = contracts_dir.parent / "items.json"
+    if items_path.exists():
+        summary.ui_keys = summarise_ui_keys(items_path)
+    else:
+        print("note: scunpacked items.json not found; item type names not updated", file=sys.stderr)
     return summary
 
 
@@ -417,6 +460,7 @@ def main() -> int:
 
     titles: dict[str, dict] = {}
     descs: dict[str, dict] = {}
+    ui_keys: set[str] = set()
     used: list[str] = []
     best = None
     for src in sorted(sources, key=_rank, reverse=True):
@@ -432,6 +476,7 @@ def main() -> int:
         best = best or src
         same = (src["version"], src["build"], src["channel"]) == (best["version"], best["build"], best["channel"])
         asof = "" if same else label(src)
+        ui_keys = ui_keys or summary.ui_keys
         t, d = summary.result()
         for table, new in ((titles, t), (descs, d)):
             # The build matches keys case-insensitively, and the sources don't always agree on case.
@@ -444,6 +489,9 @@ def main() -> int:
         print("ERROR: game data has no blueprint rewards; refusing to replace the current summary", file=sys.stderr)
         return 1
     resolve_standings(descs)
+    if not ui_keys:
+        # Only scunpacked-data lists items; keep the last list rather than lose the fixes.
+        ui_keys = set(current.get("ui_keys") or [])
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({
@@ -454,6 +502,7 @@ def main() -> int:
         "sources": wanted,
         "titles": dict(sorted(titles.items())),
         "descriptions": dict(sorted(descs.items())),
+        "ui_keys": sorted(ui_keys, key=str.lower),
     }, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"version": best["version"], "build": best["build"], "channel": best["channel"],
                       "sources": used, "descriptions": len(descs), "titles": len(titles)}))
