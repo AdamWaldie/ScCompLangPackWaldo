@@ -93,12 +93,13 @@ class BuildTests(unittest.TestCase):
         self.assertIn("item_NameCOOL_AEGS_S04_Idris", stats["bespoke"])
 
     def test_untouched_lines_are_byte_identical(self):
-        ini, _ = self.built("remix")
+        ini, stats = self.built("remix")
         out = self.dir / "out.ini"
         ini.save(out)
         stock_lines = self.stock.read_bytes().split(b"\n")
         out_lines = out.read_bytes().split(b"\n")
-        self.assertEqual(len(stock_lines), len(out_lines))
+        # Keys CIG never wrote (data/ui_text.ini) are appended; every stock line keeps its place.
+        self.assertEqual(len(stock_lines) + len(stats["added"]), len(out_lines))
         self.assertTrue(out.read_bytes().startswith(b"\xef\xbb\xbf"))
         self.assertIn(b"ui_Untouched=Some text with = sign  \r", out_lines)
 
@@ -308,6 +309,16 @@ class GameDataLayerTests(unittest.TestCase):
         stock = build.IniFile.load(self.dir / "global.ini")
         self.assertEqual(list(ini.index)[:len(stock.index)], list(stock.index))
         self.assertIn("item_TypeUtilityTurret=Utility Turret\r", ini.changes_since(stock))
+
+    def test_missing_items_added_and_tagged(self):
+        (self.gd_dir / "ui_text.ini").write_text(
+            "item_Name_RADR_WLOP_S03_Lephari=Lephari\n"
+            "item_Desc_RADR_WLOP_S03_Lephari=Item Type: Radar\\nSize: 3\\nGrade: C\\nClass: Civilian\n"
+            "item_NameGood=Not used: stock has it\n")
+        ini, stats = self.build_with("4.10.1")
+        self.assertEqual(ini.get("item_Name_RADR_WLOP_S03_Lephari"), "C3C Lephari")
+        self.assertEqual(ini.get("item_NameGood"), "@mp_eGood")
+        self.assertEqual(stats["added"][:2], ["item_Name_RADR_WLOP_S03_Lephari", "item_Desc_RADR_WLOP_S03_Lephari"])
 
     def test_missing_titles_and_descriptions_added(self):
         import json
