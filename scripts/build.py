@@ -302,6 +302,8 @@ BRANDING = {"remix": "ScCompLangPackWaldo", "classic": "ScCompLangPackWaldo Clas
 
 def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
     ini = IniFile.load(stock_path)
+    added: list[str] = []
+    add_missing_items(ini, added)
     result = classify(ini)
     lower_keys = {k.lower(): k for k in ini.keys()}
     counts = {"component": 0, "missile": 0, "bomb": 0, "short": 0, "override": 0}
@@ -331,7 +333,6 @@ def build(stock_path: Path, variant: str) -> tuple[IniFile, dict]:
                 tagged[key] = value
                 counts["override"] += 1
 
-    added: list[str] = []
     counts["ui_text"] = add_ui_text(ini, stock_path, tagged, added)
     counts["cig_fix"] = fix_literal_at_values(ini, tagged)
     text_fixed: set[str] = set()
@@ -424,6 +425,19 @@ def ui_key_text(key: str) -> str:
     words = [w for w in re.split(r"[_\s]+", name) if w]
     words = [w for w in words if w.upper() not in ("CHAR", "FPS") and not w.isdigit()] or words
     return " ".join(w[:1].upper() + w[1:] for w in words) or key
+
+
+def add_missing_items(ini: IniFile, added: list[str]) -> None:
+    """Item names and descriptions CIG never wrote (4.10.2's Lephari radar shows
+    "@item_Name_RADR_WLOP_S03_Lephari") are added from data/ui_text.ini before tagging, so a written
+    description with Size/Grade/Class tags the name like any stock component. Once CIG adds a key,
+    theirs is used."""
+    lower = {k.lower() for k in ini.keys()}
+    for key, value in load_kv(DATA_DIR / "ui_text.ini").items():
+        if (ITEM_NAME_KEY_RE.match(key) or ITEM_DESC_KEY_RE.match(key)) and key.lower() not in lower:
+            ini.add(key, value)
+            added.append(key)
+            lower.add(key.lower())
 
 
 def add_ui_text(ini: IniFile, stock_path: Path, tagged: dict[str, str], added: list[str]) -> int:
