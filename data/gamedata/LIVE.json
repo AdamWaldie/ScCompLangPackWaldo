@@ -12,7 +12,7 @@
   "scunpacked/LIVE": {
    "version": "4.10.2",
    "build": "12881860",
-   "id": "5ee0a3dd20ba0e8dfd13512c57a2309231c8b8f7"
+   "id": "1340c8303709904165e2da0fa7060bce0624260b"
   },
   "fleetyards/LIVE": {
    "version": "4.10.2",
@@ -5003,7 +5003,8 @@
    "bp": 0,
    "total": 6,
    "rep": [
-    200
+    200,
+    400
    ]
   },
   "mg_miles_capturegang_title_001": {
@@ -20211,7 +20212,7 @@
   },
   "hh_missingperson_inv_chain_h_xenothreat_desc_01": {
    "bp": 0,
-   "total": 3,
+   "total": 4,
    "rep": [
     400
    ],
@@ -20255,7 +20256,7 @@
   },
   "hh_missingperson_inv_m_criminalbase_desc_01": {
    "bp": 0,
-   "total": 6,
+   "total": 5,
    "rep": [
     200
    ],
