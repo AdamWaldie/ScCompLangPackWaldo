@@ -20,14 +20,9 @@
    "id": "1340c8303709904165e2da0fa7060bce0624260b"
   },
   "fleetyards/LIVE": {
-   "version": "4.10.2",
-   "build": "12913470",
-   "id": "4.10.2-live.12913470"
-  },
-  "fleetyards/PTU": {
    "version": "4.10.3",
-   "build": "13160301",
-   "id": "4.10.3-ptu.13160301"
+   "build": "13165946",
+   "id": "4.10.3-live.13165946"
   }
  },
  "titles": {
@@ -353,42 +348,36 @@
    "total": 2,
    "rep": [
     200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Battaglia_RPT_Scan_02_title": {
    "bp": 1,
-   "total": 1,
-   "asof": "4.10.3 PTU"
+   "total": 1
   },
   "Battaglia_RPT_Scan_03_title": {
    "bp": 1,
-   "total": 1,
-   "asof": "4.10.3 PTU"
+   "total": 1
   },
   "Battaglia_RPT_Scan_04_title": {
    "bp": 1,
    "total": 1,
    "rep": [
     300
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Battaglia_RPT_Scan_05_title": {
    "bp": 1,
    "total": 1,
    "rep": [
     400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Battaglia_RPT_Scan_06_title": {
    "bp": 1,
    "total": 1,
    "rep": [
     600
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Battaglia_RPT_Scan_Golem_title": {
    "bp": 0,
@@ -585,8 +574,7 @@
    "total": 4,
    "rep": [
     150
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "CFP_RetrieveCargo_CrimBase_XT_VH_title_001": {
    "bp": 0,
@@ -631,8 +619,7 @@
    "total": 11,
    "rep": [
     25
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "CFP_SecurityPatrol_E_Title_001": {
    "bp": 0,
@@ -1214,8 +1201,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Firesale_CFP_Title_LargeDonation": {
    "bp": 0,
@@ -1223,8 +1209,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Firesale_CFP_Title_MediumDonation": {
    "bp": 0,
@@ -1232,8 +1217,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Firesale_HH_Title_01": {
    "bp": 0,
@@ -1241,8 +1225,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Firesale_HH_Title_LargeDonation": {
    "bp": 0,
@@ -1250,8 +1233,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Firesale_HH_Title_MediumDonation": {
    "bp": 0,
@@ -1259,8 +1241,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Foxwell_DefendDestructibleEntites_E_Title_001": {
    "bp": 4,
@@ -1884,56 +1865,49 @@
    "total": 4,
    "rep": [
     150
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Headhunters_RetrieveCargo_CrimBase_H_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     1200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Headhunters_RetrieveCargo_CrimBase_XT_VH_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Headhunters_RetrieveCargo_Intro_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     25
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Headhunters_RetrieveCargo_Lagrange_E_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     25
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Headhunters_RetrieveCargo_Lagrange_E_title_002": {
    "bp": 0,
    "total": 4,
    "rep": [
     150
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Headhunters_RetrieveCargo_RegionLink_E_title_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     150
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Headhunters_SabotageRelays_CFP_001_Title": {
    "bp": 0,
@@ -1954,8 +1928,7 @@
    "total": 14,
    "rep": [
     25
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Headhunters_SecurityPatrol_E_Title_001": {
    "bp": 0,
@@ -2020,8 +1993,7 @@
     100,
     150,
     200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Highpoint_KillAnimals_Derelictoutpostscaves_Title_E_001": {
    "bp": 0,
@@ -2044,24 +2016,21 @@
    "total": 1,
    "rep": [
     300
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Highpoint_KillAnimals_MultiType_M_title": {
    "bp": 0,
    "total": 1,
    "rep": [
     150
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Highpoint_KillAnimals_OneType_title": {
    "bp": 0,
    "total": 2,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Highpoint_KillAnimals_rockcracker_title_E_001": {
    "bp": 1,
@@ -2561,8 +2530,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_CFP_Mining_Title_LargeDonation": {
    "bp": 0,
@@ -2570,8 +2538,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_CFP_Mining_Title_MediumDonation": {
    "bp": 0,
@@ -2579,8 +2546,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_CFP_Salvage_Title_01": {
    "bp": 0,
@@ -2588,8 +2554,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_CFP_Salvage_Title_LargeDonation": {
    "bp": 0,
@@ -2597,8 +2562,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_CFP_Salvage_Title_MediumDonation": {
    "bp": 0,
@@ -2606,8 +2570,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_HH_Mining_Title": {
    "bp": 0,
@@ -2615,8 +2578,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_HH_Mining_Title_Large": {
    "bp": 0,
@@ -2624,8 +2586,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_HH_Mining_Title_Medium": {
    "bp": 0,
@@ -2633,8 +2594,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_HH_Salvage_Title": {
    "bp": 0,
@@ -2642,8 +2602,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_HH_Salvage_Title_LargeDontation": {
    "bp": 0,
@@ -2651,8 +2610,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "LocationRush_HH_Salvage_Title_MediumDonation": {
    "bp": 0,
@@ -2660,8 +2618,7 @@
    "rep": [
     400,
     2400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Northrock_Bounty_OLP_Boss_H_title_001": {
    "bp": 0,
@@ -3645,8 +3602,7 @@
    "total": 3,
    "rep": [
     150
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "UWC_Refueling_multiple_hard_title_001": {
    "bp": 56,
@@ -3682,8 +3638,7 @@
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "bhg_bounty_title_ASD_Engineering_001": {
    "bp": 12,
@@ -3758,56 +3713,49 @@
    "total": 4,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_title_H_001": {
    "bp": 2,
    "total": 4,
    "rep": [
     200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_title_M_001": {
    "bp": 2,
    "total": 4,
    "rep": [
     150
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_title_S_001": {
    "bp": 2,
    "total": 4,
    "rep": [
     300
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_title_VE_001": {
    "bp": 2,
    "total": 4,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_title_VH_001": {
    "bp": 2,
    "total": 4,
    "rep": [
     250
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_title_intro_001": {
    "bp": 2,
    "total": 2,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "cfp_ChainElimAll_1C_ElimSpec_GenAttack_E_title_001": {
    "bp": 1,
@@ -4581,16 +4529,14 @@
    "total": 2,
    "rep": [
     600
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "headhunters_EliminateAll_Missing_Xenothreat_VH_title_001": {
    "bp": 0,
    "total": 3,
    "rep": [
     800
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "headhunters_EliminateAll_XenoThreat_H_title_001": {
    "bp": 1,
@@ -4753,8 +4699,7 @@
    "total": 1,
    "rep": [
     3200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "headhunters_bombingrun_VH_title_001": {
    "bp": 0,
@@ -4768,24 +4713,21 @@
    "total": 4,
    "rep": [
     200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "headhunters_bombingrun_multi_E_CFP_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "headhunters_bombingrun_sabotage_servers_VH_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     3200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "headhunters_defend_xt_title_001": {
    "bp": 2,
@@ -5056,16 +4998,14 @@
    "total": 4,
    "rep": [
     200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "headhunters_sabotage_servers_E_CFP_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     75
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "headhunters_sabotage_servers_H_XT_Title_001": {
    "bp": 0,
@@ -5087,8 +5027,7 @@
    "total": 1,
    "rep": [
     3200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "headhunters_searchbody_danger_outpost_title_001": {
    "bp": 0,
@@ -5155,56 +5094,49 @@
    "rep": [
     200,
     400
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_title_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_title_002": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_title_003": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_title_004": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_title_005": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_title_006": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_ruto_UGF_destroy_E_title_001": {
    "bp": 0,
@@ -5251,8 +5183,7 @@
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_ruto_UGF_eliminateall_title_001": {
    "bp": 0,
@@ -5267,16 +5198,14 @@
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_ruto_clearcrimestat_rep_title_01": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "northrock_SOO_repeat_title_001": {
    "bp": 1,
@@ -5303,72 +5232,63 @@
    "rep": [
     100,
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "recovery_title": {
    "bp": 13,
    "total": 13,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_title_E": {
    "bp": 0,
    "total": 4,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_title_H": {
    "bp": 0,
    "total": 4,
    "rep": [
     200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_title_M": {
    "bp": 0,
    "total": 4,
    "rep": [
     150
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_title_S": {
    "bp": 0,
    "total": 4,
    "rep": [
     300
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_title_VE": {
    "bp": 0,
    "total": 4,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_title_VH": {
    "bp": 0,
    "total": 4,
    "rep": [
     250
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_title_intro": {
    "bp": 0,
    "total": 2,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "shubin_rockcracker_pvp_title_01": {
    "bp": 30,
@@ -5499,56 +5419,49 @@
    "total": 6,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_title_H_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_title_M_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     150
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_title_S_01": {
    "bp": 0,
    "total": 2,
    "rep": [
     300
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_title_VE_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_title_VH_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     250
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_title_intro_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "vaughn_assassination_E_title_003": {
    "bp": 0,
@@ -5654,48 +5567,42 @@
    "total": 2,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "vaughn_assassination_title_H": {
    "bp": 0,
    "total": 2,
    "rep": [
     200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "vaughn_assassination_title_M": {
    "bp": 0,
    "total": 2,
    "rep": [
     150
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "vaughn_assassination_title_S": {
    "bp": 0,
    "total": 2,
    "rep": [
     300
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "vaughn_assassination_title_VE": {
    "bp": 0,
    "total": 2,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "vaughn_assassination_title_VH": {
    "bp": 0,
    "total": 2,
    "rep": [
     250
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "vaughn_searchbody_space_E_Title_001": {
    "bp": 0,
@@ -6602,8 +6509,7 @@
    ],
    "rep": [
     200
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Battaglia_RPT_Scan_02_desc": {
    "bp": 1,
@@ -6613,8 +6519,7 @@
     "Marlin",
     "RN-7s",
     "S00 Hofstede"
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Battaglia_RPT_Scan_03_desc": {
    "bp": 1,
@@ -6637,8 +6542,7 @@
      2400
     ]
    ],
-   "faction": "Recco Battaglia",
-   "asof": "4.10.3 PTU"
+   "faction": "Recco Battaglia"
   },
   "Battaglia_RPT_Scan_04_desc": {
    "bp": 1,
@@ -6664,8 +6568,7 @@
      2400
     ]
    ],
-   "faction": "Recco Battaglia",
-   "asof": "4.10.3 PTU"
+   "faction": "Recco Battaglia"
   },
   "Battaglia_RPT_Scan_05_desc": {
    "bp": 1,
@@ -6693,8 +6596,7 @@
      6000
     ]
    ],
-   "faction": "Recco Battaglia",
-   "asof": "4.10.3 PTU"
+   "faction": "Recco Battaglia"
   },
   "Battaglia_RPT_Scan_06_desc": {
    "bp": 1,
@@ -6722,8 +6624,7 @@
      6000
     ]
    ],
-   "faction": "Recco Battaglia",
-   "asof": "4.10.3 PTU"
+   "faction": "Recco Battaglia"
   },
   "Battaglia_RPT_Scan_Golem_desc": {
    "bp": 0,
@@ -7065,8 +6966,7 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "CFP_MissingPerson_Theft_Outpost_HH_H_desc_001": {
    "bp": 0,
@@ -7077,8 +6977,7 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "CFP_MissingPerson_Theft_Outpost_XT_VH_desc_001": {
    "bp": 0,
@@ -7089,8 +6988,7 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "CFP_MissingPerson_Theft_XSOutpost_XT_H_desc_001": {
    "bp": 0,
@@ -7101,8 +6999,7 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "CFP_RecoverCargo_Easy_Description": {
    "bp": 8,
@@ -7256,8 +7153,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "CFP_RetrieveCargo_CrimBase_H_desc_001": {
    "bp": 0,
@@ -7268,8 +7164,7 @@
      15000
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "CFP_RetrieveCargo_CrimBase_M_desc_001": {
    "bp": 0,
@@ -7283,8 +7178,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "CFP_RetrieveCargo_CrimBase_XT_VH_desc_001": {
    "bp": 0,
@@ -7295,13 +7189,11 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "CFP_RetrieveCargo_Lagrange_E_desc_001": {
    "bp": 0,
-   "total": 4,
-   "asof": "4.10.3 PTU"
+   "total": 4
   },
   "CFP_RetrieveCargo_Lagrange_M_desc_001": {
    "bp": 0,
@@ -7312,8 +7204,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "CFP_SabotageRelays_HH_001_Desc": {
    "bp": 0,
@@ -7348,8 +7239,7 @@
    "total": 11,
    "rep": [
     25
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "CFP_SecurityPatrol_E_Desc_001": {
    "bp": 0,
@@ -9407,8 +9297,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "Firesale_CFP_Description_LargeDonation": {
    "bp": 0,
@@ -9423,8 +9312,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "Firesale_CFP_Description_MediumDonation": {
    "bp": 0,
@@ -9439,8 +9327,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "Firesale_HH_Description_01": {
    "bp": 0,
@@ -9455,8 +9342,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "Firesale_HH_Description_LargeDonations": {
    "bp": 0,
@@ -9471,8 +9357,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "Firesale_HH_Description_MediumDonations": {
    "bp": 0,
@@ -9487,8 +9372,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "Foxwell_DefendDestructibleEntites_E_Desc_001": {
    "bp": 4,
@@ -11663,8 +11547,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "Headhunters_RetrieveCargo_CrimBase_H_desc_001": {
    "bp": 0,
@@ -11678,8 +11561,7 @@
      15000
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "Headhunters_RetrieveCargo_CrimBase_XT_VH_desc_001": {
    "bp": 0,
@@ -11693,24 +11575,21 @@
      38000
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "Headhunters_RetrieveCargo_Intro_desc_001": {
    "bp": 0,
    "total": 1,
    "rep": [
     25
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Headhunters_RetrieveCargo_Lagrange_E_desc_001": {
    "bp": 0,
    "total": 4,
    "rep": [
     25
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Headhunters_RetrieveCargo_Lagrange_E_desc_002": {
    "bp": 0,
@@ -11724,8 +11603,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "Headhunters_RetrieveCargo_RegionLink_E_desc_001": {
    "bp": 0,
@@ -11739,8 +11617,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "Headhunters_SabotageRelays_CFP_001_Desc": {
    "bp": 0,
@@ -11782,8 +11659,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "Headhunters_SecurityPatrol_E_Desc_001": {
    "bp": 0,
@@ -11915,16 +11791,14 @@
      800
     ]
    ],
-   "faction": "Highpoint Wilderness Specialists",
-   "asof": "4.10.3 PTU"
+   "faction": "Highpoint Wilderness Specialists"
   },
   "Highpoint_KillAnimals_AtLocation_desc": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "Highpoint_KillAnimals_AtLocation_multi_desc": {
    "bp": 0,
@@ -11943,8 +11817,7 @@
      2200
     ]
    ],
-   "faction": "Highpoint Wilderness Specialists",
-   "asof": "4.10.3 PTU"
+   "faction": "Highpoint Wilderness Specialists"
   },
   "Highpoint_KillAnimals_Derelictoutpostscaves_Desc_E_001": {
    "bp": 0,
@@ -11981,8 +11854,7 @@
      5800
     ]
    ],
-   "faction": "Highpoint Wilderness Specialists",
-   "asof": "4.10.3 PTU"
+   "faction": "Highpoint Wilderness Specialists"
   },
   "Highpoint_KillAnimals_MultiType_M_desc": {
    "bp": 0,
@@ -11996,8 +11868,7 @@
      2200
     ]
    ],
-   "faction": "Highpoint Wilderness Specialists",
-   "asof": "4.10.3 PTU"
+   "faction": "Highpoint Wilderness Specialists"
   },
   "Highpoint_KillAnimals_rockcracker_desc_E_001": {
    "bp": 1,
@@ -13313,8 +13184,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "LocationRush_CFP_Mining_Description_LargeDonation": {
    "bp": 0,
@@ -13329,8 +13199,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "LocationRush_CFP_Mining_Description_MediumDonation": {
    "bp": 0,
@@ -13345,8 +13214,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "LocationRush_CFP_Mining_Stanton_Description": {
    "bp": 0,
@@ -13360,8 +13228,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "LocationRush_CFP_Mining_Stanton_Description_LargeDonation": {
    "bp": 0,
@@ -13375,8 +13242,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "LocationRush_CFP_Mining_Stanton_Description_MediumDonation": {
    "bp": 0,
@@ -13390,8 +13256,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "LocationRush_CFP_Salvage_Description_01": {
    "bp": 0,
@@ -13406,8 +13271,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "LocationRush_CFP_Salvage_Description_LargeDonation": {
    "bp": 0,
@@ -13422,8 +13286,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "LocationRush_CFP_Salvage_Description_MediumDonation": {
    "bp": 0,
@@ -13438,8 +13301,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "LocationRush_HH_Mining_Description": {
    "bp": 0,
@@ -13454,8 +13316,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "LocationRush_HH_Mining_Description_MediumDonation": {
    "bp": 0,
@@ -13470,8 +13331,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "LocationRush_HH_Mining_Description_largeDonation": {
    "bp": 0,
@@ -13486,8 +13346,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "LocationRush_HH_Mining_Stanton_Description": {
    "bp": 0,
@@ -13501,8 +13360,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "LocationRush_HH_Mining_Stanton_Description_MediumDonation": {
    "bp": 0,
@@ -13516,8 +13374,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "LocationRush_HH_Mining_Stanton_Description_largeDonation": {
    "bp": 0,
@@ -13531,8 +13388,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "LocationRush_HH_Salvage_Description": {
    "bp": 0,
@@ -13547,8 +13403,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "LocationRush_HH_Salvage_Description_LargeDonation": {
    "bp": 0,
@@ -13563,8 +13418,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "LocationRush_HH_Salvage_Description_MediumDontation": {
    "bp": 0,
@@ -13579,8 +13433,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "Northrock_Bounty_OLP_Boss_H_desc_001": {
    "bp": 0,
@@ -14244,8 +14097,7 @@
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "SalvageContractor_Difficulty_Hard": {
    "bp": 0,
@@ -16209,8 +16061,7 @@
      800
     ]
    ],
-   "faction": "United Wayfarers Club",
-   "asof": "4.10.3 PTU"
+   "faction": "United Wayfarers Club"
   },
   "UWC_Refueling_multiple_hard_desc_001": {
    "bp": 56,
@@ -16373,8 +16224,7 @@
      800
     ]
    ],
-   "faction": "Vaughn",
-   "asof": "4.10.3 PTU"
+   "faction": "Vaughn"
   },
   "WSTR_TimeTrial_repeat_desc_01": {
    "bp": 0,
@@ -16413,8 +16263,7 @@
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "bhg_bounty_desc_ASD_Engineering_001": {
    "bp": 12,
@@ -16681,8 +16530,7 @@
      "Jr. Contractor",
      800
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_desc_H_001": {
    "bp": 2,
@@ -16710,8 +16558,7 @@
      5800
     ]
    ],
-   "faction": "Bit Zeros",
-   "asof": "4.10.3 PTU"
+   "faction": "Bit Zeros"
   },
   "blackbox_recover_desc_M_001": {
    "bp": 2,
@@ -16738,8 +16585,7 @@
      "Contractor",
      2200
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_desc_S_001": {
    "bp": 2,
@@ -16766,8 +16612,7 @@
      "Head Contractor",
      38000
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_desc_VE_001": {
    "bp": 2,
@@ -16788,8 +16633,7 @@
    ],
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_desc_VH_001": {
    "bp": 2,
@@ -16816,8 +16660,7 @@
      "Veteran Contractor",
      15000
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_desc_intro_001": {
    "bp": 2,
@@ -16838,8 +16681,7 @@
    ],
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "blackbox_recover_title_H_001": {
    "bp": 0,
@@ -16853,8 +16695,7 @@
      5800
     ]
    ],
-   "faction": "Hockrow Agency",
-   "asof": "4.10.3 PTU"
+   "faction": "Hockrow Agency"
   },
   "cfp_ChainElimAll_1C_ElimSpec_GenAttack_E_desc_001": {
    "bp": 1,
@@ -17888,8 +17729,7 @@
      5800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_inv_chain_m_desc_01": {
    "bp": 0,
@@ -17900,8 +17740,7 @@
      5800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_inv_e_criminalbase_desc_01": {
    "bp": 0,
@@ -17912,13 +17751,11 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_inv_e_faunacave_desc_01": {
    "bp": 0,
-   "total": 8,
-   "asof": "4.10.3 PTU"
+   "total": 8
   },
   "cfp_missingperson_inv_e_regionlink_desc_01": {
    "bp": 0,
@@ -17929,8 +17766,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_inv_h_xenothreat_desc_01": {
    "bp": 0,
@@ -17941,8 +17777,7 @@
      15000
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_inv_m_criminalbase_desc_01": {
    "bp": 0,
@@ -17953,8 +17788,7 @@
      2200
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_inv_m_headhunters_desc_01": {
    "bp": 0,
@@ -17965,8 +17799,7 @@
      2200
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_inv_m_headhunters_xs_desc_01": {
    "bp": 0,
@@ -17977,8 +17810,7 @@
      800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_multiple_sabotage_servers_H_XT_desc_001": {
    "bp": 0,
@@ -17989,8 +17821,7 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_sabotage_servers_H_HH_desc_001": {
    "bp": 0,
@@ -18009,8 +17840,7 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_sabotage_servers_VH_XT_desc_001": {
    "bp": 0,
@@ -18021,8 +17851,7 @@
      38000
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_missingperson_sabotage_servers_retrievecargo_VH_XT_desc_001": {
    "bp": 0,
@@ -18033,8 +17862,7 @@
      95250
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_sabotage_VH_desc_001": {
    "bp": 1,
@@ -18301,8 +18129,7 @@
      2200
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_searchbody_danger_outpost_desc_001": {
    "bp": 0,
@@ -18321,13 +18148,11 @@
      5800
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_searchbody_nodanger_cave_desc_001": {
    "bp": 0,
-   "total": 8,
-   "asof": "4.10.3 PTU"
+   "total": 8
   },
   "cfp_searchbody_nodanger_outpost_desc_001": {
    "bp": 0,
@@ -18342,8 +18167,7 @@
      2200
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "cfp_searchbody_nodanger_station_desc_001": {
    "bp": 0,
@@ -18354,8 +18178,7 @@
      2200
     ]
    ],
-   "faction": "Citizens For Prosperity",
-   "asof": "4.10.3 PTU"
+   "faction": "Citizens For Prosperity"
   },
   "deadsaints_recoveritem_E_Desc_001": {
    "bp": 0,
@@ -19080,8 +18903,7 @@
      15000
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "headhunters_EliminateAll_Missing_Xenothreat_VH_desc_001": {
    "bp": 0,
@@ -19095,8 +18917,7 @@
      38000
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "headhunters_EliminateAll_XenoThreat_H_desc_001": {
    "bp": 1,
@@ -19550,8 +19371,7 @@
      2200
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "headhunters_bombingrun_S_desc_001": {
    "bp": 0,
@@ -20491,8 +20311,7 @@
      38000
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "headhunters_missingperson_sabotage_server_H_XT_desc_001": {
    "bp": 0,
@@ -20507,8 +20326,7 @@
      15000
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "headhunters_multikillship_base_Generic_M_desc_001": {
    "bp": 4,
@@ -20657,8 +20475,7 @@
      2200
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "headhunters_searchbody_danger_station_desc_001": {
    "bp": 0,
@@ -20672,16 +20489,14 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "headhunters_searchbody_nodanger_outpost_desc_001": {
    "bp": 0,
    "total": 3,
    "rep": [
     50
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "headhunters_searchbody_nodanger_station_desc_001": {
    "bp": 0,
@@ -20689,8 +20504,7 @@
    "rep": [
     25,
     50
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "hh_missingperson_inv_chain_h_xenothreat_desc_01": {
    "bp": 0,
@@ -20704,8 +20518,7 @@
      5800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "hh_missingperson_inv_e_criminalbase_desc_01": {
    "bp": 0,
@@ -20719,8 +20532,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "hh_missingperson_inv_e_faunacave_desc_01": {
    "bp": 0,
@@ -20736,8 +20548,7 @@
      800
     ]
    ],
-   "faction": "Headhunters",
-   "asof": "4.10.3 PTU"
+   "faction": "Headhunters"
   },
   "hh_missingperson_inv_m_criminalbase_desc_01": {
    "bp": 0,
@@ -20750,8 +20561,7 @@
      "Contractor",
      2200
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "iasi_Delivery_2H_Desc": {
    "bp": 0,
@@ -20968,56 +20778,49 @@
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_desc_002": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_desc_003": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_desc_004": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_desc_005": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_miles_capturegang_desc_006": {
    "bp": 0,
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_pacheco_prisonerbreak_desc_002": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_ruto_UGF_destroy_E_desc_001": {
    "bp": 0,
@@ -21072,24 +20875,21 @@
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_ruto_clearcrimestat_norep_desc_01": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "mg_ruto_clearcrimestat_rep_desc_01": {
    "bp": 0,
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "northrock_SOO_repeat_desc_001": {
    "bp": 1,
@@ -21160,8 +20960,7 @@
    "total": 1,
    "rep": [
     500
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "recovery_desc": {
    "bp": 13,
@@ -21204,8 +21003,7 @@
      "Jr. Contractor",
      800
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_desc_E": {
    "bp": 0,
@@ -21218,8 +21016,7 @@
      "Jr. Contractor",
      800
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_desc_H": {
    "bp": 0,
@@ -21232,8 +21029,7 @@
      "Sr. Contractor",
      5800
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_desc_M": {
    "bp": 0,
@@ -21246,8 +21042,7 @@
      "Contractor",
      2200
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_desc_S": {
    "bp": 0,
@@ -21260,16 +21055,14 @@
      "Head Contractor",
      38000
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_desc_VE": {
    "bp": 0,
    "total": 4,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_desc_VH": {
    "bp": 0,
@@ -21282,16 +21075,14 @@
      "Veteran Contractor",
      15000
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "searchbodyspace_desc_intro": {
    "bp": 0,
    "total": 2,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "shubin_rockcracker_pvp_desc_01": {
    "bp": 59,
@@ -21352,8 +21143,7 @@
      "Jr. Contractor",
      800
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_desc_H_01": {
    "bp": 0,
@@ -21366,8 +21156,7 @@
      "Sr. Contractor",
      5800
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_desc_M_01": {
    "bp": 0,
@@ -21380,8 +21169,7 @@
      "Contractor",
      2200
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_desc_S_01": {
    "bp": 0,
@@ -21395,16 +21183,14 @@
      38000
     ]
    ],
-   "faction": "FTL Courier",
-   "asof": "4.10.3 PTU"
+   "faction": "FTL Courier"
   },
   "spacecollect_cargo_desc_VE_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_desc_VH_01": {
    "bp": 0,
@@ -21417,16 +21203,14 @@
      "Veteran Contractor",
      15000
     ]
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_desc_intro_01": {
    "bp": 0,
    "total": 6,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "spacecollect_cargo_title_E_01": {
    "bp": 0,
@@ -21440,8 +21224,7 @@
      800
     ]
    ],
-   "faction": "Dead Saints",
-   "asof": "4.10.3 PTU"
+   "faction": "Dead Saints"
   },
   "vaughn_assassination_E_desc_001": {
    "bp": 0,
@@ -21539,8 +21322,7 @@
    "total": 1,
    "rep": [
     100
-   ],
-   "asof": "4.10.3 PTU"
+   ]
   },
   "vaughn_assassination_H_desc_001": {
    "bp": 0,
