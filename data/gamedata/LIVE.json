@@ -4,11 +4,6 @@
  "channel": "LIVE",
  "format": 7,
  "sources": {
-  "scmdb/PTU": {
-   "version": "4.10.3",
-   "build": "13160301",
-   "id": "4.10.3-ptu.13160301"
-  },
   "scmdb/LIVE": {
    "version": "4.10.3",
    "build": "13165946",
